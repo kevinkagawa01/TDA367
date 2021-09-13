@@ -1,5 +1,3 @@
-package main.java;
-
 import javafx.fxml.Initializable;
 
 import java.net.URL;
