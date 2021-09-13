@@ -12,7 +12,7 @@ public class Application extends javafx.application.Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("/cbm_main_anchorpane.fxml"), bundle);
 
-        Scene scene = new Scene(root, 1000, 1000);
+        Scene scene = new Scene(root, 411, 731);
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
         stage.show();
