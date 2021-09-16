@@ -1,5 +1,29 @@
 *
 {
-    color_one: #FFFFFF;
-    color_two: #000000;
+    color_one: #20A4F3;
+    color_two: #3d3d3d;
+    color_three: #4d4d4d;
+}
+
+.bar-color-background
+{
+    -fx-background-color: color_one;
+}
+
+.navigation-shop-button
+{
+    -fx-fill: color_one;
+    -fx-stroke: color_two;
+}
+
+.navigation-sell-button
+{
+    -fx-fill: color_one;
+    -fx-stroke: color_two;
+}
+
+.navigation-account-button
+{
+    -fx-fill: color_one;
+    -fx-stroke: color_two;
 }
