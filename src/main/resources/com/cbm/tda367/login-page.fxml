@@ -20,7 +20,7 @@
             <Image url="@../../../Library/Chalmers_logo.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="325.0" fitWidth="242.0" layoutX="180.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="325.0" fitWidth="242.0" layoutX="185.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Library/Polygon2.png" />
          </image>
@@ -30,7 +30,7 @@
             <Image url="@../../../Library/Polygon4.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="325.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="411.0" fitWidth="258.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Library/Polygon3.png" />
          </image>
