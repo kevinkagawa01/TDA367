@@ -10,5 +10,7 @@
 
 .section-headers
 {
-
+    -fx-font-size: 30px;
+    -fx-font-style: normal;
+    -fx-font-weight: bolder;
 }
