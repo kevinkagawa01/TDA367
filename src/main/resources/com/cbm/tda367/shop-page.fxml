@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="731.0" maxWidth="411.0" prefHeight="731.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbm.tda367.LoginPage">
+<AnchorPane maxHeight="731.0" maxWidth="411.0" prefHeight="731.0" prefWidth="411.0" stylesheets="@shop-page.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbm.tda367.LoginPage">
    <children>
       <AnchorPane layoutY="651.0" maxHeight="80.0" maxWidth="411.0" prefHeight="80.0" prefWidth="411.0" styleClass="bar-color-background" stylesheets="@global_navigation.css">
          <children>
@@ -15,7 +15,7 @@
             <Circle centerX="205.5" centerY="10.0" fill="DODGERBLUE" radius="40.0" stroke="BLACK" strokeType="INSIDE" styleClass="navigation-sell-button" />
          </children>
       </AnchorPane>
-      <TextField layoutX="20.0" layoutY="20.0" prefHeight="44.0" prefWidth="300.0" />
       <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="347.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField layoutX="20.0" layoutY="20.0" prefHeight="44.0" prefWidth="300.0" promptText="Sök här!" styleClass="search-bar" />
    </children>
 </AnchorPane>
