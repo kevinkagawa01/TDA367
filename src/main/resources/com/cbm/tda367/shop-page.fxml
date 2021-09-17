@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 
-
-<AnchorPane prefHeight="731.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbm.tda367.LoginPage">
+<AnchorPane maxHeight="731.0" maxWidth="411.0" prefHeight="731.0" prefWidth="411.0" stylesheets="@shop-page.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbm.tda367.LoginPage">
    <children>
-      <AnchorPane layoutY="651.0" prefHeight="80.0" prefWidth="411.0" styleClass="bar-color-background" stylesheets="@global_navigation.css">
+      <ScrollPane hbarPolicy="NEVER" layoutY="100.0" prefHeight="551.0" prefWidth="411.0" vbarPolicy="NEVER">
+         <content>
+            <FlowPane prefHeight="551.0" prefWidth="411.0" />
+         </content>
+      </ScrollPane>
+      <AnchorPane layoutY="651.0" maxHeight="80.0" maxWidth="411.0" prefHeight="80.0" prefWidth="411.0" styleClass="bar-color-background" stylesheets="@global_navigation.css">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" stroke="BLACK" strokeType="INSIDE" styleClass="navigation-account-button" width="205.5" x="205.5" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" stroke="BLACK" strokeType="INSIDE" styleClass="navigation-shop-button" width="205.5" />
             <Circle centerX="205.5" centerY="10.0" fill="DODGERBLUE" radius="40.0" stroke="BLACK" strokeType="INSIDE" styleClass="navigation-sell-button" />
          </children>
       </AnchorPane>
+      <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="347.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/notification_bell.png" />
+         </image></ImageView>
+      <TextField layoutX="20.0" layoutY="20.0" prefHeight="44.0" prefWidth="300.0" promptText="Sök här!" style="-fx-background-color: #3d3d3d;" styleClass="search-bar" />
    </children>
 </AnchorPane>
