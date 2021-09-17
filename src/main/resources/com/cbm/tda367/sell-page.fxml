@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<AnchorPane prefHeight="731.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbm.tda367.LoginPage">
+   <children>
+      <AnchorPane layoutY="651.0" prefHeight="80.0" prefWidth="411.0" styleClass="bar-color-background" stylesheets="@global_navigation.css">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" stroke="BLACK" strokeType="INSIDE" styleClass="navigation-account-button" width="205.5" x="205.5" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" stroke="BLACK" strokeType="INSIDE" styleClass="navigation-shop-button" width="205.5" />
+            <Circle centerX="205.5" centerY="10.0" fill="DODGERBLUE" radius="40.0" stroke="BLACK" strokeType="INSIDE" styleClass="navigation-sell-button" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
