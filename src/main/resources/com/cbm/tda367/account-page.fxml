@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
 
 <fx:root prefHeight="731.0" prefWidth="411.0" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -13,5 +16,30 @@
             <Circle centerX="205.5" centerY="10.0" fill="DODGERBLUE" radius="40.0" stroke="BLACK" strokeType="INSIDE" styleClass="navigation-sell-button" />
          </children>
       </AnchorPane>
+      <MenuButton layoutX="11.0" layoutY="167.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="377.0" text="Reserverad Böcker">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <MenuButton layoutX="11.0" layoutY="247.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="377.0" text="Utlagda Böcker">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <MenuButton layoutX="11.0" layoutY="322.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="377.0" text="Bevakade Böcker">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <MenuButton layoutX="11.0" layoutY="398.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="377.0" text="Tidigare Köp">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <Text layoutX="114.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thomasa@chalmers.com" wrappingWidth="183.21630859375" />
    </children>
 </fx:root>
