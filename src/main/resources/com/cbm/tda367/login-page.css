@@ -1,0 +1,12 @@
+.navigation-text-input-info{
+    -fx-text-fill: #000000;
+    -fx-background-radius: 15;
+    -fx-background-color:#4862b8;
+     -fx-stroke: #FFFFFF;
+     -fx-stroke-width: 10px;
+
+}
+.navigation-login-button{
+ -fx-background-color:#4862b8;
+ -fx-background-radius: 10;
+}
