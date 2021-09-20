@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="731.0" maxWidth="411.0" prefHeight="731.0" prefWidth="411.0" stylesheets="@shop-page.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbm.tda367.LoginPage">
+<fx:root maxHeight="731.0" maxWidth="411.0" prefHeight="731.0" prefWidth="411.0" stylesheets="@shop-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ScrollPane hbarPolicy="NEVER" layoutY="100.0" prefHeight="551.0" prefWidth="411.0" vbarPolicy="NEVER">
          <content>
@@ -29,4 +29,4 @@
          </image></ImageView>
       <TextField layoutX="20.0" layoutY="20.0" prefHeight="44.0" prefWidth="300.0" promptText="Sök här!" styleClass="search-bar" />
    </children>
-</AnchorPane>
+</fx:root>

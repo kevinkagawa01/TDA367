@@ -4,8 +4,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 
-
-<AnchorPane prefHeight="731.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbm.tda367.LoginPage">
+<fx:root prefHeight="731.0" prefWidth="411.0" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane layoutY="651.0" prefHeight="80.0" prefWidth="411.0" styleClass="bar-color-background" stylesheets="@global_navigation.css">
          <children>
@@ -15,4 +14,4 @@
          </children>
       </AnchorPane>
    </children>
-</AnchorPane>
+</fx:root>
