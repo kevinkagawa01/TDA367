@@ -34,6 +34,6 @@ public class ApplicationView implements Initializable,Observer {
 
     @Override
     public void update() {
-        
+        //TODO: what should views update when model is updated?
     }
 }

@@ -8,9 +8,12 @@ public class ApplicationModel implements Observable{
     // BookDatabase bookDatabase
     // UserDatabase userDatabase
     List<Listing> listings = new ArrayList<>();
+    List<Observer> viewObservers = new ArrayList<>();
 
     @Override
     public void notifyObservers() {
-
+        for(Observer observer : viewObservers){
+            observer.update();
+        }
     }
 }
