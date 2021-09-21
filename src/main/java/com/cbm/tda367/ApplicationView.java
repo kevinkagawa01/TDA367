@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ApplicationView implements Initializable {
+public class ApplicationView implements Initializable,Observer {
 
     @FXML
     private AnchorPane mainAnchorPane;
@@ -30,5 +30,10 @@ public class ApplicationView implements Initializable {
         mainAnchorPane.getChildren().add(shopPage);
         mainAnchorPane.getChildren().add(sellPage);
         mainAnchorPane.getChildren().add(accountPage);
+    }
+
+    @Override
+    public void update() {
+        
     }
 }
