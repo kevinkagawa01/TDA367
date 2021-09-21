@@ -17,7 +17,34 @@ public class Book {
         MATHEMATICS, PHYSICS, BIOLOGY,
         CHEMISTRY, PROGRAMMING, FICTION
     }
-    public Book() {
+    public Book(String bookName, String bookAuthor, String bookCode, int bookSales, int bookSubscriptions, ImageView image) {
+        this.bookName=bookName;
+        this.bookAuthor=bookAuthor;
+        this.bookCode=bookCode;
+        this.bookSales=bookSales;
+        this.bookSubscriptions=bookSubscriptions;
+        this.image=image;
 
     }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public String getBookAuthor(){
+        return bookAuthor;
+    }
+    public String getBookCode(){
+        return bookCode;
+
+    }
+
+    public int getBookSales() {
+        return bookSales;
+    }
+
+    public int getBookSubscriptions() {
+        return bookSubscriptions;
+    }
+
 }
