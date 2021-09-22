@@ -1,6 +1,7 @@
 package com.cbm.tda367;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class User {
@@ -9,13 +10,13 @@ public class User {
     private double totalRating;
     private int sumOfRatings;
     private int nrRatings;
-    //TODO: Change list types below to Listing/Book when those classes have been created
-    private List<Object> reservedListings = new ArrayList<>();      // <-- Change to Listing
-    private List<Object> listedBooks = new ArrayList<>();           // <-- Change to Listing
-    private List<Object> subscribedBooks = new ArrayList<>();       // <-- Change to Book
-    private List<Object> previousPurchases = new ArrayList<>();     // <-- Change to Listing
-    private List<Object> notifications = new ArrayList<>();         // <-- Change to Notification
 
+    /* user lists */
+    private HashMap<Integer,Listing> reservedBooks = new HashMap<>();
+    private HashMap<Integer,Listing> booksForSale = new HashMap<>();
+    private HashMap<String,Book> subscribedBooks = new HashMap<>();
+    private HashMap<Integer,Listing> previousPurchases = new HashMap<>();
+    //TODO: private List<Notification> notifications = new ArrayList<>();
 
     /* adds users rating and updates the total */
     public void addRating(int rating) {
@@ -33,5 +34,37 @@ public class User {
     private static double round (double value, int precision) {
         int scale = (int) Math.pow(10, precision);
         return (double) Math.round(value * scale) / scale;
+    }
+
+    public void addReservedBook(Listing listing){
+        //TODO: needs getter for listingNr in order to put it as key in the HashMap
+    }
+
+    public void addListingForSale(Listing listing){
+
+    }
+
+    public void addBookSubscription(Book book){
+
+    }
+
+    public void addPreviousPurchase(Listing listing){
+
+    }
+
+    public void removePreviousPurchase(Integer listingNr){
+
+    }
+
+    public void removeReservedBook(Integer listingNr){
+
+    }
+
+    public void removeListingForSale(Integer listingNr){
+
+    }
+
+    public void removeBookSubscription(String bookCode){
+
     }
 }
