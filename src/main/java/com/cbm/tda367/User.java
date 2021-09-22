@@ -37,7 +37,7 @@ public class User {
     }
 
     public void addReservedBook(Listing listing){
-
+        //TODO: needs getter for listingNr in order to put it as key in the HashMap
     }
 
     public void addListingForSale(Listing listing){
