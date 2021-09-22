@@ -38,6 +38,9 @@ public class Book {
         return bookCode;
 
     }
+    public ImageView getImage(){
+        return image;
+    }
 
     public int getBookSales() {
         return bookSales;
