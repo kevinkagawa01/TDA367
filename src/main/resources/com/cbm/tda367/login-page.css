@@ -10,3 +10,11 @@
  -fx-background-color:#4862b8;
  -fx-background-radius: 10;
 }
+.navigation-text-input-info-white{
+    -fx-text-fill: #000000;
+    -fx-background-radius: 15;
+    -fx-background-color:#FFFFFF;
+    -fx-border-color: #000000 ;
+    -fx-border-width: 1px ;
+    -fx-border-radius: 15px;
+}
