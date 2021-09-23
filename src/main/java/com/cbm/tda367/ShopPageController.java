@@ -1,9 +1,9 @@
 package com.cbm.tda367;
 
-public class SellpageController implements GolbalMenu{
+public class ShopPageController implements GolbalMenu{
     @Override
     public void shopButton() {
-        
+
     }
 
     @Override
