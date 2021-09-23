@@ -18,9 +18,9 @@
       </ScrollPane>
       <AnchorPane layoutY="651.0" maxHeight="80.0" maxWidth="411.0" prefHeight="80.0" prefWidth="411.0" styleClass="bar-color-background" stylesheets="@global_navigation.css">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" stroke="BLACK" strokeType="INSIDE" styleClass="navigation-account-button" width="205.5" x="205.5" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" onMouseClicked="#accountButton" stroke="BLACK" strokeType="INSIDE" styleClass="navigation-account-button" width="205.5" x="205.5" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" stroke="BLACK" strokeType="INSIDE" styleClass="navigation-shop-button" width="205.5" />
-            <Circle centerX="205.5" centerY="10.0" fill="DODGERBLUE" radius="40.0" stroke="BLACK" strokeType="INSIDE" styleClass="navigation-sell-button" />
+            <Circle centerX="205.5" centerY="10.0" fill="DODGERBLUE" onMouseClicked="#addButton" radius="40.0" stroke="BLACK" strokeType="INSIDE" styleClass="navigation-sell-button" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="347.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">

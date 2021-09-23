@@ -17,7 +17,7 @@ public class ApplicationViewManager implements Initializable,Observer {
 
     /* views */
     private final LoginPageView loginPage = new LoginPageView();
-    private final ShopPageView shopPage = new ShopPageView();
+    private final ShopPageView shopPage = new ShopPageView(this);
     private final SellPageView sellPage = new SellPageView();
     private final AccountPageView accountPage = new AccountPageView();
     /* list of views */
@@ -25,7 +25,6 @@ public class ApplicationViewManager implements Initializable,Observer {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         viewList.add(accountPage);
         viewList.add(sellPage);
         viewList.add(loginPage);
@@ -34,12 +33,16 @@ public class ApplicationViewManager implements Initializable,Observer {
         for (Node view : viewList){
             mainAnchorPane.getChildren().add(view);
         }
-
     }
 
     @Override
     public void update() {
         //TODO: what should views update when model is updated?
+    }
+
+    void configureShopPageController()
+    {
+
     }
 
     void goToShopPage(){

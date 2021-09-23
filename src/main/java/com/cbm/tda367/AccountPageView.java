@@ -10,6 +10,7 @@ public class AccountPageView extends AnchorPane {
     public AccountPageView() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("account-page.fxml"));
         fxmlLoader.setRoot(this);
+        fxmlLoader.setController(this);
 
         try
         {

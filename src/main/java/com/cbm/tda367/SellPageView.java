@@ -10,6 +10,7 @@ public class SellPageView extends AnchorPane {
     public SellPageView() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sell-page.fxml"));
         fxmlLoader.setRoot(this);
+        fxmlLoader.setController(this);
 
         try
         {

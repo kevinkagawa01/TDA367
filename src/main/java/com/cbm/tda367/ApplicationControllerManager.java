@@ -16,7 +16,8 @@ public class ApplicationControllerManager {
     private final SellPageController sellPageController = new SellPageController(this);
     private final AccountPageController accountPageController = new AccountPageController(this);
 
-    public ApplicationControllerManager(ApplicationModel model, ApplicationViewManager view) {
+    //TODO: no view reference
+    public ApplicationControllerManager(ApplicationModel model) {
         this.model = model;
         this.view = view;
     }

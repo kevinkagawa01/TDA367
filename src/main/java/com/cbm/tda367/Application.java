@@ -7,8 +7,20 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Application extends javafx.application.Application {
+
+    private ApplicationModel model;
+    private ApplicationViewManager view;
+    private ApplicationControllerManager controller;
+
     @Override
     public void start(Stage stage) throws IOException {
+
+        model = new ApplicationModel();
+        controller = new ApplicationControllerManager(model);
+        view = new ApplicationViewManager();
+
+
+
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("mainAnchorPane.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 411, 731);
         stage.setTitle("Hello!");
