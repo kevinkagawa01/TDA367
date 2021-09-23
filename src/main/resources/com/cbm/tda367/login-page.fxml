@@ -40,7 +40,7 @@
             <Image url="@../../../Library/Login.png" />
          </image>
       </ImageView>
-      <TextField layoutX="41.0" layoutY="390.0" opacity="0.44" prefHeight="50.0" prefWidth="309.0" promptText="CID" styleClass="navigation-text-input-info" stylesheets="@login-page.css">
+      <TextField layoutX="41.0" layoutY="390.0" opacity="0.31" prefHeight="50.0" prefWidth="309.0" promptText="CID" styleClass="navigation-text-input-info" stylesheets="@login-page.css">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></TextField>
