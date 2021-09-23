@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="731.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbm.tda367.ShopPageDetailedView">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#365abb" height="461.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="411.0" />
+      <ImageView fitHeight="412.0" fitWidth="260.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Library/Polygon3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="87.0" fitWidth="411.0" layoutY="651.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Library/RectangleNav.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="49.0" fitWidth="60.0" layoutX="57.0" layoutY="665.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Library/shopIcon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="49.0" fitWidth="60.0" layoutX="302.0" layoutY="665.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Library/accountIcon.png" />
+         </image>
+      </ImageView>
+      <Circle fill="#c4c4c4" layoutX="206.0" layoutY="651.0" radius="34.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text layoutX="132.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kevin Pham" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="132.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kevinpha@gmail.com" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbb547" height="55.0" layoutX="105.0" layoutY="548.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+      <Text fill="WHITE" layoutX="150.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RESERVERA" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <FlowPane layoutX="10.0" layoutY="340.0" prefHeight="200.0" prefWidth="387.0" />
+      <Text fill="WHITE" layoutX="25.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Book Name&gt;" wrappingWidth="327.70703125">
+         <font>
+            <Font name="Nirmala UI" size="40.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="27.0" fitWidth="22.0" layoutX="195.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Library/Vector.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="159.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Library/pfp.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="188.0" layoutX="134.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Library/3-5stars.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

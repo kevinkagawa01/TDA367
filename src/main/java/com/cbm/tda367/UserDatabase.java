@@ -14,10 +14,22 @@ public class UserDatabase {
 
     }
 
-
-
     public static UserDatabase getInstance(){
         return userDatabase;
     }
+
+    public void addUser(User user){
+        userList.add(user);
+
+    }
+    public void removeUser(User user){
+        userList.remove(user);
+    }
+
+
+    public List<User> getUserList(){
+        return new ArrayList<>(userList);
+    }
+
 
 }
