@@ -7,17 +7,23 @@ public class Book {
     private String bookName;
     private String bookAuthor;
 
-    private String bookCode;
+    private final String bookCode;
     private int bookSales;
 
     private int bookSubscriptions;
     private ImageView image;
 
-    private enum bookCategory{
+
+    private enum bookCategory {
         MATHEMATICS, PHYSICS, BIOLOGY,
-        CHEMISTRY, PROGRAMMING, FICTION
+        CHEMISTRY, PROGRAMMING, FICTION;
     }
-    public Book(String bookName, String bookAuthor, String bookCode, int bookSales, int bookSubscriptions, ImageView image) {
+
+
+    private String bookCategory;
+
+
+    public Book(String bookName, String bookAuthor, String bookCode, int bookSales, int bookSubscriptions, ImageView image,bookCategory categori) {
         this.bookName=bookName;
         this.bookAuthor=bookAuthor;
         this.bookCode=bookCode;
