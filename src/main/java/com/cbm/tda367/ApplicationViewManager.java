@@ -7,22 +7,15 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ApplicationView implements Initializable {
+public class ApplicationViewManager implements Initializable,Observer {
 
     @FXML
     private AnchorPane mainAnchorPane;
 
-    /* login page */
-    private LoginPage loginPage = new LoginPage();
-
-    /* shop page */
-    private ShopPage shopPage = new ShopPage();
-
-    /* sell page */
-    private SellPage sellPage = new SellPage();
-
-    /* account page */
-    private AccountPage accountPage = new AccountPage();
+    private final LoginPageView loginPage = new LoginPageView();
+    private final ShopPageView shopPage = new ShopPageView();
+    private final SellPageView sellPage = new SellPageView();
+    private final AccountPageView accountPage = new AccountPageView();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -30,5 +23,10 @@ public class ApplicationView implements Initializable {
         mainAnchorPane.getChildren().add(shopPage);
         mainAnchorPane.getChildren().add(sellPage);
         mainAnchorPane.getChildren().add(accountPage);
+    }
+
+    @Override
+    public void update() {
+        //TODO: what should views update when model is updated?
     }
 }

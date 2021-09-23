@@ -1,6 +1,7 @@
 package com.cbm.tda367;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class User {
@@ -9,13 +10,20 @@ public class User {
     private double totalRating;
     private int sumOfRatings;
     private int nrRatings;
-    //TODO: Change list types below to Listing/Book when those classes have been created
-    private List<Object> reservedListings = new ArrayList<>();      // <-- Change to Listing
-    private List<Object> listedBooks = new ArrayList<>();           // <-- Change to Listing
-    private List<Object> subscribedBooks = new ArrayList<>();       // <-- Change to Book
-    private List<Object> previousPurchases = new ArrayList<>();     // <-- Change to Listing
-    private List<Object> notifications = new ArrayList<>();         // <-- Change to Notification
 
+    /* user lists */
+    private HashMap<Integer,Listing> reservedBooks = new HashMap<>();
+    private HashMap<Integer,Listing> booksForSale = new HashMap<>();
+    private HashMap<String,Book> subscribedBooks = new HashMap<>();
+    private HashMap<Integer,Listing> previousPurchases = new HashMap<>();
+    private List<Notification> notifications = new ArrayList<>();
+
+    public User(String cid) {
+        this.cid = cid;
+        this.totalRating = 0;
+        this.sumOfRatings = 0;
+        this.nrRatings = 0;
+    }
 
     /* adds users rating and updates the total */
     public void addRating(int rating) {
@@ -33,5 +41,37 @@ public class User {
     private static double round (double value, int precision) {
         int scale = (int) Math.pow(10, precision);
         return (double) Math.round(value * scale) / scale;
+    }
+
+    public void addReservedBook(Listing listing){
+        reservedBooks.put(listing.getListingNumber(),listing);
+    }
+
+    public void addListingForSale(Listing listing){
+        booksForSale.put(listing.getListingNumber(), listing);
+    }
+
+    public void addBookSubscription(Book book){
+        subscribedBooks.put(book.getBookCode(),book);
+    }
+
+    public void addPreviousPurchase(Listing listing){
+        previousPurchases.put(listing.getListingNumber(),listing);
+    }
+
+    public void removePreviousPurchase(Integer listingNr){
+        previousPurchases.remove(listingNr);
+    }
+
+    public void removeReservedBook(Integer listingNr){
+        reservedBooks.remove(listingNr);
+    }
+
+    public void removeListingForSale(Integer listingNr){
+        booksForSale.remove(listingNr);
+    }
+
+    public void removeBookSubscription(String bookCode){
+        subscribedBooks.remove(bookCode);
     }
 }

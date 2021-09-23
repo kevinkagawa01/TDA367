@@ -7,17 +7,53 @@ public class Book {
     private String bookName;
     private String bookAuthor;
 
-    private String bookCode;
+    private final String bookCode;
     private int bookSales;
 
     private int bookSubscriptions;
     private ImageView image;
 
-    private enum bookCategory{
+
+    private enum bookCategory {
         MATHEMATICS, PHYSICS, BIOLOGY,
-        CHEMISTRY, PROGRAMMING, FICTION
+        CHEMISTRY, PROGRAMMING, FICTION;
     }
-    public Book() {
+
+
+    private String bookCategory;
+
+
+    public Book(String bookName, String bookAuthor, String bookCode, int bookSales, int bookSubscriptions, ImageView image,bookCategory categori) {
+        this.bookName=bookName;
+        this.bookAuthor=bookAuthor;
+        this.bookCode=bookCode;
+        this.bookSales=bookSales;
+        this.bookSubscriptions=bookSubscriptions;
+        this.image=image;
 
     }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public String getBookAuthor(){
+        return bookAuthor;
+    }
+    public String getBookCode(){
+        return bookCode;
+
+    }
+    public ImageView getImage(){
+        return image;
+    }
+
+    public int getBookSales() {
+        return bookSales;
+    }
+
+    public int getBookSubscriptions() {
+        return bookSubscriptions;
+    }
+
 }
