@@ -16,7 +16,7 @@ public class User {
     private HashMap<Integer,Listing> booksForSale = new HashMap<>();
     private HashMap<String,Book> subscribedBooks = new HashMap<>();
     private HashMap<Integer,Listing> previousPurchases = new HashMap<>();
-    //TODO: private List<Notification> notifications = new ArrayList<>();
+    private List<Notification> notifications = new ArrayList<>();
 
     /* adds users rating and updates the total */
     public void addRating(int rating) {
