@@ -5,9 +5,9 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class LoginPage extends AnchorPane {
+public class LoginPageView extends AnchorPane {
 
-    public LoginPage() {
+    public LoginPageView() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

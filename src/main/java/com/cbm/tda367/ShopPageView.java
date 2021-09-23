@@ -5,10 +5,10 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class AccountPage extends AnchorPane {
+public class ShopPageView extends AnchorPane {
 
-    public AccountPage() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("account-page.fxml"));
+    public ShopPageView() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

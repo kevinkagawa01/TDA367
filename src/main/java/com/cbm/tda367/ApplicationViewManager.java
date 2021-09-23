@@ -13,16 +13,16 @@ public class ApplicationViewManager implements Initializable,Observer {
     private AnchorPane mainAnchorPane;
 
     /* login page */
-    private LoginPage loginPage = new LoginPage();
+    private LoginPageView loginPage = new LoginPageView();
 
     /* shop page */
-    private ShopPage shopPage = new ShopPage();
+    private ShopPageView shopPage = new ShopPageView();
 
     /* sell page */
-    private SellPage sellPage = new SellPage();
+    private SellPageView sellPage = new SellPageView();
 
     /* account page */
-    private AccountPage accountPage = new AccountPage();
+    private AccountPageView accountPage = new AccountPageView();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

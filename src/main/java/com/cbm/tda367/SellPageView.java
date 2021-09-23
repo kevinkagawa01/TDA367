@@ -5,8 +5,8 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class SellPage extends AnchorPane {
-    public SellPage() {
+public class SellPageView extends AnchorPane {
+    public SellPageView() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sell-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
