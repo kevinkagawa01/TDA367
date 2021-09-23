@@ -12,16 +12,9 @@ public class ApplicationViewManager implements Initializable,Observer {
     @FXML
     private AnchorPane mainAnchorPane;
 
-    /* login page */
     private LoginPageView loginPage = new LoginPageView();
-
-    /* shop page */
     private ShopPageView shopPage = new ShopPageView();
-
-    /* sell page */
     private SellPageView sellPage = new SellPageView();
-
-    /* account page */
     private AccountPageView accountPage = new AccountPageView();
 
     @Override
