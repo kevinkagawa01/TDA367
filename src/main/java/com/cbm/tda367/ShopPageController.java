@@ -4,7 +4,13 @@ import javafx.fxml.FXMLLoader;
 
 public class ShopPageController implements GolbalMenu{
 
-    public ShopPageController() {
+    /* controller manager */
+    private ApplicationControllerManager manager;
+
+    public ShopPageController(ApplicationControllerManager manager) {
+
+        this.manager = manager;
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page.fxml"));
         fxmlLoader.setController(this);
     }

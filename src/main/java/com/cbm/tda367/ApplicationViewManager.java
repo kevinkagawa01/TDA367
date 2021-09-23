@@ -12,10 +12,10 @@ public class ApplicationViewManager implements Initializable,Observer {
     @FXML
     private AnchorPane mainAnchorPane;
 
-    private LoginPageView loginPage = new LoginPageView();
-    private ShopPageView shopPage = new ShopPageView();
-    private SellPageView sellPage = new SellPageView();
-    private AccountPageView accountPage = new AccountPageView();
+    private final LoginPageView loginPage = new LoginPageView();
+    private final ShopPageView shopPage = new ShopPageView();
+    private final SellPageView sellPage = new SellPageView();
+    private final AccountPageView accountPage = new AccountPageView();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

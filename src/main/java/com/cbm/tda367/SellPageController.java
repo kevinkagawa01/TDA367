@@ -9,9 +9,8 @@ import javafx.scene.shape.Rectangle;
 
 public class SellPageController implements GolbalMenu{
 
-    /* global navigation buttons */
-    @FXML private ImageView shopButton;
-    @FXML private ImageView accountButton;
+    /* controller manager */
+    private ApplicationControllerManager manager;
 
     /* listing elements */
     @FXML private TextField bookNumber;
@@ -19,10 +18,10 @@ public class SellPageController implements GolbalMenu{
     @FXML private TextArea bookDescription;
     @FXML private ImageView bookImage;
 
-    /* sell page elements */
-    @FXML private Rectangle createListingButton;
+    public SellPageController(ApplicationControllerManager manager) {
 
-    public SellPageController() {
+        this.manager = manager;
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sell-page.fxml"));
         fxmlLoader.setController(this);
     }

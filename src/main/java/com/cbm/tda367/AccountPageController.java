@@ -4,7 +4,13 @@ import javafx.fxml.FXMLLoader;
 
 public class AccountPageController implements GolbalMenu {
 
-    public AccountPageController() {
+    /* controller manager */
+    private ApplicationControllerManager manager;
+
+    public AccountPageController(ApplicationControllerManager manager) {
+
+        this.manager = manager;
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("account-page.fxml"));
         fxmlLoader.setController(this);
     }

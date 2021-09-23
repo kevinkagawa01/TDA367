@@ -5,8 +5,8 @@ import javafx.scene.control.Label;
 
 public class ApplicationControllerManager {
 
-    private LoginPageController loginPageController = new LoginPageController();
-    private ShopPageController shopPageController = new ShopPageController();
-    private SellPageController sellPageController = new SellPageController();
-    private AccountPageController accountPageController = new AccountPageController();
+    private final LoginPageController loginPageController = new LoginPageController(this);
+    private final ShopPageController shopPageController = new ShopPageController(this);
+    private final SellPageController sellPageController = new SellPageController(this);
+    private final AccountPageController accountPageController = new AccountPageController(this);
 }
