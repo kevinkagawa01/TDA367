@@ -47,7 +47,7 @@
             <Image url="@../../../Library/bfoga.png" />
          </image>
       </ImageView>
-      <Text layoutX="171.0" layoutY="620.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lägg ut">
+      <Text fill="WHITE" layoutX="171.0" layoutY="620.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lägg ut">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
