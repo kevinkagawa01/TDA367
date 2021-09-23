@@ -20,4 +20,16 @@ public  class BookDatabase {
         return bookDatabase;
 
     }
+    public void addBook(Book book){
+        bookList.add(book);
+
+    }
+    public void removeBook(Book book){
+        bookList.remove(book);
+    }
+
+    public List<Book> getBookList(){
+        return new ArrayList<>(bookList);
+    }
+
 }

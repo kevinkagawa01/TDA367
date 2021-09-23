@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ApplicationModel implements Observable{
-    //TODO:
-    // BookDatabase bookDatabase
-    // UserDatabase userDatabase
+
+     private BookDatabase bookDatabase;
+     private UserDatabase userDatabase;
+
     List<Listing> listings = new ArrayList<>();
     List<Observer> viewObservers = new ArrayList<>();
 
@@ -15,5 +16,21 @@ public class ApplicationModel implements Observable{
         for(Observer observer : viewObservers){
             observer.update();
         }
+    }
+    public void addListing(){
+
+    }
+    public List removeListings(){
+        return listings;
+    }
+    public void editListing(){
+
+    }
+
+    public BookDatabase getBookDatabase(){
+        return bookDatabase;
+    }
+    public UserDatabase getUserDatabase(){
+        return userDatabase;
     }
 }
