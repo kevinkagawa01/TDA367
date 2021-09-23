@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ApplicationView implements Initializable,Observer {
+public class ApplicationViewManager implements Initializable,Observer {
 
     @FXML
     private AnchorPane mainAnchorPane;

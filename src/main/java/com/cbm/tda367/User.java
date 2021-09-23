@@ -18,6 +18,13 @@ public class User {
     private HashMap<Integer,Listing> previousPurchases = new HashMap<>();
     private List<Notification> notifications = new ArrayList<>();
 
+    public User(String cid) {
+        this.cid = cid;
+        this.totalRating = 0;
+        this.sumOfRatings = 0;
+        this.nrRatings = 0;
+    }
+
     /* adds users rating and updates the total */
     public void addRating(int rating) {
         /* if provided rating is invalid, return */
