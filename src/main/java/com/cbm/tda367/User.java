@@ -16,7 +16,14 @@ public class User {
     private HashMap<Integer,Listing> booksForSale = new HashMap<>();
     private HashMap<String,Book> subscribedBooks = new HashMap<>();
     private HashMap<Integer,Listing> previousPurchases = new HashMap<>();
-    //TODO: private List<Notification> notifications = new ArrayList<>();
+    private List<Notification> notifications = new ArrayList<>();
+
+    public User(String cid) {
+        this.cid = cid;
+        this.totalRating = 0;
+        this.sumOfRatings = 0;
+        this.nrRatings = 0;
+    }
 
     /* adds users rating and updates the total */
     public void addRating(int rating) {
@@ -37,34 +44,34 @@ public class User {
     }
 
     public void addReservedBook(Listing listing){
-        //TODO: needs getter for listingNr in order to put it as key in the HashMap
+        reservedBooks.put(listing.getListingNumber(),listing);
     }
 
     public void addListingForSale(Listing listing){
-
+        booksForSale.put(listing.getListingNumber(), listing);
     }
 
     public void addBookSubscription(Book book){
-
+        subscribedBooks.put(book.getBookCode(),book);
     }
 
     public void addPreviousPurchase(Listing listing){
-
+        previousPurchases.put(listing.getListingNumber(),listing);
     }
 
     public void removePreviousPurchase(Integer listingNr){
-
+        previousPurchases.remove(listingNr);
     }
 
     public void removeReservedBook(Integer listingNr){
-
+        reservedBooks.remove(listingNr);
     }
 
     public void removeListingForSale(Integer listingNr){
-
+        booksForSale.remove(listingNr);
     }
 
     public void removeBookSubscription(String bookCode){
-
+        subscribedBooks.remove(bookCode);
     }
 }
