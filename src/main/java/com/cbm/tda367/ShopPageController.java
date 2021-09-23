@@ -1,5 +1,6 @@
 package com.cbm.tda367;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
 public class ShopPageController implements GolbalMenu{
@@ -16,17 +17,18 @@ public class ShopPageController implements GolbalMenu{
     }
 
     @Override
-    public void shopButton() {
-
-    }
+    @FXML
+    public void shopButton() {}
 
     @Override
+    @FXML
     public void accountButton() {
-
+        manager.goToAccountPage();
     }
 
     @Override
+    @FXML
     public void addButton() {
-
+        manager.goToSellPage();
     }
 }

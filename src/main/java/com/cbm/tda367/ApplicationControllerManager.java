@@ -22,14 +22,14 @@ public class ApplicationControllerManager {
     }
 
     void goToShopPage(){
-
+        view.goToShopPage();
     }
 
     void goToSellPage(){
-
+        view.goToSellPage();
     }
 
     void goToAccountPage(){
-
+        view.goToAccountPage();
     }
 }

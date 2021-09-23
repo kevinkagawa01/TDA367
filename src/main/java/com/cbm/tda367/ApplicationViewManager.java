@@ -20,7 +20,7 @@ public class ApplicationViewManager implements Initializable,Observer {
     private final ShopPageView shopPage = new ShopPageView();
     private final SellPageView sellPage = new SellPageView();
     private final AccountPageView accountPage = new AccountPageView();
-    /*  */
+    /* list of views */
     private final List<Node> viewList = new ArrayList<>();
 
     @Override
