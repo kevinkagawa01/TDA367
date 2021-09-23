@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: FFFFFF;" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="731.0" prefWidth="411.0" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="761.0" fitWidth="432.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -40,11 +40,11 @@
             <Image url="@../../../Library/Login.png" />
          </image>
       </ImageView>
-      <TextField layoutX="41.0" layoutY="390.0" opacity="0.44" prefHeight="50.0" prefWidth="309.0" promptText="CID" styleClass="navigation-text-input-info" stylesheets="@login-page.css">
+      <TextField layoutX="41.0" layoutY="390.0" prefHeight="50.0" prefWidth="309.0" promptText="CID" styleClass="navigation-text-input-info" stylesheets="@login-page.css">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></TextField>
-      <TextField layoutX="41.0" layoutY="466.0" opacity="0.31" prefHeight="50.0" prefWidth="309.0" promptText="Password" styleClass="navigation-text-input-info" stylesheets="@login-page.css">
+      <TextField layoutX="41.0" layoutY="466.0" prefHeight="50.0" prefWidth="309.0" promptText="Password" styleClass="navigation-text-input-info" stylesheets="@login-page.css">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></TextField>

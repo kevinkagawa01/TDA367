@@ -49,7 +49,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <FlowPane layoutX="10.0" layoutY="340.0" prefHeight="200.0" prefWidth="387.0" />
+      <FlowPane layoutX="16.0" layoutY="341.0" prefHeight="200.0" prefWidth="387.0" />
       <Text fill="WHITE" layoutX="25.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Book Name&gt;" wrappingWidth="327.70703125">
          <font>
             <Font name="Nirmala UI" size="40.0" />
