@@ -17,15 +17,34 @@ public class ApplicationModel implements Observable{
             observer.update();
         }
     }
-    public void addListing(){
+    private List<Listing> addListing(Listing listing){
+       return new ArrayList<>(listings);
+    }
+    private void removeListings(Listing listing){
+        listings.remove(listing);
+    }
+
+    private void editListing(){
+       
 
     }
-    public List removeListings(){
-        return listings;
-    }
-    public void editListing(){
+    /*private List<Book> updateSearchResult(){
 
     }
+
+     */
+    public void populateBookListing(){
+
+    }
+    /*public List<Book>calcMostSubscribe(){
+
+    }
+
+     */
+    public void reservedBook(){
+
+    }
+
 
     public BookDatabase getBookDatabase(){
         return bookDatabase;
@@ -33,4 +52,5 @@ public class ApplicationModel implements Observable{
     public UserDatabase getUserDatabase(){
         return userDatabase;
     }
+
 }
