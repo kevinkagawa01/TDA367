@@ -2,10 +2,10 @@ package com.cbm.tda367;
 
 import javafx.fxml.FXMLLoader;
 
-public class ShopPageController implements GolbalMenu{
+public class AccountPageController implements GolbalMenu {
 
-    public ShopPageController() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page.fxml"));
+    public AccountPageController() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("account-page.fxml"));
         fxmlLoader.setController(this);
     }
 
