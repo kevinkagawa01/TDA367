@@ -9,9 +9,9 @@ import java.io.IOException;
 
 public class ShopPageView extends AnchorPane {
 
-    private ApplicationViewManager manager;
+    private ViewManager manager;
 
-    public ShopPageView(ApplicationViewManager manager) {
+    public ShopPageView(ViewManager manager) {
         this.manager = manager;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page.fxml"));

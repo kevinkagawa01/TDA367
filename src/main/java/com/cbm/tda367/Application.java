@@ -9,13 +9,13 @@ import java.io.IOException;
 public class Application extends javafx.application.Application {
 
     private ApplicationModel model;
-    private ApplicationViewManager view;
+    private ViewManager view;
 
     @Override
     public void start(Stage stage) throws IOException {
 
         model = new ApplicationModel();
-        view = new ApplicationViewManager();
+        view = new ViewManager();
 
 
 

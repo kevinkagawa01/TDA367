@@ -2,17 +2,14 @@ package com.cbm.tda367;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 
 public class ShopPageController implements GolbalMenu{
 
     /* view manager */
-    private ApplicationViewManager manager;
+    private ViewManager manager;
 
 
-    public ShopPageController(ApplicationViewManager manager) {
+    public ShopPageController(ViewManager manager) {
         this.manager = manager;
     }
 

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ApplicationViewManager implements Initializable,Observer {
+public class ViewManager implements Initializable,Observer {
 
     @FXML
     private AnchorPane mainAnchorPane;
