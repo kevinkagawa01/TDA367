@@ -10,13 +10,11 @@ public class Application extends javafx.application.Application {
 
     private ApplicationModel model;
     private ApplicationViewManager view;
-    private ApplicationControllerManager controller;
 
     @Override
     public void start(Stage stage) throws IOException {
 
         model = new ApplicationModel();
-        controller = new ApplicationControllerManager(model);
         view = new ApplicationViewManager();
 
 

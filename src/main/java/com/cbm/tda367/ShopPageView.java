@@ -16,7 +16,7 @@ public class ShopPageView extends AnchorPane {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page.fxml"));
         fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
+        fxmlLoader.setController(new ShopPageController(manager));
 
         try{
             fxmlLoader.load();
