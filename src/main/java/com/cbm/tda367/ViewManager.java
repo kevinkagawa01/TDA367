@@ -16,10 +16,10 @@ public class ViewManager implements Initializable,Observer {
     private AnchorPane mainAnchorPane;
 
     /* views */
-    private final LoginPageView loginPage = new LoginPageView();
+    private final LoginPageView loginPage = new LoginPageView(this);
     private final ShopPageView shopPage = new ShopPageView(this);
-    private final SellPageView sellPage = new SellPageView();
-    private final AccountPageView accountPage = new AccountPageView();
+    private final SellPageView sellPage = new SellPageView(this);
+    private final AccountPageView accountPage = new AccountPageView(this);
     /* list of views */
     private final List<Node> viewList = new ArrayList<>();
 
@@ -40,8 +40,20 @@ public class ViewManager implements Initializable,Observer {
         //TODO: what should views update when model is updated?
     }
 
-    void setShopPageController(Object controller){
+    void setLoginPageController(LoginPageController controller){
+        loginPage.setFxmlLoaderController(controller);
+    }
+
+    void setShopPageController(ShopPageController controller){
         shopPage.setFxmlLoaderController(controller);
+    }
+
+    void setSellPageController(SellPageController controller) {
+        sellPage.setFxmlLoaderController(controller);
+    }
+
+    void setAccountPageController(AccountPageController controller) {
+        accountPage.setFxmlLoaderController(controller);
     }
 
     void goToShopPage(){

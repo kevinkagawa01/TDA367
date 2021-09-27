@@ -21,12 +21,14 @@ public class Application extends javafx.application.Application {
         controllerManager = new ControllerManager(model, viewManager);
 
         /* assign controllers to corresponding view */
+        viewManager.setLoginPageController(controllerManager.getLoginPageController());
         viewManager.setShopPageController(controllerManager.getShopPageController());
-        //TODO: connect other 3 controllers
+        viewManager.setSellPageController(controllerManager.getSellPageController());
+        viewManager.setAccountPageController(controllerManager.getAccountPageController());
 
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("mainAnchorPane.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 411, 731);
-        stage.setTitle("Hello!");
+        stage.setTitle("CBM!");
         stage.setScene(scene);
         stage.show();
     }

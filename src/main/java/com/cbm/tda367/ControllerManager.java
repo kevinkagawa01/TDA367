@@ -11,12 +11,16 @@ public class ControllerManager {
     /* controllers */
     LoginPageController loginPageController;
     ShopPageController shopPageController;
+    SellPageController sellPageController;
+    AccountPageController accountPageController;
 
     public ControllerManager(ApplicationModel model, ViewManager viewManager) {
         this.model = model;
         this.viewManager = viewManager;
         loginPageController = new LoginPageController(this);
         shopPageController = new ShopPageController(this);
+        sellPageController = new SellPageController(this);
+        accountPageController = new AccountPageController(this);
     }
 
     public LoginPageController getLoginPageController() {
@@ -27,6 +31,14 @@ public class ControllerManager {
         return shopPageController;
     }
 
+    public SellPageController getSellPageController() {
+        return sellPageController;
+    }
+
+    public AccountPageController getAccountPageController() {
+        return accountPageController;
+    }
+
     void goToAccountPage(){
 
     }
@@ -34,4 +46,5 @@ public class ControllerManager {
     void goToSellPage(){
 
     }
+
 }
