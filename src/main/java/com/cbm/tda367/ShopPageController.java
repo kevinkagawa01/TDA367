@@ -8,11 +8,11 @@ import javafx.scene.shape.Rectangle;
 
 public class ShopPageController implements GolbalMenu{
 
-    /* controller manager */
-    private ApplicationControllerManager manager;
+    /* view manager */
+    private ApplicationViewManager manager;
 
 
-    public ShopPageController(ApplicationControllerManager manager) {
+    public ShopPageController(ApplicationViewManager manager) {
         this.manager = manager;
     }
 
