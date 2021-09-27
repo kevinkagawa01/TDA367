@@ -40,9 +40,8 @@ public class ViewManager implements Initializable,Observer {
         //TODO: what should views update when model is updated?
     }
 
-    void configureShopPageController()
-    {
-
+    void setShopPageController(Object controller){
+        shopPage.setFxmlLoaderController(controller);
     }
 
     void goToShopPage(){

@@ -6,10 +6,10 @@ import javafx.fxml.FXML;
 public class ShopPageController implements GolbalMenu{
 
     /* view manager */
-    private ViewManager manager;
+    private ControllerManager manager;
 
 
-    public ShopPageController(ViewManager manager) {
+    public ShopPageController(ControllerManager manager) {
         this.manager = manager;
     }
 
