@@ -20,17 +20,18 @@ public class Book {
     }
 
 
-    private String bookCategory;
+    private String category;
 
-
-    public Book(String bookName, String bookAuthor, String bookCode, int bookSales, int bookSubscriptions, ImageView image,bookCategory categori) {
+    void bookCategory(String category){
+        this.category=category;
+    }
+    public Book(String bookName, String bookAuthor, String bookCode, int bookSales, int bookSubscriptions, ImageView image , bookCategory category) {
         this.bookName=bookName;
         this.bookAuthor=bookAuthor;
         this.bookCode=bookCode;
         this.bookSales=bookSales;
         this.bookSubscriptions=bookSubscriptions;
         this.image=image;
-
     }
 
     public String getBookName() {

@@ -29,12 +29,10 @@ public class Listing {
     }
 
     public Listing(Book book, int listingNumber, double price, ImageView image, bookCondition condition) {
-
         this.book = book;
         this.listingNumber = listingNumber;
         this.price = price;
         this.image = image;
-
 
     }
 
