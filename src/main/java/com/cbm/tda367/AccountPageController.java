@@ -1,5 +1,7 @@
 package com.cbm.tda367;
 
+import javafx.event.Event;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
@@ -26,6 +28,16 @@ public class AccountPageController extends AnchorPane {
         {
             throw new RuntimeException(exception);
         }
+    }
+    @FXML
+
+    public void accountButton(Event event) {
+        manager.goToAccountPage();
+    }
+
+    @FXML
+    public void addButton(Event event) {
+        manager.goToSellPage();
     }
 
     public void setFxmlLoaderController(AccountPageController controller) {
