@@ -10,11 +10,12 @@ import java.io.IOException;
 public class ShopPageController extends AnchorPane {
 
     private ControllerManager manager;
+    private ApplicationModel model;
     private FXMLLoader fxmlLoader;
 
-    public ShopPageController(ControllerManager manager) {
+    public ShopPageController(ControllerManager manager, ApplicationModel model) {
         this.manager = manager;
-
+        this.model = model;
         fxmlLoader = new FXMLLoader(getClass().getResource("shop-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

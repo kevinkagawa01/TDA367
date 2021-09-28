@@ -7,6 +7,7 @@ import java.util.List;
 public class User {
 
     private String cid;
+    private String password;
     private double totalRating;
     private int sumOfRatings;
     private int nrRatings;
@@ -18,8 +19,9 @@ public class User {
     private HashMap<Integer,Listing> previousPurchases = new HashMap<>();
     private List<Notification> notifications = new ArrayList<>();
 
-    public User(String cid) {
+    public User(String cid, String password) {
         this.cid = cid;
+        this.password = password;
         this.totalRating = 0;
         this.sumOfRatings = 0;
         this.nrRatings = 0;
@@ -45,6 +47,15 @@ public class User {
 
     public void addReservedBook(Listing listing){
         reservedBooks.put(listing.getListingNumber(),listing);
+    }
+
+    public String getCid() {
+        return cid;
+    }
+
+    public boolean isUserPassword(String passwordGuess){
+        //TODO: maybe make more secure
+        return this.password.equals(passwordGuess);
     }
 
     public void addListingForSale(Listing listing){

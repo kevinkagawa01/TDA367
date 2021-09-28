@@ -20,8 +20,8 @@ public class UserDatabase {
 
     public void addUser(User user){
         userList.add(user);
-
     }
+
     public void removeUser(User user){
         userList.remove(user);
     }

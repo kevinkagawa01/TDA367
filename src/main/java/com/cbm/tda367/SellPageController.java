@@ -8,10 +8,11 @@ import java.io.IOException;
 public class SellPageController extends AnchorPane {
 
     private ControllerManager manager;
+    private ApplicationModel model;
     private FXMLLoader fxmlLoader;
 
-    public SellPageController(ControllerManager manager) {
-
+    public SellPageController(ControllerManager manager, ApplicationModel model) {
+        this.model = model;
         this.manager = manager;
 
         fxmlLoader = new FXMLLoader(getClass().getResource("sell-page.fxml"));
