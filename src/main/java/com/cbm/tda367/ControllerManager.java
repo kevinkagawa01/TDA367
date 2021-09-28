@@ -15,20 +15,30 @@ public class ControllerManager implements Initializable,Observer {
     @FXML
     private AnchorPane mainAnchorPane;
 
-    /* views */
-    private final LoginPageController loginPage = new LoginPageController(this);
-    private final ShopPageController shopPage = new ShopPageController(this);
-    private final SellPageController sellPage = new SellPageController(this);
-    private final AccountPageController accountPage = new AccountPageController(this);
-    /* list of views */
+    /* model */
+    ApplicationModel model;
+    /* application pages */
+    private final LoginPageController loginPage;
+    private final ShopPageController shopPage;
+    private final SellPageController sellPage;
+    private final AccountPageController accountPage;
+    /* list of pages */
     private final List<Node> controllerList = new ArrayList<>();
+
+    public ControllerManager(ApplicationModel model) {
+        this.model = model;
+        this.loginPage = new LoginPageController(this, model);
+        this.shopPage = new ShopPageController(this, model);
+        this.sellPage = new SellPageController(this, model);
+        this.accountPage = new AccountPageController(this, model);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         controllerList.add(accountPage);
         controllerList.add(sellPage);
-        controllerList.add(loginPage);
         controllerList.add(shopPage);
+        controllerList.add(loginPage);
 
         for (Node view : controllerList){
             mainAnchorPane.getChildren().add(view);

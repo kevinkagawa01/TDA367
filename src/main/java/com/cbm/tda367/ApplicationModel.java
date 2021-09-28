@@ -7,6 +7,7 @@ public class ApplicationModel implements Observable{
 
      private BookDatabase bookDatabase;
      private UserDatabase userDatabase;
+     private User currentlyLoggedInUser;
 
     List<Listing> listings = new ArrayList<>();
     List<Observer> viewObservers = new ArrayList<>();
@@ -17,6 +18,7 @@ public class ApplicationModel implements Observable{
             observer.update();
         }
     }
+
     private List<Listing> addListing(Listing listing){
        return new ArrayList<>(listings);
     }
@@ -45,6 +47,15 @@ public class ApplicationModel implements Observable{
 
     }
 
+    public boolean isLoginSuccessful(String cid, String password){
+        for (User user : userDatabase.getUserList()){
+            if (user.getCid().equals(cid) && user.isUserPassword(password)){
+                currentlyLoggedInUser = user;
+                return true;
+            }
+        }
+        return false;
+    }
 
     public BookDatabase getBookDatabase(){
         return bookDatabase;

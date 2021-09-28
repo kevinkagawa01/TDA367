@@ -14,15 +14,15 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        /* initiate MVC */
-        model = new ApplicationModel();
-        controllerManager = new ControllerManager();
-
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("mainAnchorPane.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 411, 731);
         stage.setTitle("CBM!");
         stage.setScene(scene);
         stage.show();
+
+        /* initiate MVC */
+        model = new ApplicationModel();
+        controllerManager = new ControllerManager(model);
     }
 
     public static void main(String[] args) {
