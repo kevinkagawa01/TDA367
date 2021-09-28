@@ -2,7 +2,7 @@ package com.cbm.tda367;
 
 import javafx.event.Event;
 
-public interface GolbalMenu {
+public interface GlobalMenu {
 
 
      void shopButton(Event event);

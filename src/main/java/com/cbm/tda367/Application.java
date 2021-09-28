@@ -9,7 +9,6 @@ import java.io.IOException;
 public class Application extends javafx.application.Application {
 
     private ApplicationModel model;
-    private ViewManager viewManager;
     private ControllerManager controllerManager;
 
     @Override
@@ -17,14 +16,7 @@ public class Application extends javafx.application.Application {
 
         /* initiate MVC */
         model = new ApplicationModel();
-        viewManager = new ViewManager();
-        controllerManager = new ControllerManager(model, viewManager);
-
-        /* assign controllers to corresponding view */
-        viewManager.setLoginPageController(controllerManager.getLoginPageController());
-        viewManager.setShopPageController(controllerManager.getShopPageController());
-        viewManager.setSellPageController(controllerManager.getSellPageController());
-        viewManager.setAccountPageController(controllerManager.getAccountPageController());
+        controllerManager = new ControllerManager();
 
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("mainAnchorPane.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 411, 731);
