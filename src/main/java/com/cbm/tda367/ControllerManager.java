@@ -1,50 +1,54 @@
 package com.cbm.tda367;
 
-import javafx.event.Event;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
 
-public class ControllerManager {
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-    /* model - view */
-    ApplicationModel model;
-    ViewManager viewManager;
+public class ControllerManager implements Initializable,Observer {
 
-    /* controllers */
-    LoginPageController loginPageController;
-    ShopPageController shopPageController;
-    SellPageController sellPageController;
-    AccountPageController accountPageController;
+    @FXML
+    private AnchorPane mainAnchorPane;
 
-    public ControllerManager(ApplicationModel model, ViewManager viewManager) {
-        this.model = model;
-        this.viewManager = viewManager;
-        loginPageController = new LoginPageController(this);
-        shopPageController = new ShopPageController(this);
-        sellPageController = new SellPageController(this);
-        accountPageController = new AccountPageController(this);
+    /* views */
+    private final LoginPageController loginPage = new LoginPageController(this);
+    private final ShopPageController shopPage = new ShopPageController(this);
+    private final SellPageController sellPage = new SellPageController(this);
+    private final AccountPageController accountPage = new AccountPageController(this);
+    /* list of views */
+    private final List<Node> controllerList = new ArrayList<>();
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        controllerList.add(accountPage);
+        controllerList.add(sellPage);
+        controllerList.add(loginPage);
+        controllerList.add(shopPage);
+
+        for (Node view : controllerList){
+            mainAnchorPane.getChildren().add(view);
+        }
     }
 
-    public LoginPageController getLoginPageController() {
-        return loginPageController;
+    @Override
+    public void update() {
+        //TODO: what should views update when model is updated?
     }
 
-    public ShopPageController getShopPageController() {
-        return shopPageController;
-    }
-
-    public SellPageController getSellPageController() {
-        return sellPageController;
-    }
-
-    public AccountPageController getAccountPageController() {
-        return accountPageController;
-    }
-
-    void goToAccountPage(){
-
+    void goToShopPage(){
+        mainAnchorPane.getChildren().get(controllerList.indexOf(shopPage)).toFront();
     }
 
     void goToSellPage(){
-
+        mainAnchorPane.getChildren().get(controllerList.indexOf(sellPage)).toFront();
     }
 
+    void goToAccountPage(){
+        mainAnchorPane.getChildren().get(controllerList.indexOf(accountPage)).toFront();
+    }
 }
