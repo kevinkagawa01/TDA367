@@ -8,7 +8,7 @@ import java.util.List;
 public  class BookDatabase {
 
     private List<Book>bookList=new ArrayList<>();
-    private static BookDatabase bookDatabase=new BookDatabase();
+    private static BookDatabase bookDatabase = new BookDatabase();
 
 
 

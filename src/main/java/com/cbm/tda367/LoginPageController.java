@@ -39,6 +39,7 @@ public class LoginPageController extends AnchorPane {
             manager.goToShopPage();
         } else {
             //TODO: something went wrong with login!
+            System.out.println("Nej");
         }
     }
 }

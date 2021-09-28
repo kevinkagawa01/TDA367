@@ -5,12 +5,28 @@ import java.util.List;
 
 public class ApplicationModel implements Observable{
 
+    private static ApplicationModel applicationModel = new ApplicationModel();
+
      private BookDatabase bookDatabase;
      private UserDatabase userDatabase;
+     //TODO: Shouldn't be null from start
      private User currentlyLoggedInUser;
 
     List<Listing> listings = new ArrayList<>();
     List<Observer> viewObservers = new ArrayList<>();
+
+    private ApplicationModel() {
+        /* init databases */
+        bookDatabase = BookDatabase.getInstance();
+        userDatabase = UserDatabase.getInstance();
+
+        /* add mock-users */
+        userDatabase.addUser(new User("simonhol@student.chalmers.se","hejsan123"));
+    }
+
+    public static ApplicationModel getInstance(){
+        return applicationModel;
+    }
 
     @Override
     public void notifyObservers() {

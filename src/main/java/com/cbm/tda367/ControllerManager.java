@@ -16,22 +16,14 @@ public class ControllerManager implements Initializable,Observer {
     private AnchorPane mainAnchorPane;
 
     /* model */
-    ApplicationModel model;
+    ApplicationModel model = ApplicationModel.getInstance();
     /* application pages */
-    private final LoginPageController loginPage;
-    private final ShopPageController shopPage;
-    private final SellPageController sellPage;
-    private final AccountPageController accountPage;
+    private LoginPageController loginPage = new LoginPageController(this, model);
+    private ShopPageController shopPage = new ShopPageController(this, model);
+    private SellPageController sellPage = new SellPageController(this, model);
+    private AccountPageController accountPage = new AccountPageController(this, model);
     /* list of pages */
     private final List<Node> controllerList = new ArrayList<>();
-
-    public ControllerManager(ApplicationModel model) {
-        this.model = model;
-        this.loginPage = new LoginPageController(this, model);
-        this.shopPage = new ShopPageController(this, model);
-        this.sellPage = new SellPageController(this, model);
-        this.accountPage = new AccountPageController(this, model);
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
