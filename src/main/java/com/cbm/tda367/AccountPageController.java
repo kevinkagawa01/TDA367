@@ -6,9 +6,9 @@ import javafx.fxml.FXMLLoader;
 public class AccountPageController implements GolbalMenu {
 
     /* view manager */
-    private ApplicationViewManager manager;
+    private ControllerManager manager;
 
-    public AccountPageController(ApplicationViewManager manager) {
+    public AccountPageController(ControllerManager manager) {
 
         this.manager = manager;
 

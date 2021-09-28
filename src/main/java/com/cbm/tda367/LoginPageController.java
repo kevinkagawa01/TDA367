@@ -4,14 +4,10 @@ import javafx.fxml.FXMLLoader;
 
 public class LoginPageController{
 
-    /* view manager */
-    private ApplicationViewManager manager;
+    /* controller manager */
+    private final ControllerManager manager;
 
-    public LoginPageController(ApplicationViewManager manager) {
-
+    public LoginPageController(ControllerManager manager) {
         this.manager = manager;
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-page.fxml"));
-        fxmlLoader.setController(this);
     }
 }

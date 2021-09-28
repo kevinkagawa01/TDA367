@@ -7,8 +7,14 @@ import java.io.IOException;
 
 public class SellPageView extends AnchorPane {
 
-    public SellPageView() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sell-page.fxml"));
+    private ViewManager manager;
+    private FXMLLoader fxmlLoader;
+
+    public SellPageView(ViewManager manager) {
+
+        this.manager = manager;
+
+        fxmlLoader = new FXMLLoader(getClass().getResource("sell-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -19,5 +25,9 @@ public class SellPageView extends AnchorPane {
         {
             throw new RuntimeException(exception);
         }
+    }
+
+    public void setFxmlLoaderController(SellPageController controller) {
+        fxmlLoader.setController(controller);
     }
 }

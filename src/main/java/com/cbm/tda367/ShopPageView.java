@@ -9,20 +9,25 @@ import java.io.IOException;
 
 public class ShopPageView extends AnchorPane {
 
-    private ApplicationViewManager manager;
+    private ViewManager manager;
+    private FXMLLoader fxmlLoader;
 
-    public ShopPageView(ApplicationViewManager manager) {
+    public ShopPageView(ViewManager manager) {
         this.manager = manager;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page.fxml"));
+        fxmlLoader = new FXMLLoader(getClass().getResource("shop-page.fxml"));
         fxmlLoader.setRoot(this);
-        fxmlLoader.setController(new ShopPageController(manager));
+        fxmlLoader.setController(this);
 
         try{
             fxmlLoader.load();
         } catch (IOException exception){
             throw new RuntimeException(exception);
         }
+    }
+
+    public void setFxmlLoaderController(Object controller){
+        fxmlLoader.setController(controller);
     }
 
     @FXML

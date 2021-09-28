@@ -7,8 +7,14 @@ import java.io.IOException;
 
 public class AccountPageView extends AnchorPane {
 
-    public AccountPageView() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("account-page.fxml"));
+    private ViewManager manager;
+    private FXMLLoader fxmlLoader;
+
+    public AccountPageView(ViewManager manager) {
+
+        this.manager = manager;
+
+        fxmlLoader = new FXMLLoader(getClass().getResource("account-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -19,5 +25,9 @@ public class AccountPageView extends AnchorPane {
         {
             throw new RuntimeException(exception);
         }
+    }
+
+    public void setFxmlLoaderController(AccountPageController controller) {
+        fxmlLoader.setController(controller);
     }
 }

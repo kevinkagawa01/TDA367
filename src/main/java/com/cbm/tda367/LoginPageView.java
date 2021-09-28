@@ -7,8 +7,13 @@ import java.io.IOException;
 
 public class LoginPageView extends AnchorPane {
 
-    public LoginPageView() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-page.fxml"));
+    ViewManager manager;
+    FXMLLoader fxmlLoader;
+
+    public LoginPageView(ViewManager manager) {
+
+        this.manager = manager;
+        fxmlLoader = new FXMLLoader(getClass().getResource("login-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -19,5 +24,9 @@ public class LoginPageView extends AnchorPane {
         {
             throw new RuntimeException(exception);
         }
+    }
+
+    public void setFxmlLoaderController(Object controller) {
+        fxmlLoader.setController(controller);
     }
 }
