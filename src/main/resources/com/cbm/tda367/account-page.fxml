@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -26,28 +28,75 @@
             <Image url="@../../../Library/Polygon4.png" />
          </image>
       </ImageView>
-      <Accordion layoutX="21.0" layoutY="230.0" prefHeight="199.0" prefWidth="375.0">
+      <Accordion layoutX="21.0" layoutY="230.0" prefHeight="381.0" prefWidth="375.0">
         <panes>
-            <TitledPane animated="false" text="Reserverade böcker">
+            <TitledPane animated="false" styleClass="Titled-pane" stylesheets="@Accountpage.css" text="Reserverade böcker">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane prefHeight="278.0" prefWidth="375.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="420.0" prefWidth="358.0">
+                                 <children>
+                                    <FlowPane prefHeight="267.0" prefWidth="375.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                     </children></AnchorPane>
               </content>
             </TitledPane>
-          <TitledPane animated="false" prefHeight="112.0" prefWidth="385.0" text="Utlagda böcker">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </TitledPane>
-          <TitledPane animated="false" text="Bevakade böcker">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </TitledPane>
-          <TitledPane animated="false" text="Köpta böcker">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </TitledPane>
+            <TitledPane animated="false" text="Utlagda böcker">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane prefHeight="278.0" prefWidth="375.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="420.0" prefWidth="358.0">
+                                 <children>
+                                    <FlowPane prefHeight="267.0" prefWidth="375.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" text="Prenumererade böcker">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane prefHeight="278.0" prefWidth="375.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="420.0" prefWidth="358.0">
+                                 <children>
+                                    <FlowPane prefHeight="267.0" prefWidth="375.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" text="Tidigare köp">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane prefHeight="278.0" prefWidth="375.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="401.0" prefWidth="358.0">
+                                 <children>
+                                    <FlowPane prefHeight="272.0" prefWidth="375.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
         </panes>
       </Accordion>
       <ImageView fitHeight="87.0" fitWidth="411.0" layoutY="651.0" pickOnBounds="true" preserveRatio="true">
