@@ -62,6 +62,7 @@ public class SellPageController extends AnchorPane {
 
     @FXML
     protected void onClickCreateListing(Event event){
+        System.out.println("Vi har skapat en listing!");
         if (isListingCompleted()){
             if (model.getBookDatabase().isBookCodeValid(bookCodeTextField.getText())) {
                 //TODO: Hardcoded :)
@@ -77,7 +78,6 @@ public class SellPageController extends AnchorPane {
                 /* open accordion menu for my listings */
                 //TODO: add code to open correct tab in accordion
 
-                System.out.println("Vi har skapat en listing!");
             }
         }
     }

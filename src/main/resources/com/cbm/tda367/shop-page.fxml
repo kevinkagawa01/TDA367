@@ -47,7 +47,7 @@
             <Image url="@../../../Library/shopIcon.png" />
          </image>
       </ImageView>
-      <Circle fill="#c4c4c4" layoutX="206.0" layoutY="651.0" radius="34.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#c4c4c4" layoutX="206.0" layoutY="651.0" onMouseClicked="#addButton" radius="34.0" stroke="BLACK" strokeType="INSIDE" />
       <ImageView fitHeight="27.0" fitWidth="22.0" layoutX="195.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Library/Vector.png" />
