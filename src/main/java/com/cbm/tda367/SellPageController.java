@@ -3,6 +3,10 @@ package com.cbm.tda367;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -11,6 +15,15 @@ public class SellPageController extends AnchorPane {
 
     private ControllerManager manager;
     private ApplicationModel model;
+
+    /* FXML elements */
+    @FXML private TextField bookCodeTextField;
+    @FXML private TextField bookPriceTextField;
+    @FXML private ComboBox bookCategoryComboBox;
+    @FXML private ComboBox bookProgramComboBox;
+    @FXML private ComboBox bookConditionComboBox;
+    @FXML private ImageView bookImageView;
+    @FXML private TextArea listingDescriptionTextArea;
 
     public SellPageController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
