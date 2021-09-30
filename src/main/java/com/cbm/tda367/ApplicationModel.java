@@ -22,7 +22,7 @@ public class ApplicationModel implements Observable{
 
         /* add mock-users */
         userDatabase.addUser(new User("simonhol@student.chalmers.se","hejsan123"));
-        userDatabase.addUser(new User("1","1"));
+        userDatabase.addUser(new User("peg@student.chalmers.se","peg123"));
     }
 
     public static ApplicationModel getInstance(){

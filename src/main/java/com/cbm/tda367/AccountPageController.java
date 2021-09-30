@@ -29,18 +29,20 @@ public class AccountPageController extends AnchorPane {
             throw new RuntimeException(exception);
         }
     }
+
+
+    public void setFxmlLoaderController(AccountPageController controller) {
+        fxmlLoader.setController(controller);
+    }
+    /* onclick listeners*/
     @FXML
 
-    public void accountButton(Event event) {
-        manager.goToAccountPage();
+    public void shopButton(Event event) {
+        manager.goToShopPage();
     }
 
     @FXML
     public void addButton(Event event) {
         manager.goToSellPage();
-    }
-
-    public void setFxmlLoaderController(AccountPageController controller) {
-        fxmlLoader.setController(controller);
     }
 }
