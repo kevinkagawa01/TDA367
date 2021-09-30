@@ -19,9 +19,8 @@ public class SellPageController extends AnchorPane {
     /* FXML elements */
     @FXML private TextField bookCodeTextField;
     @FXML private TextField bookPriceTextField;
-    @FXML private ComboBox bookCategoryComboBox;
-    @FXML private ComboBox bookProgramComboBox;
-    @FXML private ComboBox bookConditionComboBox;
+    @FXML private ComboBox<String> bookCategoryComboBox;
+    @FXML private ComboBox<String> bookConditionComboBox;
     @FXML private ImageView bookImageView;
     @FXML private TextArea listingDescriptionTextArea;
 
@@ -40,6 +39,15 @@ public class SellPageController extends AnchorPane {
         {
             throw new RuntimeException(exception);
         }
+
+        initSceneBuilderElements();
+    }
+
+    private void initSceneBuilderElements() {
+        /* add categories to all combo-boxes in the sell page */
+        bookCategoryComboBox.getItems().addAll(
+                "Mathematics","Physics","Biology","Chemistry","Programming","Fiction" );
+        bookConditionComboBox.getItems().addAll("New","Mint","Used","Damaged");
     }
 
     @FXML
