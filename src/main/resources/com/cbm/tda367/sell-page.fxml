@@ -26,7 +26,12 @@
          </font>
       </Text>
       <Button layoutX="168.0" layoutY="518.0" mnemonicParsing="false" text="Bifoga bild" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="54.0" layoutX="118.0" layoutY="585.0" stroke="BLACK" strokeType="INSIDE" width="184.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="54.0" layoutX="118.0" layoutY="585.0" onMouseClicked="#onClickCreateListing" stroke="BLACK" strokeType="INSIDE" width="184.0" />
+      <Text fill="WHITE" layoutX="158.0" layoutY="619.0" onMouseClicked="#onClickCreateListing" strokeType="OUTSIDE" strokeWidth="0.0" text="Lägg ut">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
       <ImageView fitHeight="87.0" fitWidth="411.0" layoutY="651.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Library/RectangleNav.png" />
@@ -47,11 +52,6 @@
             <Image url="@../../../Library/bfoga.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="171.0" layoutY="620.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lägg ut">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Text>
       <ComboBox fx:id="bookCategoryComboBox" layoutX="12.0" layoutY="252.0" prefWidth="150.0" promptText="category" />
       <ComboBox fx:id="bookConditionComboBox" layoutX="131.0" layoutY="288.0" prefWidth="150.0" promptText="condition" />
       <TextArea fx:id="listingDescriptionTextArea" layoutX="31.0" layoutY="328.0" prefHeight="103.0" prefWidth="200.0" promptText="Description" />
