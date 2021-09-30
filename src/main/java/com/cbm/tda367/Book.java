@@ -15,24 +15,35 @@ public class Book {
 
 
     private enum bookCategory {
-        MATHEMATICS, PHYSICS, BIOLOGY,
-        CHEMISTRY, PROGRAMMING, FICTION;
+        MATHEMATICS("Mathematics"), PHYSICS("Physics"), BIOLOGY("Biology"),
+        CHEMISTRY("Chemistry"), PROGRAMMING("Programming"), FICTION("Fiction");
+
+        private String category;
+
+        bookCategory(String category) {
+            this.category = category;
+        }
+
+        public String getCategory(){
+            return category;
+        }
+
     }
 
 
-    private String category;
-
-    void bookCategory(String category){
-        this.category=category;
-    }
-    public Book(String bookName, String bookAuthor, String bookCode, int bookSales, int bookSubscriptions, ImageView image , bookCategory category) {
+    public Book(String bookName, String bookAuthor, String bookCode, int bookSales, int bookSubscriptions, ImageView image, bookCategory category) {
         this.bookName=bookName;
         this.bookAuthor=bookAuthor;
         this.bookCode=bookCode;
         this.bookSales=bookSales;
         this.bookSubscriptions=bookSubscriptions;
         this.image=image;
+
     }
+
+
+
+
 
     public String getBookName() {
         return bookName;
@@ -56,5 +67,7 @@ public class Book {
     public int getBookSubscriptions() {
         return bookSubscriptions;
     }
+
+
 
 }
