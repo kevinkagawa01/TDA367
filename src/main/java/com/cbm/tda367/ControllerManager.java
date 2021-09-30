@@ -27,9 +27,10 @@ public class ControllerManager implements Initializable,Observer {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        controllerList.add(shopPage);
+        ;
         controllerList.add(sellPage);
         controllerList.add(accountPage);
+        controllerList.add(shopPage);
         controllerList.add(loginPage);
 
         for (Node view : controllerList){
