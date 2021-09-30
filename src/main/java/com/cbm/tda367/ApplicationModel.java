@@ -11,9 +11,9 @@ public class ApplicationModel implements Observable{
      private UserDatabase userDatabase;
      //TODO: Shouldn't be null from start
      private User currentlyLoggedInUser;
-
-    List<Listing> listings = new ArrayList<>();
-    List<Observer> viewObservers = new ArrayList<>();
+     private int currentListingNumber;
+     private List<Listing> listings = new ArrayList<>();
+     private List<Observer> viewObservers = new ArrayList<>();
 
     private ApplicationModel() {
         /* init databases */
@@ -36,9 +36,10 @@ public class ApplicationModel implements Observable{
         }
     }
 
-    private List<Listing> addListing(Listing listing){
+    public List<Listing> addListing(Listing listing){
        return new ArrayList<>(listings);
     }
+
     private void removeListings(Listing listing){
         listings.remove(listing);
     }
