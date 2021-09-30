@@ -59,4 +59,31 @@ public class SellPageController extends AnchorPane {
     protected void onClickGoToAccountPage(Event event){
         manager.goToAccountPage();
     }
+
+    @FXML
+    protected void onClickCreateListing(Event event){
+        System.out.println("Vi har skapat en listing!");
+        if (isListingCompleted()){
+            if (model.getBookDatabase().isBookCodeValid(bookCodeTextField.getText())) {
+                //TODO: Hardcoded :)
+
+                /* creating listing */
+                model.addListing(new Listing(model.getBookDatabase().returnBookWithCorrespondingCode(bookCodeTextField.getText()),
+                        1,
+                        Double.parseDouble(bookPriceTextField.getText()),
+                        bookImageView,
+                        "Mint"));
+                /* switch to account page */
+                manager.goToAccountPage();
+                /* open accordion menu for my listings */
+                //TODO: add code to open correct tab in accordion
+
+            }
+        }
+    }
+
+    private boolean isListingCompleted(){
+        //TODO: is all fields filled in?
+        return true;
+    }
 }

@@ -24,6 +24,25 @@ public  class BookDatabase {
         bookList.add(book);
 
     }
+
+    public boolean isBookCodeValid(String bookCode){
+        for (Book book : bookList){
+            if (book.getBookCode().equals(bookCode)){ return true; }
+        }
+        return false;
+    }
+
+    //TODO: refactor method
+    public Book returnBookWithCorrespondingCode(String bookCode){
+        for (Book book : bookList){
+            if (book.getBookCode().equals(bookCode)){
+                return book;
+            }
+        }
+        //TODO: ajabaja
+        return null;
+    }
+
     public void removeBook(Book book){
         bookList.remove(book);
     }
