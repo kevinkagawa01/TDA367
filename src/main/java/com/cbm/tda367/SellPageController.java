@@ -1,5 +1,7 @@
 package com.cbm.tda367;
 
+import javafx.event.Event;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
@@ -9,13 +11,12 @@ public class SellPageController extends AnchorPane {
 
     private ControllerManager manager;
     private ApplicationModel model;
-    private FXMLLoader fxmlLoader;
 
     public SellPageController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
         this.manager = manager;
 
-        fxmlLoader = new FXMLLoader(getClass().getResource("sell-page.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sell-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -28,7 +29,13 @@ public class SellPageController extends AnchorPane {
         }
     }
 
-    public void setFxmlLoaderController(SellPageController controller) {
-        fxmlLoader.setController(controller);
+    @FXML
+    protected void onClickGoToShopPage(Event event){
+        manager.goToShopPage();
+    }
+
+    @FXML
+    protected void onClickGoToAccountPage(Event event){
+        manager.goToAccountPage();
     }
 }
