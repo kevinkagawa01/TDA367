@@ -16,6 +16,8 @@ public class ShopPageController extends AnchorPane {
     public ShopPageController(ControllerManager manager, ApplicationModel model) {
         this.manager = manager;
         this.model = model;
+
+
         fxmlLoader = new FXMLLoader(getClass().getResource("shop-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -25,10 +27,6 @@ public class ShopPageController extends AnchorPane {
         } catch (IOException exception){
             throw new RuntimeException(exception);
         }
-    }
-
-    public void setFxmlLoaderController(Object controller){
-        fxmlLoader.setController(controller);
     }
 
     @FXML
