@@ -31,7 +31,6 @@ public class AccountPageController extends AnchorPane {
     }
 
     /* onclick listeners*/
-
     @FXML
     public void shopButton(Event event) {
         manager.goToShopPage();

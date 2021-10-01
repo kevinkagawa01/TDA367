@@ -1,5 +1,7 @@
 package com.cbm.tda367;
 
+import javafx.scene.image.ImageView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +13,8 @@ public class ApplicationModel implements Observable{
      private UserDatabase userDatabase;
      //TODO: Shouldn't be null from start
      private User currentlyLoggedInUser;
-     private int currentListingNumber;
+     //TODO: Should read current listing number from text file after initial launch
+     private int currentListingNumber = 0;
      private List<Listing> listings = new ArrayList<>();
      private List<Observer> viewObservers = new ArrayList<>();
 
@@ -36,7 +39,7 @@ public class ApplicationModel implements Observable{
         }
     }
 
-    public List<Listing> addListing(Listing listing){
+    public List<Listing> getListings(Listing listing){
        return new ArrayList<>(listings);
     }
 
@@ -45,9 +48,15 @@ public class ApplicationModel implements Observable{
     }
 
     private void editListing(){
-       
-
     }
+
+    public void addListing(String bookCode, String condition, String price){
+        listings.add(new Listing(bookDatabase.returnBookWithCorrespondingCode(bookCode),currentListingNumber++,
+                Double.parseDouble(price),
+                new ImageView("src/main/resources/com/cbm/tda367/images/notification_bell.png")
+                ,condition));
+    }
+
     /*private List<Book> updateSearchResult(){
 
     }

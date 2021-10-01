@@ -22,14 +22,6 @@ public  class BookDatabase {
     }
     public void addBook(Book book){
         bookList.add(book);
-
-    }
-
-    public boolean isBookCodeValid(String bookCode){
-        for (Book book : bookList){
-            if (book.getBookCode().equals(bookCode)){ return true; }
-        }
-        return false;
     }
 
     //TODO: refactor method
