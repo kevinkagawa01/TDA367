@@ -22,20 +22,13 @@ public class ControllerManager implements Initializable,Observer {
     private ShopPageController shopPage = new ShopPageController(this, model);
     private SellPageController sellPage = new SellPageController(this, model);
     private AccountPageController accountPage = new AccountPageController(this, model);
-    /* list of pages */
-    private final List<Node> controllerList = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ;
-        controllerList.add(sellPage);
-        controllerList.add(accountPage);
-        controllerList.add(shopPage);
-        controllerList.add(loginPage);
-
-        for (Node view : controllerList){
-            mainAnchorPane.getChildren().add(view);
-        }
+        mainAnchorPane.getChildren().add(sellPage);
+        mainAnchorPane.getChildren().add(accountPage);
+        mainAnchorPane.getChildren().add(shopPage);
+        mainAnchorPane.getChildren().add(loginPage);
     }
 
     @Override
@@ -44,15 +37,15 @@ public class ControllerManager implements Initializable,Observer {
     }
 
     void goToShopPage(){
-        mainAnchorPane.getChildren().get(controllerList.indexOf(shopPage)).toFront();
+        shopPage.toFront();
     }
 
     void goToSellPage(){
-        mainAnchorPane.getChildren().get(controllerList.indexOf(sellPage)).toFront();
+        sellPage.toFront();
     }
 
     void goToAccountPage(){
-        mainAnchorPane.getChildren().get(controllerList.indexOf(accountPage)).toFront();
+        accountPage.toFront();
     }
 
 }
