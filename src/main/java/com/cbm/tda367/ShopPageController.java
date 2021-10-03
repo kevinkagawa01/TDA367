@@ -4,14 +4,23 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.Flow;
 
 public class ShopPageController extends AnchorPane {
 
     private ControllerManager manager;
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
+
+    @FXML
+    FlowPane popularBookscategory;
+    @FXML
+    FlowPane mostSubscribedBooks;
+
 
     public ShopPageController(ControllerManager manager, ApplicationModel model) {
         this.manager = manager;
@@ -27,6 +36,25 @@ public class ShopPageController extends AnchorPane {
         } catch (IOException exception){
             throw new RuntimeException(exception);
         }
+    }
+
+    public void updatePopularCategoryPane(){
+        List<Book> items = BookDatabase.getInstance().getBookList();
+        popularBookscategory.getChildren().clear();
+        for (Book book:
+                items) {
+           // popularBooks.getChildren().add();
+        }
+
+    }
+    public void updateSubscribedCategoryPane(){
+        List<Book> items = BookDatabase.getInstance().getBookList();
+        mostSubscribedBooks.getChildren().clear();
+        for (Book book:
+                items) {
+            // mostSubscribedBooks.getChildren().add();
+        }
+
     }
 
     @FXML

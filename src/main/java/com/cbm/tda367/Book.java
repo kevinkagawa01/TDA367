@@ -1,6 +1,7 @@
 package com.cbm.tda367;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
 
 public class Book {
 
@@ -11,7 +12,7 @@ public class Book {
     private int bookSales;
 
     private int bookSubscriptions;
-    private ImageView image;
+    private Image image;
 
 
     private enum bookCategory {
@@ -24,39 +25,38 @@ public class Book {
             this.category = category;
         }
 
-        public String getCategory(){
+        public String getCategory() {
             return category;
         }
 
     }
 
 
-    public Book(String bookName, String bookAuthor, String bookCode, int bookSales, int bookSubscriptions, ImageView image, bookCategory category) {
-        this.bookName=bookName;
-        this.bookAuthor=bookAuthor;
-        this.bookCode=bookCode;
-        this.bookSales=bookSales;
-        this.bookSubscriptions=bookSubscriptions;
-        this.image=image;
+    public Book(String bookName, String bookAuthor, String bookCode, int bookSales, int bookSubscriptions, Image image, String category) {
+        this.bookName = bookName;
+        this.bookAuthor = bookAuthor;
+        this.bookCode = bookCode;
+        this.bookSales = bookSales;
+        this.bookSubscriptions = bookSubscriptions;
+        this.image = image;
 
     }
-
-
-
 
 
     public String getBookName() {
         return bookName;
     }
 
-    public String getBookAuthor(){
+    public String getBookAuthor() {
         return bookAuthor;
     }
-    public String getBookCode(){
+
+    public String getBookCode() {
         return bookCode;
 
     }
-    public ImageView getImage(){
+
+    public Image getImage() {
         return image;
     }
 
@@ -67,7 +67,6 @@ public class Book {
     public int getBookSubscriptions() {
         return bookSubscriptions;
     }
-
 
 
 }

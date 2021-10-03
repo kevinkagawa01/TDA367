@@ -14,7 +14,7 @@ public class BookViewController {
 
     // FXML elements
     @FXML
-    ImageView view;
+    ImageView bookViewCategory;
 
     public BookViewController(Book book, ControllerManager manager) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-book.fxml"));
@@ -29,8 +29,10 @@ public class BookViewController {
         this.book=book;
         this.manager=manager;
 
-        //set image metod
-
+        bookViewCategory.setImage(book.getImage());
     }
 
+    public void onClickBook(){
+        //gå till subscriptionsidan
+    }
 }

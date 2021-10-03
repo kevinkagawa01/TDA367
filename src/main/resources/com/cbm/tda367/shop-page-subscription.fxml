@@ -27,13 +27,13 @@
             <Image url="@../../../Library/Polygon4.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="180.0" fitWidth="130.0" layoutX="139.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bookFront" fitHeight="180.0" fitWidth="130.0" layoutX="139.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Library/bookSample.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ded40" height="31.0" layoutX="114.0" layoutY="264.0" stroke="BLACK" strokeType="INSIDE" width="184.0" />
-      <Text layoutX="102.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hunger games">
+      <Rectangle fx:id="greenButton" arcHeight="5.0" arcWidth="5.0" fill="#2ded40" height="31.0" layoutX="114.0" layoutY="264.0" stroke="BLACK" strokeType="INSIDE" width="184.0" />
+      <Text fx:id="textFront" layoutX="102.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hunger games">
          <font>
             <Font size="32.0" />
          </font>

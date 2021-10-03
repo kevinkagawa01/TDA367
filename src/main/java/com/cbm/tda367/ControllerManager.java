@@ -22,6 +22,7 @@ public class ControllerManager implements Initializable,Observer {
     private ShopPageController shopPage = new ShopPageController(this, model);
     private SellPageController sellPage = new SellPageController(this, model);
     private AccountPageController accountPage = new AccountPageController(this, model);
+    private SubscribtionPageController subPage=new SubscribtionPageController(this,model);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
