@@ -64,21 +64,15 @@ public class SellPageController extends AnchorPane {
     protected void onClickCreateListing(Event event){
         System.out.println("Vi har skapat en listing!");
         if (isListingCompleted()){
-            if (model.getBookDatabase().isBookCodeValid(bookCodeTextField.getText())) {
                 //TODO: Hardcoded :)
 
                 /* creating listing */
-                model.addListing(new Listing(model.getBookDatabase().returnBookWithCorrespondingCode(bookCodeTextField.getText()),
-                        1,
-                        Double.parseDouble(bookPriceTextField.getText()),
-                        bookImageView,
-                        "Mint"));
+                model.addListing(bookCodeTextField.getText(),bookConditionComboBox.getPromptText(),
+                        bookPriceTextField.getText());
                 /* switch to account page */
                 manager.goToAccountPage();
                 /* open accordion menu for my listings */
                 //TODO: add code to open correct tab in accordion
-
-            }
         }
     }
 
