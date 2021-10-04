@@ -17,9 +17,9 @@ public class ShopPageController extends AnchorPane {
     private FXMLLoader fxmlLoader;
 
     @FXML
-    FlowPane popularBookscategory;
+    private FlowPane popularBookscategory;
     @FXML
-    FlowPane mostSubscribedBooks;
+    private FlowPane mostSubscribedBooks;
 
 
     public ShopPageController(ControllerManager manager, ApplicationModel model) {
