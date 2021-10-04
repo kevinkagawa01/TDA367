@@ -5,22 +5,19 @@ import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 
 public class SubscribedBooks {
-    ApplicationModel model;
-    ControllerManager manager;
 
-    public SubscribedBooks(ControllerManager manager, ApplicationModel model) {
-        this.model = model;
+    private ControllerManager manager;
+
+    public SubscribedBooks(ControllerManager manager) {
+
         this.manager = manager;
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SubscribedBooks.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try
-        {
+        try {
             fxmlLoader.load();
-        } catch (IOException exception)
-        {
+        } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
 

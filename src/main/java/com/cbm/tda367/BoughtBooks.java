@@ -5,13 +5,11 @@ import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 
 public class BoughtBooks {
-    ApplicationModel model;
-    ControllerManager manager;
+    private ControllerManager manager;
 
-    public BoughtBooks(ControllerManager manager, ApplicationModel model) {
-        this.model = model;
+    public BoughtBooks(ControllerManager manager) {
+
         this.manager = manager;
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("BoughtBooks.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
