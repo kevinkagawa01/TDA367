@@ -44,7 +44,7 @@ public class SubscribtionPageController extends AnchorPane {
             throw new RuntimeException(exception);
         }
         //bookFront.setImage(book.getImage());
-        textFront.setText(book.getBookName());
+        //textFront.setText(book.getBookName());
 
 
     }
