@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.cbm.tda367.ReservedBooks"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<fx:root prefHeight="141.0" prefWidth="384.0" styleClass="subscription-book-annons-background" stylesheets="@shop-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="73.0" fitWidth="54.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Library/coverSample.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="7.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Datum&gt;">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="41.0" layoutX="257.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" width="101.0" />
+      <Text layoutX="90.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Title&gt;">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="279.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UnReserve">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="271.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Price&gt;">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+   </children>
+</fx:root>
