@@ -12,33 +12,18 @@ public class Book {
     private int bookSales;
 
     private int bookSubscriptions;
-    private Image image;
+    private String imagePath;
 
 
-    private enum bookCategory {
-        MATHEMATICS("Mathematics"), PHYSICS("Physics"), BIOLOGY("Biology"),
-        CHEMISTRY("Chemistry"), PROGRAMMING("Programming"), FICTION("Fiction");
-
-        private String category;
-
-        bookCategory(String category) {
-            this.category = category;
-        }
-
-        public String getCategory() {
-            return category;
-        }
-
-    }
 
 
-    public Book(String bookName, String bookAuthor, String bookCode, int bookSales, int bookSubscriptions, Image image, String category) {
+    public Book(String bookName, String bookAuthor, String bookCode, int bookSales, int bookSubscriptions, String imagePath, String category) {
         this.bookName = bookName;
         this.bookAuthor = bookAuthor;
         this.bookCode = bookCode;
         this.bookSales = bookSales;
         this.bookSubscriptions = bookSubscriptions;
-        this.image = image;
+        this.imagePath = imagePath;
 
     }
 
@@ -56,8 +41,8 @@ public class Book {
 
     }
 
-    public Image getImage() {
-        return image;
+    public String getImagePath() {
+        return imagePath;
     }
 
     public int getBookSales() {
