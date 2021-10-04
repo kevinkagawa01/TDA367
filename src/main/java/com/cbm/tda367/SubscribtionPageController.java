@@ -18,16 +18,16 @@ public class SubscribtionPageController extends AnchorPane {
 
     private final FXMLLoader fxmlLoader;
     private ApplicationModel model;
-    ControllerManager manager;
-    Book book;
-    boolean subscribePressed=true;
+    private ControllerManager manager;
+    private Book book;
+    boolean subscribePressed = true;
 
 
     @FXML
-    ImageView bookFront;
-    Text textFront;
-    Rectangle greenButton;
-    FlowPane bookPane;
+    private ImageView bookFront;
+    private Text textFront;
+    private Rectangle greenButton;
+    private FlowPane bookPane;
 
 
     public SubscribtionPageController(ControllerManager manager, ApplicationModel model) {
@@ -43,22 +43,23 @@ public class SubscribtionPageController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        bookFront.setImage(book.getImage());
+        //bookFront.setImage(book.getImage());
         textFront.setText(book.getBookName());
 
 
     }
+
     public void subscribeButtonPressed() {
         //Om false,greenButton.setFill() till röd
         //annars till grön
 
     }
 
-    public void updateSubscribedCategoryPane(){
+    public void updateSubscribedCategoryPane() {
         List<Book> items = BookDatabase.getInstance().getBookList();
         //getBookCode osv
         bookPane.getChildren().clear();
-        for (Book book:
+        for (Book book :
                 items) {
             // bookPane.getChildren().add();
         }
