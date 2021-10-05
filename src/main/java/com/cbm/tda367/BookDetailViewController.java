@@ -13,29 +13,37 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.util.List;
 
-/** Visual representation of a book in our View/Controller in MVC.
+/**
+ * Visual representation of a book in our View/Controller in MVC.
+ *
  * @author Kevin Pham
  * @author Simon Holst
  * @author Carl-Magnus Wall
  * @author Pegah Amanzadeh
  * @version 1.0
  * @since 1.0
- * */
+ */
 public class BookDetailViewController extends AnchorPane {
     private ApplicationModel model;
     private ControllerManager manager;
     private Book book;
     private boolean subscribePressed = true;
 
-    @FXML private ImageView bookFront;
-    @FXML private Text textFront;
-    @FXML private Rectangle greenButton;
-    @FXML private FlowPane bookPane;
+    @FXML
+    private ImageView bookFront;
+    @FXML
+    private Text textFront;
+    @FXML
+    private Rectangle greenButton;
+    @FXML
+    private FlowPane bookPane;
 
-    /** Creates a detail view of a book.
+    /**
+     * Creates a detail view of a book.
+     *
      * @param manager This controller manager.
-     * @param model Singleton of application model.
-     * */
+     * @param model   Singleton of application model.
+     */
     public BookDetailViewController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
         this.manager = manager;
@@ -56,9 +64,11 @@ public class BookDetailViewController extends AnchorPane {
 
     }
 
-    /** On click method, subscribing/unsubscribing this to a book.
+    /**
+     * On click method, subscribing/unsubscribing this to a book.
+     *
      * @param event Click event.
-     * */
+     */
     @FXML
     public void onClickSubscribeToBook(Event event) {
         //Om false,greenButton.setFill() till röd
@@ -66,8 +76,9 @@ public class BookDetailViewController extends AnchorPane {
 
     }
 
-    /** Updates current user's list of subscribed books in shop page.
-     * */
+    /**
+     * Updates current user's list of subscribed books in shop page.
+     */
     public void updateSubscribedCategoryPane() {
         List<Book> items = BookDatabase.getInstance().getBookList();
         //getBookCode osv
@@ -79,25 +90,31 @@ public class BookDetailViewController extends AnchorPane {
 
     }
 
-    /** On click method, directing the user to the account page.
+    /**
+     * On click method, directing the user to the account page.
+     *
      * @param event Click event.
-     * */
+     */
     @FXML
     public void onClickGoToAccountPage(Event event) {
         manager.goToAccountPage();
     }
 
-    /** On click method, directing the user to the shop page.
+    /**
+     * On click method, directing the user to the shop page.
+     *
      * @param event Click event.
-     * */
+     */
     @FXML
     public void onClickGoToShopPage(Event event) {
         manager.goToShopPage();
     }
 
-    /** On click method, directing the user to the sell page.
+    /**
+     * On click method, directing the user to the sell page.
+     *
      * @param event Click event.
-     * */
+     */
     @FXML
     public void onClickGoToSellPage(Event event) {
         manager.goToSellPage();
