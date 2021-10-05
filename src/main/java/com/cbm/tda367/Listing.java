@@ -2,6 +2,8 @@ package com.cbm.tda367;
 
 import javafx.scene.image.ImageView;
 
+import java.util.Date;
+
 /**
  * Represents a listing
  *
@@ -24,6 +26,7 @@ public class Listing {
 
     private boolean isReserved;
     private boolean isPurchased;
+    private Date date;
 
     /**
      * Constructs a listing
@@ -99,4 +102,7 @@ public class Listing {
     public boolean isPurchased() {
         return isPurchased;
     }
+     public Date getDate(){
+        return date;
+     }
 }

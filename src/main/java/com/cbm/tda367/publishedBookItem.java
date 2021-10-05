@@ -8,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 public class publishedBookItem extends TitledPane {
 
@@ -35,6 +36,7 @@ public class publishedBookItem extends TitledPane {
             throw new RuntimeException(exception);
         }
 
+        LocalDate localDate = LocalDate.now();
         SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd  hh:mm");
         String date = (sdf.format(listing.getDate()));
             setText(listing.getBook()+blankSpace+listing.getPrice()+date);

@@ -13,6 +13,16 @@ import java.io.IOException;
  * @param
  */
 
+/**
+ * Represents the database of Books
+ *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
+ */
 public class AccountPageController extends AnchorPane {
 
     private ControllerManager manager;
@@ -46,8 +56,6 @@ public class AccountPageController extends AnchorPane {
     public void setFxmlLoaderController(AccountPageController controller) {
         fxmlLoader.setController(controller);
     }
-
-
 
 
     /* onclick listeners*/
