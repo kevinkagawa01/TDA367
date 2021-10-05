@@ -108,7 +108,18 @@ public class SellPageViewController extends AnchorPane {
      * @return true when filled in, else false
      */
     private boolean isListingCompleted(){
-        //TODO: is all fields filled in?
+        if( bookCodeTextField.getText().isEmpty()           ||
+            bookPriceTextField.getText().isEmpty()          ||
+            listingDescriptionTextArea.getText().isEmpty()  ||
+            bookCategoryComboBox.getSelectionModel().getSelectedItem().equals("Book Category") ||
+            bookConditionComboBox.getSelectionModel().getSelectedItem().equals("Book Condition")
+            ){
+            System.out.println("Not all fields are filled in!");
+            return false;
+        }
+
+        /* all fields are filled in, return true */
+        System.out.println("Listing was created successfully");
         return true;
     }
 }
