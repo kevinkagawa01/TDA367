@@ -1,23 +1,23 @@
 package com.cbm.tda367;
 
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ApplicationModel implements Observable{
+public class ApplicationModel implements Observable {
 
     private static ApplicationModel applicationModel = new ApplicationModel();
 
-     private BookDatabase bookDatabase;
-     private UserDatabase userDatabase;
-     private ListingDatabase listingDatabase;
-     //TODO: Shouldn't be null from start
-     private User currentlyLoggedInUser;
-     //TODO: Should read current listing number from text file after initial launch
-     private int currentListingNumber = 0;
-     private List<Listing> listings = new ArrayList<>();
-     private List<Observer> viewObservers = new ArrayList<>();
+    private BookDatabase bookDatabase;
+    private UserDatabase userDatabase;
+    //TODO: Shouldn't be null from start
+    private User currentlyLoggedInUser;
+    //TODO: Should read current listing number from text file after initial launch
+    private int currentListingNumber = 0;
+    private List<Listing> listings = new ArrayList<>();
+    private List<Observer> viewObservers = new ArrayList<>();
 
     private ApplicationModel() {
         /* init databases */
@@ -25,64 +25,65 @@ public class ApplicationModel implements Observable{
         userDatabase = UserDatabase.getInstance();
 
         /* add mock-users */
-        userDatabase.addUser(new User("simonhol@student.chalmers.se","hejsan123"));
-        userDatabase.addUser(new User("peg@student.chalmers.se","peg123"));
+        userDatabase.addUser(new User("simonhol@student.chalmers.se", "hejsan123"));
+        userDatabase.addUser(new User("peg@student.chalmers.se", "peg123"));
+        /*add mock-books */
+
+
     }
 
-    public static ApplicationModel getInstance(){
+    public static ApplicationModel getInstance() {
         return applicationModel;
     }
 
     @Override
     public void notifyObservers() {
-        for(Observer observer : viewObservers){
+        for (Observer observer : viewObservers) {
             observer.update();
         }
     }
 
-    public List<Listing> getListings(Listing listing){
-       return new ArrayList<>(listings);
+    public List<Listing> getListings(Listing listing) {
+        return new ArrayList<>(listings);
     }
 
-    private void removeListings(Listing listing){
+    private void removeListings(Listing listing) {
         listings.remove(listing);
     }
 
-    private void editListing(){
+    private void editListing() {
     }
 
-    public void addListing(String bookCode, String condition, String price){
-        listings.add(new Listing(bookDatabase.returnBookWithCorrespondingCode(bookCode),currentListingNumber++,
+    public void addListing(String bookCode, String condition, String price) {
+        listings.add(new Listing(bookDatabase.returnBookWithCorrespondingCode(bookCode), currentListingNumber++,
                 Double.parseDouble(price),
                 new ImageView("src/main/resources/com/cbm/tda367/images/notification_bell.png")
-                ,condition));
+                , condition));
     }
+
+
 
     /*private List<Book> updateSearchResult(){
 
     }
 
      */
-    public void populateBookListing(){
+    public void populateBookListing() {
 
     }
+
     /*public List<Book>calcMostSubscribe(){
 
     }
 
      */
-    public void reservedBook(){
+    public void reservedBook() {
 
     }
-    public void populatePublishedBooks(){
-        for(Listing list:listings){
 
-        }
-    }
-
-    public boolean isLoginSuccessful(String cid, String password){
-        for (User user : userDatabase.getUserList()){
-            if (user.getCid().equals(cid) && user.isUserPassword(password)){
+    public boolean isLoginSuccessful(String cid, String password) {
+        for (User user : userDatabase.getUserList()) {
+            if (user.getCid().equals(cid) && user.isUserPassword(password)) {
                 currentlyLoggedInUser = user;
                 return true;
             }
@@ -90,10 +91,11 @@ public class ApplicationModel implements Observable{
         return false;
     }
 
-    public BookDatabase getBookDatabase(){
+    public BookDatabase getBookDatabase() {
         return bookDatabase;
     }
-    public UserDatabase getUserDatabase(){
+
+    public UserDatabase getUserDatabase() {
         return userDatabase;
     }
 
