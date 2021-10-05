@@ -1,5 +1,5 @@
 package com.cbm.tda367;
-/** Representing an noti
+/** Representing a notification, subclass from abstract notification, returning a message when user has subscribed to a book.
  * @author Kevin Pham
  * @author Simon Holst
  * @author Carl-Magnus Wall
@@ -8,4 +8,5 @@ package com.cbm.tda367;
  * @since 0.1
  * */
 public class SubscribeNotification extends Notification{
+
 }

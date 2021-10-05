@@ -10,5 +10,7 @@ package com.cbm.tda367;
  * */
 public interface Observer {
 
+    /** Updates this status.
+     * */
     void update();
 }

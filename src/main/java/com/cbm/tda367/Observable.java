@@ -10,5 +10,7 @@ package com.cbm.tda367;
  * */
 public interface Observable {
 
+    /** Notifies the implementers observers.
+     * */
     void notifyObservers();
 }
