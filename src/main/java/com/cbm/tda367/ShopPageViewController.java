@@ -10,19 +10,25 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.Flow;
 
-public class ShopPageController extends AnchorPane {
+/**
+ * @param
+ *
+ *
+ *
+ * */
+public class ShopPageViewController extends AnchorPane {
 
     private ControllerManager manager;
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
 
     @FXML
-    private FlowPane popularBookscategory;
+    private FlowPane popularBooksCategory;
     @FXML
     private FlowPane mostSubscribedBooks;
 
 
-    public ShopPageController(ControllerManager manager, ApplicationModel model) {
+    public ShopPageViewController(ControllerManager manager, ApplicationModel model) {
         this.manager = manager;
         this.model = model;
 
@@ -40,10 +46,10 @@ public class ShopPageController extends AnchorPane {
 
     public void updatePopularCategoryPane(){
         List<Book> items = BookDatabase.getInstance().getBookList();
-        popularBookscategory.getChildren().clear();
+        popularBooksCategory.getChildren().clear();
         for (Book book:
                 items) {
-           // popularBooks.getChildren().add();
+           // popularBooksCategory.getChildren().add();
         }
 
     }

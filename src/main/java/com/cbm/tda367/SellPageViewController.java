@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class SellPageController extends AnchorPane {
+public class SellPageViewController extends AnchorPane {
 
     private ControllerManager manager;
     private ApplicationModel model;
@@ -24,7 +24,7 @@ public class SellPageController extends AnchorPane {
     @FXML private ImageView bookImageView;
     @FXML private TextArea listingDescriptionTextArea;
 
-    public SellPageController(ControllerManager manager, ApplicationModel model) {
+    public SellPageViewController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
         this.manager = manager;
 
