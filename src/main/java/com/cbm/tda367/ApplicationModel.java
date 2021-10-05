@@ -11,6 +11,7 @@ public class ApplicationModel implements Observable{
 
      private BookDatabase bookDatabase;
      private UserDatabase userDatabase;
+     private ListingDatabase listingDatabase;
      //TODO: Shouldn't be null from start
      private User currentlyLoggedInUser;
      //TODO: Should read current listing number from text file after initial launch
@@ -72,6 +73,11 @@ public class ApplicationModel implements Observable{
      */
     public void reservedBook(){
 
+    }
+    public void populatePublishedBooks(){
+        for(Listing list:listings){
+
+        }
     }
 
     public boolean isLoginSuccessful(String cid, String password){

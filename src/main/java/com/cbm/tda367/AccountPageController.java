@@ -18,7 +18,7 @@ public class AccountPageController extends AnchorPane {
     private FXMLLoader fxmlLoader;
 
     @FXML
-    Accordion publishedBooks;
+    Accordion publishedBooksAccordion;
     ScrollPane published;
 
 
@@ -38,12 +38,7 @@ public class AccountPageController extends AnchorPane {
             throw new RuntimeException(exception);
         }
     }
-    private static List<publishedBook>publishedBook=new ArrayList<>(); // lägger published bok i en lista
-
-    public void addToPublishedBooks(){
-
-    }
-
+    //private static List<publishedBookItem>publishedBook=new ArrayList<>(); // lägger published bok i en lista
 
 
     public void setFxmlLoaderController(AccountPageController controller) {

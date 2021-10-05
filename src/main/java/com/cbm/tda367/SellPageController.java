@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.util.List;
 
 public class SellPageController extends AnchorPane {
 
@@ -73,6 +74,8 @@ public class SellPageController extends AnchorPane {
                 manager.goToAccountPage();
                 /* open accordion menu for my listings */
                 //TODO: add code to open correct tab in accordion
+
+
         }
     }
 

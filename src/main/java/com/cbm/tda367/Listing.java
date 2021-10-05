@@ -2,6 +2,9 @@ package com.cbm.tda367;
 
 import javafx.scene.image.ImageView;
 
+import java.time.DayOfWeek;
+import java.util.Date;
+
 public class Listing {
 
     private final Book book;
@@ -10,6 +13,9 @@ public class Listing {
     private String condition;
     private final double price;
     private final ImageView image;
+    private Date date;
+
+
 
     private boolean isReserved;
     private boolean isCompleted;
@@ -48,4 +54,11 @@ public class Listing {
     public boolean isCompleted() {
         return isCompleted;
     }
+
+
+    public Date getDate(){
+        return date;
+
+    }
+
 }
