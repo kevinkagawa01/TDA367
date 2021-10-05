@@ -57,13 +57,12 @@ public class ApplicationModel implements Observable {
     private void editListing() {
     }
 
-   /* public void addListing(String bookCode, String condition, String price) {
-        listings.add(new Listing(bookDatabase.returnBookWithCorrespondingCode(bookCode), currentListingNumber++,Double.parseDouble(price),
-                new ImageView("src/main/resources/com/cbm/tda367/images/notification_bell.png")
-                , condition));
+    public void addListing(String bookCode, String condition, String price) {
+        listings.add(new Listing(bookDatabase.returnBookWithCorrespondingCode(bookCode), currentListingNumber++,
+                Double.parseDouble(price),
+                "src/main/resources/com/cbm/tda367/images/notification_bell.png",
+                condition));
     }
-
-    */
 
 
 

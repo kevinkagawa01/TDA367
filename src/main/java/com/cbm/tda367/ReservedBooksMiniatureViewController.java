@@ -23,6 +23,7 @@ public class ReservedBooksMiniatureViewController {
 
     /**
      * Constructs the view and defines its controller.
+     *
      * @param manager A ControllerManager. Handles all controllers.
      */
     public ReservedBooksMiniatureViewController(ControllerManager manager) {

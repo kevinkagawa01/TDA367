@@ -1,20 +1,25 @@
 package com.cbm.tda367;
-/** Representing an abstract notification, purposed to have subclasses with specific notification messages.
+
+/**
+ * Representing an abstract notification, purposed to have subclasses with specific notification messages.
+ *
  * @author Kevin Pham
  * @author Simon Holst
  * @author Carl-Magnus Wall
  * @author Pegah Amanzadeh
  * @version 0.3
  * @since 0.1
- * */
+ */
 public abstract class Notification {
 
     private String notificationMessage;
 
-    /** Returns this notification message.
+    /**
+     * Returns this notification message.
+     *
      * @return this notification message.
-     * */
-    private String getNotificationMessage(){
+     */
+    private String getNotificationMessage() {
         return notificationMessage;
     }
 }
