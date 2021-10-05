@@ -3,17 +3,28 @@ package com.cbm.tda367;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Accordion;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class AccountPageViewController extends AnchorPane {
+/** Create account page class
+ * @param
+ */
+
+public class AccountPageController extends AnchorPane {
 
     private ControllerManager manager;
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
 
-    public AccountPageViewController(ControllerManager manager, ApplicationModel model) {
+    @FXML
+    Accordion publishedBooksAccordion;
+    ScrollPane published;
+
+
+    public AccountPageController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
         this.manager = manager;
 
@@ -29,12 +40,29 @@ public class AccountPageViewController extends AnchorPane {
             throw new RuntimeException(exception);
         }
     }
+    //private static List<publishedBookItem>publishedBook=new ArrayList<>(); // lägger published bok i en lista
+
+
+    public void setFxmlLoaderController(AccountPageController controller) {
+        fxmlLoader.setController(controller);
+    }
+
+
+
 
     /* onclick listeners*/
+
+    /** move to ShopPage by clicking on this button
+     * @param event
+     */
+
     @FXML
     public void shopButton(Event event) {
         manager.goToShopPage();
     }
+    /** move to SellPage by clicking on this button
+     * @param event
+     */
 
     @FXML
     public void addButton(Event event) {

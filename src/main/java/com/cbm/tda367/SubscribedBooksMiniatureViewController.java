@@ -4,6 +4,16 @@ import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
 
+/** Visual representation of a miniature view
+ *  under the category SubscribedBooks on the account page
+ *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
+ * */
 public class SubscribedBooksMiniatureViewController {
 
     private ControllerManager manager;
