@@ -12,6 +12,15 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.util.List;
 
+/** Visual representation of the Sell page and defines it's controllers
+ *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
+ * */
 public class SellPageViewController extends AnchorPane {
 
     private ControllerManager manager;
@@ -44,23 +53,38 @@ public class SellPageViewController extends AnchorPane {
         initSceneBuilderElements();
     }
 
+    /** add categories to all combo-boxes in the sell page
+     *
+     */
     private void initSceneBuilderElements() {
-        /* add categories to all combo-boxes in the sell page */
+
         bookCategoryComboBox.getItems().addAll(
                 "Mathematics","Physics","Biology","Chemistry","Programming","Fiction" );
         bookConditionComboBox.getItems().addAll("New","Mint","Used","Damaged");
     }
 
+    /** On-click method that navigates the application to the ShopPage
+     *
+     * @param event
+     */
     @FXML
     protected void onClickGoToShopPage(Event event){
         manager.goToShopPage();
     }
 
+    /** On-click method that navigates the application to the AccountPage
+     *
+     * @param event
+     */
     @FXML
     protected void onClickGoToAccountPage(Event event){
         manager.goToAccountPage();
     }
 
+    /** A method that bakes all the inputs and creates a listing
+     *
+     * @param event
+     */
     @FXML
     protected void onClickCreateListing(Event event){
         System.out.println("Vi har skapat en listing!");
@@ -79,6 +103,10 @@ public class SellPageViewController extends AnchorPane {
         }
     }
 
+    /** Checks if all fields are filled in
+     *
+     * @return true when filled in, else false
+     */
     private boolean isListingCompleted(){
         //TODO: is all fields filled in?
         return true;

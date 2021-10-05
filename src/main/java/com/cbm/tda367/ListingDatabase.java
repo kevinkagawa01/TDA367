@@ -4,34 +4,67 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Represents the database of listings
+ *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
+ */
+
 public class ListingDatabase {
 
-    private List<Listing>listingList=new ArrayList<>();
+    private List<Listing> listingList = new ArrayList<>();
 
 
     private static ListingDatabase listingDatabase = new ListingDatabase();
 
-    private ListingDatabase(){
+    /**
+     * Constructs the Listing database singleton.
+     */
+    private ListingDatabase() {
 
     }
+
+    /**
+     * Getter for the Listing database singleton.
+     *
+     * @return The listing database instance.
+     */
     public static ListingDatabase getInstance() {
         return listingDatabase;
     }
 
-
-    public void addListing(Listing listing){
+    /**
+     * Adds a listing to the list of listing.
+     *
+     * @param listing An ArrayList of listings.
+     */
+    public void addListing(Listing listing) {
         listingList.add(listing);
     }
 
-    public void removeListing(Listing listing){
+    /**
+     * Removes a listing from the list of listings.
+     *
+     * @param listing An ArrayList of listings.
+     */
+    public void removeListing(Listing listing) {
         listingList.remove(listing);
 
     }
 
-    public List<Listing> getListings(){
+    /**
+     * Retrieves the list of listings.
+     *
+     * @return The list of listings.
+     */
+    public List<Listing> getListings() {
         return new ArrayList<>(listingList);
     }
-
 
 
 }

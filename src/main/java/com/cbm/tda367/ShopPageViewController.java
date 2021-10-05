@@ -14,11 +14,14 @@ import java.util.concurrent.Flow;
  */
 
 
-/**
- * @param
+/** A visual representation of the Shop page
  *
- *
- *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
  * */
 public class ShopPageViewController extends AnchorPane {
 
@@ -26,10 +29,8 @@ public class ShopPageViewController extends AnchorPane {
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
 
-    @FXML
-    private FlowPane popularBooksCategory;
-    @FXML
-    private FlowPane mostSubscribedBooks;
+    @FXML private FlowPane popularBooksCategory;
+    @FXML private FlowPane mostSubscribedBooks;
 
 
     public ShopPageViewController(ControllerManager manager, ApplicationModel model) {
@@ -48,6 +49,9 @@ public class ShopPageViewController extends AnchorPane {
         }
     }
 
+    /** Updates the list of books under Popular category
+     *
+     */
     public void updatePopularCategoryPane(){
         List<Book> items = BookDatabase.getInstance().getBookList();
         popularBooksCategory.getChildren().clear();
@@ -57,6 +61,10 @@ public class ShopPageViewController extends AnchorPane {
         }
 
     }
+
+    /** Updates the list of books under mostSubscribed category
+     *
+     */
     public void updateSubscribedCategoryPane(){
         List<Book> items = BookDatabase.getInstance().getBookList();
         mostSubscribedBooks.getChildren().clear();
@@ -67,11 +75,20 @@ public class ShopPageViewController extends AnchorPane {
 
     }
 
+    /** On-click method that navigates the application to the accountPage
+     *
+     * @param event
+     */
     @FXML
     public void accountButton(Event event) {
         manager.goToAccountPage();
     }
 
+
+    /** On-click method that navigates the application to the sellPage
+     *
+     * @param event
+     */
     @FXML
     public void addButton(Event event) {
         manager.goToSellPage();

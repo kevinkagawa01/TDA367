@@ -6,8 +6,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-
-public class LoginPageController extends AnchorPane {
+/** Visual representation of the loginPage/firstPage of the application.
+ *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
+ * */
+public class LoginPageViewController extends AnchorPane {
 
     ControllerManager manager;
     ApplicationModel model;
@@ -17,7 +25,7 @@ public class LoginPageController extends AnchorPane {
     @FXML private TextField cidTextField;
     @FXML private TextField passwordTextField;
 
-    public LoginPageController(ControllerManager manager, ApplicationModel model) {
+    public LoginPageViewController(ControllerManager manager, ApplicationModel model) {
         this.manager = manager;
         this.model = model;
         fxmlLoader = new FXMLLoader(getClass().getResource("login-page.fxml"));
@@ -33,13 +41,17 @@ public class LoginPageController extends AnchorPane {
         }
     }
 
+    /**
+     * On-click method that compares the input from the textfields to the userDataBase
+     * and sees wether there is a matching user.
+     */
     @FXML
     public void onClickAttemptToLogin(){
         if (model.isLoginSuccessful(cidTextField.getText(),passwordTextField.getText())){
             manager.goToShopPage();
         } else {
-            //TODO: something went wrong with login!
-            System.out.println("Nej");
+            //TODO: Create visual pliancy informing the user that there was an issue logging in.
+            System.out.println("Unauthorized login!");
         }
     }
 }
