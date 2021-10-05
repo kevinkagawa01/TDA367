@@ -4,14 +4,14 @@ import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
 
-public class PublishedBooks {
+public class ReservedBooksMiniatureViewController {
 
     private ControllerManager manager;
 
-    public PublishedBooks(ControllerManager manager) {
+    public ReservedBooksMiniatureViewController(ControllerManager manager) {
         this.manager = manager;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PublishedBooks.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ReservedBooks.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
