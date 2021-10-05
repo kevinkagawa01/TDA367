@@ -2,9 +2,7 @@ package com.cbm.tda367;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
-/*
 
- */
 
 /**
  * Represents a Book

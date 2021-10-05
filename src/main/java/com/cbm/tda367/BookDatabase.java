@@ -1,6 +1,5 @@
 package com.cbm.tda367;
 
-// Singelton pattern used in this class
 
 import javafx.scene.image.Image;
 
@@ -29,7 +28,7 @@ public class BookDatabase {
     private BookDatabase() {
 
         Book korv = new Book("mårtan", "123", "0", 0, 0, "src/main/resources/Library/bookSample.png", "Fiction");
-       //Kan ej hitt url samt har problem med att ENUM inparametern
+        //Kan ej hitt url samt har problem med att ENUM inparametern
 
         // Book korv = new Book("mårtan", "123", "0", 0, 0, new Image("src/main/resources/Library/bookSample.png"), "Fiction");
         //Kan ej hitt url samt har problem med att ENUM inparametern

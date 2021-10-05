@@ -14,11 +14,9 @@ public class BoughtBooksMiniatureViewController {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try
-        {
+        try {
             fxmlLoader.load();
-        } catch (IOException exception)
-        {
+        } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
 

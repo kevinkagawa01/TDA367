@@ -11,7 +11,8 @@ import java.util.List;
 public class BookView {
 
     private Book book;
-    @FXML private ImageView bookView;
+    @FXML
+    private ImageView bookView;
 
     public BookView(Book book) {
 
@@ -19,9 +20,9 @@ public class BookView {
         shopPageBook.setRoot(this);
         shopPageBook.setController(this);
 
-        try{
+        try {
             shopPageBook.load();
-        } catch (IOException exception){
+        } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
 

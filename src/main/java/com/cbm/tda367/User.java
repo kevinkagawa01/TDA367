@@ -7,6 +7,18 @@ import java.util.List;
 @param
  */
 
+
+/**
+ * Represents the database of Books
+ *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
+ */
+
 public class User {
 
     private String cid;
@@ -21,6 +33,14 @@ public class User {
     private HashMap<String,Book> subscribedBooks = new HashMap<>();
     private HashMap<Integer,Listing> previousPurchases = new HashMap<>();
     private List<Notification> notifications = new ArrayList<>();
+
+
+    /** the class create user
+     @param
+     */
+
+
+
 
     public User(String cid, String password) {
         this.cid = cid;
