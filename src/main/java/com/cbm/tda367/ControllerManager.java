@@ -16,9 +16,9 @@ public class ControllerManager implements Initializable,Observer {
     ApplicationModel model = ApplicationModel.getInstance();
     /* application pages */
     private LoginPageController loginPage = new LoginPageController(this, model);
-    private ShopPageController shopPage = new ShopPageController(this, model);
-    private SellPageController sellPage = new SellPageController(this, model);
-    private AccountPageController accountPage = new AccountPageController(this, model);
+    private ShopPageViewController shopPage = new ShopPageViewController(this, model);
+    private SellPageViewController sellPage = new SellPageViewController(this, model);
+    private AccountPageViewController accountPage = new AccountPageViewController(this, model);
     private BookDetailViewController subPage=new BookDetailViewController(this,model);
 
     @Override

@@ -7,13 +7,13 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class AccountPageController extends AnchorPane {
+public class AccountPageViewController extends AnchorPane {
 
     private ControllerManager manager;
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
 
-    public AccountPageController(ControllerManager manager, ApplicationModel model) {
+    public AccountPageViewController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
         this.manager = manager;
 
