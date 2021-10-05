@@ -34,6 +34,10 @@ public class ControllerManager implements Initializable,Observer {
         //TODO: what should views update when model is updated?
     }
 
+    protected void openPublishedListingsAccordionInAccountPage(){
+        accountPage.openPublishedListingsAccordion();
+    }
+
     void goToShopPage(){
         shopPage.toFront();
     }
