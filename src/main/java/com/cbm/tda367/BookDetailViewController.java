@@ -13,28 +13,34 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.util.List;
 
-
-public class SubscribtionPageController extends AnchorPane {
-
-    private final FXMLLoader fxmlLoader;
+/** Class Description
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
+ * */
+public class BookDetailViewController extends AnchorPane {
     private ApplicationModel model;
     private ControllerManager manager;
     private Book book;
-    boolean subscribePressed = true;
+    private boolean subscribePressed = true;
 
+    @FXML private ImageView bookFront;
+    @FXML private Text textFront;
+    @FXML private Rectangle greenButton;
+    @FXML private FlowPane bookPane;
 
-    @FXML
-    private ImageView bookFront;
-    private Text textFront;
-    private Rectangle greenButton;
-    private FlowPane bookPane;
-
-
-    public SubscribtionPageController(ControllerManager manager, ApplicationModel model) {
+    /**
+     *
+     *
+     * */
+    public BookDetailViewController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
         this.manager = manager;
 
-        fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-subscription.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-subscription.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -55,6 +61,9 @@ public class SubscribtionPageController extends AnchorPane {
 
     }
 
+    /**
+     * Updates current user's list of subscribed books in shop page.
+     * */
     public void updateSubscribedCategoryPane() {
         List<Book> items = BookDatabase.getInstance().getBookList();
         //getBookCode osv

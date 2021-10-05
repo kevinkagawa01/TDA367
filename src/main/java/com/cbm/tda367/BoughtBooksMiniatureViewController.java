@@ -4,10 +4,10 @@ import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
 
-public class BoughtBooks {
+public class BoughtBooksMiniatureViewController {
     private ControllerManager manager;
 
-    public BoughtBooks(ControllerManager manager) {
+    public BoughtBooksMiniatureViewController(ControllerManager manager) {
 
         this.manager = manager;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("BoughtBooks.fxml"));
