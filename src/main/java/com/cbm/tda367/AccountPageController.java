@@ -8,8 +8,10 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
+/** Create account page class
+ * @param
+ */
 
 public class AccountPageController extends AnchorPane {
 
@@ -49,10 +51,18 @@ public class AccountPageController extends AnchorPane {
 
 
     /* onclick listeners*/
+
+    /** move to ShopPage by clicking on this button
+     * @param event
+     */
+
     @FXML
     public void shopButton(Event event) {
         manager.goToShopPage();
     }
+    /** move to SellPage by clicking on this button
+     * @param event
+     */
 
     @FXML
     public void addButton(Event event) {
