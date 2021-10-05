@@ -60,8 +60,8 @@ public class ApplicationModel implements Observable {
     public void addListing(String bookCode, String condition, String price) {
         listings.add(new Listing(bookDatabase.returnBookWithCorrespondingCode(bookCode), currentListingNumber++,
                 Double.parseDouble(price),
-                new ImageView("src/main/resources/com/cbm/tda367/images/notification_bell.png")
-                , condition));
+                "src/main/resources/com/cbm/tda367/images/notification_bell.png",
+                condition));
     }
 
 

@@ -42,8 +42,6 @@ public class Listing {
         this.listingNumber = listingNumber;
         this.price = price;
         this.imagePath = imagePath;
-
-
     }
 
     /**
