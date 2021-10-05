@@ -12,11 +12,18 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.util.List;
 
-
-public class DetailedBookView extends AnchorPane {
-    ApplicationModel model;
-    ControllerManager manager;
-    Listing ads;
+/** Visual representation of a listing in our View/Controller in MVC.
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
+ * */
+public class ListingDetailViewController extends AnchorPane {
+    private ApplicationModel model;
+    private ControllerManager manager;
+    private Listing listing;
 
     @FXML
     private ImageView starRatings;
@@ -33,8 +40,13 @@ public class DetailedBookView extends AnchorPane {
     @FXML
     private FlowPane bookPictures;
 
-
-    public DetailedBookView(ControllerManager manager, ApplicationModel model) {
+    /**
+     * Creates a detail view of a listing.
+     *
+     * @param manager This controller manager.
+     * @param model   Singleton of application model.
+     */
+    public ListingDetailViewController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
         this.manager = manager;
 
@@ -52,18 +64,30 @@ public class DetailedBookView extends AnchorPane {
     }
 
 
+    /**
+     * On click method, directing the user to the account page.
+     * @param event Click event.
+     */
     @FXML
-    public void accountButton(Event event) {
+    public void onClickGoToAccountPage(Event event) {
         manager.goToAccountPage();
     }
 
+    /**
+     * On click method, directing the user to the shop page.
+     * @param event Click event.
+     */
     @FXML
-    public void shopButton(Event event) {
+    public void onClickGoToShopPage(Event event) {
         manager.goToShopPage();
     }
 
+    /**
+     * On click method, directing the user to the sell page.
+     * @param event Click event.
+     */
     @FXML
-    public void addButton(Event event) {
+    public void onClickGoToSellPage(Event event) {
         manager.goToSellPage();
     }
 }

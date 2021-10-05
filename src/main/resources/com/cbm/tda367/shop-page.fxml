@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="731.0" maxWidth="411.0" prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: #FFFFFF;" stylesheets="@shop-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="731.0" maxWidth="411.0" prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: #FFFFFF;" stylesheets="@shop-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="334.0" fitWidth="333.0" layoutX="170.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -60,10 +60,10 @@
       </ScrollPane>
       <ScrollPane layoutX="19.0" layoutY="413.0" opacity="0.0" prefHeight="200.0" prefWidth="379.0">
          <content>
-            <FlowPane opacity="0.0" prefHeight="188.0" prefWidth="383.0" />
+            <FlowPane fx:id="popularBooksCategory" opacity="0.0" prefHeight="188.0" prefWidth="383.0" />
          </content>
       </ScrollPane>
-      <Text fx:id="popularBooksCategory" layoutX="18.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Popular">
+      <Text layoutX="18.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Popular">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
