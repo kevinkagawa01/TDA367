@@ -13,7 +13,7 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.util.List;
 
-/** Class Description
+/** Visual representation of a book in our View/Controller in MVC.
  * @author Kevin Pham
  * @author Simon Holst
  * @author Carl-Magnus Wall
@@ -32,13 +32,14 @@ public class BookDetailViewController extends AnchorPane {
     @FXML private Rectangle greenButton;
     @FXML private FlowPane bookPane;
 
-    /**
-     *
-     *
+    /** Creates a detail view of a book.
+     * @param manager This controller manager.
+     * @param model Singleton of application model.
      * */
     public BookDetailViewController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
         this.manager = manager;
+        this.book = book;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-subscription.fxml"));
         fxmlLoader.setRoot(this);
@@ -55,14 +56,17 @@ public class BookDetailViewController extends AnchorPane {
 
     }
 
-    public void subscribeButtonPressed() {
+    /** On click method, subscribing/unsubscribing this to a book.
+     * @param event Click event.
+     * */
+    @FXML
+    public void onClickSubscribeToBook(Event event) {
         //Om false,greenButton.setFill() till röd
         //annars till grön
 
     }
 
-    /**
-     * Updates current user's list of subscribed books in shop page.
+    /** Updates current user's list of subscribed books in shop page.
      * */
     public void updateSubscribedCategoryPane() {
         List<Book> items = BookDatabase.getInstance().getBookList();
@@ -75,19 +79,27 @@ public class BookDetailViewController extends AnchorPane {
 
     }
 
-
+    /** On click method, directing the user to the account page.
+     * @param event Click event.
+     * */
     @FXML
-    public void accountButton(Event event) {
+    public void onClickGoToAccountPage(Event event) {
         manager.goToAccountPage();
     }
 
+    /** On click method, directing the user to the shop page.
+     * @param event Click event.
+     * */
     @FXML
-    public void shopButton(Event event) {
+    public void onClickGoToShopPage(Event event) {
         manager.goToShopPage();
     }
 
+    /** On click method, directing the user to the sell page.
+     * @param event Click event.
+     * */
     @FXML
-    public void addButton(Event event) {
+    public void onClickGoToSellPage(Event event) {
         manager.goToSellPage();
     }
 
