@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="731.0" maxWidth="411.0" prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: #FFFFFF;" stylesheets="@shop-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="731.0" maxWidth="411.0" prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: #FFFFFF;" stylesheets="@shop-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="334.0" fitWidth="333.0" layoutX="170.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -63,7 +63,7 @@
             <FlowPane opacity="0.0" prefHeight="188.0" prefWidth="383.0" />
          </content>
       </ScrollPane>
-      <Text layoutX="23.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+      <Text fx:id="popularBooksCategory" layoutX="18.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Popular">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -75,7 +75,7 @@
       </Text>
       <Text layoutX="56.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Read together and grow together" textAlignment="CENTER" wrappingWidth="299.9999999999999">
          <font>
-            <Font name="System Bold" size="32.0" />
+            <Font name="System Bold" size="27.0" />
          </font>
       </Text>
    </children>

@@ -83,6 +83,18 @@ public class ApplicationModel implements Observable {
     public void reservedBook() {
 
     }
+    /*
+    public List returnPopularbooks(List books){
+        List allBooks= BookDatabase.getInstance().getBookList();
+        List popularBooks= new ArrayList();
+        for(int i=0;i<allBooks.size();i++){
+
+
+        }
+
+        return allBooks;
+    }*/
+
 
     public boolean isLoginSuccessful(String cid, String password) {
         for (User user : userDatabase.getUserList()) {
