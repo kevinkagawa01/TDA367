@@ -38,8 +38,8 @@ public class LoginPageController extends AnchorPane {
         if (model.isLoginSuccessful(cidTextField.getText(),passwordTextField.getText())){
             manager.goToShopPage();
         } else {
-            //TODO: something went wrong with login!
-            System.out.println("Nej");
+            //TODO: Create visual pliancy informing the user that there was an issue logging in.
+            System.out.println("Unauthorized login!");
         }
     }
 }
