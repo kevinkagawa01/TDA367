@@ -32,6 +32,7 @@ public class ControllerManager implements Initializable,Observer {
     @Override
     public void update() {
         //TODO: what should views update when model is updated?
+
     }
 
     protected void openPublishedListingsAccordionInAccountPage(){

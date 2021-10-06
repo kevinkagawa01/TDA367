@@ -13,14 +13,14 @@ import java.util.List;
  * */
 public class UserDatabase {
 
-    private List<User>userList=new ArrayList<>();
+    private List<User> userList = new ArrayList<>();
 
-    private static UserDatabase userDatabase=new UserDatabase();
-
-
-
+    private static UserDatabase userDatabase = new UserDatabase();
+    
     private UserDatabase(){
-
+        userList.add(new User("simonhol@student.chalmers.se", "hejsan123"));
+        userList.add(new User("peg@student.chalmers.se", "peg123"));
+        userList.add(new User("1","1"));
     }
 
     /**  Return the instance of the class through Singleton
@@ -31,22 +31,6 @@ public class UserDatabase {
         return userDatabase;
     }
 
-    /** Adds a user to the userList
-     *
-     * @param user
-     */
-    public void addUser(User user){
-        userList.add(user);
-    }
-
-    /** Removes a user to the userList
-     *
-     * @param user
-     */
-    public void removeUser(User user){
-        userList.remove(user);
-    }
-
     /** A getter for the userList
      *
      * @return a new arraylist of the userlist
@@ -54,6 +38,4 @@ public class UserDatabase {
     public List<User> getUserList(){
         return new ArrayList<>(userList);
     }
-
-
 }

@@ -31,8 +31,7 @@ public class Book {
      * @param bookName          The name of a Book as a String.
      * @param bookAuthor        The author of a Book as a String.
      * @param bookCode          The code (ISBN) of a Book as a String.
-     * @param bookSales         The number of times a specific book has been sold, represented as an integer.
-     * @param bookSubscriptions The number of current subscribers of a Book, represented as an integer.
+
      * @param imagePath         The path of a picture of a Book, represented as a String.
      * @param category          The category of a Book, represented as a String.
      */
