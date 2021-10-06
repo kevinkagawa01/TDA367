@@ -20,6 +20,7 @@ public class Application extends javafx.application.Application {
 
         /* Add observers to model */
         model.addObserver(controllerManager);
+        model.notifyObservers();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mainAnchorPane.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 411, 731);

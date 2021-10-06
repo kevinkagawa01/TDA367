@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Text?>
 
-<fx:root prefHeight="250.0" prefWidth="500.0" stylesheets="@shop-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxWidth="411.0" prefHeight="250.0" prefWidth="411.0" stylesheets="@shop-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ScrollPane layoutY="62.0" prefHeight="188.0" prefWidth="500.0" vbarPolicy="NEVER">
+      <ScrollPane layoutY="62.0" prefHeight="290.0" prefWidth="411.0" style="-fx-background: transparent; -fx-background-color: transparent;" vbarPolicy="NEVER">
          <content>
-            <FlowPane prefHeight="188.0" prefWidth="500.0" />
+            <FlowPane fx:id="shopPageCategoryFlowPane" orientation="VERTICAL" prefHeight="188.0" prefWidth="411.0" />
          </content>
       </ScrollPane>
-      <Text layoutX="50.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section-headers" text="Text" wrappingWidth="400.0" />
+      <Text fx:id="shopPageCategoryTitle" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section-headers" text="Text" textAlignment="CENTER" wrappingWidth="411.0" />
    </children>
 </fx:root>
