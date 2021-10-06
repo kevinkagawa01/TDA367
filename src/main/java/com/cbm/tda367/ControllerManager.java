@@ -7,6 +7,17 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Represents the database of Books
+ *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
+ */
+
 public class ControllerManager implements Initializable,Observer {
 
     @FXML
@@ -29,19 +40,34 @@ public class ControllerManager implements Initializable,Observer {
         mainAnchorPane.getChildren().add(loginPage);
     }
 
+    /**
+     * this method will update modelen
+     */
+
     @Override
     public void update() {
         //TODO: what should views update when model is updated?
     }
 
+
+    /**
+     * Navigate to ShopPage
+     */
     void goToShopPage(){
         shopPage.toFront();
     }
 
+    /**
+     * Navigate to SellPage
+     */
     void goToSellPage(){
         sellPage.toFront();
     }
 
+
+    /**
+     * Navigate to AccountPage
+     */
     void goToAccountPage(){
         accountPage.toFront();
     }

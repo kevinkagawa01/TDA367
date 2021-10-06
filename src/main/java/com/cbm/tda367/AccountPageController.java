@@ -34,6 +34,7 @@ public class AccountPageController extends AnchorPane {
     ScrollPane published;
 
 
+
     public AccountPageController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
         this.manager = manager;

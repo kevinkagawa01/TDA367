@@ -36,7 +36,8 @@ public class User {
 
 
     /** the class create user
-     @param
+     @param cid                 Cid is students E-mailaddress
+     @param password            Password to cid
      */
 
 
@@ -75,9 +76,14 @@ public class User {
         return (double) Math.round(value * scale) / scale;
     }
 
+    /** return the cid
+     * @param
+    @  */
+
     public String getCid() {
         return cid;
     }
+
 
     /** return password
      * @param passwordGuess
