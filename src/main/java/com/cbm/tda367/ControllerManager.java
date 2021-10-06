@@ -15,11 +15,11 @@ public class ControllerManager implements Initializable,Observer {
     /* model */
     ApplicationModel model = ApplicationModel.getInstance();
     /* application pages */
-    private LoginPageViewController loginPage = new LoginPageViewController(this, model);
-    private ShopPageViewController shopPage = new ShopPageViewController(this, model);
-    private SellPageViewController sellPage = new SellPageViewController(this, model);
-    private AccountPageController accountPage = new AccountPageController(this, model);
-    private BookDetailViewController subPage=new BookDetailViewController(this,model);
+    private final LoginPageViewController loginPage = new LoginPageViewController(this, model);
+    private final ShopPageViewController shopPage = new ShopPageViewController(this, model);
+    private final SellPageViewController sellPage = new SellPageViewController(this, model);
+    private final AccountPageController accountPage = new AccountPageController(this, model);
+    private final BookDetailViewController bookDetailPage = new BookDetailViewController(this,model);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

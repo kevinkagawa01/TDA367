@@ -16,7 +16,7 @@ public class UserDatabase {
     private List<User> userList = new ArrayList<>();
 
     private static UserDatabase userDatabase = new UserDatabase();
-    
+
     private UserDatabase(){
         userList.add(new User("simonhol@student.chalmers.se", "hejsan123"));
         userList.add(new User("peg@student.chalmers.se", "peg123"));
