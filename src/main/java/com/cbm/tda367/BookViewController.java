@@ -6,15 +6,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
-import java.util.List;
 
-public class BookView {
+public class BookViewController {
 
     private Book book;
-    @FXML
-    private ImageView bookView;
+    @FXML private ImageView bookImageView;
 
-    public BookView(Book book) {
+    public BookViewController(Book book) {
 
         FXMLLoader shopPageBook = new FXMLLoader(getClass().getResource("shop-page-book.fxml"));
         shopPageBook.setRoot(this);
@@ -26,7 +24,7 @@ public class BookView {
             throw new RuntimeException(exception);
         }
 
-        bookView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(book.getImagePath())));
+        bookImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(book.getImagePath())));
     }
 
 

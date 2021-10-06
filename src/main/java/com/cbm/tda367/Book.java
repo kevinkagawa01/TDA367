@@ -19,10 +19,8 @@ public class Book {
 
     private String bookName;
     private String bookAuthor;
-
     private final String bookCode;
     private int bookSales;
-
     private int bookSubscriptions;
     private String imagePath;
 
@@ -38,12 +36,12 @@ public class Book {
      * @param imagePath         The path of a picture of a Book, represented as a String.
      * @param category          The category of a Book, represented as a String.
      */
-    public Book(String bookName, String bookAuthor, String bookCode, int bookSales, int bookSubscriptions, String imagePath, String category) {
+    public Book(String bookName, String bookAuthor, String bookCode, String imagePath, String category) {
         this.bookName = bookName;
         this.bookAuthor = bookAuthor;
         this.bookCode = bookCode;
-        this.bookSales = bookSales;
-        this.bookSubscriptions = bookSubscriptions;
+        this.bookSales = 0;
+        this.bookSubscriptions = 0;
         this.imagePath = imagePath;
 
     }
