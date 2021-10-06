@@ -16,7 +16,7 @@ import java.io.IOException;
  * @version 1.0
  * @since 0.5
  */
-public class AccountPageController extends AnchorPane {
+public class AccountPageController extends AnchorPane implements Observer{
 
     private ControllerManager manager;
     private ApplicationModel model;
@@ -71,5 +71,10 @@ public class AccountPageController extends AnchorPane {
     protected void openPublishedListingsAccordion() {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
+    }
+
+    @Override
+    public void update() {
+
     }
 }

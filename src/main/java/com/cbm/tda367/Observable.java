@@ -13,4 +13,8 @@ public interface Observable {
     /** Notifies the implementers observers.
      * */
     void notifyObservers();
+
+    /** Adds observer to implementer
+     * */
+    void addObserver(Observer observer);
 }

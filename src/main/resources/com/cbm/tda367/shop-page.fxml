@@ -55,20 +55,20 @@
       </ImageView>
       <ScrollPane layoutX="19.0" layoutY="181.0" opacity="0.0" prefHeight="188.0" prefWidth="379.0">
          <content>
-            <FlowPane opacity="0.0" prefHeight="200.0" prefWidth="383.0" />
+            <FlowPane fx:id="allBooksFlowPane" opacity="0.0" prefHeight="200.0" prefWidth="383.0" />
          </content>
       </ScrollPane>
       <ScrollPane layoutX="19.0" layoutY="413.0" opacity="0.0" prefHeight="200.0" prefWidth="379.0">
          <content>
-            <FlowPane fx:id="popularBooksCategory" opacity="0.0" prefHeight="188.0" prefWidth="383.0" />
+            <FlowPane fx:id="mostSubscribedBooksFlowPane" opacity="0.0" prefHeight="188.0" prefWidth="383.0" />
          </content>
       </ScrollPane>
-      <Text layoutX="18.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Popular">
+      <Text layoutX="18.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Books">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <Text layoutX="23.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+      <Text layoutX="23.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Most Subscribed Books">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

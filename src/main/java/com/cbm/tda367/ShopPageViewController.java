@@ -8,7 +8,6 @@ import javafx.scene.layout.FlowPane;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.Flow;
 /*
 
  */
@@ -28,10 +27,8 @@ public class ShopPageViewController extends AnchorPane implements Observer{
     private final ControllerManager manager;
     private final ApplicationModel model;
 
-    @FXML private FlowPane popularBooksCategoryFlowPane;
-    @FXML private FlowPane mostSubscribedBooksFlowPane;
     @FXML private FlowPane allBooksFlowPane;
-
+    @FXML private FlowPane mostSubscribedBooksFlowPane;
 
     public ShopPageViewController(ControllerManager manager, ApplicationModel model) {
         this.manager = manager;
@@ -49,15 +46,17 @@ public class ShopPageViewController extends AnchorPane implements Observer{
         }
     }
 
-    /** Updates the list of books under Popular category
-     *
+    /** Updates the list of all books
      */
-    public void updatePopularCategoryPane(){
-        List<Book> items = BookDatabase.getInstance().getBookList();
-        popularBooksCategory.getChildren().clear();
-        for (Book book:
-                items) {
-           // popularBooksCategory.getChildren().add();
+    public void updateAllBooksFlowPane(){
+        List<Book> bookList = BookDatabase.getInstance().getBookList();
+
+        /* Clear all children */
+        allBooksFlowPane.getChildren().clear();
+
+        for (Book book : bookList) {
+            BookViewController bookViewController = new BookViewController(book);
+            allBooksFlowPane.getChildren().add(bookViewController);
         }
 
     }
@@ -65,9 +64,9 @@ public class ShopPageViewController extends AnchorPane implements Observer{
     /** Updates the list of books under mostSubscribed category
      *
      */
-    public void updateSubscribedCategoryPane(){
+    public void updateMostSubscribedBooksFlowPane(){
         List<Book> items = BookDatabase.getInstance().getBookList();
-        mostSubscribedBooks.getChildren().clear();
+        mostSubscribedBooksFlowPane.getChildren().clear();
         for (Book book:
                 items) {
             // mostSubscribedBooks.getChildren().add();
@@ -99,6 +98,6 @@ public class ShopPageViewController extends AnchorPane implements Observer{
      */
     @Override
     public void update() {
-
+        updateAllBooksFlowPane();
     }
 }

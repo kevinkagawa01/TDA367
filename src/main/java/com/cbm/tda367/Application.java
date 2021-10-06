@@ -15,7 +15,11 @@ public class Application extends javafx.application.Application {
     public void start(Stage stage) throws IOException {
 
         /* initiate MVC */
+        model = ApplicationModel.getInstance();
         controllerManager = new ControllerManager();
+
+        /* Add observers to model */
+        model.addObserver(controllerManager);
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mainAnchorPane.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 411, 731);

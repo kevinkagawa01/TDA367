@@ -15,7 +15,7 @@ import java.io.IOException;
  * @version 1.0
  * @since 1.0
  * */
-public class LoginPageViewController extends AnchorPane {
+public class LoginPageViewController extends AnchorPane implements Observer{
 
     ControllerManager manager;
     ApplicationModel model;
@@ -53,5 +53,10 @@ public class LoginPageViewController extends AnchorPane {
             //TODO: Create visual pliancy informing the user that there was an issue logging in.
             System.out.println("Unauthorized login!");
         }
+    }
+
+    @Override
+    public void update() {
+
     }
 }

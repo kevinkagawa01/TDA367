@@ -21,7 +21,7 @@ import java.util.List;
  * @version 1.0
  * @since 1.0
  * */
-public class SellPageViewController extends AnchorPane {
+public class SellPageViewController extends AnchorPane implements Observer{
 
     private ControllerManager manager;
     private ApplicationModel model;
@@ -186,5 +186,10 @@ public class SellPageViewController extends AnchorPane {
         /* all fields are filled in, return true */
         System.out.println("Listing was created successfully");
         return true;
+    }
+
+    @Override
+    public void update() {
+
     }
 }

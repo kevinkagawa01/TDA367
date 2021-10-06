@@ -25,6 +25,8 @@ public class ApplicationModel implements Observable {
         /* init databases */
         bookDatabase = BookDatabase.getInstance();
         userDatabase = UserDatabase.getInstance();
+        /* Update views on start */
+        notifyObservers();
     }
 
     public static ApplicationModel getInstance() {
@@ -36,6 +38,11 @@ public class ApplicationModel implements Observable {
         for (Observer observer : viewObservers) {
             observer.update();
         }
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+        viewObservers.add(observer);
     }
 
 
