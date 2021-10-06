@@ -27,12 +27,29 @@ public class BookDatabase {
      */
     private BookDatabase() {
 
-        Book korv = new Book("mårtan", "123", "0", 0, 0, "src/main/resources/Library/bookSample.png", "Fiction");
-        //Kan ej hitt url samt har problem med att ENUM inparametern
+        bookList.add(new Book("Linjär Algebra",
+                "Gunnar Sparr",
+                "TMA660",
+                "src/main/resources/com/cbm/tda367/book_covers/linalg.jpg",
+                "Mathematics"));
 
-        // Book korv = new Book("mårtan", "123", "0", 0, 0, new Image("src/main/resources/Library/bookSample.png"), "Fiction");
-        //Kan ej hitt url samt har problem med att ENUM inparametern
+        bookList.add(new Book("Diskret Matematik",
+                "Stefan Lemurell",
+                "TMV210",
+                "src/main/resources/com/cbm/tda367/book_covers/diskret_matematik.jpg",
+                "Mathematics"));
 
+        bookList.add(new Book("Grundläggande Datorteknik",
+                "Roger Johansson",
+                "EDA433",
+                "src/main/resources/com/cbm/tda367/book_covers/grudat.jpg",
+                "Programming"));
+
+        bookList.add(new Book("Calculus: A Complete Course",
+                "Robert Adams",
+                "MVE045",
+                "src/main/resources/com/cbm/tda367/book_covers/calculus.jpg",
+                "Mathematics"));
     }
 
     /**

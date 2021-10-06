@@ -21,7 +21,7 @@ import java.util.List;
  * @version 1.0
  * @since 1.0
  * */
-public class SellPageViewController extends AnchorPane {
+public class SellPageViewController extends AnchorPane implements Observer{
 
     private ControllerManager manager;
     private ApplicationModel model;
@@ -59,8 +59,75 @@ public class SellPageViewController extends AnchorPane {
     private void initSceneBuilderElements() {
 
         bookCategoryComboBox.getItems().addAll(
-                "Mathematics","Physics","Biology","Chemistry","Programming","Fiction" );
-        bookConditionComboBox.getItems().addAll("New","Mint","Used","Damaged");
+                "Book Category","Mathematics","Physics","Biology","Chemistry","Programming","Fiction" );
+        bookCategoryComboBox.getSelectionModel().selectFirst();
+        bookConditionComboBox.getItems().addAll("Book Condition","New","Mint","Used","Damaged");
+        bookConditionComboBox.getSelectionModel().selectFirst();
+
+        bookCodeTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            System.out.println("bookCodeTextField changed from " + oldValue + " to " + newValue);
+            informationEdited("bookCode",newValue, oldValue);
+        });
+
+        bookPriceTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            System.out.println("bookPriceTextField changed from " + oldValue + " to " + newValue);
+            informationEdited("bookPrice",newValue, oldValue);
+        });
+    }
+
+    private void informationEdited(String textField, String newValue, String oldValue){
+        switch(textField){
+            case "bookCode"     -> updateBookCode(newValue,oldValue);
+            case "bookPrice"    -> updateBookPrice(newValue, oldValue);
+        }
+    }
+
+    private void updateBookCode(String newValue, String oldValue) {
+        if (isOnlyLettersAndHyphensAndDigits(newValue)) { bookCodeTextField.setText(newValue); }
+        else {bookCodeTextField.setText(oldValue);}
+    }
+
+    private void updateBookPrice(String newValue, String oldValue) {
+        if (isOnlyDigits(newValue)) { bookPriceTextField.setText(newValue); }
+        else { bookPriceTextField.setText(oldValue); }
+    }
+
+    /** Determines if parameter String is only containing: letters, hyphens and digits.
+     * @param string String to be determined whether it only contains: letters, hyphens and digits or not.
+     * @return boolean if the parameter String only contains letters, hyphens and digits.
+     * */
+    private boolean isOnlyLettersAndHyphensAndDigits(String string)
+    {
+        if (string == null) { return true;}
+
+        for (int i = 0; i < string.length(); i ++)
+        {
+            if (!Character.isLetter(string.charAt(i)) && (string.charAt(i) != '-')
+                    && (!Character.isDigit(string.charAt(i))))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    /** Determines if parameter String is only containing digits.
+     * @param string String to be determined whether it only contains digits or not.
+     * @return boolean if the parameter String only contains digits.
+     * */
+    private boolean isOnlyDigits(String string)
+    {
+        if (string == null) { return  true;}
+
+        for (int i = 0; i < string.length(); i++)
+        {
+            if(!Character.isDigit(string.charAt(i)))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     /** On-click method that navigates the application to the ShopPage
@@ -87,19 +154,17 @@ public class SellPageViewController extends AnchorPane {
      */
     @FXML
     protected void onClickCreateListing(Event event){
-        System.out.println("Vi har skapat en listing!");
+
         if (isListingCompleted()){
-                //TODO: Hardcoded :)
+            /* creating listing */
+            model.addListing(bookCodeTextField.getText(),bookConditionComboBox.getSelectionModel().getSelectedItem(),
+                    bookPriceTextField.getText());
 
-                /* creating listing */
-                model.addListing(bookCodeTextField.getText(),bookConditionComboBox.getPromptText(),
-                        bookPriceTextField.getText());
-                /* switch to account page */
-                manager.goToAccountPage();
-                /* open accordion menu for my listings */
-                //TODO: add code to open correct tab in accordion
+            /* switch to account page */
+            manager.goToAccountPage();
 
-
+            /* open accordion menu for my listings */
+            manager.openPublishedListingsAccordionInAccountPage();
         }
     }
 
@@ -108,7 +173,23 @@ public class SellPageViewController extends AnchorPane {
      * @return true when filled in, else false
      */
     private boolean isListingCompleted(){
-        //TODO: is all fields filled in?
+        if( bookCodeTextField.getText().isEmpty()           ||
+            bookPriceTextField.getText().isEmpty()          ||
+            listingDescriptionTextArea.getText().isEmpty()  ||
+            bookCategoryComboBox.getSelectionModel().getSelectedItem().equals("Book Category") ||
+            bookConditionComboBox.getSelectionModel().getSelectedItem().equals("Book Condition")
+            ){
+            System.out.println("Not all fields are filled in!");
+            return false;
+        }
+
+        /* all fields are filled in, return true */
+        System.out.println("Listing was created successfully");
         return true;
+    }
+
+    @Override
+    public void update() {
+
     }
 }

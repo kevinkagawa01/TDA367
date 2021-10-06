@@ -25,13 +25,8 @@ public class ApplicationModel implements Observable {
         /* init databases */
         bookDatabase = BookDatabase.getInstance();
         userDatabase = UserDatabase.getInstance();
-
-        /* add mock-users */
-        userDatabase.addUser(new User("simonhol@student.chalmers.se", "hejsan123"));
-        userDatabase.addUser(new User("peg@student.chalmers.se", "peg123"));
-        /*add mock-books */
-
-
+        /* Update views on start */
+        notifyObservers();
     }
 
     public static ApplicationModel getInstance() {
@@ -43,6 +38,11 @@ public class ApplicationModel implements Observable {
         for (Observer observer : viewObservers) {
             observer.update();
         }
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+        viewObservers.add(observer);
     }
 
 
@@ -58,10 +58,18 @@ public class ApplicationModel implements Observable {
     }
 
     public void addListing(String bookCode, String condition, String price) {
-        listings.add(new Listing(bookDatabase.returnBookWithCorrespondingCode(bookCode), currentListingNumber++,
+
+        /* Book corresponding with listing */
+        Book book = bookDatabase.returnBookWithCorrespondingCode(bookCode);
+
+        /* Add listing to listings */
+        listings.add(new Listing(book, currentListingNumber++,
                 Double.parseDouble(price),
-                "src/main/resources/com/cbm/tda367/images/notification_bell.png",
+                book.getImagePath(),
                 condition));
+
+        /* Update view */
+        notifyObservers();
     }
 
 

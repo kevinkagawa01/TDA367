@@ -8,32 +8,30 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-
-/** Create account page class
- * @param
- */
-
-/**
- * Represents the database of Books
- *
+/** Visual representation of the account page in the application, as well as controller.
  * @author Kevin Pham
  * @author Simon Holst
  * @author Carl-Magnus Wall
  * @author Pegah Amanzadeh
  * @version 1.0
- * @since 1.0
+ * @since 0.5
  */
-public class AccountPageController extends AnchorPane {
+public class AccountPageController extends AnchorPane implements Observer{
 
     private ControllerManager manager;
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
 
-    @FXML
-    Accordion publishedBooksAccordion;
-    ScrollPane published;
+    @FXML private Accordion accountPageAccordion;
+    @FXML private ScrollPane published;
 
 
+
+    /**
+     * Initializes account page view/controller.
+     * @param manager This controller manager, which handles all controllers.
+     * @param model Model viewed.
+     */
 
     public AccountPageController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
@@ -54,27 +52,31 @@ public class AccountPageController extends AnchorPane {
     //private static List<publishedBookItem>publishedBook=new ArrayList<>(); // lägger published bok i en lista
 
 
-    public void setFxmlLoaderController(AccountPageController controller) {
-        fxmlLoader.setController(controller);
-    }
-
-
     /* onclick listeners*/
 
     /** move to ShopPage by clicking on this button
      * @param event
      */
-
     @FXML
     public void shopButton(Event event) {
         manager.goToShopPage();
     }
+
     /** move to SellPage by clicking on this button
      * @param event
      */
-
     @FXML
     public void addButton(Event event) {
         manager.goToSellPage();
+    }
+
+    protected void openPublishedListingsAccordion() {
+        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
+        //TODO: Make the scrollPane inside the expanded pane roll to the top.
+    }
+
+    @Override
+    public void update() {
+
     }
 }

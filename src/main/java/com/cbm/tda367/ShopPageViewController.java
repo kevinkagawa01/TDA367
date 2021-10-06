@@ -8,7 +8,6 @@ import javafx.scene.layout.FlowPane;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.Flow;
 /*
 
  */
@@ -23,22 +22,20 @@ import java.util.concurrent.Flow;
  * @version 1.0
  * @since 1.0
  * */
-public class ShopPageViewController extends AnchorPane {
+public class ShopPageViewController extends AnchorPane implements Observer{
 
-    private ControllerManager manager;
-    private ApplicationModel model;
-    private FXMLLoader fxmlLoader;
+    private final ControllerManager manager;
+    private final ApplicationModel model;
 
-    @FXML private FlowPane popularBooksCategory;
-    @FXML private FlowPane mostSubscribedBooks;
-
+    @FXML private FlowPane allBooksFlowPane;
+    @FXML private FlowPane mostSubscribedBooksFlowPane;
 
     public ShopPageViewController(ControllerManager manager, ApplicationModel model) {
         this.manager = manager;
         this.model = model;
 
 
-        fxmlLoader = new FXMLLoader(getClass().getResource("shop-page.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -49,15 +46,17 @@ public class ShopPageViewController extends AnchorPane {
         }
     }
 
-    /** Updates the list of books under Popular category
-     *
+    /** Updates the list of all books
      */
-    public void updatePopularCategoryPane(){
-        List<Book> items = BookDatabase.getInstance().getBookList();
-        popularBooksCategory.getChildren().clear();
-        for (Book book:
-                items) {
-           // popularBooksCategory.getChildren().add();
+    public void updateAllBooksFlowPane(){
+        List<Book> bookList = BookDatabase.getInstance().getBookList();
+
+        /* Clear all children */
+        allBooksFlowPane.getChildren().clear();
+
+        for (Book book : bookList) {
+            BookViewController bookViewController = new BookViewController(book);
+            allBooksFlowPane.getChildren().add(bookViewController);
         }
 
     }
@@ -65,9 +64,9 @@ public class ShopPageViewController extends AnchorPane {
     /** Updates the list of books under mostSubscribed category
      *
      */
-    public void updateSubscribedCategoryPane(){
+    public void updateMostSubscribedBooksFlowPane(){
         List<Book> items = BookDatabase.getInstance().getBookList();
-        mostSubscribedBooks.getChildren().clear();
+        mostSubscribedBooksFlowPane.getChildren().clear();
         for (Book book:
                 items) {
             // mostSubscribedBooks.getChildren().add();
@@ -92,5 +91,13 @@ public class ShopPageViewController extends AnchorPane {
     @FXML
     public void addButton(Event event) {
         manager.goToSellPage();
+    }
+
+    /** Method implemented from Observer interface.
+     *
+     */
+    @Override
+    public void update() {
+        updateAllBooksFlowPane();
     }
 }

@@ -28,7 +28,7 @@
             <Image url="@../../../Library/Polygon4.png" />
          </image>
       </ImageView>
-      <Accordion layoutX="21.0" layoutY="230.0" prefHeight="381.0" prefWidth="375.0">
+      <Accordion fx:id="accountPageAccordion" layoutX="21.0" layoutY="230.0" prefHeight="381.0" prefWidth="375.0">
         <panes>
             <TitledPane animated="false" text="Reserverade böcker">
               <content>
