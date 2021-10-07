@@ -79,6 +79,7 @@ public class AccountPageController extends AnchorPane implements Observer{
     private void updateLoggedInEmail(){
         System.out.println(model.getCurrentlyLoggedInUser().getCid());
         emailText.setText(model.getCurrentlyLoggedInUser().getCid());
+
     }
 
     @Override
