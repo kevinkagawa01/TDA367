@@ -14,19 +14,18 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        /* initiate MVC */
-        model = ApplicationModel.getInstance();
-        controllerManager = new ControllerManager();
-
-        /* Add observers to model */
-        model.addObserver(controllerManager);
-        model.notifyObservers();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mainAnchorPane.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 411, 731);
         stage.setTitle("CBM!");
         stage.setScene(scene);
         stage.show();
+        model = ApplicationModel.getInstance();
+        controllerManager = fxmlLoader.getController();
+
+        /* Add observers to model */
+        model.addObserver(controllerManager);
+        model.notifyObservers();
     }
 
     public static void main(String[] args) {
