@@ -3,6 +3,8 @@ package com.cbm.tda367;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 
+import java.util.Objects;
+
 
 /**
  * Represents a Book
@@ -40,7 +42,7 @@ public class Book {
         this.bookCode = bookCode;
         this.bookSales = 0;
         this.bookSubscriptions = 0;
-        this.imagePath = imagePath;
+        this.imagePath = Objects.requireNonNull(imagePath);
 
     }
 

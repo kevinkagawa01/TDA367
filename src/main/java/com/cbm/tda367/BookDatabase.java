@@ -31,25 +31,25 @@ public class BookDatabase {
         bookList.add(new Book("Linjär Algebra",
                 "Gunnar Sparr",
                 "TMA660",
-                "/linalg.jpg",
+                "/book_covers/linalg.jpg",
                 "Mathematics"));
 
         bookList.add(new Book("Diskret Matematik",
                 "Stefan Lemurell",
                 "TMV210",
-                "/diskret_matematik.jpg",
+                "/book_covers/diskret_matematik.jpg",
                 "Mathematics"));
 
         bookList.add(new Book("Grundläggande Datorteknik",
                 "Roger Johansson",
                 "EDA433",
-                "/grudat.jpg",
+                "/book_covers/grudat.jpg",
                 "Programming"));
 
         bookList.add(new Book("Calculus: A Complete Course",
                 "Robert Adams",
                 "MVE045",
-                "/calculus.jpg",
+                "/book_covers/calculus.jpg",
                 "Mathematics"));
     }
 
