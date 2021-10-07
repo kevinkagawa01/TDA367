@@ -120,17 +120,23 @@ public class ApplicationModel implements Observable {
     public void reservedBook() {
 
     }
-    /*
-    public List returnPopularbooks(List books){
-        List allBooks= BookDatabase.getInstance().getBookList();
-        List popularBooks= new ArrayList();
-        for(int i=0;i<allBooks.size();i++){
 
+    public List returnPopularbooks(List books) {
+        //Todo: behöver gå igenom med gruppen
+        List allBooks = BookDatabase.getInstance().getBookList();
+        List popularBooks = new ArrayList();
+        for (int i = 0; i < allBooks.size(); i++) {
+            Book book = (Book) allBooks.get(i);
+            Book book2 = (Book) allBooks.get(i++);
+
+            if (book.getBookSales() < book2.getBookSales()) {
+                popularBooks.add(book);
+            }
 
         }
 
-        return allBooks;
-    }*/
+        return popularBooks;
+    }
 
 
     public boolean isLoginSuccessful(String cid, String password) {

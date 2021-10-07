@@ -40,6 +40,7 @@ public class ControllerManager implements Initializable,Observer {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         /* Adding observers locally */
+        mainPages.add(bookDetailPage);
         mainPages.add(sellPage);
         mainPages.add(accountPage);
         mainPages.add(shopPage);

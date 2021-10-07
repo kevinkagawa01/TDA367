@@ -46,6 +46,9 @@ public class Listing {
         this.price = price;
         this.imagePath = imagePath;
     }
+    public String getCondition(){
+        return condition;
+    }
 
     /**
      * Retrieves the Book of a specific Listing.
