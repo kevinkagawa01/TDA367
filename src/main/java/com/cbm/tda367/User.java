@@ -68,6 +68,10 @@ public class User {
         totalRating = round(((double) sumOfRatings / nrRatings),1);
     }
 
+    public String setRatingPath(String path){
+        return path;
+    }
+
     public double getRating(){
         return totalRating;
     }

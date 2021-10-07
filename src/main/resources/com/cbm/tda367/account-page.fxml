@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: #FFFFFF;" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: #FFFFFF;" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="361.0" fitWidth="242.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -125,7 +125,7 @@
             <Image url="@../../../Library/pfp.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="22.0" fitWidth="200.0" layoutX="122.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="starRating" fitHeight="22.0" fitWidth="200.0" layoutX="122.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Library/3-5stars.png" />
          </image>

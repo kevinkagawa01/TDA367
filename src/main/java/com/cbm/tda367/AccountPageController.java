@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
@@ -26,6 +28,7 @@ public class AccountPageController extends AnchorPane implements Observer{
     @FXML private Accordion accountPageAccordion;
     @FXML private ScrollPane published;
     @FXML private Text emailText;
+    @FXML private ImageView starRating;
 
 
     /**
@@ -80,10 +83,15 @@ public class AccountPageController extends AnchorPane implements Observer{
         System.out.println(model.getCurrentlyLoggedInUser().getCid());
         emailText.setText(model.getCurrentlyLoggedInUser().getCid());
 
+
+    }
+    private void updateStarRating(){
+        starRating.setImage(new Image(getClass().getResourceAsStream(model.getRatingPicture())));
     }
 
     @Override
     public void update() {
         updateLoggedInEmail();
+        updateStarRating();
     }
 }
