@@ -6,7 +6,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.Objects;
 
 public class BookViewController extends AnchorPane {
 
@@ -19,7 +22,6 @@ public class BookViewController extends AnchorPane {
         shopPageBook.setRoot(this);
         shopPageBook.setController(this);
 
-        bookImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(book.getImagePath())));
 
         try {
             shopPageBook.load();
@@ -27,6 +29,8 @@ public class BookViewController extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
+        this.book = book;
+        bookImageView.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
     }
 
 

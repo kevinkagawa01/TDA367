@@ -3,6 +3,7 @@ package com.cbm.tda367;
 
 import javafx.scene.image.Image;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,25 +31,25 @@ public class BookDatabase {
         bookList.add(new Book("Linjär Algebra",
                 "Gunnar Sparr",
                 "TMA660",
-                "src/main/resources/com/cbm/tda367/book_covers/linalg.jpg",
+                "/book_covers/linalg.jpg",
                 "Mathematics"));
 
         bookList.add(new Book("Diskret Matematik",
                 "Stefan Lemurell",
                 "TMV210",
-                "src/main/resources/com/cbm/tda367/book_covers/diskret_matematik.jpg",
+                "/book_covers/diskret_matematik.jpg",
                 "Mathematics"));
 
         bookList.add(new Book("Grundläggande Datorteknik",
                 "Roger Johansson",
                 "EDA433",
-                "src/main/resources/com/cbm/tda367/book_covers/grudat.jpg",
+                "/book_covers/grudat.jpg",
                 "Programming"));
 
         bookList.add(new Book("Calculus: A Complete Course",
                 "Robert Adams",
                 "MVE045",
-                "src/main/resources/com/cbm/tda367/book_covers/calculus.jpg",
+                "/book_covers/calculus.jpg",
                 "Mathematics"));
     }
 

@@ -14,12 +14,13 @@ public class ApplicationModel implements Observable {
     private BookDatabase bookDatabase;
     private UserDatabase userDatabase;
 
-    public User getCurrentlyLoggedInUser() {
-        return currentlyLoggedInUser;
-    }
+
+
 
     //TODO: Shouldn't be null from start
-    private User currentlyLoggedInUser;
+
+    private User currentlyLoggedInUser = NotLoggedInUser.getInstance();
+
     //TODO: Should read current listing number from text file after initial launch
     private int currentListingNumber = 0;
     private List<Listing> listings = new ArrayList<>();
@@ -131,6 +132,10 @@ public class ApplicationModel implements Observable {
 
     public UserDatabase getUserDatabase() {
         return userDatabase;
+    }
+
+    public User getCurrentlyLoggedInUser() {
+        return currentlyLoggedInUser;
     }
 
 

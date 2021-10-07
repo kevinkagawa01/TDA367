@@ -27,14 +27,17 @@ public class ShopPageViewController extends AnchorPane implements Observer{
     private final ControllerManager manager;
     private final ApplicationModel model;
 
-    @FXML private FlowPane allBooksFlowPane;
-    @FXML private FlowPane mostSubscribedBooksFlowPane;
+    private final ShopPageCategoryViewController allBooksCategory;
+
+    private final ShopPageCategoryViewController mostSubscribedBooksCategory;
+
+    @FXML private FlowPane categoriesFlowPane;
 
     public ShopPageViewController(ControllerManager manager, ApplicationModel model) {
         this.manager = manager;
         this.model = model;
 
-
+        /* Loads FXML */
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -44,35 +47,25 @@ public class ShopPageViewController extends AnchorPane implements Observer{
         } catch (IOException exception){
             throw new RuntimeException(exception);
         }
+
+        /* create shop page categories */
+        allBooksCategory = new ShopPageCategoryViewController("All Books");
+        mostSubscribedBooksCategory = new ShopPageCategoryViewController("Most Subscribed Books");
+        /* add them to flow pane */
+        populateCategoriesFlowPane();
+        /* add books to the categories */
+        populateAllBooksCategoryFlowPane();
     }
 
-    /** Updates the list of all books
-     */
-    public void updateAllBooksFlowPane(){
-        List<Book> bookList = BookDatabase.getInstance().getBookList();
-
-        /* Clear all children */
-        allBooksFlowPane.getChildren().clear();
-
-        for (Book book : bookList) {
-            BookViewController bookViewController = new BookViewController(book);
-            allBooksFlowPane.getChildren().add(bookViewController);
-        }
-
+    private void populateCategoriesFlowPane() {
+        categoriesFlowPane.getChildren().add(allBooksCategory);
+        categoriesFlowPane.getChildren().add(mostSubscribedBooksCategory);
     }
 
-    /** Updates the list of books under mostSubscribed category
-     *
-     */
-    public void updateMostSubscribedBooksFlowPane(){
-        List<Book> items = BookDatabase.getInstance().getBookList();
-        mostSubscribedBooksFlowPane.getChildren().clear();
-        for (Book book:
-                items) {
-            // mostSubscribedBooks.getChildren().add();
-        }
-
+    private void populateAllBooksCategoryFlowPane() {
+        allBooksCategory.populateCategoryWithBooks(BookDatabase.getInstance().getBookList());
     }
+
 
     /** On-click method that navigates the application to the accountPage
      *
@@ -98,6 +91,6 @@ public class ShopPageViewController extends AnchorPane implements Observer{
      */
     @Override
     public void update() {
-        updateAllBooksFlowPane();
+
     }
 }

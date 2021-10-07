@@ -3,6 +3,8 @@ package com.cbm.tda367;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 
+import java.util.Objects;
+
 
 /**
  * Represents a Book
@@ -31,7 +33,6 @@ public class Book {
      * @param bookName          The name of a Book as a String.
      * @param bookAuthor        The author of a Book as a String.
      * @param bookCode          The code (ISBN) of a Book as a String.
-
      * @param imagePath         The path of a picture of a Book, represented as a String.
      * @param category          The category of a Book, represented as a String.
      */
@@ -41,7 +42,7 @@ public class Book {
         this.bookCode = bookCode;
         this.bookSales = 0;
         this.bookSubscriptions = 0;
-        this.imagePath = imagePath;
+        this.imagePath = Objects.requireNonNull(imagePath);
 
     }
 
