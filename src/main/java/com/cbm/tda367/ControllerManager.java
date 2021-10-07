@@ -9,6 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Represents the database of Books
+ *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
+ */
+
 public class ControllerManager implements Initializable,Observer {
 
     @FXML
@@ -40,6 +51,10 @@ public class ControllerManager implements Initializable,Observer {
         mainAnchorPane.getChildren().add(loginPage);
     }
 
+    /**
+     * this method will update modelen
+     */
+
     @Override
     public void update() {
         for (Observer mainPageObservers : mainPages){
@@ -51,14 +66,25 @@ public class ControllerManager implements Initializable,Observer {
         accountPage.openPublishedListingsAccordion();
     }
 
+
+    /**
+     * Navigate to ShopPage
+     */
     void goToShopPage(){
         shopPage.toFront();
     }
 
+    /**
+     * Navigate to SellPage
+     */
     void goToSellPage(){
         sellPage.toFront();
     }
 
+
+    /**
+     * Navigate to AccountPage
+     */
     void goToAccountPage(){
         accountPage.toFront();
     }

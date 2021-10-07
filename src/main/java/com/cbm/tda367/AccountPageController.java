@@ -27,11 +27,13 @@ public class AccountPageController extends AnchorPane implements Observer{
     @FXML private ScrollPane published;
     @FXML private Text emailText;
 
+
     /**
      * Initializes account page view/controller.
      * @param manager This controller manager, which handles all controllers.
      * @param model Model viewed.
      */
+
     public AccountPageController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
         this.manager = manager;

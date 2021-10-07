@@ -13,12 +13,20 @@ public class ApplicationModel implements Observable {
 
     private BookDatabase bookDatabase;
     private UserDatabase userDatabase;
+
+
+
+
+    //TODO: Shouldn't be null from start
+
     private User currentlyLoggedInUser = NotLoggedInUser.getInstance();
+
     //TODO: Should read current listing number from text file after initial launch
     private int currentListingNumber = 0;
     private List<Listing> listings = new ArrayList<>();
     private List<Observer> viewObservers = new ArrayList<>();
     private HashMap<Integer,Listing> reservedBooks = new HashMap<>();
+
 
     private ApplicationModel() {
         /* init databases */
@@ -67,9 +75,13 @@ public class ApplicationModel implements Observable {
                 book.getImagePath(),
                 condition));
 
+        for(Listing list:listings)
+        currentlyLoggedInUser.addListingForSale(list);
+
         /* Update view */
         notifyObservers();
     }
+
 
 
 
@@ -113,6 +125,7 @@ public class ApplicationModel implements Observable {
         return false;
     }
 
+
     public BookDatabase getBookDatabase() {
         return bookDatabase;
     }
@@ -120,5 +133,10 @@ public class ApplicationModel implements Observable {
     public UserDatabase getUserDatabase() {
         return userDatabase;
     }
+
+    public User getCurrentlyLoggedInUser() {
+        return currentlyLoggedInUser;
+    }
+
 
 }
