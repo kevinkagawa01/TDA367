@@ -67,12 +67,10 @@ public class SellPageViewController extends AnchorPane implements Observer{
         bookConditionComboBox.getSelectionModel().selectFirst();
 
         bookCodeTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            System.out.println("bookCodeTextField changed from " + oldValue + " to " + newValue);
             informationEdited("bookCode",newValue, oldValue);
         });
 
         bookPriceTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            System.out.println("bookPriceTextField changed from " + oldValue + " to " + newValue);
             informationEdited("bookPrice",newValue, oldValue);
         });
     }
@@ -86,12 +84,12 @@ public class SellPageViewController extends AnchorPane implements Observer{
 
     private void updateBookCode(String newValue, String oldValue) {
         if (isOnlyLettersAndHyphensAndDigits(newValue)) { bookCodeTextField.setText(newValue); }
-        else {bookCodeTextField.setText(oldValue);}
+        else {bookCodeTextField.setText(oldValue); System.out.println("Invalid Character!");}
     }
 
     private void updateBookPrice(String newValue, String oldValue) {
         if (isOnlyDigits(newValue)) { bookPriceTextField.setText(newValue); }
-        else { bookPriceTextField.setText(oldValue); }
+        else { bookPriceTextField.setText(oldValue); System.out.println("Invalid Character!");}
     }
 
     /** Determines if parameter String is only containing: letters, hyphens and digits.
