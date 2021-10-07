@@ -35,6 +35,7 @@ public class User {
     private List<Notification> notifications = new ArrayList<>();
 
 
+
     /** the class create user
      @param cid                 Cid is students E-mailaddress
      @param password            Password to cid

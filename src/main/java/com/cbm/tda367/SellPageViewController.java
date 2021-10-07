@@ -10,6 +10,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /** Visual representation of the Sell page and defines it's controllers
@@ -157,7 +159,7 @@ public class SellPageViewController extends AnchorPane implements Observer{
 
         if (isListingCompleted()){
             /* creating listing */
-            model.addListing(bookCodeTextField.getText(),bookConditionComboBox.getSelectionModel().getSelectedItem(),
+              model.addListing(bookCodeTextField.getText(),bookConditionComboBox.getSelectionModel().getSelectedItem(),
                     bookPriceTextField.getText());
 
             /* switch to account page */
@@ -165,7 +167,12 @@ public class SellPageViewController extends AnchorPane implements Observer{
 
             /* open accordion menu for my listings */
             manager.openPublishedListingsAccordionInAccountPage();
+
+            /* add created listing to the publishedBook listing*/
+
+
         }
+
     }
 
     /** Checks if all fields are filled in
