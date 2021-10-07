@@ -112,6 +112,7 @@ public class ApplicationModel implements Observable {
         for (User user : userDatabase.getUserList()) {
             if (user.getCid().equals(cid) && user.isUserPassword(password)) {
                 currentlyLoggedInUser = user;
+                notifyObservers();
                 return true;
             }
         }

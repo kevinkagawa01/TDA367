@@ -125,17 +125,12 @@
             <Image url="@../../../Library/pfp.png" />
          </image>
       </ImageView>
-      <Text layoutX="120.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kevin Pham" textAlignment="CENTER">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
       <ImageView fitHeight="22.0" fitWidth="200.0" layoutX="122.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Library/3-5stars.png" />
          </image>
       </ImageView>
-      <Text fx:id="emailText" layoutX="120.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kevinpha@gmail.com" textAlignment="CENTER">
+      <Text fx:id="emailText" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mail" textAlignment="CENTER" wrappingWidth="411.0">
          <font>
             <Font size="17.0" />
          </font>

@@ -52,13 +52,13 @@ public class ControllerManager implements Initializable,Observer {
     }
 
     /**
-     * this method will update modelen
+     * this method will update the model
      */
 
     @Override
     public void update() {
-        for (Observer mainPageObservers : mainPages){
-            mainPageObservers.update();
+        for (Observer mainPageObserver : mainPages){
+            mainPageObserver.update();
         }
     }
 
