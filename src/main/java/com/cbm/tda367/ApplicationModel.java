@@ -151,6 +151,9 @@ public class ApplicationModel implements Observable {
         }
         return false;
     }
+    public User getCurrentlyLoggedInUser(){
+        return currentlyLoggedInUser;
+    }
 
     public BookDatabase getBookDatabase() {
         return bookDatabase;
