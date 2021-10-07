@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 /** Visual representation of the account page in the application, as well as controller.
@@ -24,7 +25,7 @@ public class AccountPageController extends AnchorPane implements Observer{
 
     @FXML private Accordion accountPageAccordion;
     @FXML private ScrollPane published;
-
+    @FXML private Text emailText;
 
     /**
      * Initializes account page view/controller.
@@ -73,8 +74,12 @@ public class AccountPageController extends AnchorPane implements Observer{
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
 
+    private void updateLoggedInEmail(){
+        //emailText.setText();
+    }
+
     @Override
     public void update() {
-
+        updateLoggedInEmail();
     }
 }

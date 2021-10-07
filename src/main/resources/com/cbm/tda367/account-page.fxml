@@ -135,7 +135,7 @@
             <Image url="@../../../Library/3-5stars.png" />
          </image>
       </ImageView>
-      <Text layoutX="120.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kevinpha@gmail.com" textAlignment="CENTER">
+      <Text fx:id="emailText" layoutX="120.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kevinpha@gmail.com" textAlignment="CENTER">
          <font>
             <Font size="17.0" />
          </font>
