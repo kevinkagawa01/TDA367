@@ -8,9 +8,17 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.TilePane;
+
 import javafx.scene.text.Text;
 
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Visual representation of the account page in the application, as well as controller.
@@ -28,14 +36,21 @@ public class AccountPageController extends AnchorPane implements Observer {
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
 
-    @FXML
-    private Accordion accountPageAccordion;
-    @FXML
-    private ScrollPane published;
+
+    @FXML private Accordion accountPageAccordion;
+    @FXML private FlowPane publishedBooksFlowPane;
+    @FXML private ScrollPane published;
+    @FXML  private Text publishedBook;
+
+    List<Listing>publishedBooks=new ArrayList<>();
+
+
+
     @FXML
     private Text emailText;
     @FXML
     private ImageView starRating;
+
 
 
     /**
@@ -89,6 +104,7 @@ public class AccountPageController extends AnchorPane implements Observer {
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
 
+
     private void updateLoggedInEmail() {
         System.out.println(model.getCurrentlyLoggedInUser().getCid());
         emailText.setText(model.getCurrentlyLoggedInUser().getCid());
@@ -130,9 +146,20 @@ public class AccountPageController extends AnchorPane implements Observer {
         starRating.setImage(new Image(getClass().getResourceAsStream(getRatingPicture())));
     }
 
+
     @Override
     public void update() {
         updateLoggedInEmail();
         updateStarRating();
+        updatePublishedBooks();
+    }
+
+    private void updatePublishedBooks() {
+        ArrayList<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
+
+
+
+
+
     }
 }
