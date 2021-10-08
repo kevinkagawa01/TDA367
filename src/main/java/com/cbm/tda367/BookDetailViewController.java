@@ -23,21 +23,17 @@ import java.util.List;
  * @version 1.0
  * @since 1.0
  */
-public class BookDetailViewController extends AnchorPane implements Observer {
+public class BookDetailViewController extends AnchorPane{
     private ApplicationModel model;
     private ControllerManager manager;
     private Book book;
     private shopPageListingViewController shopPageListing;
     private boolean subscribePressed = true;
 
-    @FXML
-    private ImageView bookFront;
-    @FXML
-    private Text textFront;
-    @FXML
-    private Rectangle greenButton;
-    @FXML
-    private FlowPane bookPane;
+    @FXML private ImageView bookImageView;
+    @FXML private Text bookTitleText;
+    @FXML private Rectangle reserveButton;
+    @FXML private FlowPane listingsFlowPane;
 
     /**
      * Creates a detail view of a book.
@@ -82,11 +78,11 @@ public class BookDetailViewController extends AnchorPane implements Observer {
 
     public void updateBookPicture() {
 
-        bookFront.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
+        bookImageView.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
     }
 
-    public void updateTextFront(){
-        textFront.setText(book.getBookName());
+    public void updateBookTitleText(){
+        bookTitleText.setText(book.getBookName());
     }
 
 
@@ -96,7 +92,7 @@ public class BookDetailViewController extends AnchorPane implements Observer {
     public void updateSubscribedCategoryPane() {
         List<Book> items = BookDatabase.getInstance().getBookList();
         //getBookCode osv
-        bookPane.getChildren().clear();
+        listingsFlowPane.getChildren().clear();
         for (Book book :
                 items) {
             // bookPane.getChildren().add();
@@ -109,10 +105,9 @@ public class BookDetailViewController extends AnchorPane implements Observer {
 
     }
 
-    @Override
-    public void update() {
+    public void updateBookView() {
         updateBookPicture();
-        updateTextFront();
+        updateBookTitleText();
     }
 
     /**
@@ -146,4 +141,12 @@ public class BookDetailViewController extends AnchorPane implements Observer {
     }
 
 
+    @FXML
+    protected void onClickReturnToShopPage(){
+        manager.goToShopPage();
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
 }
