@@ -96,8 +96,38 @@ public class AccountPageController extends AnchorPane implements Observer {
 
     }
 
+    public String getRatingPicture() {
+
+        double rating = model.getCurrentlyLoggedInUser().getRating();
+        String sourcePathStar;
+        if ((int) rating == 0) {
+            sourcePathStar = "/Library/0-stars.png";
+        } else if (rating > 0 || rating < 1) {
+            sourcePathStar = "/Library/0-5stars.png";
+        } else if ((int) rating == 1) {
+            sourcePathStar = "/Library/1-stars.png";
+        } else if (rating > 1 || rating < 2) {
+            sourcePathStar = "/Library/1-5stars.png";
+        } else if ((int) rating == 2) {
+            sourcePathStar = "/Library/2-stars.png";
+        } else if (rating > 2 || rating < 3) {
+            sourcePathStar = "/Library/2-5stars.png";
+        } else if ((int) rating == 3) {
+            sourcePathStar = "/Library/3-stars.png";
+        } else if (rating > 3.5 || rating < 4) {
+            sourcePathStar = "/Library/3-5stars.png";
+        } else if ((int) rating == 4) {
+            sourcePathStar = "/Library/4-stars.png";
+        } else if (rating > 4 || rating < 5) {
+            sourcePathStar = "/Library/4-5stars.png";
+        } else {
+            sourcePathStar = "/Library/5-stars.png";
+        }
+        return sourcePathStar;
+    }
+
     private void updateStarRating() {
-        starRating.setImage(new Image(getClass().getResourceAsStream(model.getRatingPicture())));
+        starRating.setImage(new Image(getClass().getResourceAsStream(getRatingPicture())));
     }
 
     @Override
