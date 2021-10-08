@@ -32,6 +32,7 @@ public class ApplicationModel implements Observable {
         /* init databases */
         bookDatabase = BookDatabase.getInstance();
         userDatabase = UserDatabase.getInstance();
+
         /* Update views on start */
         notifyObservers();
     }
@@ -75,8 +76,10 @@ public class ApplicationModel implements Observable {
                 book.getImagePath(),
                 condition));
 
-        for(Listing list:listings)
-        currentlyLoggedInUser.addListingForSale(list);
+        for(Listing list:listings) {
+            currentlyLoggedInUser.addListingForSale(list);
+            System.out.println("added to published book");
+        }
 
         /* Update view */
         notifyObservers();

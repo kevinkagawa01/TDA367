@@ -168,7 +168,7 @@ public class SellPageViewController extends AnchorPane implements Observer{
             /* open accordion menu for my listings */
             manager.openPublishedListingsAccordionInAccountPage();
 
-            /* add created listing to the publishedBook listing*/
+
 
 
         }

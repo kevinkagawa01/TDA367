@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.TilePane;
 
 import java.io.IOException;
 /** Visual representation of the account page in the application, as well as controller.
@@ -23,6 +25,7 @@ public class AccountPageController extends AnchorPane implements Observer{
     private FXMLLoader fxmlLoader;
 
     @FXML private Accordion accountPageAccordion;
+    @FXML private FlowPane publishedBooksFlowPane;
     @FXML private ScrollPane published;
 
 
@@ -73,7 +76,10 @@ public class AccountPageController extends AnchorPane implements Observer{
     protected void openPublishedListingsAccordion() {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
+        publishedBooksFlowPane.alignmentProperty().toString();
+
     }
+
 
     @Override
     public void update() {
