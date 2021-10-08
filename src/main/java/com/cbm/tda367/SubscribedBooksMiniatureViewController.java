@@ -6,6 +6,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.spi.LocaleServiceProvider;
 
@@ -26,6 +28,8 @@ public class SubscribedBooksMiniatureViewController  {
     private Application model;
     private AccountPageController accountPageController;
     private Book book;
+    private String blankSpace = "\t\t";
+
     @FXML
     Text dateSubscribedMiniature;
     @FXML
@@ -48,7 +52,6 @@ public class SubscribedBooksMiniatureViewController  {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        dateSubscribedMiniature.setText(Integer.toString(date.getDate()));
         titleSubscriebdMiniature.setText(book.getBookName());
 
     }
