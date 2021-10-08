@@ -45,9 +45,10 @@ public class BookDetailViewController extends AnchorPane implements Observer {
      * @param manager This controller manager.
      * @param model   Singleton of application model.
      */
-    public BookDetailViewController(ControllerManager manager, ApplicationModel model) {
+    public BookDetailViewController(ControllerManager manager, ApplicationModel model, Book book) {
         this.model = model;
         this.manager = manager;
+        this.book = book;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-subscription.fxml"));
         fxmlLoader.setRoot(this);
