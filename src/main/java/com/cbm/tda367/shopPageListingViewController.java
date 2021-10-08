@@ -4,11 +4,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
 
-public class shopPageListingViewController {
+public class shopPageListingViewController extends AnchorPane {
     private ApplicationModel model;
     private ControllerManager manager;
     private FXMLLoader fxmlLoader;
@@ -35,9 +36,9 @@ public class shopPageListingViewController {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        listingPrice.setText(Double.toString(listing.getPrice()));
-        listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
-        listingBookCondition.setText(listing.getCondition());
+        //listingPrice.setText(Double.toString(listing.getPrice()));
+        //listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
+        //listingBookCondition.setText(listing.getCondition());
     }
 
 }

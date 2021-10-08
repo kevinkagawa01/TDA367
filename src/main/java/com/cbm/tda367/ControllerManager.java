@@ -33,14 +33,11 @@ public class ControllerManager implements Initializable,Observer {
     private final SellPageViewController sellPage = new SellPageViewController(this, model);
     private final AccountPageController accountPage = new AccountPageController(this, model);
 
-    private final BookDetailViewController bookDetailPage = new BookDetailViewController(this,model);
-
     private final List<Observer> mainPages = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         /* Adding observers locally */
-        mainPages.add(bookDetailPage);
         mainPages.add(sellPage);
         mainPages.add(accountPage);
         mainPages.add(shopPage);
