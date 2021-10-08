@@ -16,6 +16,9 @@ import javafx.scene.text.Text;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Visual representation of the account page in the application, as well as controller.
@@ -37,6 +40,9 @@ public class AccountPageController extends AnchorPane implements Observer {
     @FXML private Accordion accountPageAccordion;
     @FXML private FlowPane publishedBooksFlowPane;
     @FXML private ScrollPane published;
+    @FXML  private Text publishedBook;
+
+    List<Listing>publishedBooks=new ArrayList<>();
 
 
 
@@ -96,8 +102,6 @@ public class AccountPageController extends AnchorPane implements Observer {
     protected void openPublishedListingsAccordion() {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
-        publishedBooksFlowPane.alignmentProperty().toString();
-
     }
 
 
@@ -117,5 +121,15 @@ public class AccountPageController extends AnchorPane implements Observer {
     public void update() {
         updateLoggedInEmail();
         updateStarRating();
+        updatePublishedBooks();
+    }
+
+    private void updatePublishedBooks() {
+        ArrayList<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
+
+
+
+
+
     }
 }

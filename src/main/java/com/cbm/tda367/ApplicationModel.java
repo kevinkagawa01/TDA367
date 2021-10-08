@@ -61,23 +61,24 @@ public class ApplicationModel implements Observable {
 
         /* Book corresponding with listing */
         Book book = bookDatabase.returnBookWithCorrespondingCode(bookCode);
-
-        /* Add listing to listings */
-        listings.add(new Listing(book, currentListingNumber++,
+        Listing list=new Listing(book, currentListingNumber++,
                 Double.parseDouble(price),
                 book.getImagePath(),
-                condition));
+                condition);
 
-
-        for(Listing list:listings) {
-            currentlyLoggedInUser.addListingForSale(list);
-            System.out.println("added to published book");
-        }
-
-
+        /* Add listing to listings */
+         listings.add(list);
+         currentlyLoggedInUser.addListingForSale(list);
         /* Update view */
+
         notifyObservers();
+
+
+
     }
+
+
+
 
     public String getRatingPicture() {
 
