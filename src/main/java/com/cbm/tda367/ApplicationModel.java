@@ -24,6 +24,7 @@ public class ApplicationModel implements Observable {
         /* init databases */
         bookDatabase = BookDatabase.getInstance();
         userDatabase = UserDatabase.getInstance();
+
         /* Update views on start */
         notifyObservers();
     }
@@ -60,17 +61,56 @@ public class ApplicationModel implements Observable {
 
         /* Book corresponding with listing */
         Book book = bookDatabase.returnBookWithCorrespondingCode(bookCode);
-
-        /* Add listing to listings */
-        listings.add(new Listing(book, currentListingNumber++,
+        Listing list=new Listing(book, currentListingNumber++,
                 Double.parseDouble(price),
                 book.getImagePath(),
-                condition));
+                condition);
 
+        /* Add listing to listings */
+         listings.add(list);
+         currentlyLoggedInUser.addListingForSale(list);
         /* Update view */
+
         notifyObservers();
+
+
+
     }
 
+
+
+
+
+    public String getRatingPicture() {
+
+        double rating = currentlyLoggedInUser.getRating();
+        //Todo: not let sourcePathStar be null from start
+        String sourcePathStar = null;
+        if ((int) rating == 0) {
+            sourcePathStar = "/Library/0-stars.png";
+        } else if (rating > 0 || rating < 1) {
+            sourcePathStar = "/Library/0-5stars.png";
+        } else if ((int) rating == 1) {
+            sourcePathStar = "/Library/1-stars.png";
+        } else if (rating > 1 || rating < 2) {
+            sourcePathStar = "/Library/1-5stars.png";
+        } else if ((int) rating == 2) {
+            sourcePathStar = "/Library/2-stars.png";
+        } else if (rating > 2 || rating < 3) {
+            sourcePathStar = "/Library/2-5stars.png";
+        } else if ((int) rating == 3) {
+            sourcePathStar = "/Library/3-stars.png";
+        } else if (rating > 3.5 || rating < 4) {
+            sourcePathStar = "/Library/3-5stars.png";
+        } else if ((int) rating == 4) {
+            sourcePathStar = "/Library/4-stars.png";
+        } else if (rating > 4 || rating < 5) {
+            sourcePathStar = "/Library/4-5stars.png";
+        } else if ((int) rating == 5) {
+            sourcePathStar = "/Library/5-stars.png";
+        }
+        return sourcePathStar;
+    }
 
 
 

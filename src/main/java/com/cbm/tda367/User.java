@@ -28,10 +28,10 @@ public class User {
     private int nrRatings;
 
     /* user lists */
-    private HashMap<Integer,Listing> reservedBooks = new HashMap<>();
-    private HashMap<Integer,Listing> booksForSale = new HashMap<>();
-    private HashMap<String,Book> subscribedBooks = new HashMap<>();
-    private HashMap<Integer,Listing> previousPurchases = new HashMap<>();
+    private ArrayList<Listing> reservedBooks = new ArrayList<>();
+    private ArrayList<Listing> booksForSale = new ArrayList<>();
+    private ArrayList<Book> subscribedBooks = new ArrayList<>();
+    private ArrayList<Listing> previousPurchases = new ArrayList<>();
     private List<Notification> notifications = new ArrayList<>();
 
 
@@ -103,11 +103,15 @@ public class User {
         return this.password.equals(passwordGuess);
     }
 
+    public ArrayList< Listing> getBooksForSale() {
+        return booksForSale;
+    }
+
     /** add reserved Book in hash map reservedBooks listing
      * @param listing
      */
     public void addReservedBook(Listing listing){
-        reservedBooks.put(listing.getListingNumber(),listing);
+        reservedBooks.add(listing);
     }
 
     /** add a book which is for sale in the hashmap listing
@@ -115,7 +119,7 @@ public class User {
      *
      */
     public void addListingForSale(Listing listing){
-        booksForSale.put(listing.getListingNumber(), listing);
+        booksForSale.add(listing);
     }
 
     /** add subscribed book in the hashmap list
@@ -123,14 +127,14 @@ public class User {
      *
      */
     public void addBookSubscription(Book book){
-        subscribedBooks.put(book.getBookCode(),book);
+        subscribedBooks.add(book);
     }
     /** add previous purchased book in the hashmap list
      * @param listing
      *
      */
     public void addPreviousPurchase(Listing listing){
-        previousPurchases.put(listing.getListingNumber(),listing);
+        previousPurchases.add(listing);
     }
     /** Delete previous purchased book from the hashmap list
      * @param listingNr
