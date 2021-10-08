@@ -26,7 +26,7 @@ public class ReservedBooksMiniatureViewController {
      *
      * @param manager A ControllerManager. Handles all controllers.
      */
-    public ReservedBooksMiniatureViewController(ControllerManager manager) {
+    public ReservedBooksMiniatureViewController(ControllerManager manager ,Listing listing) {
         this.manager = manager;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ReservedBooks.fxml"));

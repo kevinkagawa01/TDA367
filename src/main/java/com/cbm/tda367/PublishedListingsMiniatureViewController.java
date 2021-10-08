@@ -56,10 +56,5 @@ public class PublishedListingsMiniatureViewController {
         publishedBookPrice.setText(Double.toString(listing.getPrice()));
 
     }
-    @FXML public void onClickRemovePublishedBook(){
 
-    }
-    @FXML public void onClickChangePublishedBook(){
-
-    }
 }

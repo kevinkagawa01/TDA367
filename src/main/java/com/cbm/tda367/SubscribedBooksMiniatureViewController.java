@@ -22,24 +22,21 @@ import java.util.spi.LocaleServiceProvider;
  * @version 1.0
  * @since 1.0
  */
-public class SubscribedBooksMiniatureViewController  {
+public class SubscribedBooksMiniatureViewController {
 
     private ControllerManager manager;
     private Application model;
     private AccountPageController accountPageController;
     private Book book;
-    private String blankSpace = "\t\t";
 
-    @FXML
-    Text dateSubscribedMiniature;
     @FXML
     Text titleSubscriebdMiniature;
     @FXML
     Rectangle unsubscribedMiniature;
 
 
-    public SubscribedBooksMiniatureViewController(ControllerManager manager,Book book) {
-        this.book=book;
+    public SubscribedBooksMiniatureViewController(ControllerManager manager, Book book) {
+        this.book = book;
         this.manager = manager;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SubscribedBooks.fxml"));
         fxmlLoader.setRoot(this);
@@ -55,8 +52,10 @@ public class SubscribedBooksMiniatureViewController  {
         titleSubscriebdMiniature.setText(book.getBookName());
 
     }
- /*   public void setUnsubscribedMiniature(){
-       accountPageController.removeSubscribedBook();
+
+    @FXML
+    public void setUnsubscribedMiniature(Book book) {
+        accountPageController.removeSubscribedBook(book);
     }
-*/
+
 }
