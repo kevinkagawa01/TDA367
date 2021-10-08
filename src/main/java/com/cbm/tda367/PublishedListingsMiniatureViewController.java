@@ -1,6 +1,8 @@
 package com.cbm.tda367;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -21,6 +23,12 @@ public class PublishedListingsMiniatureViewController {
     private ControllerManager manager;
     Listing listing;
     private String blankSpace = "\t\t";
+    @FXML
+    Text publishedBookTitle;
+    @FXML
+    Text publishedBookDate;
+    @FXML
+    Text publishedBookPrice;
 
     /**
      * Constructs the miniature view and defines its controller.
@@ -43,9 +51,15 @@ public class PublishedListingsMiniatureViewController {
         LocalDate localDate = LocalDate.now();
         SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd  hh:mm");
         String date = (sdf.format(listing.getDate()));
-        //this.setText(listing.getBook()+blankSpace+listing.getPrice()+date);
+        publishedBookTitle.setText(listing.getBook().getBookName());
+        publishedBookDate.setText(date);
+        publishedBookPrice.setText(Double.toString(listing.getPrice()));
 
+    }
+    @FXML public void onClickRemovePublishedBook(){
 
+    }
+    @FXML public void onClickChangePublishedBook(){
 
     }
 }

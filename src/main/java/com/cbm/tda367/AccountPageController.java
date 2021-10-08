@@ -11,6 +11,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Visual representation of the account page in the application, as well as controller.
@@ -27,6 +29,12 @@ public class AccountPageController extends AnchorPane implements Observer {
     private ControllerManager manager;
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
+
+    List<ReservedBooksMiniatureViewController> reservedBooks = new ArrayList<>();
+    List<PublishedListingsMiniatureViewController> publishedBooks = new ArrayList<>();
+    List<SubscribedBooksMiniatureViewController> subscribedBooks = new ArrayList<>();
+    List<BoughtBooksMiniatureViewController> boughtBooks = new ArrayList<>();
+
 
     @FXML
     private Accordion accountPageAccordion;
