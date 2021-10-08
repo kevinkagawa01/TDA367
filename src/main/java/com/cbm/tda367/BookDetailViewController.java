@@ -3,10 +3,10 @@ package com.cbm.tda367;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
@@ -23,10 +23,11 @@ import java.util.List;
  * @version 1.0
  * @since 1.0
  */
-public class BookDetailViewController extends AnchorPane {
+public class BookDetailViewController extends AnchorPane implements Observer {
     private ApplicationModel model;
     private ControllerManager manager;
     private Book book;
+    private shopPageListingViewController shopPageListing;
     private boolean subscribePressed = true;
 
     @FXML
@@ -47,7 +48,6 @@ public class BookDetailViewController extends AnchorPane {
     public BookDetailViewController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
         this.manager = manager;
-        this.book = book;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-subscription.fxml"));
         fxmlLoader.setRoot(this);
@@ -58,11 +58,14 @@ public class BookDetailViewController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        //bookFront.setImage(book.getImage());
-        //textFront.setText(book.getBookName());
+        shopPageListing =new shopPageListingViewController(manager,model);
 
 
     }
+    //Todo: add shopPageListingviews in flowpane
+   /* private void addListingFlowPane() {
+        bookPane.getChildren().add(shopPageListing);
+    }*/
 
     /**
      * On click method, subscribing/unsubscribing this to a book.
@@ -76,6 +79,16 @@ public class BookDetailViewController extends AnchorPane {
 
     }
 
+    public void updateBookPicture() {
+
+        bookFront.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
+    }
+
+    public void updateTextFront(){
+        textFront.setText(book.getBookName());
+    }
+
+
     /**
      * Updates current user's list of subscribed books in shop page.
      */
@@ -88,6 +101,17 @@ public class BookDetailViewController extends AnchorPane {
             // bookPane.getChildren().add();
         }
 
+    }
+    public void fillFlowPane(){
+
+
+
+    }
+
+    @Override
+    public void update() {
+        updateBookPicture();
+        updateTextFront();
     }
 
     /**

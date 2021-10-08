@@ -40,6 +40,7 @@ public class ControllerManager implements Initializable,Observer {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         /* Adding observers locally */
+        mainPages.add(bookDetailPage);
         mainPages.add(sellPage);
         mainPages.add(accountPage);
         mainPages.add(shopPage);
@@ -52,13 +53,13 @@ public class ControllerManager implements Initializable,Observer {
     }
 
     /**
-     * this method will update modelen
+     * this method will update the model
      */
 
     @Override
     public void update() {
-        for (Observer mainPageObservers : mainPages){
-            mainPageObservers.update();
+        for (Observer mainPageObserver : mainPages){
+            mainPageObserver.update();
         }
     }
 
