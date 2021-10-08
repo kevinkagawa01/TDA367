@@ -51,6 +51,12 @@ public class BookDatabase {
                 "MVE045",
                 "/book_covers/calculus.jpg",
                 "Mathematics"));
+
+        bookList.add(new Book("Maskinorienterad programmering",
+                "Roger Johansson",
+                "MD407",
+                "/book_covers/mop.jpg",
+                "Programming"));
     }
 
     /**
