@@ -9,9 +9,8 @@ public class BoughtBooksMiniatureViewController {
     private ControllerManager manager;
     AccountPageController accountPageController;
 
-    public BoughtBooksMiniatureViewController(AccountPageController accountPageController) {
+    public BoughtBooksMiniatureViewController(ControllerManager manager, Listing listing) {
 
-        this.accountPageController = accountPageController;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("BoughtBooks.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -25,7 +24,7 @@ public class BoughtBooksMiniatureViewController {
     }
 
     @FXML
-    public void setUnsubscribedMiniature(Book book){
-        accountPageController.removeSubscribedBook(book);
+    public void removeBoughtBooksMiniature(Listing listing) {
+        accountPageController.removeBoughtBook(listing);
     }
 }

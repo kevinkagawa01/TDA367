@@ -1,5 +1,6 @@
 package com.cbm.tda367;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.shape.Rectangle;
@@ -54,7 +55,7 @@ public class SubscribedBooksMiniatureViewController {
     }
 
     @FXML
-    public void setUnsubscribedMiniature(Book book) {
+    protected void setUnsubscribedMiniature(Event event) {
         accountPageController.removeSubscribedBook(book);
     }
 

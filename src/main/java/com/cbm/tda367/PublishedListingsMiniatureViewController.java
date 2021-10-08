@@ -1,5 +1,6 @@
 package com.cbm.tda367;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.text.Text;
@@ -20,6 +21,7 @@ import java.time.LocalDate;
  */
 public class PublishedListingsMiniatureViewController {
 
+    AccountPageController accountPageController;
     private ControllerManager manager;
     Listing listing;
     private String blankSpace = "\t\t";
@@ -37,7 +39,7 @@ public class PublishedListingsMiniatureViewController {
      */
     public PublishedListingsMiniatureViewController(ControllerManager manager, Listing listing) {
         this.manager = manager;
-
+        this.listing = listing;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PublishedBooks.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -57,4 +59,12 @@ public class PublishedListingsMiniatureViewController {
 
     }
 
+    @FXML
+    protected void onClickRemovePublishedBook(Event event) {
+        accountPageController.removePublishedBook(listing);
+    }
+    @FXML
+    protected void onClickChangePublishedBook(Event event) {
+
+    }
 }

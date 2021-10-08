@@ -39,6 +39,6 @@ public class BookViewController extends AnchorPane {
 
     @FXML
     protected void onClickOpenDetailedView(Event event){
-        manager.openBookDetailView(this.book);
+        manager.openBookDetailView(book);
     }
 }

@@ -134,12 +134,26 @@ public class AccountPageController extends AnchorPane implements Observer {
         return sourcePathStar;
     }
 
-    private void updateStarRating() {
+    public void updateStarRating() {
         starRating.setImage(new Image(getClass().getResourceAsStream(getRatingPicture())));
     }
-    public void removeSubscribedBook(Book book){
+
+    public void removeSubscribedBook(Book book) {
         subscribedBooks.remove(book);
     }
+
+    public void removePublishedBook(Listing listing) {
+        subscribedBooks.remove(listing);
+    }
+
+    public void removeReservedBook(Listing listing) {
+        reservedBooks.remove(listing);
+    }
+
+    public void removeBoughtBook(Listing listing) {
+        boughtBooks.remove(listing);
+    }
+
 
     @Override
     public void update() {
