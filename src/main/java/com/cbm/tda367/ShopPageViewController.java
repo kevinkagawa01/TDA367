@@ -49,8 +49,8 @@ public class ShopPageViewController extends AnchorPane implements Observer{
         }
 
         /* create shop page categories */
-        allBooksCategory = new ShopPageCategoryViewController("All Books");
-        mostSubscribedBooksCategory = new ShopPageCategoryViewController("Most Subscribed Books");
+        allBooksCategory = new ShopPageCategoryViewController(manager,"All Books");
+        mostSubscribedBooksCategory = new ShopPageCategoryViewController(manager,"Most Subscribed Books");
         /* add them to flow pane */
         populateCategoriesFlowPane();
         /* add books to the categories */

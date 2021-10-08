@@ -11,10 +11,12 @@ import java.util.List;
 
 public class ShopPageCategoryViewController extends AnchorPane {
 
+    private ControllerManager manager;
+
     @FXML private Text shopPageCategoryTitle;
     @FXML private FlowPane shopPageCategoryFlowPane;
 
-    public ShopPageCategoryViewController(String shopPageCategoryTitle) {
+    public ShopPageCategoryViewController(ControllerManager manager,String shopPageCategoryTitle) {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-category.fxml"));
         fxmlLoader.setController(this);
@@ -26,12 +28,14 @@ public class ShopPageCategoryViewController extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
+        this.manager = manager;
+
         this.shopPageCategoryTitle.setText(shopPageCategoryTitle);
     }
 
     public void populateCategoryWithBooks(List<Book> books){
         for (Book book : books){
-            BookViewController bookViewController = new BookViewController(book);
+            BookViewController bookViewController = new BookViewController(manager,book);
             shopPageCategoryFlowPane.getChildren().add(bookViewController);
         }
     }

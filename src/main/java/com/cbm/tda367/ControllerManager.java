@@ -33,6 +33,9 @@ public class ControllerManager implements Initializable,Observer {
     private final SellPageViewController sellPage = new SellPageViewController(this, model);
     private final AccountPageController accountPage = new AccountPageController(this, model);
 
+    //TODO: First book should not be null!
+    private BookDetailViewController bookDetailViewController = new BookDetailViewController(this,model,null);
+
     private final List<Observer> mainPages = new ArrayList<>();
 
     @Override
@@ -43,6 +46,7 @@ public class ControllerManager implements Initializable,Observer {
         mainPages.add(shopPage);
         mainPages.add(loginPage);
 
+        mainAnchorPane.getChildren().add(bookDetailViewController);
         mainAnchorPane.getChildren().add(sellPage);
         mainAnchorPane.getChildren().add(accountPage);
         mainAnchorPane.getChildren().add(shopPage);
@@ -87,4 +91,12 @@ public class ControllerManager implements Initializable,Observer {
         accountPage.toFront();
     }
 
+    public void openBookDetailView(Book book) {
+        /* Changes currently selected book in DetailView */
+        bookDetailViewController.setBook(book);
+        /* Update View */
+        bookDetailViewController.updateBookView();
+        /* Send it to front */
+        bookDetailViewController.toFront();
+    }
 }
