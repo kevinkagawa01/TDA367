@@ -32,6 +32,4 @@ public class BookViewController extends AnchorPane {
         this.book = book;
         bookImageView.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
     }
-
-
 }

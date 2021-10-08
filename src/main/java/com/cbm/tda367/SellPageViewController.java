@@ -77,8 +77,8 @@ public class SellPageViewController extends AnchorPane implements Observer{
 
     private void informationEdited(String textField, String newValue, String oldValue){
         switch(textField){
-            case "bookCode"     -> updateBookCode(newValue,oldValue);
-            case "bookPrice"    -> updateBookPrice(newValue, oldValue);
+            case "bookCode"  -> updateBookCode(newValue,oldValue);
+            case "bookPrice" -> updateBookPrice(newValue, oldValue);
         }
     }
 
