@@ -11,6 +11,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Visual representation of the account page in the application, as well as controller.
@@ -27,6 +29,9 @@ public class AccountPageController extends AnchorPane implements Observer {
     private ControllerManager manager;
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
+
+
+
 
     @FXML
     private Accordion accountPageAccordion;
@@ -125,6 +130,7 @@ public class AccountPageController extends AnchorPane implements Observer {
         }
         return sourcePathStar;
     }
+
 
     private void updateStarRating() {
         starRating.setImage(new Image(getClass().getResourceAsStream(getRatingPicture())));

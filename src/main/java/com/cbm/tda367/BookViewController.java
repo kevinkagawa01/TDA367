@@ -2,6 +2,7 @@ package com.cbm.tda367;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -31,6 +32,10 @@ public class BookViewController extends AnchorPane {
 
         this.book = book;
         bookImageView.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
+    }
+    @FXML
+    public void onClicktoListingView(){
+
     }
 
 
