@@ -3,22 +3,14 @@ package com.cbm.tda367;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/** the class create user
-@param
- */
-
-
-/**
- * Represents the database of Books
- *
+/** Represents an application user.
  * @author Kevin Pham
  * @author Simon Holst
  * @author Carl-Magnus Wall
  * @author Pegah Amanzadeh
- * @version 1.0
- * @since 1.0
- */
-
+ * @version 0.3
+ * @since 0.1
+ * */
 public class User {
 
     private String cid;
@@ -28,22 +20,18 @@ public class User {
     private int nrRatings;
 
     /* user lists */
-    private ArrayList<Listing> reservedBooks = new ArrayList<>();
-    private ArrayList<Listing> booksForSale = new ArrayList<>();
-    private ArrayList<Book> subscribedBooks = new ArrayList<>();
-    private ArrayList<Listing> previousPurchases = new ArrayList<>();
-    private List<Notification> notifications = new ArrayList<>();
+    private final ArrayList<Listing> reservedBooks = new ArrayList<>();
+    private final ArrayList<Listing> booksForSale = new ArrayList<>();
+    private final ArrayList<Book> subscribedBooks = new ArrayList<>();
+    private final ArrayList<Listing> previousPurchases = new ArrayList<>();
+    private final List<Notification> notifications = new ArrayList<>();
 
 
 
-    /** the class create user
-     @param cid                 Cid is students E-mailaddress
-     @param password            Password to cid
+    /** class constructor.
+     @param cid this chalmers identification.
+     @param password this password.
      */
-
-
-
-
     public User(String cid, String password) {
         this.cid = cid;
         this.password = password;
@@ -53,10 +41,9 @@ public class User {
     }
 
     /**
-    @param
-    @ adds users rating and updates the total
-    */
-
+     * adds users rating and updates the total
+     * @param rating rating to be added to this total rating.
+     */
     public void addRating(int rating) {
         /* if provided rating is invalid, return */
         if(!(0 <= rating && rating <= 5)) {return;}
@@ -68,41 +55,47 @@ public class User {
         totalRating = round(((double) sumOfRatings / nrRatings),1);
     }
 
-    public String setRatingPath(String path){
-        return path;
-    }
-
+    /**
+     * Returns this rating.
+     * @return this rating.
+     */
     public double getRating(){
         return totalRating;
     }
-    /**
-     * @param
-    @ used to round doubles to a certain precision */
 
-    private static double round (double value, int precision) {
+    /**
+     * rounds a double to a certain precision
+     * @param value double to be rounded.
+     * @param precision precision to round the double according to.
+     * @return rounded double.
+     */
+    private double round (double value, int precision) {
         int scale = (int) Math.pow(10, precision);
         return (double) Math.round(value * scale) / scale;
     }
 
-    /** return the cid
-     * @param
-    @  */
-
+    /**
+     * Returns this cid.
+     * @return cid.
+     */
     public String getCid() {
         return cid;
     }
 
-
-    /** return password
-     * @param passwordGuess
-     * @return users password
+    /**
+     * Returns boolean whether the password guess was correct or not.
+     * @param passwordGuess attempt to guess this password.
+     * @return boolean whether the password guess was correct or not.
      */
-
     public boolean isUserPassword(String passwordGuess){
         //TODO: maybe make more secure
         return this.password.equals(passwordGuess);
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList< Listing> getBooksForSale() {
         return booksForSale;
     }

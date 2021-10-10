@@ -19,7 +19,7 @@ public abstract class Notification {
      *
      * @return this notification message.
      */
-    private String getNotificationMessage() {
+    public String getNotificationMessage() {
         return notificationMessage;
     }
 }

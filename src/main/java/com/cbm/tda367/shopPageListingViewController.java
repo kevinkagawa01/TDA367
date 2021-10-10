@@ -9,25 +9,35 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 
+/**
+ * A visual representation of the Shop page
+ *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
+ */
+
 public class shopPageListingViewController extends AnchorPane {
-    private ApplicationModel model;
-    private ControllerManager manager;
-    private FXMLLoader fxmlLoader;
+    private final ApplicationModel model;
+    private final ControllerManager manager;
     private Listing listing;
 
     @FXML
-    Text listingPrice;
+    private Text listingPrice;
     @FXML
-    ImageView listingImage;
+    private ImageView listingImage;
     @FXML
-    Text listingBookCondition;
+    private Text listingBookCondition;
 
 
     public shopPageListingViewController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
         this.manager = manager;
 
-        fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-subscription(1).fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-subscription(1).fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -36,9 +46,9 @@ public class shopPageListingViewController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        //listingPrice.setText(Double.toString(listing.getPrice()));
-        //listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
-        //listingBookCondition.setText(listing.getCondition());
+       // listingPrice.setText(Double.toString(listing.getPrice()));
+       // listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
+        // listingBookCondition.setText(listing.getCondition());
     }
 
 }

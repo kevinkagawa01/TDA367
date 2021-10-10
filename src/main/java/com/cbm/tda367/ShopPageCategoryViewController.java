@@ -9,29 +9,38 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.util.List;
 
+/** Visual representation of a category in the shop page and defines its controllers
+ *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
+ * */
 public class ShopPageCategoryViewController extends AnchorPane {
+
+    private final ControllerManager manager;
 
     @FXML private Text shopPageCategoryTitle;
     @FXML private FlowPane shopPageCategoryFlowPane;
 
-    public ShopPageCategoryViewController(String shopPageCategoryTitle) {
+    public ShopPageCategoryViewController(ControllerManager manager,String shopPageCategoryTitle) {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-category.fxml"));
         fxmlLoader.setController(this);
         fxmlLoader.setRoot(this);
 
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
+        try { fxmlLoader.load(); }
+        catch (IOException exception) { throw new RuntimeException(exception); }
 
+        this.manager = manager;
         this.shopPageCategoryTitle.setText(shopPageCategoryTitle);
     }
 
-    public void populateCategoryWithBooks(List<Book> books){
+    protected void populateCategoryWithBooks(List<Book> books){
         for (Book book : books){
-            BookViewController bookViewController = new BookViewController(book);
+            BookViewController bookViewController = new BookViewController(manager,book);
             shopPageCategoryFlowPane.getChildren().add(bookViewController);
         }
     }

@@ -20,19 +20,21 @@ import java.util.ResourceBundle;
  * @since 1.0
  */
 
-public class ControllerManager implements Initializable,Observer {
+public class ControllerManager implements Initializable, Observer {
 
     @FXML
     private AnchorPane mainAnchorPane;
 
     /* model */
-    ApplicationModel model = ApplicationModel.getInstance();
+    private final ApplicationModel model = ApplicationModel.getInstance();
     /* application pages */
     private final LoginPageViewController loginPage = new LoginPageViewController(this, model);
     private final ShopPageViewController shopPage = new ShopPageViewController(this, model);
     private final SellPageViewController sellPage = new SellPageViewController(this, model);
     private final AccountPageController accountPage = new AccountPageController(this, model);
 
+    //TODO: First book should not be null!
+    private final BookDetailViewController bookDetailViewController = new BookDetailViewController(this, model, null);
     private final List<Observer> mainPages = new ArrayList<>();
 
     @Override
@@ -43,6 +45,7 @@ public class ControllerManager implements Initializable,Observer {
         mainPages.add(shopPage);
         mainPages.add(loginPage);
 
+        mainAnchorPane.getChildren().add(bookDetailViewController);
         mainAnchorPane.getChildren().add(sellPage);
         mainAnchorPane.getChildren().add(accountPage);
         mainAnchorPane.getChildren().add(shopPage);
@@ -55,27 +58,29 @@ public class ControllerManager implements Initializable,Observer {
 
     @Override
     public void update() {
-        for (Observer mainPageObserver : mainPages){
+        for (Observer mainPageObserver : mainPages) {
             mainPageObserver.update();
         }
     }
 
-    protected void openPublishedListingsAccordionInAccountPage(){
+    /**
+     * Opens published listings accordion-section when called.
+     */
+    protected void openPublishedListingsAccordionInAccountPage() {
         accountPage.openPublishedListingsAccordion();
     }
-
 
     /**
      * Navigate to ShopPage
      */
-    void goToShopPage(){
+    void goToShopPage() {
         shopPage.toFront();
     }
 
     /**
      * Navigate to SellPage
      */
-    void goToSellPage(){
+    void goToSellPage() {
         sellPage.toFront();
     }
 
@@ -83,8 +88,23 @@ public class ControllerManager implements Initializable,Observer {
     /**
      * Navigate to AccountPage
      */
-    void goToAccountPage(){
+    void goToAccountPage() {
         accountPage.toFront();
     }
 
+    /**
+     * Opens detail view of book.
+     * */
+    public void openBookDetailView(Book book) {
+        /* Changes currently selected book in DetailView */
+        bookDetailViewController.setBook(book);
+        /* Update View */
+        bookDetailViewController.updateBookView();
+        /* Send it to front */
+        bookDetailViewController.toFront();
+    }
+
+    public void openSellPageView(Listing listing) {
+
+    }
 }

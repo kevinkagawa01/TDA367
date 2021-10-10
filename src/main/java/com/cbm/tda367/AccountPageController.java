@@ -8,16 +8,11 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.TilePane;
-
 import javafx.scene.text.Text;
-
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -36,11 +31,11 @@ public class AccountPageController extends AnchorPane implements Observer {
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
 
-
     @FXML private Accordion accountPageAccordion;
-    @FXML private FlowPane publishedBooksFlowPane;
     @FXML private ScrollPane published;
+
     @FXML  private Text publishedBookText;
+    @FXML FlowPane publishedBooksFlowPane;
 
 
 
@@ -50,6 +45,9 @@ public class AccountPageController extends AnchorPane implements Observer {
     private Text emailText;
     @FXML
     private ImageView starRating;
+
+
+
 
 
 
@@ -68,20 +66,19 @@ public class AccountPageController extends AnchorPane implements Observer {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
+        try { fxmlLoader.load(); }
+        catch (IOException exception) { throw new RuntimeException(exception); }
     }
+
 
 
     /* onclick listeners*/
 
+
     /**
      * move to ShopPage by clicking on this button
      *
-     * @param event
+     * @param event ActionEvent occurring when method is triggered.
      */
     @FXML
     public void shopButton(Event event) {
@@ -89,37 +86,79 @@ public class AccountPageController extends AnchorPane implements Observer {
     }
 
     /**
-     * move to SellPage by clicking on this button
+     * move to SellPage by clicking on this button.
      *
-     * @param event
+     * @param event ActionEvent occurring when method is triggered.
      */
     @FXML
     public void addButton(Event event) {
         manager.goToSellPage();
     }
 
+    /**
+     * opens the accordion-section where published listings are displayed.
+     */
     protected void openPublishedListingsAccordion() {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
 
-
+    /**
+     * Updates the visual representation of which user i logged in to the application.
+     */
     private void updateLoggedInEmail() {
-        System.out.println(model.getCurrentlyLoggedInUser().getCid());
         emailText.setText(model.getCurrentlyLoggedInUser().getCid());
-
-
     }
 
+    /**
+     * Returns a rating image-path, represented in the form of 0-5 stars, corresponding to the user's rating.
+     * @return rating image-path.
+     */
+    private String getRatingPicture() {
+
+        double rating = model.getCurrentlyLoggedInUser().getRating();
+        String sourcePathStar;
+        if ((int) rating == 0) {
+            sourcePathStar = "/Library/0-stars.png";
+        } else if (rating > 0 || rating < 1) {
+            sourcePathStar = "/Library/0-5stars.png";
+        } else if ((int) rating == 1) {
+            sourcePathStar = "/Library/1-stars.png";
+        } else if (rating > 1 || rating < 2) {
+            sourcePathStar = "/Library/1-5stars.png";
+        } else if ((int) rating == 2) {
+            sourcePathStar = "/Library/2-stars.png";
+        } else if (rating > 2 || rating < 3) {
+            sourcePathStar = "/Library/2-5stars.png";
+        } else if ((int) rating == 3) {
+            sourcePathStar = "/Library/3-stars.png";
+        } else if (rating > 3.5 || rating < 4) {
+            sourcePathStar = "/Library/3-5stars.png";
+        } else if ((int) rating == 4) {
+            sourcePathStar = "/Library/4-stars.png";
+        } else if (rating > 4 || rating < 5) {
+            sourcePathStar = "/Library/4-5stars.png";
+        } else {
+            sourcePathStar = "/Library/5-stars.png";
+        }
+        return sourcePathStar;
+    }
+
+    /**
+     * Updates the user's star rating image.
+     */
     private void updateStarRating() {
-        starRating.setImage(new Image(getClass().getResourceAsStream(model.getRatingPicture())));
+        starRating.setImage(new Image(getClass().getResourceAsStream(getRatingPicture())));
     }
 
-
+    /**
+     * Implemented from the observer interface; updates the status of the object.
+     */
     @Override
     public void update() {
         updateLoggedInEmail();
         updateStarRating();
+
         updatePublishedBooks();
     }
 
@@ -129,6 +168,7 @@ public class AccountPageController extends AnchorPane implements Observer {
             publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(listing));
 
         }
+
 
 
 

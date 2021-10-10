@@ -13,9 +13,9 @@ import java.util.List;
  * */
 public class UserDatabase {
 
-    private List<User> userList = new ArrayList<>();
+    private final List<User> userList = new ArrayList<>();
 
-    private static UserDatabase userDatabase = new UserDatabase();
+    private final static UserDatabase userDatabase = new UserDatabase();
 
     private UserDatabase(){
         userList.add(new User("simonhol@student.chalmers.se", "hejsan123"));

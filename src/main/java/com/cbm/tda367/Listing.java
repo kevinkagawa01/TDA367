@@ -21,10 +21,9 @@ public class Listing {
 
     private final Book book;
     private final int listingNumber;
-
     private String condition;
-    private final double price;
-    private String imagePath;
+    private double price;
+    private final String imagePath;
 
     private boolean isReserved;
     private boolean isPurchased;

@@ -23,21 +23,21 @@ import java.util.List;
  * @version 1.0
  * @since 1.0
  */
-public class BookDetailViewController extends AnchorPane implements Observer {
-    private ApplicationModel model;
-    private ControllerManager manager;
+public class BookDetailViewController extends AnchorPane {
+    private final ApplicationModel model;
+    private final ControllerManager manager;
     private Book book;
     private shopPageListingViewController shopPageListing;
     private boolean subscribePressed = true;
 
     @FXML
-    private ImageView bookFront;
+    private ImageView bookImageView;
     @FXML
-    private Text textFront;
+    private Text bookTitleText;
     @FXML
-    private Rectangle greenButton;
+    private Rectangle reserveButton;
     @FXML
-    private FlowPane bookPane;
+    private FlowPane listingsFlowPane;
 
     /**
      * Creates a detail view of a book.
@@ -59,7 +59,7 @@ public class BookDetailViewController extends AnchorPane implements Observer {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        shopPageListing =new shopPageListingViewController(manager,model);
+        shopPageListing = new shopPageListingViewController(manager, model);
 
 
     }
@@ -82,11 +82,11 @@ public class BookDetailViewController extends AnchorPane implements Observer {
 
     public void updateBookPicture() {
 
-        bookFront.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
+        bookImageView.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
     }
 
-    public void updateTextFront(){
-        textFront.setText(book.getBookName());
+    public void updateBookTitleText() {
+        bookTitleText.setText(book.getBookName());
     }
 
 
@@ -96,23 +96,22 @@ public class BookDetailViewController extends AnchorPane implements Observer {
     public void updateSubscribedCategoryPane() {
         List<Book> items = BookDatabase.getInstance().getBookList();
         //getBookCode osv
-        bookPane.getChildren().clear();
+        listingsFlowPane.getChildren().clear();
         for (Book book :
                 items) {
             // bookPane.getChildren().add();
         }
 
     }
-    public void fillFlowPane(){
 
+    public void fillFlowPane() {
 
 
     }
 
-    @Override
-    public void update() {
+    public void updateBookView() {
         updateBookPicture();
-        updateTextFront();
+        updateBookTitleText();
     }
 
     /**
@@ -146,4 +145,12 @@ public class BookDetailViewController extends AnchorPane implements Observer {
     }
 
 
+    @FXML
+    protected void onClickReturnToShopPage() {
+        manager.goToShopPage();
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
 }

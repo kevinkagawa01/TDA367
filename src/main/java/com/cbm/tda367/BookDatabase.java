@@ -20,8 +20,8 @@ import java.util.List;
 
 public class BookDatabase {
 
-    private List<Book> bookList = new ArrayList<>();
-    private static BookDatabase bookDatabase = new BookDatabase();
+    private final List<Book> bookList = new ArrayList<>();
+    private final static BookDatabase bookDatabase = new BookDatabase();
 
     /**
      * Constructs the Book database singleton.
@@ -51,6 +51,13 @@ public class BookDatabase {
                 "MVE045",
                 "/book_covers/calculus.jpg",
                 "Mathematics"));
+
+        //TODO: imagePath not working on this one?
+        //bookList.add(new Book("Maskinorienterad programmering",
+          //      "Roger Johansson",
+            //    "MD407",
+              //  "/book_covers/mop.jpg",
+                //"Programming"));
     }
 
     /**
