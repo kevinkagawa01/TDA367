@@ -6,33 +6,51 @@ import javafx.scene.image.ImageView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
+/**
+ * Application main class for the model containing the logic of the model.
+ *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 0.1
+ */
 public class ApplicationModel implements Observable {
 
-    private static ApplicationModel applicationModel = new ApplicationModel();
+    private final static ApplicationModel applicationModel = new ApplicationModel();
 
-    private BookDatabase bookDatabase;
-    private UserDatabase userDatabase;
+    private final BookDatabase bookDatabase;
+    private final UserDatabase userDatabase;
     private User currentlyLoggedInUser = NotLoggedInUser.getInstance();
     //TODO: Should read current listing number from text file after initial launch
     private int currentListingNumber = 0;
-    private List<Listing> listings = new ArrayList<>();
-    private List<Observer> viewObservers = new ArrayList<>();
-    private HashMap<Integer, Listing> reservedBooks = new HashMap<>();
+    private final List<Listing> listings = new ArrayList<>();
+    private final List<Observer> viewObservers = new ArrayList<>();
+    private final HashMap<Integer, Listing> reservedBooks = new HashMap<>();
 
+    /**
+     * class constructor, private due to Singleton pattern implementation.
+     */
     private ApplicationModel() {
         /* init databases */
         bookDatabase = BookDatabase.getInstance();
         userDatabase = UserDatabase.getInstance();
-
         /* Update views on start */
         notifyObservers();
     }
 
+    /**
+     * Returns single instance of this class.
+     * @return single instance of this class.
+     */
     public static ApplicationModel getInstance() {
         return applicationModel;
     }
 
+    /**
+     * implemented from interface Observable, notifying all observers that change has occured.
+     */
     @Override
     public void notifyObservers() {
         for (Observer observer : viewObservers) {
@@ -40,13 +58,21 @@ public class ApplicationModel implements Observable {
         }
     }
 
+    /**
+     * Adds an observer to the lists of observers, watching this class.
+     * @param observer observes this class for changes.
+     */
     @Override
     public void addObserver(Observer observer) {
         viewObservers.add(observer);
     }
 
-
-    public List<Listing> getListings(Listing listing) {
+    /**
+     * Returns a list of the application's published listings.
+     * @param listing a published listing.
+     * @return
+     */
+    public List<Listing> getListings() {
         return new ArrayList<>(listings);
     }
 
@@ -76,11 +102,7 @@ public class ApplicationModel implements Observable {
 
 
     }
-
-
-
-
-
+    
     public String getRatingPicture() {
 
         double rating = currentlyLoggedInUser.getRating();
