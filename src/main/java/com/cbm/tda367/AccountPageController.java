@@ -66,7 +66,7 @@ public class AccountPageController extends AnchorPane implements Observer {
     }
 
     /**
-     * move to SellPage by clicking on this button
+     * move to SellPage by clicking on this button.
      *
      * @param event ActionEvent occurring when method is triggered.
      */
@@ -75,18 +75,25 @@ public class AccountPageController extends AnchorPane implements Observer {
         manager.goToSellPage();
     }
 
+    /**
+     * opens the accordion-section where published listings are displayed.
+     */
     protected void openPublishedListingsAccordion() {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
 
+    /**
+     * Updates the visual representation of which user i logged in to the application.
+     */
     private void updateLoggedInEmail() {
-        System.out.println(model.getCurrentlyLoggedInUser().getCid());
         emailText.setText(model.getCurrentlyLoggedInUser().getCid());
-
-
     }
 
+    /**
+     * Returns a rating image-path, represented in the form of 0-5 stars, corresponding to the user's rating.
+     * @return rating image-path.
+     */
     private String getRatingPicture() {
 
         double rating = model.getCurrentlyLoggedInUser().getRating();
@@ -117,10 +124,16 @@ public class AccountPageController extends AnchorPane implements Observer {
         return sourcePathStar;
     }
 
+    /**
+     * Updates the user's star rating image.
+     */
     private void updateStarRating() {
         starRating.setImage(new Image(getClass().getResourceAsStream(getRatingPicture())));
     }
 
+    /**
+     * Implemented from the observer interface; updates the status of the object.
+     */
     @Override
     public void update() {
         updateLoggedInEmail();
