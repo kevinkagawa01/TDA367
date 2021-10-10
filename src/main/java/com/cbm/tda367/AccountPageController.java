@@ -40,9 +40,9 @@ public class AccountPageController extends AnchorPane implements Observer {
     @FXML private Accordion accountPageAccordion;
     @FXML private FlowPane publishedBooksFlowPane;
     @FXML private ScrollPane published;
-    @FXML  private Text publishedBook;
+    @FXML  private Text publishedBookText;
 
-    List<Listing>publishedBooks=new ArrayList<>();
+
 
 
 
@@ -74,7 +74,6 @@ public class AccountPageController extends AnchorPane implements Observer {
             throw new RuntimeException(exception);
         }
     }
-    //private static List<publishedBookItem>publishedBook=new ArrayList<>(); // lägger published bok i en lista
 
 
     /* onclick listeners*/
@@ -126,6 +125,10 @@ public class AccountPageController extends AnchorPane implements Observer {
 
     private void updatePublishedBooks() {
         ArrayList<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
+        for(Listing listing:publishedListings){
+            publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(listing));
+
+        }
 
 
 

@@ -2,8 +2,13 @@ package com.cbm.tda367;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -20,13 +25,23 @@ import java.util.List;
  * @version 1.0
  * @since 1.0
  */
-public class PublishedListingsMiniatureViewController {
+public class PublishedListingsMiniatureViewController extends AnchorPane {
 
     private ControllerManager manager;
     Listing listing;
-    private String blankSpace = "\t\t";
+    private ApplicationModel model;
+    private  Book book;
+
     @FXML
     FlowPane publishedList;
+
+    @FXML private ImageView BookImage;
+    @FXML private Text BookCode;
+   // @FXML private Button ChangeButton;
+    //@FXML private Button DeleteButton;
+    @FXML private Text Price;
+    @FXML private Text date;
+
 
     /**
      * Constructs the miniature view and defines its controller.
@@ -36,8 +51,7 @@ public class PublishedListingsMiniatureViewController {
     public PublishedListingsMiniatureViewController(Listing listing) {
         //this.manager = manager;
         this.listing=listing;
-
-
+        this.book=book;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PublishedBooks.fxml"));
         fxmlLoader.setRoot(this);
@@ -48,16 +62,19 @@ public class PublishedListingsMiniatureViewController {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+        BookCode.setText(listing.getBook().getBookName());
+        Price.setText(String.valueOf(listing.getPrice()));
+        date.setText(String.valueOf(listing.getDate()));
+        updateBookPicture();
 
 
 
-
-
-        //LocalDate localDate = LocalDate.now();
-        //SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd  hh:mm");
-        //String date = (sdf.format(listing.getDate()));
-        //this.setText(listing.getBook()+blankSpace+listing.getPrice()+date);
     }
+    public void updateBookPicture() {
+
+        BookImage.setImage(new Image(getClass().getResourceAsStream(listing.getBook().getImagePath())));
+    }
+
 
 
 }

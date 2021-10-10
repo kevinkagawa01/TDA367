@@ -18,7 +18,7 @@ public class ApplicationModel implements Observable {
     private int currentListingNumber = 0;
     private List<Listing> listings = new ArrayList<>();
     private List<Observer> viewObservers = new ArrayList<>();
-    private HashMap<Integer, Listing> reservedBooks = new HashMap<>();
+
 
     private ApplicationModel() {
         /* init databases */
@@ -69,6 +69,7 @@ public class ApplicationModel implements Observable {
         /* Add listing to listings */
          listings.add(list);
          currentlyLoggedInUser.addListingForSale(list);
+         System.out.println("added to published lis");
         /* Update view */
 
         notifyObservers();
