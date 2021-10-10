@@ -92,7 +92,7 @@ public class ControllerManager implements Initializable, Observer {
         accountPage.toFront();
     }
 
-    /*
+    /**
      * Opens detail view of book.
      * */
     public void openBookDetailView(Book book) {

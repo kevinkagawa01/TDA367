@@ -46,9 +46,9 @@ public class shopPageListingViewController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        listingPrice.setText(Double.toString(listing.getPrice()));
-        listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
-        listingBookCondition.setText(listing.getCondition());
+       // listingPrice.setText(Double.toString(listing.getPrice()));
+       // listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
+        // listingBookCondition.setText(listing.getCondition());
     }
 
 }
