@@ -17,9 +17,8 @@ import java.io.IOException;
  * */
 public class LoginPageViewController extends AnchorPane implements Observer{
 
-    ControllerManager manager;
-    ApplicationModel model;
-    FXMLLoader fxmlLoader;
+    private final ControllerManager manager;
+    private final ApplicationModel model;
 
     /* fxml elements */
     @FXML private TextField cidTextField;
@@ -28,17 +27,12 @@ public class LoginPageViewController extends AnchorPane implements Observer{
     public LoginPageViewController(ControllerManager manager, ApplicationModel model) {
         this.manager = manager;
         this.model = model;
-        fxmlLoader = new FXMLLoader(getClass().getResource("login-page.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try
-        {
-            fxmlLoader.load();
-        } catch (IOException exception)
-        {
-            throw new RuntimeException(exception);
-        }
+        try { fxmlLoader.load(); }
+        catch (IOException exception) { throw new RuntimeException(exception); }
     }
 
     /**
@@ -55,6 +49,9 @@ public class LoginPageViewController extends AnchorPane implements Observer{
         }
     }
 
+    /**
+     * Implemented from interface Observer, updating this to change in correlation to the object it is observing.
+     */
     @Override
     public void update() {
 
