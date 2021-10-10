@@ -56,16 +56,9 @@ public class AccountPageController extends AnchorPane implements Observer {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
+        try { fxmlLoader.load(); }
+        catch (IOException exception) { throw new RuntimeException(exception); }
     }
-    //private static List<publishedBookItem>publishedBook=new ArrayList<>(); // lägger published bok i en lista
-
-
-    /* onclick listeners*/
 
     /**
      * move to ShopPage by clicking on this button
