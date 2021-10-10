@@ -1,8 +1,5 @@
 package com.cbm.tda367;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,10 +19,10 @@ public class ApplicationModel implements Observable {
 
     private final BookDatabase bookDatabase;
     private final UserDatabase userDatabase;
+    private final ListingDatabase listingDatabase;
     private User currentlyLoggedInUser = NotLoggedInUser.getInstance();
     //TODO: Should read current listing number from text file after initial launch
     private int currentListingNumber = 0;
-    private final List<Listing> listings = new ArrayList<>();
     private final List<Observer> viewObservers = new ArrayList<>();
     private final HashMap<Integer, Listing> reservedBooks = new HashMap<>();
 
@@ -34,8 +31,9 @@ public class ApplicationModel implements Observable {
      */
     private ApplicationModel() {
         /* init databases */
-        bookDatabase = BookDatabase.getInstance();
-        userDatabase = UserDatabase.getInstance();
+        bookDatabase    = BookDatabase.getInstance();
+        userDatabase    = UserDatabase.getInstance();
+        listingDatabase = ListingDatabase.getInstance();
         /* Update views on start */
         notifyObservers();
     }
@@ -71,8 +69,8 @@ public class ApplicationModel implements Observable {
      * Returns a list of the application's published listings.
      * @return a copied list of listings.
      */
-    public List<Listing> getListings() {
-        return new ArrayList<>(listings);
+    public List<Listing> getListingDatabase() {
+        return listingDatabase.getListings();
     }
 
     /**
@@ -80,7 +78,7 @@ public class ApplicationModel implements Observable {
      * @param listing published listing to be removed.
      */
     private void removeListings(Listing listing) {
-        listings.remove(listing);
+        listingDatabase.removeListing(listing);
     }
 
     private void editListing() {
@@ -101,7 +99,7 @@ public class ApplicationModel implements Observable {
                 book.getImagePath(),
                 condition);
         /* Add listing to listings */
-         listings.add(listing);
+        listingDatabase.addListing(listing);
          currentlyLoggedInUser.addListingForSale(listing);
         /* Update view */
         notifyObservers();
