@@ -59,8 +59,7 @@ public class PublishedListingsMiniatureViewController {
 
     @FXML
     protected void onClickRemovePublishedBook(Event event) {
-
-        accountPageController.removePublishedBook(listing);
+        model.getCurrentlyLoggedInUser().removeListingForSale(listing.getListingNumber());
     }
     @FXML
     protected void onClickChangePublishedBook(Event event) {
