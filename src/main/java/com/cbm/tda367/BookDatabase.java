@@ -20,8 +20,8 @@ import java.util.List;
 
 public class BookDatabase {
 
-    private List<Book> bookList = new ArrayList<>();
-    private static BookDatabase bookDatabase = new BookDatabase();
+    private final List<Book> bookList = new ArrayList<>();
+    private final static BookDatabase bookDatabase = new BookDatabase();
 
     /**
      * Constructs the Book database singleton.

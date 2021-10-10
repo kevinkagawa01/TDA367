@@ -30,11 +30,6 @@ public class AccountPageController extends AnchorPane implements Observer {
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
 
-    private final List<ReservedBooksMiniatureViewController> reservedBooks = new ArrayList<>();
-    private final List<PublishedListingsMiniatureViewController> publishedBooks = new ArrayList<>();
-    private final List<SubscribedBooksMiniatureViewController> subscribedBooks = new ArrayList<>();
-    private final List<BoughtBooksMiniatureViewController> boughtBooks = new ArrayList<>();
-
     @FXML private Accordion accountPageAccordion;
     @FXML private ScrollPane published;
     @FXML private Text emailText;
@@ -56,21 +51,14 @@ public class AccountPageController extends AnchorPane implements Observer {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
+        try { fxmlLoader.load(); }
+        catch (IOException exception) { throw new RuntimeException(exception); }
     }
-    //private static List<publishedBookItem>publishedBook=new ArrayList<>(); // lägger published bok i en lista
-
-
-    /* onclick listeners*/
 
     /**
      * move to ShopPage by clicking on this button
      *
-     * @param event
+     * @param event ActionEvent occurring when method is triggered.
      */
     @FXML
     public void shopButton(Event event) {
@@ -78,28 +66,35 @@ public class AccountPageController extends AnchorPane implements Observer {
     }
 
     /**
-     * move to SellPage by clicking on this button
+     * move to SellPage by clicking on this button.
      *
-     * @param event
+     * @param event ActionEvent occurring when method is triggered.
      */
     @FXML
     public void addButton(Event event) {
         manager.goToSellPage();
     }
 
+    /**
+     * opens the accordion-section where published listings are displayed.
+     */
     protected void openPublishedListingsAccordion() {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
 
+    /**
+     * Updates the visual representation of which user i logged in to the application.
+     */
     private void updateLoggedInEmail() {
-        System.out.println(model.getCurrentlyLoggedInUser().getCid());
         emailText.setText(model.getCurrentlyLoggedInUser().getCid());
-
-
     }
 
-    public String getRatingPicture() {
+    /**
+     * Returns a rating image-path, represented in the form of 0-5 stars, corresponding to the user's rating.
+     * @return rating image-path.
+     */
+    private String getRatingPicture() {
 
         double rating = model.getCurrentlyLoggedInUser().getRating();
         String sourcePathStar;
@@ -129,27 +124,16 @@ public class AccountPageController extends AnchorPane implements Observer {
         return sourcePathStar;
     }
 
-    public void updateStarRating() {
+    /**
+     * Updates the user's star rating image.
+     */
+    private void updateStarRating() {
         starRating.setImage(new Image(getClass().getResourceAsStream(getRatingPicture())));
     }
 
-    public void removeSubscribedBook(Book book) {
-        subscribedBooks.remove(book);
-    }
-
-    public void removePublishedBook(Listing listing) {
-        subscribedBooks.remove(listing);
-    }
-
-    public void removeReservedBook(Listing listing) {
-        reservedBooks.remove(listing);
-    }
-
-    public void removeBoughtBook(Listing listing) {
-        boughtBooks.remove(listing);
-    }
-
-
+    /**
+     * Implemented from the observer interface; updates the status of the object.
+     */
     @Override
     public void update() {
         updateLoggedInEmail();

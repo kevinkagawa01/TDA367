@@ -6,8 +6,10 @@ import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 
 public class BoughtBooksMiniatureViewController {
+
+    private ApplicationModel model = ApplicationModel.getInstance();
     private ControllerManager manager;
-    AccountPageController accountPageController;
+    private AccountPageController accountPageController;
 
     public BoughtBooksMiniatureViewController(ControllerManager manager, Listing listing) {
 
@@ -15,16 +17,12 @@ public class BoughtBooksMiniatureViewController {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-
+        try { fxmlLoader.load(); }
+        catch (IOException exception) { throw new RuntimeException(exception); }
     }
 
     @FXML
-    public void removeBoughtBooksMiniature(Listing listing) {
-        accountPageController.removeBoughtBook(listing);
+    protected void removeBoughtBooksMiniature(Listing listing) {
+        model.getCurrentlyLoggedInUser().removePreviousPurchase(listing.getListingNumber());
     }
 }

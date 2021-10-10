@@ -6,33 +6,51 @@ import javafx.scene.image.ImageView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
+/**
+ * Application main class for the model containing the logic of the model.
+ *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 0.1
+ */
 public class ApplicationModel implements Observable {
 
-    private static ApplicationModel applicationModel = new ApplicationModel();
+    private final static ApplicationModel applicationModel = new ApplicationModel();
 
-    private BookDatabase bookDatabase;
-    private UserDatabase userDatabase;
+    private final BookDatabase bookDatabase;
+    private final UserDatabase userDatabase;
     private User currentlyLoggedInUser = NotLoggedInUser.getInstance();
     //TODO: Should read current listing number from text file after initial launch
     private int currentListingNumber = 0;
-    private List<Listing> listings = new ArrayList<>();
-    private List<Observer> viewObservers = new ArrayList<>();
-    private HashMap<Integer, Listing> reservedBooks = new HashMap<>();
+    private final List<Listing> listings = new ArrayList<>();
+    private final List<Observer> viewObservers = new ArrayList<>();
+    private final HashMap<Integer, Listing> reservedBooks = new HashMap<>();
 
+    /**
+     * class constructor, private due to Singleton pattern implementation.
+     */
     private ApplicationModel() {
         /* init databases */
         bookDatabase = BookDatabase.getInstance();
         userDatabase = UserDatabase.getInstance();
-
         /* Update views on start */
         notifyObservers();
     }
 
+    /**
+     * Returns single instance of this class.
+     * @return single instance of this class.
+     */
     public static ApplicationModel getInstance() {
         return applicationModel;
     }
 
+    /**
+     * implemented from interface Observable, notifying all observers that change has occured.
+     */
     @Override
     public void notifyObservers() {
         for (Observer observer : viewObservers) {
@@ -40,16 +58,27 @@ public class ApplicationModel implements Observable {
         }
     }
 
+    /**
+     * Adds an observer to the lists of observers, watching this class.
+     * @param observer observes this class for changes.
+     */
     @Override
     public void addObserver(Observer observer) {
         viewObservers.add(observer);
     }
 
-
-    public List<Listing> getListings(Listing listing) {
+    /**
+     * Returns a list of the application's published listings.
+     * @return a copied list of listings.
+     */
+    public List<Listing> getListings() {
         return new ArrayList<>(listings);
     }
 
+    /**
+     * Removes a published listing from the application.
+     * @param listing published listing to be removed.
+     */
     private void removeListings(Listing listing) {
         listings.remove(listing);
     }
@@ -57,80 +86,38 @@ public class ApplicationModel implements Observable {
     private void editListing() {
     }
 
+    /**
+     * Adds a listing to the application.
+     * @param bookCode book-code corresponding to the book the User wants to sell.
+     * @param condition the listings condition.
+     * @param price the listings price.
+     */
     public void addListing(String bookCode, String condition, String price) {
-
         /* Book corresponding with listing */
         Book book = bookDatabase.returnBookWithCorrespondingCode(bookCode);
-        Listing list=new Listing(book, currentListingNumber++,
+        /* Creating new listing */
+        Listing listing = new Listing(book, currentListingNumber++,
                 Double.parseDouble(price),
                 book.getImagePath(),
                 condition);
-
         /* Add listing to listings */
-         listings.add(list);
-         currentlyLoggedInUser.addListingForSale(list);
+         listings.add(listing);
+         currentlyLoggedInUser.addListingForSale(listing);
         /* Update view */
-
         notifyObservers();
-
-
-
     }
 
-
-
-
-
-    public String getRatingPicture() {
-
-        double rating = currentlyLoggedInUser.getRating();
-        //Todo: not let sourcePathStar be null from start
-        String sourcePathStar = null;
-        if ((int) rating == 0) {
-            sourcePathStar = "/Library/0-stars.png";
-        } else if (rating > 0 || rating < 1) {
-            sourcePathStar = "/Library/0-5stars.png";
-        } else if ((int) rating == 1) {
-            sourcePathStar = "/Library/1-stars.png";
-        } else if (rating > 1 || rating < 2) {
-            sourcePathStar = "/Library/1-5stars.png";
-        } else if ((int) rating == 2) {
-            sourcePathStar = "/Library/2-stars.png";
-        } else if (rating > 2 || rating < 3) {
-            sourcePathStar = "/Library/2-5stars.png";
-        } else if ((int) rating == 3) {
-            sourcePathStar = "/Library/3-stars.png";
-        } else if (rating > 3.5 || rating < 4) {
-            sourcePathStar = "/Library/3-5stars.png";
-        } else if ((int) rating == 4) {
-            sourcePathStar = "/Library/4-stars.png";
-        } else if (rating > 4 || rating < 5) {
-            sourcePathStar = "/Library/4-5stars.png";
-        } else if ((int) rating == 5) {
-            sourcePathStar = "/Library/5-stars.png";
-        }
-        return sourcePathStar;
-    }
-
-
-
-    /*private List<Book> updateSearchResult(){
-
-    }
-
+    /*
+    private List<Book> updateSearchResult(){}
      */
+
     public void populateBookListing() {
 
     }
 
-    /*public List<Book>calcMostSubscribe(){
-
-    }
-
+    /*
+    public List<Book>calcMostSubscribe(){}
      */
-    public void reservedBook() {
-
-    }
 
     public List returnPopularbooks(List books) {
         //Todo: behöver gå igenom med gruppen
@@ -149,7 +136,12 @@ public class ApplicationModel implements Observable {
         return popularBooks;
     }
 
-
+    /**
+     * Determining whether login attempt was successful or not.
+     * @param cid User chalmers identification.
+     * @param password User password.
+     * @return boolean whether the login attempt was successful or not.
+     */
     public boolean isLoginSuccessful(String cid, String password) {
         for (User user : userDatabase.getUserList()) {
             if (user.getCid().equals(cid) && user.isUserPassword(password)) {
@@ -161,14 +153,26 @@ public class ApplicationModel implements Observable {
         return false;
     }
 
+    /**
+     * Returns the user that is currently logged in to the application.
+     * @return the currently logged-in user.
+     */
     public User getCurrentlyLoggedInUser() {
         return currentlyLoggedInUser;
     }
 
+    /**
+     * Returns the application's book database.
+     * @return this book database.
+     */
     public BookDatabase getBookDatabase() {
         return bookDatabase;
     }
 
+    /**
+     * Returns the application's user database.
+     * @return this user database.
+     */
     public UserDatabase getUserDatabase() {
         return userDatabase;
     }
