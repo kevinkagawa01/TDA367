@@ -21,16 +21,14 @@ import java.time.LocalDate;
  */
 public class PublishedListingsMiniatureViewController {
 
-    AccountPageController accountPageController;
+    private ApplicationModel model = ApplicationModel.getInstance();
+    private AccountPageController accountPageController;
     private ControllerManager manager;
-    Listing listing;
+    private Listing listing;
     private String blankSpace = "\t\t";
-    @FXML
-    Text publishedBookTitle;
-    @FXML
-    Text publishedBookDate;
-    @FXML
-    Text publishedBookPrice;
+    private @FXML Text publishedBookTitle;
+    private @FXML Text publishedBookDate;
+    private @FXML Text publishedBookPrice;
 
     /**
      * Constructs the miniature view and defines its controller.
@@ -61,6 +59,7 @@ public class PublishedListingsMiniatureViewController {
 
     @FXML
     protected void onClickRemovePublishedBook(Event event) {
+
         accountPageController.removePublishedBook(listing);
     }
     @FXML
