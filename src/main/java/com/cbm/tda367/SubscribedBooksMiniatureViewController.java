@@ -25,15 +25,13 @@ import java.util.spi.LocaleServiceProvider;
  */
 public class SubscribedBooksMiniatureViewController {
 
-    private ApplicationModel model = ApplicationModel.getInstance();
-    private ControllerManager manager;
+    private final ApplicationModel model = ApplicationModel.getInstance();
+    private final ControllerManager manager;
     private AccountPageController accountPageController;
-    private Book book;
+    private final Book book;
 
-    @FXML
-    Text titleSubscriebdMiniature;
-    @FXML
-    Rectangle unsubscribedMiniature;
+    @FXML private Text titleSubscriebdMiniature;
+    @FXML private Rectangle unsubscribedMiniature;
 
 
     public SubscribedBooksMiniatureViewController(ControllerManager manager, Book book) {
