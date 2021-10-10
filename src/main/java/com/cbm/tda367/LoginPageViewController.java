@@ -45,7 +45,7 @@ public class LoginPageViewController extends AnchorPane implements Observer{
             manager.goToShopPage();
         } else {
             //TODO: Create visual pliancy informing the user that there was an issue logging in.
-            System.out.println("Unauthorized login!");
+            System.out.println("Unauthorized login! (mock-login: id=1,pw=1)");
         }
     }
 
