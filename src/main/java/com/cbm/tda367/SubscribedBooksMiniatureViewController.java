@@ -25,8 +25,8 @@ import java.util.spi.LocaleServiceProvider;
  */
 public class SubscribedBooksMiniatureViewController {
 
+    private ApplicationModel model = ApplicationModel.getInstance();
     private ControllerManager manager;
-    private Application model;
     private AccountPageController accountPageController;
     private Book book;
 
@@ -55,8 +55,8 @@ public class SubscribedBooksMiniatureViewController {
     }
 
     @FXML
-    protected void setUnsubscribedMiniature(Event event) {
-        accountPageController.removeSubscribedBook(book);
+    protected void onClickUnsubscribeToBook(Event event) {
+        model.getCurrentlyLoggedInUser().removeBookSubscription(book.getBookCode());
     }
 
 }

@@ -30,11 +30,6 @@ public class AccountPageController extends AnchorPane implements Observer {
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
 
-    private final List<ReservedBooksMiniatureViewController> reservedBooks = new ArrayList<>();
-    private final List<PublishedListingsMiniatureViewController> publishedBooks = new ArrayList<>();
-    private final List<SubscribedBooksMiniatureViewController> subscribedBooks = new ArrayList<>();
-    private final List<BoughtBooksMiniatureViewController> boughtBooks = new ArrayList<>();
-
     @FXML private Accordion accountPageAccordion;
     @FXML private ScrollPane published;
     @FXML private Text emailText;
@@ -63,7 +58,7 @@ public class AccountPageController extends AnchorPane implements Observer {
     /**
      * move to ShopPage by clicking on this button
      *
-     * @param event
+     * @param event ActionEvent occurring when method is triggered.
      */
     @FXML
     public void shopButton(Event event) {
@@ -73,7 +68,7 @@ public class AccountPageController extends AnchorPane implements Observer {
     /**
      * move to SellPage by clicking on this button
      *
-     * @param event
+     * @param event ActionEvent occurring when method is triggered.
      */
     @FXML
     public void addButton(Event event) {
@@ -92,7 +87,7 @@ public class AccountPageController extends AnchorPane implements Observer {
 
     }
 
-    public String getRatingPicture() {
+    private String getRatingPicture() {
 
         double rating = model.getCurrentlyLoggedInUser().getRating();
         String sourcePathStar;
@@ -122,26 +117,9 @@ public class AccountPageController extends AnchorPane implements Observer {
         return sourcePathStar;
     }
 
-    public void updateStarRating() {
+    private void updateStarRating() {
         starRating.setImage(new Image(getClass().getResourceAsStream(getRatingPicture())));
     }
-
-    public void removeSubscribedBook(Book book) {
-        subscribedBooks.remove(book);
-    }
-
-    public void removePublishedBook(Listing listing) {
-        subscribedBooks.remove(listing);
-    }
-
-    public void removeReservedBook(Listing listing) {
-        reservedBooks.remove(listing);
-    }
-
-    public void removeBoughtBook(Listing listing) {
-        boughtBooks.remove(listing);
-    }
-
 
     @Override
     public void update() {
