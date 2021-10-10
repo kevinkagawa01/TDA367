@@ -30,7 +30,7 @@
       </ImageView>
       <Accordion fx:id="accountPageAccordion" layoutX="21.0" layoutY="230.0" prefHeight="381.0" prefWidth="375.0">
         <panes>
-            <TitledPane animated="false" text="Reserverade böcker">
+            <TitledPane animated="false" text="Reserved Books">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -46,7 +46,7 @@
                      </children></AnchorPane>
               </content>
             </TitledPane>
-            <TitledPane animated="false" text="Utlagda böcker">
+            <TitledPane animated="false" text="Published Books">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -63,7 +63,7 @@
                   </AnchorPane>
                </content>
             </TitledPane>
-            <TitledPane animated="false" text="Prenumererade böcker">
+            <TitledPane animated="false" text="Subscribed Books">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -80,7 +80,7 @@
                   </AnchorPane>
                </content>
             </TitledPane>
-            <TitledPane animated="false" text="Tidigare köp">
+            <TitledPane animated="false" text="Purchase History">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>

@@ -35,8 +35,6 @@ public class SellPageViewController extends AnchorPane implements Observer {
     @FXML
     private TextField bookPriceTextField;
     @FXML
-    private ComboBox<String> bookCategoryComboBox;
-    @FXML
     private ComboBox<String> bookConditionComboBox;
     @FXML
     private ImageView bookImageView;
@@ -64,10 +62,6 @@ public class SellPageViewController extends AnchorPane implements Observer {
      * add categories to all combo-boxes in the sell page
      */
     private void initSceneBuilderElements() {
-
-        bookCategoryComboBox.getItems().addAll(
-                "Book Category", "Mathematics", "Physics", "Biology", "Chemistry", "Programming", "Fiction");
-        bookCategoryComboBox.getSelectionModel().selectFirst();
         bookConditionComboBox.getItems().addAll("Book Condition", "New", "Mint", "Used", "Damaged");
         bookConditionComboBox.getSelectionModel().selectFirst();
 
@@ -217,7 +211,6 @@ public class SellPageViewController extends AnchorPane implements Observer {
         if (bookCodeTextField.getText().isEmpty() ||
                 bookPriceTextField.getText().isEmpty() ||
                 listingDescriptionTextArea.getText().isEmpty() ||
-                bookCategoryComboBox.getSelectionModel().getSelectedItem().equals("Book Category") ||
                 bookConditionComboBox.getSelectionModel().getSelectedItem().equals("Book Condition")
         ) {
             System.out.println("Not all fields are filled in!");
@@ -228,7 +221,8 @@ public class SellPageViewController extends AnchorPane implements Observer {
         System.out.println("Listing was created successfully");
         return true;
     }
-    public void updateTextfields(Listing listing,Book book){
+
+    public void updateTextFields(Listing listing, Book book){
         bookCodeTextField.setText(book.getBookCode());
         bookPriceTextField.setText(Double.toString(listing.getPrice()));
     }

@@ -51,11 +51,11 @@
          </font>
       </PasswordField>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4862b800" height="60.0" layoutX="233.0" layoutY="542.0" onMouseClicked="#onClickAttemptToLogin" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" styleClass="-fx-background-color:white" width="120.0" />
-      <Text fill="WHITE" layoutX="39.0" layoutY="542.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?">
+      <Text fill="WHITE" layoutX="43.0" layoutY="547.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?">
          <font>
             <Font name="Arial Bold" size="15.0" />
          </font></Text>
-      <Text fill="WHITE" layoutX="273.0" layoutY="577.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+      <Text fill="WHITE" layoutX="273.0" layoutY="577.0" onMouseClicked="#onClickAttemptToLogin" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
          <font>
             <Font name="Arial Bold" size="15.0" />
          </font>

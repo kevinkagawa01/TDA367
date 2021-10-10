@@ -19,13 +19,13 @@
       </ImageView>
       <TextField fx:id="bookCodeTextField" layoutX="51.0" layoutY="98.0" prefHeight="50.0" prefWidth="309.0" promptText="Book Code" styleClass="navigation-text-input-info-white" stylesheets="@login-page.css" />
       <TextField fx:id="bookPriceTextField" layoutX="51.0" layoutY="172.0" prefHeight="50.0" prefWidth="309.0" promptText="Price" styleClass="navigation-text-input-info-white" stylesheets="@login-page.css" />
-      <Text layoutX="178.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sälj">
+      <Text layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sell" textAlignment="CENTER" wrappingWidth="411.0">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="54.0" layoutX="118.0" layoutY="585.0" onMouseClicked="#onClickCreateListing" stroke="BLACK" strokeType="INSIDE" width="184.0" />
-      <Text fill="WHITE" layoutX="166.0" layoutY="619.0" onMouseClicked="#onClickCreateListing" strokeType="OUTSIDE" strokeWidth="0.0" text="Publish">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="54.0" layoutX="120.0" layoutY="584.0" onMouseClicked="#onClickCreateListing" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 60; -fx-arc-width: 60;" width="184.0" />
+      <Text fill="WHITE" layoutX="120.0" layoutY="618.0" onMouseClicked="#onClickCreateListing" strokeType="OUTSIDE" strokeWidth="0.0" text="Publish" textAlignment="CENTER" wrappingWidth="184.0">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -45,8 +45,10 @@
             <Image url="@../../../Library/shopIcon.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="bookCategoryComboBox" layoutX="63.0" layoutY="304.0" prefWidth="150.0" promptText="Book Category" />
-      <ComboBox fx:id="bookConditionComboBox" layoutX="63.0" layoutY="343.0" prefWidth="150.0" promptText="Book Condition" />
-      <TextArea fx:id="listingDescriptionTextArea" layoutX="81.0" layoutY="414.0" prefHeight="103.0" prefWidth="200.0" promptText="Description" />
+      <ComboBox fx:id="bookConditionComboBox" layoutX="51.0" layoutY="258.0" prefWidth="150.0" promptText="Book Condition" />
+      <TextArea fx:id="listingDescriptionTextArea" layoutX="57.0" layoutY="414.0" prefHeight="158.0" prefWidth="309.0" promptText="Description">
+         <font>
+            <Font size="16.0" />
+         </font></TextArea>
    </children>
 </fx:root>
