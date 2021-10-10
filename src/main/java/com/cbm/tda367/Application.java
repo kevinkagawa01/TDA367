@@ -33,6 +33,16 @@ public class Application extends javafx.application.Application {
         Scene scene = new Scene(fxmlLoader.load(), 411, 731);
         stage.setTitle("CBM!");
         stage.setScene(scene);
+        /* lock aspect ratio */
+        stage.setMaxHeight(731);
+        stage.setMinHeight(731);
+        stage.setMaxWidth(411);
+        stage.setMinWidth(411);
+        /* don't allow fullscreen */
+        stage.maximizedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) { stage.setMaximized(false); }
+                });
+
         stage.show();
         model = ApplicationModel.getInstance();
         controllerManager = fxmlLoader.getController();
