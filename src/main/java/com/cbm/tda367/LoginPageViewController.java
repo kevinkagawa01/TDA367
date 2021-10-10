@@ -2,6 +2,7 @@ package com.cbm.tda367;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
@@ -22,7 +23,7 @@ public class LoginPageViewController extends AnchorPane implements Observer{
 
     /* fxml elements */
     @FXML private TextField cidTextField;
-    @FXML private TextField passwordTextField;
+    @FXML private PasswordField passwordTextField;
 
     public LoginPageViewController(ControllerManager manager, ApplicationModel model) {
         this.manager = manager;
@@ -45,7 +46,7 @@ public class LoginPageViewController extends AnchorPane implements Observer{
             manager.goToShopPage();
         } else {
             //TODO: Create visual pliancy informing the user that there was an issue logging in.
-            System.out.println("Unauthorized login!");
+            System.out.println("Unauthorized login! (mock-login: id=1,pw=1)");
         }
     }
 
