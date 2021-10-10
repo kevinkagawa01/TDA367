@@ -11,7 +11,16 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Objects;
-
+/**
+ * Visual representation of a book in our View/Controller in MVC.
+ *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
+ */
 public class BookViewController extends AnchorPane {
 
     private Book book;
@@ -37,6 +46,10 @@ public class BookViewController extends AnchorPane {
         bookImageView.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
     }
 
+    /**
+     * Opens the detailed view of this book, unveiling more information and the book's listings.
+     * @param event Click Event.
+     */
     @FXML
     protected void onClickOpenDetailedView(Event event){
         manager.openBookDetailView(book);
