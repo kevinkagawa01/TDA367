@@ -17,10 +17,10 @@ import java.util.List;
 
 public class ListingDatabase {
 
-    private List<Listing> listingList = new ArrayList<>();
+    private final List<Listing> listingList = new ArrayList<>();
 
 
-    private static ListingDatabase listingDatabase = new ListingDatabase();
+    private final static ListingDatabase listingDatabase = new ListingDatabase();
 
     /**
      * Constructs the Listing database singleton.
