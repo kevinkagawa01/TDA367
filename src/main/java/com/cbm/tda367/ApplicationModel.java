@@ -23,8 +23,13 @@ public class ApplicationModel implements Observable {
     private User currentlyLoggedInUser = NotLoggedInUser.getInstance();
     //TODO: Should read current listing number from text file after initial launch
     private int currentListingNumber = 0;
-    private final List<Observer> viewObservers = new ArrayList<>();
-    private final HashMap<Integer, Listing> reservedBooks = new HashMap<>();
+
+    private List<Listing> listings = new ArrayList<>();
+    private List<Observer> viewObservers = new ArrayList<>();
+
+
+
+
 
     /**
      * class constructor, private due to Singleton pattern implementation.
@@ -101,6 +106,7 @@ public class ApplicationModel implements Observable {
         /* Add listing to listings */
         listingDatabase.addListing(listing);
          currentlyLoggedInUser.addListingForSale(listing);
+
         /* Update view */
         notifyObservers();
     }

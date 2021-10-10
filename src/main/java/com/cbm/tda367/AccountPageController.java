@@ -8,6 +8,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -32,8 +33,22 @@ public class AccountPageController extends AnchorPane implements Observer {
 
     @FXML private Accordion accountPageAccordion;
     @FXML private ScrollPane published;
-    @FXML private Text emailText;
-    @FXML private ImageView starRating;
+
+    @FXML  private Text publishedBookText;
+    @FXML FlowPane publishedBooksFlowPane;
+
+
+
+
+
+    @FXML
+    private Text emailText;
+    @FXML
+    private ImageView starRating;
+
+
+
+
 
 
     /**
@@ -54,6 +69,11 @@ public class AccountPageController extends AnchorPane implements Observer {
         try { fxmlLoader.load(); }
         catch (IOException exception) { throw new RuntimeException(exception); }
     }
+
+
+
+    /* onclick listeners*/
+
 
     /**
      * move to ShopPage by clicking on this button
@@ -138,5 +158,21 @@ public class AccountPageController extends AnchorPane implements Observer {
     public void update() {
         updateLoggedInEmail();
         updateStarRating();
+
+        updatePublishedBooks();
+    }
+
+    private void updatePublishedBooks() {
+        ArrayList<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
+        for(Listing listing:publishedListings){
+            publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(listing));
+
+        }
+
+
+
+
+
+
     }
 }

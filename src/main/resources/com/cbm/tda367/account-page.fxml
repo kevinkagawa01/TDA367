@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: #FFFFFF;" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: #FFFFFF;" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="361.0" fitWidth="242.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -54,7 +54,7 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="420.0" prefWidth="358.0">
                                  <children>
-                                    <FlowPane prefHeight="267.0" prefWidth="375.0" />
+                                    <FlowPane fx:id="publishedBooksFlowPane" prefHeight="267.0" prefWidth="375.0" />
                                  </children>
                               </AnchorPane>
                            </content>

@@ -2,6 +2,8 @@ package com.cbm.tda367;
 
 import javafx.scene.image.ImageView;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -25,7 +27,7 @@ public class Listing {
 
     private boolean isReserved;
     private boolean isPurchased;
-    private Date date;
+    private LocalDate date = LocalDate.now();
 
     /**
      * Constructs a listing
@@ -102,7 +104,7 @@ public class Listing {
     public boolean isPurchased() {
         return isPurchased;
     }
-     public Date getDate(){
+     public LocalDate getDate(){
         return date;
      }
 }

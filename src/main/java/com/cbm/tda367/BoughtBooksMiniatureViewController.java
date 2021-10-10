@@ -45,8 +45,8 @@ public class BoughtBooksMiniatureViewController {
      *
      * @param listing listing to be removed from the user's bought books.
      */
-    @FXML
-    protected void removeBoughtBooksMiniature(Listing listing) {
-        model.getCurrentlyLoggedInUser().removePreviousPurchase(listing.getListingNumber());
-    }
+    //@FXML
+    //protected void removeBoughtBooksMiniature(Listing listing) {
+        //model.getCurrentlyLoggedInUser().removePreviousPurchase(listing.getListingNumber());
+    //}
 }

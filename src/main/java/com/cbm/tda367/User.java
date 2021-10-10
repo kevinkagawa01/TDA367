@@ -130,25 +130,25 @@ public class User {
         previousPurchases.add(listing);
     }
     /** Delete previous purchased book from the hashmap list
-     * @param listingNr
+     * @param listing
      */
 
-    public void removePreviousPurchase(Integer listingNr){
-        previousPurchases.remove(listingNr);
+    public void removePreviousPurchase(Listing listing){
+        previousPurchases.remove(listing);
     }
 
     /** Delete reserved book from the hashmap list
-     * @param listingNr
+     * @param listing
      */
-    public void removeReservedBook(Integer listingNr){
-        reservedBooks.remove(listingNr);
+    public void removeReservedBook(Listing listing){
+        reservedBooks.remove(listing);
     }
 
     /** Delete the book for sale from the hashmap list
-     * @param listingNr
+     * @param listing
      */
-    public void removeListingForSale(Integer listingNr){
-        booksForSale.remove(listingNr);
+    public void removeListingForSale(Listing listing){
+        booksForSale.remove(listing);
     }
 
 
