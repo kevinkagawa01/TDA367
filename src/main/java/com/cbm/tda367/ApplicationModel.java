@@ -117,7 +117,7 @@ public class ApplicationModel implements Observable {
     public List<Book>calcMostSubscribe(){}
      */
 
-    public List returnPopularbooks(List books) {
+   /* public List returnPopularbooks(List books) {
         //Todo: behöver gå igenom med gruppen
         List allBooks = BookDatabase.getInstance().getBookList();
         List popularBooks = new ArrayList();
@@ -132,7 +132,7 @@ public class ApplicationModel implements Observable {
         }
 
         return popularBooks;
-    }
+    }*/
 
     /**
      * Determining whether login attempt was successful or not.

@@ -9,14 +9,28 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 
+/**
+ * A visual representation of the Shop page
+ *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
+ */
+
 public class shopPageListingViewController extends AnchorPane {
     private final ApplicationModel model;
     private final ControllerManager manager;
     private Listing listing;
 
-    @FXML private Text listingPrice;
-    @FXML private ImageView listingImage;
-    @FXML private Text listingBookCondition;
+    @FXML
+    private Text listingPrice;
+    @FXML
+    private ImageView listingImage;
+    @FXML
+    private Text listingBookCondition;
 
 
     public shopPageListingViewController(ControllerManager manager, ApplicationModel model) {
@@ -27,11 +41,14 @@ public class shopPageListingViewController extends AnchorPane {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try { fxmlLoader.load(); }
-        catch (IOException exception) { throw new RuntimeException(exception); }
-        //listingPrice.setText(Double.toString(listing.getPrice()));
-        //listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
-        //listingBookCondition.setText(listing.getCondition());
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+        listingPrice.setText(Double.toString(listing.getPrice()));
+        listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
+        listingBookCondition.setText(listing.getCondition());
     }
 
 }

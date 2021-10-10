@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
+
 /**
  * Miniature representation of a bought book in our View/Controller in MVC.
  *
@@ -22,6 +23,7 @@ public class BoughtBooksMiniatureViewController {
 
     /**
      * class constructor
+     *
      * @param manager controller-manager, managing the controllers on a page-level.
      * @param listing Listing to be displayed as the miniature.
      */
@@ -31,12 +33,16 @@ public class BoughtBooksMiniatureViewController {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try { fxmlLoader.load(); }
-        catch (IOException exception) { throw new RuntimeException(exception); }
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
     }
 
     /**
      * On-click method to remove this from the user's bought books.
+     *
      * @param listing listing to be removed from the user's bought books.
      */
     @FXML

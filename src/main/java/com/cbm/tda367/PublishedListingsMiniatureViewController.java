@@ -3,6 +3,7 @@ package com.cbm.tda367;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -26,9 +27,16 @@ public class PublishedListingsMiniatureViewController {
     private ControllerManager manager;
     private Listing listing;
     private String blankSpace = "\t\t";
-    private @FXML Text publishedBookTitle;
-    private @FXML Text publishedBookDate;
-    private @FXML Text publishedBookPrice;
+    private @FXML
+    Text publishedBookTitle;
+    private @FXML
+    Text publishedBookDate;
+    private @FXML
+    Text publishedBookPrice;
+    private @FXML
+    Rectangle changeButton;
+    private @FXML
+    Rectangle deleteButton;
 
     /**
      * Constructs the miniature view and defines its controller.
@@ -42,8 +50,11 @@ public class PublishedListingsMiniatureViewController {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try { fxmlLoader.load(); }
-        catch (IOException exception) { throw new RuntimeException(exception); }
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
 
         LocalDate localDate = LocalDate.now();
         SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd  hh:mm");
@@ -56,6 +67,7 @@ public class PublishedListingsMiniatureViewController {
 
     /**
      * Removes published book from the user in the application.
+     *
      * @param event Click Event.
      */
     @FXML
@@ -65,10 +77,12 @@ public class PublishedListingsMiniatureViewController {
 
     /**
      * Changes published book from the user in the application.
+     *
      * @param event Click Event.
      */
     @FXML
-    protected void onClickChangePublishedBook(Event event) {
-
+    protected void onClickOpenDetailedView(Event event){
+        manager.openSellPageView(listing);
+        manager.goToSellPage();
     }
 }
