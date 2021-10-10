@@ -28,25 +28,25 @@ public class ShopPageViewController extends AnchorPane implements Observer{
     private final ApplicationModel model;
 
     private final ShopPageCategoryViewController allBooksCategory;
-
     private final ShopPageCategoryViewController mostSubscribedBooksCategory;
 
     @FXML private FlowPane categoriesFlowPane;
 
+    /**
+     * class constructor
+     * @param manager controller manager
+     * @param model application model
+     */
     public ShopPageViewController(ControllerManager manager, ApplicationModel model) {
         this.manager = manager;
         this.model = model;
 
-        /* Loads FXML */
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try{
-            fxmlLoader.load();
-        } catch (IOException exception){
-            throw new RuntimeException(exception);
-        }
+        try{ fxmlLoader.load(); }
+        catch (IOException exception){ throw new RuntimeException(exception); }
 
         /* create shop page categories */
         allBooksCategory = new ShopPageCategoryViewController(manager,"All Books");
@@ -57,19 +57,25 @@ public class ShopPageViewController extends AnchorPane implements Observer{
         populateAllBooksCategoryFlowPane();
     }
 
+    /**
+     * Populates the categories flow pane.
+     */
     private void populateCategoriesFlowPane() {
         categoriesFlowPane.getChildren().add(allBooksCategory);
         categoriesFlowPane.getChildren().add(mostSubscribedBooksCategory);
     }
 
+    /**
+     * Populates the 'All Books' category flow pane.
+     */
     private void populateAllBooksCategoryFlowPane() {
         allBooksCategory.populateCategoryWithBooks(model.getBookDatabase().getBookList());
     }
 
 
-    /** On-click method that navigates the application to the accountPage
+    /** On-click method that navigates the application to the accountPage.
      *
-     * @param event
+     * @param event Click Event.
      */
     @FXML
     public void accountButton(Event event) {
@@ -77,9 +83,9 @@ public class ShopPageViewController extends AnchorPane implements Observer{
     }
 
 
-    /** On-click method that navigates the application to the sellPage
+    /** On-click method that navigates the application to the sellPage.
      *
-     * @param event
+     * @param event Click Event.
      */
     @FXML
     public void addButton(Event event) {
