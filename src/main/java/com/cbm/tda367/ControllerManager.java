@@ -26,7 +26,7 @@ public class ControllerManager implements Initializable,Observer {
     private AnchorPane mainAnchorPane;
 
     /* model */
-    ApplicationModel model = ApplicationModel.getInstance();
+    private final ApplicationModel model = ApplicationModel.getInstance();
     /* application pages */
     private final LoginPageViewController loginPage = new LoginPageViewController(this, model);
     private final ShopPageViewController shopPage = new ShopPageViewController(this, model);
@@ -34,7 +34,7 @@ public class ControllerManager implements Initializable,Observer {
     private final AccountPageController accountPage = new AccountPageController(this, model);
 
     //TODO: First book should not be null!
-    private BookDetailViewController bookDetailViewController = new BookDetailViewController(this,model,null);
+    private final BookDetailViewController bookDetailViewController = new BookDetailViewController(this,model,null);
 
     private final List<Observer> mainPages = new ArrayList<>();
 
@@ -64,10 +64,12 @@ public class ControllerManager implements Initializable,Observer {
         }
     }
 
+    /**
+     * Opens published listings accordion-section when called.
+     */
     protected void openPublishedListingsAccordionInAccountPage(){
         accountPage.openPublishedListingsAccordion();
     }
-
 
     /**
      * Navigate to ShopPage
@@ -91,6 +93,9 @@ public class ControllerManager implements Initializable,Observer {
         accountPage.toFront();
     }
 
+    /*
+    * Opens detail view of book.
+    * */
     public void openBookDetailView(Book book) {
         /* Changes currently selected book in DetailView */
         bookDetailViewController.setBook(book);

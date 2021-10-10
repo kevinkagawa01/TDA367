@@ -24,8 +24,8 @@ import java.util.List;
  * @since 1.0
  */
 public class BookDetailViewController extends AnchorPane{
-    private ApplicationModel model;
-    private ControllerManager manager;
+    private final ApplicationModel model;
+    private final ControllerManager manager;
     private Book book;
     private shopPageListingViewController shopPageListing;
     private boolean subscribePressed = true;
