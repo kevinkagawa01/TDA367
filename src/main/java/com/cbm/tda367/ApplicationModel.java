@@ -102,7 +102,7 @@ public class ApplicationModel implements Observable {
 
 
     }
-    
+
     public String getRatingPicture() {
 
         double rating = currentlyLoggedInUser.getRating();
