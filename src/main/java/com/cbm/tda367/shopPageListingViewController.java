@@ -10,32 +10,25 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 
 public class shopPageListingViewController extends AnchorPane {
-    private ApplicationModel model;
-    private ControllerManager manager;
-    private FXMLLoader fxmlLoader;
+    private final ApplicationModel model;
+    private final ControllerManager manager;
     private Listing listing;
 
-    @FXML
-    Text listingPrice;
-    @FXML
-    ImageView listingImage;
-    @FXML
-    Text listingBookCondition;
+    @FXML private Text listingPrice;
+    @FXML private ImageView listingImage;
+    @FXML private Text listingBookCondition;
 
 
     public shopPageListingViewController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
         this.manager = manager;
 
-        fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-subscription(1).fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-subscription(1).fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
+        try { fxmlLoader.load(); }
+        catch (IOException exception) { throw new RuntimeException(exception); }
         //listingPrice.setText(Double.toString(listing.getPrice()));
         //listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
         //listingBookCondition.setText(listing.getCondition());

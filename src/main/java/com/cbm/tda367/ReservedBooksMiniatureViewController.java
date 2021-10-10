@@ -4,22 +4,20 @@ import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
 
-
+/**
+ * Visual representation of the miniature view of a User's reserved books.
+ *
+ * @author Kevin Pham
+ * @author Simon Holst
+ * @author Carl-Magnus Wall
+ * @author Pegah Amanzadeh
+ * @version 1.0
+ * @since 1.0
+ */
 public class ReservedBooksMiniatureViewController {
 
-    /**
-     * Visual representation of the miniature view of a User's reserved books.
-     *
-     * @author Kevin Pham
-     * @author Simon Holst
-     * @author Carl-Magnus Wall
-     * @author Pegah Amanzadeh
-     * @version 1.0
-     * @since 1.0
-     */
 
-
-    private ControllerManager manager;
+    private final ControllerManager manager;
 
     /**
      * Constructs the view and defines its controller.
@@ -33,11 +31,7 @@ public class ReservedBooksMiniatureViewController {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-
+        try { fxmlLoader.load(); }
+        catch (IOException exception) { throw new RuntimeException(exception); }
     }
 }

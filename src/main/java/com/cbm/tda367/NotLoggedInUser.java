@@ -10,7 +10,7 @@ package com.cbm.tda367;
  * */
 public class NotLoggedInUser extends User{
 
-    private static NotLoggedInUser notLoggedInUser = new NotLoggedInUser();
+    private final static NotLoggedInUser notLoggedInUser = new NotLoggedInUser();
 
     /** the class create user
      */

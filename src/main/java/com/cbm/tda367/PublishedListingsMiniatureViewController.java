@@ -42,11 +42,8 @@ public class PublishedListingsMiniatureViewController {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
+        try { fxmlLoader.load(); }
+        catch (IOException exception) { throw new RuntimeException(exception); }
 
         LocalDate localDate = LocalDate.now();
         SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd  hh:mm");
@@ -57,10 +54,19 @@ public class PublishedListingsMiniatureViewController {
 
     }
 
+    /**
+     * Removes published book from the user in the application.
+     * @param event Click Event.
+     */
     @FXML
     protected void onClickRemovePublishedBook(Event event) {
         model.getCurrentlyLoggedInUser().removeListingForSale(listing.getListingNumber());
     }
+
+    /**
+     * Changes published book from the user in the application.
+     * @param event Click Event.
+     */
     @FXML
     protected void onClickChangePublishedBook(Event event) {
 

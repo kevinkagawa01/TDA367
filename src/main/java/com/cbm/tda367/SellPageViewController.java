@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/** Visual representation of the Sell page and defines it's controllers
+/** Visual representation of the Sell page and defines its controllers
  *
  * @author Kevin Pham
  * @author Simon Holst
@@ -25,8 +25,8 @@ import java.util.List;
  * */
 public class SellPageViewController extends AnchorPane implements Observer{
 
-    private ControllerManager manager;
-    private ApplicationModel model;
+    private final ControllerManager manager;
+    private final ApplicationModel model;
 
     /* FXML elements */
     @FXML private TextField bookCodeTextField;
@@ -44,13 +44,8 @@ public class SellPageViewController extends AnchorPane implements Observer{
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try
-        {
-            fxmlLoader.load();
-        } catch (IOException exception)
-        {
-            throw new RuntimeException(exception);
-        }
+        try { fxmlLoader.load(); }
+        catch (IOException exception) { throw new RuntimeException(exception); }
 
         initSceneBuilderElements();
     }
@@ -75,6 +70,12 @@ public class SellPageViewController extends AnchorPane implements Observer{
         });
     }
 
+    /**
+     * Updates textField depending on which one has  changed.
+     * @param textField String representing a certain text field.
+     * @param newValue new textField value.
+     * @param oldValue old TextField value.
+     */
     private void informationEdited(String textField, String newValue, String oldValue){
         switch(textField){
             case "bookCode"  -> updateBookCode(newValue,oldValue);
@@ -82,11 +83,21 @@ public class SellPageViewController extends AnchorPane implements Observer{
         }
     }
 
+    /**
+     * Attempts to update the bookCodeTextField if the new value meets all requirements.
+     * @param newValue new textField value.
+     * @param oldValue old textField value.
+     */
     private void updateBookCode(String newValue, String oldValue) {
         if (isOnlyLettersAndHyphensAndDigits(newValue)) { bookCodeTextField.setText(newValue); }
         else {bookCodeTextField.setText(oldValue); System.out.println("Invalid Character!");}
     }
 
+    /**
+     * Attempts to update the bookPriceTextField if the new value meets all requirements.
+     * @param newValue new textField value.
+     * @param oldValue old textField value.
+     */
     private void updateBookPrice(String newValue, String oldValue) {
         if (isOnlyDigits(newValue)) { bookPriceTextField.setText(newValue); }
         else { bookPriceTextField.setText(oldValue); System.out.println("Invalid Character!");}
@@ -193,6 +204,8 @@ public class SellPageViewController extends AnchorPane implements Observer{
         return true;
     }
 
+    /** implemented from Observer interface, updating changes prompted by the object this is observing.
+     *  */
     @Override
     public void update() {
 
