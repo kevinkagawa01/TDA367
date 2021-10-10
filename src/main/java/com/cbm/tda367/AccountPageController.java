@@ -30,20 +30,15 @@ public class AccountPageController extends AnchorPane implements Observer {
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
 
-    List<ReservedBooksMiniatureViewController> reservedBooks = new ArrayList<>();
-    List<PublishedListingsMiniatureViewController> publishedBooks = new ArrayList<>();
-    List<SubscribedBooksMiniatureViewController> subscribedBooks = new ArrayList<>();
-    List<BoughtBooksMiniatureViewController> boughtBooks = new ArrayList<>();
+    private final List<ReservedBooksMiniatureViewController> reservedBooks = new ArrayList<>();
+    private final List<PublishedListingsMiniatureViewController> publishedBooks = new ArrayList<>();
+    private final List<SubscribedBooksMiniatureViewController> subscribedBooks = new ArrayList<>();
+    private final List<BoughtBooksMiniatureViewController> boughtBooks = new ArrayList<>();
 
-
-    @FXML
-    private Accordion accountPageAccordion;
-    @FXML
-    private ScrollPane published;
-    @FXML
-    private Text emailText;
-    @FXML
-    private ImageView starRating;
+    @FXML private Accordion accountPageAccordion;
+    @FXML private ScrollPane published;
+    @FXML private Text emailText;
+    @FXML private ImageView starRating;
 
 
     /**
