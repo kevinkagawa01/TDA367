@@ -2,6 +2,7 @@ package com.cbm.tda367;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
@@ -22,7 +23,7 @@ public class LoginPageViewController extends AnchorPane implements Observer{
 
     /* fxml elements */
     @FXML private TextField cidTextField;
-    @FXML private TextField passwordTextField;
+    @FXML private PasswordField passwordTextField;
 
     public LoginPageViewController(ControllerManager manager, ApplicationModel model) {
         this.manager = manager;

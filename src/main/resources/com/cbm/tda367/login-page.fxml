@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -44,10 +45,11 @@
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font></TextField>
-      <TextField fx:id="passwordTextField" layoutX="41.0" layoutY="466.0" prefHeight="50.0" prefWidth="309.0" promptText="Password" styleClass="navigation-text-input-info" stylesheets="@login-page.css">
+      <PasswordField fx:id="passwordTextField" layoutX="41.0" layoutY="457.0" prefHeight="50.0" prefWidth="309.0" promptText="Password" styleClass="navigation-text-input-info" stylesheets="@login-page.css">
          <font>
             <Font name="Arial Bold" size="13.0" />
-         </font></TextField>
+         </font>
+      </PasswordField>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4862b800" height="60.0" layoutX="233.0" layoutY="542.0" onMouseClicked="#onClickAttemptToLogin" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" styleClass="-fx-background-color:white" width="120.0" />
       <Text fill="WHITE" layoutX="39.0" layoutY="542.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?">
          <font>
