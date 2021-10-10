@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/** Visual representation of the Sell page and defines it's controllers
+/** Visual representation of the Sell page and defines its controllers
  *
  * @author Kevin Pham
  * @author Simon Holst
