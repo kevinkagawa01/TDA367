@@ -25,20 +25,13 @@ public class ListingDetailViewController extends AnchorPane {
     private ControllerManager manager;
     private Listing listing;
 
-    @FXML
-    private ImageView starRatings;
-    @FXML
-    private ImageView frontProfilePic;
-    @FXML
-    private Text bookTitle;
-    @FXML
-    private Rectangle reserveButton;
-    @FXML
-    private Text email;
-    @FXML
-    private Text name;
-    @FXML
-    private FlowPane bookPictures;
+    @FXML private ImageView starRatings;
+    @FXML private ImageView frontProfilePic;
+    @FXML private Text bookTitle;
+    @FXML private Rectangle reserveButton;
+    @FXML private Text email;
+    @FXML private Text name;
+    @FXML private FlowPane bookPictures;
 
     /**
      * Creates a detail view of a listing.
@@ -54,15 +47,9 @@ public class ListingDetailViewController extends AnchorPane {
         detailedView.setRoot(this);
         detailedView.setController(this);
 
-        try {
-            detailedView.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-
-
+        try { detailedView.load(); }
+        catch (IOException exception) { throw new RuntimeException(exception); }
     }
-
 
     /**
      * On click method, directing the user to the account page.
