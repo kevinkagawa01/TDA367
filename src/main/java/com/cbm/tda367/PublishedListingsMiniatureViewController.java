@@ -59,8 +59,8 @@ public class PublishedListingsMiniatureViewController {
         LocalDate localDate = LocalDate.now();
         SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd  hh:mm");
         String date = (sdf.format(listing.getDate()));
-        publishedBookTitle.setText(listing.getBook().getBookName());
         publishedBookDate.setText(date);
+        publishedBookTitle.setText(listing.getBook().getBookName());
         publishedBookPrice.setText(Double.toString(listing.getPrice()));
 
     }

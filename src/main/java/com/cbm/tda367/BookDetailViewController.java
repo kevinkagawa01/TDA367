@@ -23,21 +23,17 @@ import java.util.List;
  * @version 1.0
  * @since 1.0
  */
-public class BookDetailViewController extends AnchorPane {
+public class BookDetailViewController extends AnchorPane{
     private final ApplicationModel model;
     private final ControllerManager manager;
     private Book book;
     private shopPageListingViewController shopPageListing;
     private boolean subscribePressed = true;
 
-    @FXML
-    private ImageView bookImageView;
-    @FXML
-    private Text bookTitleText;
-    @FXML
-    private Rectangle reserveButton;
-    @FXML
-    private FlowPane listingsFlowPane;
+    @FXML private ImageView bookImageView;
+    @FXML private Text bookTitleText;
+    @FXML private Rectangle reserveButton;
+    @FXML private FlowPane listingsFlowPane;
 
     /**
      * Creates a detail view of a book.
@@ -59,7 +55,7 @@ public class BookDetailViewController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        shopPageListing = new shopPageListingViewController(manager, model);
+        shopPageListing =new shopPageListingViewController(manager,model);
 
 
     }
@@ -85,7 +81,7 @@ public class BookDetailViewController extends AnchorPane {
         bookImageView.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
     }
 
-    public void updateBookTitleText() {
+    public void updateBookTitleText(){
         bookTitleText.setText(book.getBookName());
     }
 
@@ -103,8 +99,8 @@ public class BookDetailViewController extends AnchorPane {
         }
 
     }
+    public void fillFlowPane(){
 
-    public void fillFlowPane() {
 
 
     }
@@ -146,7 +142,7 @@ public class BookDetailViewController extends AnchorPane {
 
 
     @FXML
-    protected void onClickReturnToShopPage() {
+    protected void onClickReturnToShopPage(){
         manager.goToShopPage();
     }
 
