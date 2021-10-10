@@ -19,12 +19,12 @@ import java.util.Objects;
 
 public class Book {
 
-    private String bookName;
-    private String bookAuthor;
+    private final String bookName;
+    private final String bookAuthor;
     private final String bookCode;
     private int bookSales;
     private int bookSubscriptions;
-    private String imagePath;
+    private final String imagePath;
 
 
     /**
@@ -37,12 +37,12 @@ public class Book {
      * @param category          The category of a Book, represented as a String.
      */
     public Book(String bookName, String bookAuthor, String bookCode, String imagePath, String category) {
-        this.bookName = bookName;
-        this.bookAuthor = bookAuthor;
-        this.bookCode = bookCode;
+        this.bookName = Objects.requireNonNull(bookName);
+        this.bookAuthor = Objects.requireNonNull(bookAuthor);
+        this.bookCode = Objects.requireNonNull(bookCode);
+        this.imagePath = Objects.requireNonNull(imagePath);
         this.bookSales = 0;
         this.bookSubscriptions = 0;
-        this.imagePath = Objects.requireNonNull(imagePath);
 
     }
 
