@@ -45,10 +45,8 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
     @FXML private Text BookName;
     @FXML private Text Price;
     @FXML private Text date;
-   // @FXML private Button ChangeButton;
-    //@FXML private Button DeleteButton;
-
-
+    @FXML private Button ChangeButton;
+    @FXML private Button DeleteButton;
 
     /**
      * Constructs the miniature view and defines its controller.
@@ -59,8 +57,6 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
     public PublishedListingsMiniatureViewController(Listing listing) {
 
         this.listing=listing;
-        this.manager = manager;
-
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PublishedBooks.fxml"));
         fxmlLoader.setRoot(this);
@@ -78,10 +74,7 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
 
     }
     public void updateBookPicture() {
-
-        BookImage.setImage(new Image(getClass().getResourceAsStream(listing.getBook().getImagePath())));
-
-
+        BookImage.setImage(new Image(getClass().getResourceAsStream(this.listing.getBook().getImagePath())));
     }
 
     /**
@@ -91,7 +84,7 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
      */
     @FXML
     protected void onClickRemovePublishedBook(Event event) {
-        //model.getCurrentlyLoggedInUser().removeListingForSale(listing.getListingNumber());
+        model.getCurrentlyLoggedInUser().removeListingForSale(this.listing);
     }
 
 
@@ -104,8 +97,7 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
      */
     @FXML
     protected void onClickOpenDetailedView(Event event){
-        manager.openSellPageView(listing);
-        manager.goToSellPage();
+        manager.openSellPageView(this.listing);
     }
 
 }

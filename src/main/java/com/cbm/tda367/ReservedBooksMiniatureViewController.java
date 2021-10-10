@@ -24,6 +24,7 @@ public class ReservedBooksMiniatureViewController {
 
     private final ControllerManager manager;
     private final Listing listing;
+    private final ApplicationModel model = ApplicationModel.getInstance();
     private @FXML
     Text reservedListingTitle;
     private @FXML
@@ -55,8 +56,20 @@ public class ReservedBooksMiniatureViewController {
         LocalDate localDate = LocalDate.now();
         SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd  hh:mm");
         String date = (sdf.format(listing.getDate()));
+
+        reservedListingTitle.setText(listing.getBook().getBookName());
         reservedDate.setText(date);
+        reservedListingPrice.setText(Double.toString(listing.getPrice()));
+
+
 
     }
+
+    @FXML
+    public void onClickUnreserveBook(Listing listing) {
+        model.getListingDatabase().remove(listing);
+
+    }
+
 
 }

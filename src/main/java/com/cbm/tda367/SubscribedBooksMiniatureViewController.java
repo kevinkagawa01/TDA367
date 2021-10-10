@@ -3,6 +3,8 @@ package com.cbm.tda367;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
@@ -26,37 +28,46 @@ import java.util.spi.LocaleServiceProvider;
 public class SubscribedBooksMiniatureViewController {
 
     private final ApplicationModel model = ApplicationModel.getInstance();
-    private final ControllerManager manager;
     private AccountPageController accountPageController;
     private final Book book;
 
-    @FXML private Text titleSubscriebdMiniature;
-    @FXML private Rectangle unsubscribedMiniature;
+    @FXML
+    private Text titleSubscriebdMiniature;
+    @FXML
+    private Rectangle unSubscribedButton;
+    @FXML
+    ImageView imageSubscribedView;
 
 
-    public SubscribedBooksMiniatureViewController(ControllerManager manager, Book book) {
+    public SubscribedBooksMiniatureViewController( Book book) {
         this.book = book;
-        this.manager = manager;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SubscribedBooks.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
         Date date = new Date();
 
-        try { fxmlLoader.load(); }
-        catch (IOException exception) { throw new RuntimeException(exception); }
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
 
         titleSubscriebdMiniature.setText(book.getBookName());
+        imageSubscribedView.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
+
 
     }
 
     /**
      * Unsubscribes to this book.
+     *
      * @param event Click Event.
      */
     @FXML
     protected void onClickUnsubscribeToBook(Event event) {
-        model.getCurrentlyLoggedInUser().removeBookSubscription(book.getBookCode());
+        model.getCurrentlyLoggedInUser().removeBookSubscription(this.book.getBookCode());
+
     }
 
 }

@@ -31,24 +31,18 @@ public class AccountPageController extends AnchorPane implements Observer {
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
 
-    @FXML private Accordion accountPageAccordion;
-    @FXML private ScrollPane published;
-
-    @FXML  private Text publishedBookText;
-    @FXML FlowPane publishedBooksFlowPane;
-
-
-
-
-
+    @FXML
+    private Accordion accountPageAccordion;
+    @FXML
+    private ScrollPane published;
+    @FXML
+    private Text publishedBookText;
+    @FXML
+    FlowPane publishedBooksFlowPane;
     @FXML
     private Text emailText;
     @FXML
     private ImageView starRating;
-
-
-
-
 
 
     /**
@@ -66,8 +60,11 @@ public class AccountPageController extends AnchorPane implements Observer {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try { fxmlLoader.load(); }
-        catch (IOException exception) { throw new RuntimeException(exception); }
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
     }
 
 
@@ -112,6 +109,7 @@ public class AccountPageController extends AnchorPane implements Observer {
 
     /**
      * Returns a rating image-path, represented in the form of 0-5 stars, corresponding to the user's rating.
+     *
      * @return rating image-path.
      */
     private String getRatingPicture() {
@@ -158,21 +156,13 @@ public class AccountPageController extends AnchorPane implements Observer {
     public void update() {
         updateLoggedInEmail();
         updateStarRating();
-
         updatePublishedBooks();
     }
 
     private void updatePublishedBooks() {
         ArrayList<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
-        for(Listing listing:publishedListings){
+        for (Listing listing : publishedListings) {
             publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(listing));
-
         }
-
-
-
-
-
-
     }
 }

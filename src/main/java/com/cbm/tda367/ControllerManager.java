@@ -94,7 +94,7 @@ public class ControllerManager implements Initializable, Observer {
 
     /**
      * Opens detail view of book.
-     * */
+     */
     public void openBookDetailView(Book book) {
         /* Changes currently selected book in DetailView */
         bookDetailViewController.setBook(book);
@@ -105,6 +105,10 @@ public class ControllerManager implements Initializable, Observer {
     }
 
     public void openSellPageView(Listing listing) {
+        sellPage.setAllFieldsFromListing(listing);
+        sellPage.update();
+        sellPage.toFront();
+
 
     }
 }

@@ -28,6 +28,7 @@ public class SellPageViewController extends AnchorPane implements Observer {
 
     private final ControllerManager manager;
     private final ApplicationModel model;
+    private Listing listing;
 
     /* FXML elements */
     @FXML
@@ -222,11 +223,19 @@ public class SellPageViewController extends AnchorPane implements Observer {
         return true;
     }
 
-    public void updateTextFields(Listing listing, Book book){
+    public void updateTextFields(Listing listing, Book book) {
         bookCodeTextField.setText(book.getBookCode());
         bookPriceTextField.setText(Double.toString(listing.getPrice()));
     }
 
+  /*  @FXML
+  /:TODO Mårtan
+    public void setAllFieldsFromListing(Listing listing) {
+        bookPriceTextField.setText(Double.toString(listing.getPrice()));
+        bookCodeTextField.setText(listing.getBook().getBookCode());
+       // bookConditionComboBox;
+        listingDescriptionTextArea.setText(listing.);
+    }*/
 
     /**
      * implemented from Observer interface, updating changes prompted by the object this is observing.
