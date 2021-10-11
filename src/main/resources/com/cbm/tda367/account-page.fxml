@@ -71,7 +71,7 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="420.0" prefWidth="358.0">
                                  <children>
-                                    <FlowPane prefHeight="267.0" prefWidth="375.0" />
+                                    <FlowPane fx:id="subscribedBooksFlowPane" prefHeight="267.0" prefWidth="375.0" />
                                  </children>
                               </AnchorPane>
                            </content>

@@ -92,13 +92,7 @@ public class User {
         return this.password.equals(passwordGuess);
     }
 
-    /**
-     *
-     * @return
-     */
-    public ArrayList< Listing> getBooksForSale() {
-        return booksForSale;
-    }
+
 
     /** add reserved Book in hash map reservedBooks listing
      * @param listing
@@ -114,6 +108,8 @@ public class User {
     public void addListingForSale(Listing listing){
         booksForSale.add(listing);
     }
+
+
 
     /** add subscribed book in the hashmap list
      * @param book
@@ -157,5 +153,16 @@ public class User {
      */
     public void removeBookSubscription(String bookCode){
         subscribedBooks.remove(bookCode);
+    }
+
+    public ArrayList<Book> getSubscribedBooks() {
+        return subscribedBooks;
+    }
+    /**
+     *
+     * @return
+     */
+    public ArrayList< Listing> getBooksForSale() {
+        return booksForSale;
     }
 }
