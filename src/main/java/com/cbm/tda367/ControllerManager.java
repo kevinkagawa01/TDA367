@@ -104,7 +104,7 @@ public class ControllerManager implements Initializable, Observer {
         bookDetailViewController.toFront();
     }
 
-    public void openSellPageView(Listing listing) {
+     public void openSellPageView(Listing listing) {
         sellPage.setAllFieldsFromListing(listing);
         sellPage.update();
         sellPage.toFront();

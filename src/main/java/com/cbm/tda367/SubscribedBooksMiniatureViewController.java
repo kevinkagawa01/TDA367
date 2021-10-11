@@ -30,6 +30,7 @@ public class SubscribedBooksMiniatureViewController {
     private final ApplicationModel model = ApplicationModel.getInstance();
     private AccountPageController accountPageController;
     private final Book book;
+    private final ControllerManager manager;
 
     @FXML
     private Text titleSubscriebdMiniature;
@@ -39,13 +40,13 @@ public class SubscribedBooksMiniatureViewController {
     ImageView imageSubscribedView;
 
 
-    public SubscribedBooksMiniatureViewController( Book book) {
+    public SubscribedBooksMiniatureViewController(ControllerManager manager, Book book) {
         this.book = book;
+        this.manager=manager;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SubscribedBooks.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        Date date = new Date();
 
         try {
             fxmlLoader.load();

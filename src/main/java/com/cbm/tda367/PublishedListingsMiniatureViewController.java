@@ -41,12 +41,18 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
 
     private Listing listing;
 
-    @FXML private ImageView BookImage;
-    @FXML private Text BookName;
-    @FXML private Text Price;
-    @FXML private Text date;
-    @FXML private Button ChangeButton;
-    @FXML private Button DeleteButton;
+    @FXML
+    private ImageView BookImage;
+    @FXML
+    private Text BookName;
+    @FXML
+    private Text Price;
+    @FXML
+    private Text date;
+    @FXML
+    private Button ChangeButton;
+    @FXML
+    private Button DeleteButton;
 
     /**
      * Constructs the miniature view and defines its controller.
@@ -54,9 +60,9 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
      * @param listing A ControllerManager. Handles all controllers.
      */
 
-    public PublishedListingsMiniatureViewController(Listing listing) {
-
-        this.listing=listing;
+    public PublishedListingsMiniatureViewController(ControllerManager manager, Listing listing) {
+        this.manager = manager;
+        this.listing = listing;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PublishedBooks.fxml"));
         fxmlLoader.setRoot(this);
@@ -73,6 +79,7 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
         updateBookPicture();
 
     }
+
     public void updateBookPicture() {
         BookImage.setImage(new Image(getClass().getResourceAsStream(this.listing.getBook().getImagePath())));
     }
@@ -88,15 +95,13 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
     }
 
 
-
-
     /**
      * Changes published book from the user in the application.
      *
      * @param event Click Event.
      */
     @FXML
-    protected void onClickOpenDetailedView(Event event){
+    protected void onClickOpenDetailedView(Event event) {
         manager.openSellPageView(this.listing);
     }
 

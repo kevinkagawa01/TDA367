@@ -228,14 +228,13 @@ public class SellPageViewController extends AnchorPane implements Observer {
         bookPriceTextField.setText(Double.toString(listing.getPrice()));
     }
 
-  /*  @FXML
-  /:TODO Mårtan
+    @FXML
     public void setAllFieldsFromListing(Listing listing) {
         bookPriceTextField.setText(Double.toString(listing.getPrice()));
         bookCodeTextField.setText(listing.getBook().getBookCode());
        // bookConditionComboBox;
-        listingDescriptionTextArea.setText(listing.);
-    }*/
+      //  listingDescriptionTextArea.setText(listing);
+    }
 
     /**
      * implemented from Observer interface, updating changes prompted by the object this is observing.

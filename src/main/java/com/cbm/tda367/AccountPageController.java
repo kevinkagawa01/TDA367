@@ -162,7 +162,7 @@ public class AccountPageController extends AnchorPane implements Observer {
     private void updatePublishedBooks() {
         ArrayList<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
         for (Listing listing : publishedListings) {
-            publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(listing));
+            publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(manager,listing));
         }
     }
 }

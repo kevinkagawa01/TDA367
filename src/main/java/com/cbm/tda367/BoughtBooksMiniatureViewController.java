@@ -19,6 +19,7 @@ import java.io.IOException;
 public class BoughtBooksMiniatureViewController {
 
     private final ApplicationModel model = ApplicationModel.getInstance();
+    private final ControllerManager manager;
     private Listing listing;
 
     /**
@@ -26,8 +27,9 @@ public class BoughtBooksMiniatureViewController {
      *
      * @param listing Listing to be displayed as the miniature.
      */
-    public BoughtBooksMiniatureViewController(Listing listing) {
+    public BoughtBooksMiniatureViewController(ControllerManager manager, Listing listing) {
         this.listing = listing;
+        this.manager = manager;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("BoughtBooks.fxml"));
         fxmlLoader.setRoot(this);
