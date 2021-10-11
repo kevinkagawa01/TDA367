@@ -3,6 +3,7 @@ package com.cbm.tda367;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 
@@ -26,6 +27,18 @@ public class Book {
     private int bookSubscriptions;
     private final String imagePath;
 
+    public String getCategory() {
+        return category;
+    }
+
+    private String category;
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    private LocalDate date;
+
 
     /**
      * Constructs a Book
@@ -36,7 +49,7 @@ public class Book {
      * @param imagePath         The path of a picture of a Book, represented as a String.
      * @param category          The category of a Book, represented as a String.
      */
-    public Book(String bookName, String bookAuthor, String bookCode, String imagePath, String category) {
+    public Book(String bookName, String bookAuthor, String bookCode, String imagePath,String category) {
         this.bookName = Objects.requireNonNull(bookName);
         this.bookAuthor = Objects.requireNonNull(bookAuthor);
         this.bookCode = Objects.requireNonNull(bookCode);

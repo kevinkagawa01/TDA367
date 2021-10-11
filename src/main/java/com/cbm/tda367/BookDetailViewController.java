@@ -74,6 +74,9 @@ public class BookDetailViewController extends AnchorPane{
         //Om false,greenButton.setFill() till röd
         //annars till grön
 
+        /*Switch to account page*/
+        manager.goToAccountPage();
+        manager.openSubscribedBooksInAccordionPage();
     }
 
     public void updateBookPicture() {
@@ -100,46 +103,12 @@ public class BookDetailViewController extends AnchorPane{
 
     }
     public void fillFlowPane(){
-
-
-
     }
 
     public void updateBookView() {
         updateBookPicture();
         updateBookTitleText();
     }
-
-    /**
-     * On click method, directing the user to the account page.
-     *
-     * @param event Click event.
-     */
-    @FXML
-    public void onClickGoToAccountPage(Event event) {
-        manager.goToAccountPage();
-    }
-
-    /**
-     * On click method, directing the user to the shop page.
-     *
-     * @param event Click event.
-     */
-    @FXML
-    public void onClickGoToShopPage(Event event) {
-        manager.goToShopPage();
-    }
-
-    /**
-     * On click method, directing the user to the sell page.
-     *
-     * @param event Click event.
-     */
-    @FXML
-    public void onClickGoToSellPage(Event event) {
-        manager.goToSellPage();
-    }
-
 
     @FXML
     protected void onClickReturnToShopPage(){

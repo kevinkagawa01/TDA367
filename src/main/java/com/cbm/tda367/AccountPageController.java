@@ -95,6 +95,10 @@ public class AccountPageController extends AnchorPane implements Observer {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
+    protected void openSubscribedBooksAccordion() {
+        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(2));
+        //TODO: Make the scrollPane inside the expanded pane roll to the top.
+    }
 
 
 
@@ -155,6 +159,7 @@ public class AccountPageController extends AnchorPane implements Observer {
         updateStarRating();
 
         updatePublishedBooks();
+        updateSubscribedBooks();
     }
 
     private void updatePublishedBooks() {
@@ -168,7 +173,7 @@ public class AccountPageController extends AnchorPane implements Observer {
     private void updateSubscribedBooks(){
         ArrayList<Book> subscribedBooks= model.getCurrentlyLoggedInUser().getSubscribedBooks();
         for(Book book:subscribedBooks){
-            //subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book))
+            subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book));
         }
     }
 }

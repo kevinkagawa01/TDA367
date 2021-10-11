@@ -69,6 +69,9 @@ public class ControllerManager implements Initializable, Observer {
     protected void openPublishedListingsAccordionInAccountPage() {
         accountPage.openPublishedListingsAccordion();
     }
+    protected void openSubscribedBooksInAccordionPage(){
+        accountPage.openSubscribedBooksAccordion();
+    }
 
     /**
      * Navigate to ShopPage

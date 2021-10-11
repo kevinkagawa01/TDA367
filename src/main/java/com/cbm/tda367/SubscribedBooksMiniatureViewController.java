@@ -3,6 +3,9 @@ package com.cbm.tda367;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
@@ -23,31 +26,35 @@ import java.util.spi.LocaleServiceProvider;
  * @version 1.0
  * @since 1.0
  */
-public class SubscribedBooksMiniatureViewController {
+public class SubscribedBooksMiniatureViewController extends AnchorPane {
 
     private final ApplicationModel model = ApplicationModel.getInstance();
-    private final ControllerManager manager;
+    //private final ControllerManager manager;
     private AccountPageController accountPageController;
     private final Book book;
 
     @FXML private Text titleSubscriebdMiniature;
     @FXML private Rectangle unsubscribedMiniature;
+    @FXML private ImageView subscribedBookPicture;
+    @FXML private Text date;
 
 
-    public SubscribedBooksMiniatureViewController(ControllerManager manager, Book book) {
+
+    public SubscribedBooksMiniatureViewController( Book book) {
         this.book = book;
-        this.manager = manager;
+        //this.manager = manager;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SubscribedBooks.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        Date date = new Date();
+        //Date date = new Date();
 
         try { fxmlLoader.load(); }
         catch (IOException exception) { throw new RuntimeException(exception); }
 
         titleSubscriebdMiniature.setText(book.getBookName());
-
+        date.setText(String.valueOf(book.getDate()));
+        subscribedBookPicture.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
     }
 
     /**

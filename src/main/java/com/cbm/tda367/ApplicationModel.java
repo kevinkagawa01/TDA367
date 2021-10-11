@@ -103,9 +103,13 @@ public class ApplicationModel implements Observable {
                 Double.parseDouble(price),
                 book.getImagePath(),
                 condition);
+       Book b=new Book(book.getBookName(),book.getBookAuthor(),bookCode,book.getImagePath(),book.getCategory());
         /* Add listing to listings */
+
         listingDatabase.addListing(listing);
          currentlyLoggedInUser.addListingForSale(listing);
+
+         currentlyLoggedInUser.addBookSubscription(b);
 
         /* Update view */
         notifyObservers();
