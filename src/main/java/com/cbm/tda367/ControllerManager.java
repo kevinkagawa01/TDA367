@@ -35,6 +35,7 @@ public class ControllerManager implements Initializable, Observer {
 
     //TODO: First book should not be null!
     private final BookDetailViewController bookDetailViewController = new BookDetailViewController(this, model, null);
+    private final ListingDetailViewController listingDetailViewController = new ListingDetailViewController(this, null);
     private final List<Observer> mainPages = new ArrayList<>();
 
     @Override
@@ -104,7 +105,7 @@ public class ControllerManager implements Initializable, Observer {
         bookDetailViewController.toFront();
     }
 
-     public void openSellPageView(Listing listing) {
+    public void openSellPageView(Listing listing) {
         sellPage.setAllFieldsFromListing(listing);
         sellPage.update();
         sellPage.toFront();

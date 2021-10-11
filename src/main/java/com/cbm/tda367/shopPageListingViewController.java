@@ -21,7 +21,7 @@ import java.io.IOException;
  */
 
 public class shopPageListingViewController extends AnchorPane {
-    private final ApplicationModel model;
+    private final ApplicationModel model=ApplicationModel.getInstance();
     private final ControllerManager manager;
     private Listing listing;
 
@@ -33,8 +33,8 @@ public class shopPageListingViewController extends AnchorPane {
     private Text listingBookCondition;
 
 
-    public shopPageListingViewController(ControllerManager manager, ApplicationModel model) {
-        this.model = model;
+    public shopPageListingViewController(ControllerManager manager,Listing listing) {
+
         this.manager = manager;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-subscription(1).fxml"));
