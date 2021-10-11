@@ -37,7 +37,7 @@ public class AccountPageController extends AnchorPane implements Observer {
 
     @FXML  private Text publishedBookText;
     @FXML FlowPane publishedBooksFlowPane;
-    @FXML private FlowPane subscribedBooksFlowPane;
+    @FXML  FlowPane subscribedBooksFlowPane;
 
     @FXML
     private Text emailText;
