@@ -143,6 +143,28 @@ public class ApplicationModel implements Observable {
 
         return popularBooks;
     }*/
+    public double getListingSellerRating(Listing listing){
+        for(User user: userDatabase.getUserList()){
+            for(Listing listing1 : user.getBooksForSale()){
+                if (listing1.getListingNumber() == listing.getListingNumber()){
+                    return user.getRating();
+                }
+            }
+        }
+        return 0;
+    }
+
+    public String getListingSellerEmail(Listing listing){
+        for(User user: userDatabase.getUserList()){
+            for(Listing listing1 : user.getBooksForSale()){
+                if (listing1.getListingNumber() == listing.getListingNumber()){
+                    return user.getCid();
+                }
+            }
+        }
+        return "";
+    }
+
 
     /**
      * Determining whether login attempt was successful or not.

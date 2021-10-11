@@ -246,6 +246,5 @@ public class SellPageViewController extends AnchorPane implements Observer {
      */
     @Override
     public void update() {
-
     }
 }

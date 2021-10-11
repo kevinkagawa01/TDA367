@@ -23,17 +23,22 @@ import java.util.List;
  * @version 1.0
  * @since 1.0
  */
-public class BookDetailViewController extends AnchorPane{
+public class BookDetailViewController extends AnchorPane {
     private final ApplicationModel model;
     private final ControllerManager manager;
     private Book book;
+    private Listing listing;
     private ListingViewController shopPageListing;
     private boolean subscribePressed = true;
 
-    @FXML private ImageView bookImageView;
-    @FXML private Text bookTitleText;
-    @FXML private Rectangle reserveButton;
-    @FXML private FlowPane listingsFlowPane;
+    @FXML
+    private ImageView bookImageView;
+    @FXML
+    private Text bookTitleText;
+    @FXML
+    private Rectangle reserveButton;
+    @FXML
+    private FlowPane listingsFlowPane;
 
     /**
      * Creates a detail view of a book.
@@ -50,8 +55,13 @@ public class BookDetailViewController extends AnchorPane{
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try { fxmlLoader.load(); }
-        catch (IOException exception) { throw new RuntimeException(exception);}
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+
+
     }
     //Todo: add shopPageListingviews in flowpane
    /* private void addListingFlowPane() {
@@ -78,26 +88,28 @@ public class BookDetailViewController extends AnchorPane{
         bookImageView.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
     }
 
-    public void updateBookTitleText(){
+    public void updateBookTitleText() {
         bookTitleText.setText(book.getBookName());
     }
 
-    public void updateListingFlowPane(){
-        /* clear flow pane */
+
+    /**
+     * Updates current user's list of subscribed books in shop page.
+     */
+    /*public void updateSubscribedCategoryPane() {
+        List<Book> items = BookDatabase.getInstance().getBookList();
+        //getBookCode osv
         listingsFlowPane.getChildren().clear();
-        /* Retrieves this book code */
-        String bookCode = book.getBookCode();
-        /* Looks for listings with corresponding book */
-        List<Listing> listings = model.getListingDatabase();
-        for (Listing listing : listings) {
-            if (listing.getBook().getBookCode().equals(bookCode)){
-                ListingViewController listingViewController = new ListingViewController(manager, listing);
-                listingsFlowPane.getChildren().add(listingViewController);
-            }
+        for (Book book :
+                items) {
+            // bookPane.getChildren().add();
         }
 
-
     }
+
+     */
+
+
     public void fillFlowPane(){
 
     }
@@ -105,11 +117,11 @@ public class BookDetailViewController extends AnchorPane{
     public void updateBookView() {
         updateBookPicture();
         updateBookTitleText();
-        updateListingFlowPane();
+        //updateListingFlowPane();
     }
 
     @FXML
-    protected void onClickReturnToShopPage(){
+    protected void onClickReturnToShopPage() {
         manager.goToShopPage();
     }
 

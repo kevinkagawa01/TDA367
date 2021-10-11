@@ -25,25 +25,30 @@ public class ListingViewController extends AnchorPane {
     private final ControllerManager manager;
     private Listing listing;
 
-    @FXML private Text listingPrice;
-    @FXML private ImageView listingImage;
-    @FXML private Text listingBookCondition;
+    @FXML
+    private Text listingPrice;
+    @FXML
+    private ImageView listingImage;
+    @FXML
+    private Text listingBookCondition;
 
 
     public ListingViewController(ControllerManager manager, Listing listing) {
-        this.manager = manager;
         this.listing = listing;
+        this.manager = manager;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-subscription(1).fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try { fxmlLoader.load(); }
-        catch (IOException exception) { throw new RuntimeException(exception); }
-
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
         listingPrice.setText(Double.toString(listing.getPrice()));
         listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
         listingBookCondition.setText(listing.getCondition());
+    }
 
-        }
 }
