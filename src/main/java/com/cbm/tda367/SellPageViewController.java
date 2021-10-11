@@ -191,16 +191,21 @@ public class SellPageViewController extends AnchorPane implements Observer {
             /* creating listing */
             model.addListing(bookCodeTextField.getText(), bookConditionComboBox.getSelectionModel().getSelectedItem(),
                     bookPriceTextField.getText());
-
             /* switch to account page */
             manager.goToAccountPage();
-
+            /* clear all fields and reset sell page */
+            resetTextFields();
             /* open accordion menu for my listings */
             manager.openPublishedListingsAccordionInAccountPage();
-
-
         }
 
+    }
+
+    private void resetTextFields() {
+        bookCodeTextField.clear();
+        bookPriceTextField.clear();
+        listingDescriptionTextArea.clear();
+        bookConditionComboBox.getSelectionModel().selectFirst();
     }
 
     /**
