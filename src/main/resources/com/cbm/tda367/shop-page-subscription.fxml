@@ -44,7 +44,7 @@
       </Text>
       <ScrollPane layoutX="18.0" layoutY="319.0" prefHeight="316.0" prefWidth="375.0">
          <content>
-            <FlowPane opacity="0.0" prefHeight="315.0" prefWidth="355.0" />
+            <FlowPane fx:id="listingsFlowPane" prefHeight="315.0" prefWidth="355.0" />
          </content>
       </ScrollPane>
       <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="27.0" onMouseClicked="#onClickReturnToShopPage" pickOnBounds="true" preserveRatio="true">

@@ -25,7 +25,7 @@ import java.util.List;
  * @version 1.0
  * @since 0.5
  */
-public class AccountPageController extends AnchorPane implements Observer {
+public class AccountPageViewController extends AnchorPane implements Observer {
 
     private ControllerManager manager;
     private ApplicationModel model;
@@ -52,7 +52,7 @@ public class AccountPageController extends AnchorPane implements Observer {
      * @param model   Model viewed.
      */
 
-    public AccountPageController(ControllerManager manager, ApplicationModel model) {
+    public AccountPageViewController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
         this.manager = manager;
 

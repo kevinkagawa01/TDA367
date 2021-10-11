@@ -31,7 +31,7 @@ public class ControllerManager implements Initializable, Observer {
     private final LoginPageViewController loginPage = new LoginPageViewController(this, model);
     private final ShopPageViewController shopPage = new ShopPageViewController(this, model);
     private final SellPageViewController sellPage = new SellPageViewController(this, model);
-    private final AccountPageController accountPage = new AccountPageController(this, model);
+    private final AccountPageViewController accountPage = new AccountPageViewController(this, model);
 
     //TODO: First book should not be null!
     private final BookDetailViewController bookDetailViewController = new BookDetailViewController(this, model, null);

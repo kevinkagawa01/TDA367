@@ -9,10 +9,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.spi.LocaleServiceProvider;
 
 /**
  * Visual representation of a miniature view
@@ -28,7 +24,7 @@ import java.util.spi.LocaleServiceProvider;
 public class SubscribedBooksMiniatureViewController {
 
     private final ApplicationModel model = ApplicationModel.getInstance();
-    private AccountPageController accountPageController;
+    private AccountPageViewController accountPageController;
     private final Book book;
     private final ControllerManager manager;
 
