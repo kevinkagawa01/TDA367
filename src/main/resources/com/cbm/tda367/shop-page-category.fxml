@@ -7,7 +7,7 @@
 
 <fx:root maxWidth="411.0" prefHeight="250.0" prefWidth="411.0" stylesheets="@shop-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ScrollPane layoutY="62.0" prefHeight="290.0" prefWidth="411.0" style="-fx-background: transparent; -fx-background-color: transparent;" vbarPolicy="NEVER">
+      <ScrollPane hbarPolicy="NEVER" layoutY="62.0" prefHeight="290.0" prefWidth="411.0" style="-fx-background: transparent; -fx-background-color: transparent;" vbarPolicy="NEVER">
          <content>
             <FlowPane fx:id="shopPageCategoryFlowPane" orientation="VERTICAL" prefHeight="188.0" prefWidth="411.0" />
          </content>
