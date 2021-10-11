@@ -28,7 +28,7 @@ public class BookDetailViewController extends AnchorPane {
     private final ControllerManager manager;
     private Book book;
     private Listing listing;
-    private shopPageListingViewController shopPageListing;
+    private ListingViewController shopPageListing;
     private boolean subscribePressed = true;
 
     @FXML
