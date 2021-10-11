@@ -71,8 +71,11 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+
+
+
         BookName.setText(listing.getBook().getBookName());
-        Price.setText(String.valueOf(listing.getPrice()));
+        Price.setText((int) listing.getPrice() + " kr");
         date.setText(String.valueOf(listing.getDate()));
         updateBookPicture();
 
@@ -106,6 +109,16 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
     protected void onClickOpenDetailedView(Event event){
         manager.openSellPageView(listing);
         manager.goToSellPage();
+    }
+    /**
+     * rounds a double to a certain precision
+     * @param value double to be rounded.
+     * @param precision precision to round the double according to.
+     * @return rounded double.
+     */
+    private double round (double value, int precision) {
+        int scale = (int) Math.pow(10, precision);
+        return (double) Math.round(value * scale) / scale;
     }
 
 }

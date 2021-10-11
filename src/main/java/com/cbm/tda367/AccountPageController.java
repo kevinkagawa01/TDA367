@@ -31,25 +31,18 @@ public class AccountPageController extends AnchorPane implements Observer {
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
 
+
     @FXML private Accordion accountPageAccordion;
     @FXML private ScrollPane published;
 
     @FXML  private Text publishedBookText;
     @FXML FlowPane publishedBooksFlowPane;
-
-
-
-
+    @FXML private FlowPane subscribedBooksFlowPane;
 
     @FXML
     private Text emailText;
     @FXML
     private ImageView starRating;
-
-
-
-
-
 
     /**
      * Initializes account page view/controller.
@@ -102,6 +95,8 @@ public class AccountPageController extends AnchorPane implements Observer {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
+
+
 
     /**
      * Updates the visual representation of which user i logged in to the application.
@@ -168,11 +163,12 @@ public class AccountPageController extends AnchorPane implements Observer {
             publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(listing));
 
         }
+    }
 
-
-
-
-
-
+    private void updateSubscribedBooks(){
+        ArrayList<Book> subscribedBooks= model.getCurrentlyLoggedInUser().getSubscribedBooks();
+        for(Book book:subscribedBooks){
+            //subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book))
+        }
     }
 }
