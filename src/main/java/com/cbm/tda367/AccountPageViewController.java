@@ -48,7 +48,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
   
     @FXML private FlowPane subscribedBooksFlowPane;
 
-
+    @FXML
     private Text emailText;
     @FXML
     private ImageView starRating;
