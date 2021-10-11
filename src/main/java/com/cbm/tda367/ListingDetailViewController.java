@@ -3,6 +3,7 @@ package com.cbm.tda367;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -39,7 +40,7 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
     @FXML
     private Text listingDetailEmail;
     @FXML
-    private Text listingDetailName;
+    private TextArea listingDescription;
 
 
     /**
