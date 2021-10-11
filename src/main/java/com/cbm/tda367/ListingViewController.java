@@ -20,30 +20,35 @@ import java.io.IOException;
  * @since 1.0
  */
 
-public class ListingViewController extends AnchorPane {
-    private final ApplicationModel model = ApplicationModel.getInstance();
+public class shopPageListingViewController extends AnchorPane {
+    private final ApplicationModel model=ApplicationModel.getInstance();
     private final ControllerManager manager;
     private Listing listing;
 
-    @FXML private Text listingPrice;
-    @FXML private ImageView listingImage;
-    @FXML private Text listingBookCondition;
+    @FXML
+    private Text listingPrice;
+    @FXML
+    private ImageView listingImage;
+    @FXML
+    private Text listingBookCondition;
 
 
-    public ListingViewController(ControllerManager manager, Listing listing) {
+    public shopPageListingViewController(ControllerManager manager,Listing listing) {
+
         this.manager = manager;
-        this.listing = listing;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-subscription(1).fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try { fxmlLoader.load(); }
-        catch (IOException exception) { throw new RuntimeException(exception); }
-
-        listingPrice.setText(Double.toString(listing.getPrice()));
-        listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
-        listingBookCondition.setText(listing.getCondition());
-
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
         }
+        //listingPrice.setText(Double.toString(listing.getPrice()));
+        //listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
+        //listingBookCondition.setText(listing.getCondition());
+    }
+
 }
