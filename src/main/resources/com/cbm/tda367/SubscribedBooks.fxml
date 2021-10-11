@@ -14,21 +14,20 @@
             <Image url="@../../../Library/coverSample.png" />
          </image>
       </ImageView>
+      <Text fx:id="titleSubscriebdMiniature" layoutX="92.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Title&gt;" wrappingWidth="199.30078125">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
 
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="41.0" layoutX="256.0" layoutY="87.0" stroke="BLACK" strokeType="INSIDE" width="101.0" />
-      <Text layoutX="90.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Title&gt;"/>
 
-      <Text fx:id="date" layoutX="7.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Datum&gt;">
+      <Text fx:id="date" layoutX="14.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Datum&gt;" wrappingWidth="101.0">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
       <Rectangle fx:id="unsubscribedMiniature" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="41.0" layoutX="256.0" layoutY="87.0" stroke="BLACK" strokeType="INSIDE" width="101.0" />
-      <Text fx:id="titleSubscriebdMiniature" layoutX="90.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Title&gt;">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Text>
       <Text layoutX="270.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unsubscribe">
          <font>
             <Font name="System Bold" size="12.0" />

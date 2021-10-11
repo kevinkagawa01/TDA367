@@ -55,9 +55,14 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
      * @param listing A ControllerManager. Handles all controllers.
      */
 
+
     public PublishedListingsMiniatureViewController(ControllerManager manager, Listing listing) {
         this.manager = manager;
         this.listing = listing;
+
+
+
+
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PublishedBooks.fxml"));
         fxmlLoader.setRoot(this);
@@ -102,15 +107,7 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
     protected void onClickOpenDetailedView(Event event) {
         manager.openSellPageView(this.listing);
     }
-    /**
-     * rounds a double to a certain precision
-     * @param value double to be rounded.
-     * @param precision precision to round the double according to.
-     * @return rounded double.
-     */
-    private double round (double value, int precision) {
-        int scale = (int) Math.pow(10, precision);
-        return (double) Math.round(value * scale) / scale;
-    }
+
+
 
 }

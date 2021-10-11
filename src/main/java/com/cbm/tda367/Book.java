@@ -33,11 +33,9 @@ public class Book {
 
     private String category;
 
-    public LocalDate getDate() {
-        return date;
-    }
 
-    private LocalDate date;
+
+    private LocalDate date=LocalDate.now();
 
 
     /**
@@ -112,6 +110,9 @@ public class Book {
      */
     public int getBookSubscriptions() {
         return bookSubscriptions;
+    }
+    public LocalDate getDate() {
+        return date;
     }
 
 

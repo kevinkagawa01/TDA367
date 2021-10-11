@@ -103,16 +103,28 @@ public class ApplicationModel implements Observable {
                 Double.parseDouble(price),
                 book.getImagePath(),
                 condition);
-       Book b=new Book(book.getBookName(),book.getBookAuthor(),bookCode,book.getImagePath(),book.getCategory());
-        /* Add listing to listings */
 
+
+       /* Add listing to listings */
         listingDatabase.addListing(listing);
          currentlyLoggedInUser.addListingForSale(listing);
 
-         currentlyLoggedInUser.addBookSubscription(b);
 
         /* Update view */
         notifyObservers();
+    }
+    public void addBooks(String  bookName,String image){
+        Book book=bookDatabase.returnBookWithCorrespondingName(bookName);
+
+        Book b=new Book(bookName,book.getBookAuthor(),book.getBookCode(),image,book.getCategory());
+
+        /* add book to bookdatabase listing*/
+        bookDatabase.addBook(b);
+        currentlyLoggedInUser.addBookSubscription(b);
+
+        /* Update view */
+        notifyObservers();
+
     }
 
     /*

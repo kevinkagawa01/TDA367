@@ -37,35 +37,18 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
     private final Book book;
     //private final ControllerManager manager;
 
-    @FXML
-    private Text titleSubscriebdMiniature;
-    @FXML
-    private Rectangle unSubscribedButton;
-    @FXML
-    ImageView imageSubscribedView;
-
-
-    @FXML private Rectangle unsubscribedMiniature;
-    @FXML private ImageView subscribedBookPicture;
-    @FXML private Text date;
-
-
+    @FXML private Text titleSubscriebdMiniature;
+    @FXML  private Rectangle unsubscribedMiniature;
+    @FXML  private ImageView subscribedBookPicture;
+    @FXML  private Text date;
 
 
     public SubscribedBooksMiniatureViewController( Book book) {
         this.book = book;
-
-
-
         //this.manager = manager;
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SubscribedBooks.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-
-
-
-        //Date date = new Date();
 
 
         try {
@@ -74,14 +57,14 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
+        try { fxmlLoader.load(); }
+        catch (IOException exception) { throw new RuntimeException(exception); }
+
+
         titleSubscriebdMiniature.setText(book.getBookName());
-
-        imageSubscribedView.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
-
-
-
-        date.setText(String.valueOf(book.getDate()));
         subscribedBookPicture.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
+        date.setText(String.valueOf(book.getDate()));
+
 
     }
 

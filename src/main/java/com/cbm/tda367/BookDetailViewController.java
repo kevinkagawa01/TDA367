@@ -62,6 +62,10 @@ public class BookDetailViewController extends AnchorPane {
         }
 
 
+
+
+
+
     }
     //Todo: add shopPageListingviews in flowpane
    /* private void addListingFlowPane() {
@@ -77,8 +81,10 @@ public class BookDetailViewController extends AnchorPane {
     public void onClickSubscribeToBook(Event event) {
         //Om false,greenButton.setFill() till röd
         //annars till grön
+        model.addBooks(book.getBookName(),book.getImagePath());
 
         /*Switch to account page*/
+
         manager.goToAccountPage();
         manager.openSubscribedBooksInAccordionPage();
     }
