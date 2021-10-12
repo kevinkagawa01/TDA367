@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbm.tda367.ShopPageDetailedView">
+<fx:root prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: #FFFFFF;" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#365abb" height="461.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="411.0" />
       <ImageView fitHeight="412.0" fitWidth="260.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
@@ -66,4 +66,4 @@
       </ImageView>
       <TextArea layoutX="54.0" layoutY="341.0" prefHeight="200.0" prefWidth="296.0" />
    </children>
-</AnchorPane>
+</fx:root>

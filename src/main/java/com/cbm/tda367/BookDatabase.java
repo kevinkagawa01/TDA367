@@ -95,6 +95,15 @@ public class BookDatabase {
         //TODO: can currently return null
         return null;
     }
+    public Book returnBookWithCorrespondingName(String bookName) {
+        for (Book book : bookList) {
+            if (book.getBookName().equals(bookName)) {
+                return book;
+            }
+        }
+        //TODO: can currently return null
+        return null;
+    }
 
     /**
      * Removes a Book from the list of Books.

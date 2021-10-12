@@ -62,6 +62,10 @@ public class BookDetailViewController extends AnchorPane {
         }
 
 
+
+
+
+
     }
     //Todo: add shopPageListingviews in flowpane
    /* private void addListingFlowPane() {
@@ -77,7 +81,12 @@ public class BookDetailViewController extends AnchorPane {
     public void onClickSubscribeToBook(Event event) {
         //Om false,greenButton.setFill() till röd
         //annars till grön
+        model.addBooks(book.getBookName(),book.getImagePath());
 
+        /*Switch to account page*/
+
+        manager.goToAccountPage();
+        manager.openSubscribedBooksInAccordionPage();
     }
 
     public void updateBookPicture() {
@@ -89,61 +98,26 @@ public class BookDetailViewController extends AnchorPane {
         bookTitleText.setText(book.getBookName());
     }
 
-
-    /**
-     * Updates current user's list of subscribed books in shop page.
-     */
-    public void updateSubscribedCategoryPane() {
-        List<Book> items = BookDatabase.getInstance().getBookList();
-        //getBookCode osv
+    public void updateListingFlowPane() {
+        /* clear flow pane */
         listingsFlowPane.getChildren().clear();
-        for (Book book :
-                items) {
-            // bookPane.getChildren().add();
+        /* Retrieves this book code */
+        String bookCode = book.getBookCode();
+        /* Looks for listings with corresponding book */
+        List<Listing> listings = model.getListingDatabase();
+        for (Listing listing : listings) {
+            if (listing.getBook().getBookCode().equals(bookCode)) {
+                ListingViewController listingViewController = new ListingViewController(manager, listing);
+                listingsFlowPane.getChildren().add(listingViewController);
+            }
         }
-
-    }
-
-    public void fillFlowPane() {
-
-
     }
 
     public void updateBookView() {
         updateBookPicture();
         updateBookTitleText();
+        updateListingFlowPane();
     }
-
-    /**
-     * On click method, directing the user to the account page.
-     *
-     * @param event Click event.
-     */
-    @FXML
-    public void onClickGoToAccountPage(Event event) {
-        manager.goToAccountPage();
-    }
-
-    /**
-     * On click method, directing the user to the shop page.
-     *
-     * @param event Click event.
-     */
-    @FXML
-    public void onClickGoToShopPage(Event event) {
-        manager.goToShopPage();
-    }
-
-    /**
-     * On click method, directing the user to the sell page.
-     *
-     * @param event Click event.
-     */
-    @FXML
-    public void onClickGoToSellPage(Event event) {
-        manager.goToSellPage();
-    }
-
 
     @FXML
     protected void onClickReturnToShopPage() {

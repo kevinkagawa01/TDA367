@@ -40,13 +40,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private Text publishedBookText;
     @FXML
     FlowPane publishedBooksFlowPane;
-
-
-
-
-
-  
-    @FXML private FlowPane subscribedBooksFlowPane;
+    @FXML FlowPane subscribedBooksFlowPane;
 
     @FXML
     private Text emailText;
@@ -106,6 +100,10 @@ public class AccountPageViewController extends AnchorPane implements Observer {
      */
     protected void openPublishedListingsAccordion() {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
+        //TODO: Make the scrollPane inside the expanded pane roll to the top.
+    }
+    protected void openSubscribedBooksAccordion() {
+        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(2));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
 
@@ -168,6 +166,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
         updateLoggedInEmail();
         updateStarRating();
         updatePublishedBooks();
+        updateSubscribedBooks();
     }
 
     private void updatePublishedBooks() {
@@ -181,7 +180,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private void updateSubscribedBooks(){
         ArrayList<Book> subscribedBooks= model.getCurrentlyLoggedInUser().getSubscribedBooks();
         for(Book book:subscribedBooks){
-            //subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book))
+            subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book));
         }
 
     }

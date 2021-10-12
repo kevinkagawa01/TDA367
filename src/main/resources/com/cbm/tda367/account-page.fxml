@@ -34,14 +34,10 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ScrollPane prefHeight="278.0" prefWidth="375.0">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="420.0" prefWidth="358.0">
-                                 <children>
-                                    <FlowPane prefHeight="267.0" prefWidth="375.0" />
-                                 </children>
-                              </AnchorPane>
-                          </content>
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="278.0" prefWidth="375.0" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="NEVER">
+                           <content>
+                              <FlowPane prefHeight="278.0" prefWidth="375.0" />
+                           </content>
                         </ScrollPane>
                      </children></AnchorPane>
               </content>
