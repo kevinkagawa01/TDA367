@@ -133,14 +133,14 @@ public class User {
         previousPurchases.remove(listing);
     }
 
-    /** Delete reserved book from the hashmap list
+    /** Delete reserved book from the  list
      * @param listing
      */
     public void removeReservedBook(Listing listing){
         reservedBooks.remove(listing);
     }
 
-    /** Delete the book for sale from the hashmap list
+    /** Delete the book for sale from the Array list
      * @param listing
      */
     public void removeListingForSale(Listing listing){

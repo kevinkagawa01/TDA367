@@ -167,6 +167,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
         updateStarRating();
         updatePublishedBooks();
         updateSubscribedBooks();
+        RemoveElementFromPublishedBooks();
     }
 
     private void updatePublishedBooks() {
@@ -176,12 +177,21 @@ public class AccountPageViewController extends AnchorPane implements Observer {
         }
 
     }
+    private void RemoveElementFromPublishedBooks(){
+        ArrayList<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
+        for(Listing listing:publishedListings){
+            publishedBooksFlowPane.getChildren().remove(new PublishedListingsMiniatureViewController(manager,listing));
+
+        }
+
+    }
 
     private void updateSubscribedBooks(){
         ArrayList<Book> subscribedBooks= model.getCurrentlyLoggedInUser().getSubscribedBooks();
         for(Book book:subscribedBooks){
-            subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book));
+            subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book,manager));
         }
 
     }
+
 }

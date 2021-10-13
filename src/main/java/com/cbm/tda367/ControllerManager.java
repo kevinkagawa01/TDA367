@@ -22,6 +22,12 @@ import java.util.ResourceBundle;
 
 public class ControllerManager implements Initializable, Observer {
 
+
+    private final static ControllerManager controllerManager = new ControllerManager();
+    public static ControllerManager getInstance() {
+        return controllerManager;
+    }
+
     @FXML
     private AnchorPane mainAnchorPane;
 
