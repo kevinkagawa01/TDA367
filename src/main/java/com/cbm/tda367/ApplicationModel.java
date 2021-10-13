@@ -113,12 +113,29 @@ public class ApplicationModel implements Observable {
         /* Update view */
         notifyObservers();
     }
+    public void deleteFromListing(String bookName, String date, String price,String imagePath) {
+        /* Book corresponding with listing */
+        Book book = bookDatabase.returnBookWithCorrespondingCode(bookName);
+        Listing listing = new Listing(book, currentListingNumber++,
+                Double.parseDouble(price),
+                book.getImagePath(),
+                book.getCategory());
+
+
+        /* Delete listing  listings */
+        listingDatabase.removeListing(listing);
+        currentlyLoggedInUser.removeListingForSale(listing);
+
+        /* Update view */
+        notifyObservers();
+    }
+
     public void addBooks(String  bookName,String image){
         Book book=bookDatabase.returnBookWithCorrespondingName(bookName);
 
         Book b=new Book(bookName,book.getBookAuthor(),book.getBookCode(),image,book.getCategory());
 
-        /* add book to bookdatabase listing*/
+        /* add book to bookDatabase listing*/
         bookDatabase.addBook(b);
         currentlyLoggedInUser.addBookSubscription(b);
         /* Update view */

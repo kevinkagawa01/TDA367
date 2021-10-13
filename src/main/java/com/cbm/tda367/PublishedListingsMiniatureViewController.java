@@ -33,7 +33,7 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
 
     private ApplicationModel model = ApplicationModel.getInstance();
     private AccountPageController accountPageController;
-    private ControllerManager manager;
+    private ControllerManager manager=ControllerManager.getInstance();
 
 
     @FXML
@@ -94,11 +94,19 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
      */
     @FXML
     protected void onClickRemovePublishedBook(Event event) {
-        //model.getCurrentlyLoggedInUser().removeListingForSale(listing.getListingNumber());
+        //model.getCurrentlyLoggedInUser().removeListingForSale(listing);
+
+        model.deleteFromListing(BookName.getText(),date.getText(),Price.getText(), String.valueOf(BookImage.getImage()));
+
+        //model.getCurrentlyLoggedInUser().removeListingForSale(listing);
+        System.out.println("Deleted from list");
     }
 
-
-
+    /* move to sell page*/
+    @FXML
+    protected void onClickEditButton(Event event){
+        manager.goToSellPage();
+    }
 
     /**
      * Changes published book from the user in the application.

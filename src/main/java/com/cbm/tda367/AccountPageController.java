@@ -160,6 +160,7 @@ public class AccountPageController extends AnchorPane implements Observer {
 
         updatePublishedBooks();
         updateSubscribedBooks();
+        RemoveElementFromPublishedBooks();
     }
 
     private void updatePublishedBooks() {
@@ -169,6 +170,14 @@ public class AccountPageController extends AnchorPane implements Observer {
 
         }
     }
+    private void RemoveElementFromPublishedBooks(){
+        ArrayList<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
+        for(Listing listing:publishedListings){
+            publishedBooksFlowPane.getChildren().remove(new PublishedListingsMiniatureViewController(listing));
+
+        }
+
+    }
 
     private void updateSubscribedBooks(){
         ArrayList<Book> subscribedBooks= model.getCurrentlyLoggedInUser().getSubscribedBooks();
@@ -176,4 +185,5 @@ public class AccountPageController extends AnchorPane implements Observer {
             subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book));
         }
     }
+
 }
