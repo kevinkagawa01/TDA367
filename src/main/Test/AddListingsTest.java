@@ -1,9 +1,10 @@
 import com.cbm.tda367.ApplicationModel;
+import com.cbm.tda367.Book;
+import com.cbm.tda367.Listing;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AddListingsTest {
     private ApplicationModel model;
@@ -15,6 +16,17 @@ public class AddListingsTest {
     @Test
     public void addListingTest(){
         assertTrue(model.getListingDatabase().isEmpty());
+
+        model.addListing("TMA660", "New", "300");
+        assertFalse(model.getListingDatabase().isEmpty());
+
+        assertEquals(1, model.getListingDatabase().size());
+
+        assertEquals(0,model.getListingDatabase().get(0).getListingNumber()); // FIRST LISTING DOES NOT GET LISTING NUMBER 1. FIX IN APPLICATION MODEL
+
+        model.addListing("TMA660", "New", "300");
+
+        assertEquals(1,model.getListingDatabase().get(1).getListingNumber());
     }
 }
 
