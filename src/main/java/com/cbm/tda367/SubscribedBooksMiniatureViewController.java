@@ -35,8 +35,6 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
     //private AccountPageController accountPageController;
 
     private final Book book;
-    //private final ControllerManager manager;
-
     @FXML private Text titleSubscriebdMiniature;
     @FXML  private Rectangle unsubscribedMiniature;
     @FXML  private ImageView subscribedBookPicture;
