@@ -189,7 +189,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private void updateSubscribedBooks(){
         ArrayList<Book> subscribedBooks= model.getCurrentlyLoggedInUser().getSubscribedBooks();
         for(Book book:subscribedBooks){
-            subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book));
+            subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book,manager));
         }
 
     }

@@ -100,13 +100,9 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
     @FXML
     protected void onClickRemovePublishedBook(Event event) {
 
-        //model.getCurrentlyLoggedInUser().removeListingForSale(listing);
-
         model.getCurrentlyLoggedInUser().removeListingForSale(this.listing);
 
         //model.deleteFromListing(BookName.getText(),date.getText(),Price.getText(), String.valueOf(BookImage.getImage()));
-
-        //model.getCurrentlyLoggedInUser().removeListingForSale(listing);
         System.out.println("Deleted from list");
     }
 

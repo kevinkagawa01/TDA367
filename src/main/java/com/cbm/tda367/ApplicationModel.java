@@ -121,7 +121,6 @@ public class ApplicationModel implements Observable {
                 book.getImagePath(),
                 book.getCategory());
 
-
         /* Delete listing  listings */
         listingDatabase.removeListing(listing);
         currentlyLoggedInUser.removeListingForSale(listing);
