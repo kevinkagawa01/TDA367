@@ -28,6 +28,7 @@ public class SellPageViewController extends AnchorPane implements Observer {
 
     private final ControllerManager manager;
     private final ApplicationModel model;
+    private Listing listing;
 
     /* FXML elements */
     @FXML
@@ -190,16 +191,21 @@ public class SellPageViewController extends AnchorPane implements Observer {
             /* creating listing */
             model.addListing(bookCodeTextField.getText(), bookConditionComboBox.getSelectionModel().getSelectedItem(),
                     bookPriceTextField.getText());
-
             /* switch to account page */
             manager.goToAccountPage();
-
+            /* clear all fields and reset sell page */
+            resetTextFields();
             /* open accordion menu for my listings */
             manager.openPublishedListingsAccordionInAccountPage();
-
-
         }
 
+    }
+
+    private void resetTextFields() {
+        bookCodeTextField.clear();
+        bookPriceTextField.clear();
+        listingDescriptionTextArea.clear();
+        bookConditionComboBox.getSelectionModel().selectFirst();
     }
 
     /**
@@ -222,17 +228,23 @@ public class SellPageViewController extends AnchorPane implements Observer {
         return true;
     }
 
-    public void updateTextFields(Listing listing, Book book){
+    public void updateTextFields(Listing listing, Book book) {
         bookCodeTextField.setText(book.getBookCode());
         bookPriceTextField.setText(Double.toString(listing.getPrice()));
     }
 
+    @FXML
+    public void setAllFieldsFromListing(Listing listing) {
+        bookPriceTextField.setText(Double.toString(listing.getPrice()));
+        bookCodeTextField.setText(listing.getBook().getBookCode());
+       // bookConditionComboBox;
+      //  listingDescriptionTextArea.setText(listing);
+    }
 
     /**
      * implemented from Observer interface, updating changes prompted by the object this is observing.
      */
     @Override
     public void update() {
-
     }
 }

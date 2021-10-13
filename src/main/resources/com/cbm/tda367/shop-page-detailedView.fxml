@@ -3,13 +3,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbm.tda367.ShopPageDetailedView">
+<fx:root prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: #FFFFFF;" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#365abb" height="461.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="411.0" />
       <ImageView fitHeight="412.0" fitWidth="260.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
@@ -33,14 +32,9 @@
          </image>
       </ImageView>
       <Circle fill="#c4c4c4" layoutX="206.0" layoutY="651.0" radius="34.0" stroke="BLACK" strokeType="INSIDE" />
-      <Text layoutX="132.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kevin Pham" textAlignment="CENTER">
+      <Text layoutX="95.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kevinpha@gmail.com" textAlignment="CENTER">
          <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
-      <Text layoutX="132.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kevinpha@gmail.com" textAlignment="CENTER">
-         <font>
-            <Font size="17.0" />
+            <Font size="24.0" />
          </font>
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbb547" height="55.0" layoutX="105.0" layoutY="548.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
@@ -49,7 +43,6 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <FlowPane layoutX="16.0" layoutY="341.0" prefHeight="200.0" prefWidth="387.0" />
       <Text fill="WHITE" layoutX="25.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Book Name&gt;" wrappingWidth="327.70703125">
          <font>
             <Font name="Nirmala UI" size="40.0" />
@@ -71,4 +64,4 @@
          </image>
       </ImageView>
    </children>
-</AnchorPane>
+</fx:root>

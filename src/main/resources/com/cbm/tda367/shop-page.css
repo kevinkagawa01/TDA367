@@ -1,6 +1,7 @@
 *
 {
-
+    white: #F6F6F6;
+    dark_gray: rgb(77,77,77,0.75);
 }
 
 .search-bar
@@ -16,5 +17,14 @@
 }
 .subscription-book-annons-background{
       -fx-background-radius: 15;
-      -fx-background-color:#C4C4C4;
+      -fx-background-color: dark_gray;
+}
+
+.listing-miniature-background{
+    -fx-background-radius: 15;
+    -fx-background-color: dark_gray;
+}
+
+.listing-miniature-text{
+    -fx-fill: white;
 }

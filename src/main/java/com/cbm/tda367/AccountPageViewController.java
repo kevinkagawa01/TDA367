@@ -25,24 +25,28 @@ import java.util.List;
  * @version 1.0
  * @since 0.5
  */
-public class AccountPageController extends AnchorPane implements Observer {
+public class AccountPageViewController extends AnchorPane implements Observer {
 
     private ControllerManager manager;
     private ApplicationModel model;
     private FXMLLoader fxmlLoader;
 
 
-    @FXML private Accordion accountPageAccordion;
-    @FXML private ScrollPane published;
-
-    @FXML  private Text publishedBookText;
-    @FXML FlowPane publishedBooksFlowPane;
-    @FXML  FlowPane subscribedBooksFlowPane;
+    @FXML
+    private Accordion accountPageAccordion;
+    @FXML
+    private ScrollPane published;
+    @FXML
+    private Text publishedBookText;
+    @FXML
+    FlowPane publishedBooksFlowPane;
+    @FXML FlowPane subscribedBooksFlowPane;
 
     @FXML
     private Text emailText;
     @FXML
     private ImageView starRating;
+
 
     /**
      * Initializes account page view/controller.
@@ -51,7 +55,7 @@ public class AccountPageController extends AnchorPane implements Observer {
      * @param model   Model viewed.
      */
 
-    public AccountPageController(ControllerManager manager, ApplicationModel model) {
+    public AccountPageViewController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
         this.manager = manager;
 
@@ -59,8 +63,11 @@ public class AccountPageController extends AnchorPane implements Observer {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try { fxmlLoader.load(); }
-        catch (IOException exception) { throw new RuntimeException(exception); }
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
     }
 
 
@@ -111,6 +118,7 @@ public class AccountPageController extends AnchorPane implements Observer {
 
     /**
      * Returns a rating image-path, represented in the form of 0-5 stars, corresponding to the user's rating.
+     *
      * @return rating image-path.
      */
     private String getRatingPicture() {
@@ -157,7 +165,6 @@ public class AccountPageController extends AnchorPane implements Observer {
     public void update() {
         updateLoggedInEmail();
         updateStarRating();
-
         updatePublishedBooks();
         updateSubscribedBooks();
         RemoveElementFromPublishedBooks();
@@ -165,15 +172,15 @@ public class AccountPageController extends AnchorPane implements Observer {
 
     private void updatePublishedBooks() {
         ArrayList<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
-        for(Listing listing:publishedListings){
-            publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(listing));
-
+        for (Listing listing : publishedListings) {
+            publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(manager,listing));
         }
+
     }
     private void RemoveElementFromPublishedBooks(){
         ArrayList<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
         for(Listing listing:publishedListings){
-            publishedBooksFlowPane.getChildren().remove(new PublishedListingsMiniatureViewController(listing));
+            publishedBooksFlowPane.getChildren().remove(new PublishedListingsMiniatureViewController(manager,listing));
 
         }
 
@@ -184,6 +191,7 @@ public class AccountPageController extends AnchorPane implements Observer {
         for(Book book:subscribedBooks){
             subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book));
         }
+
     }
 
 }

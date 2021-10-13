@@ -37,10 +37,11 @@ public class ControllerManager implements Initializable, Observer {
     private final LoginPageViewController loginPage = new LoginPageViewController(this, model);
     private final ShopPageViewController shopPage = new ShopPageViewController(this, model);
     private final SellPageViewController sellPage = new SellPageViewController(this, model);
-    private final AccountPageController accountPage = new AccountPageController(this, model);
+    private final AccountPageViewController accountPage = new AccountPageViewController(this, model);
 
     //TODO: First book should not be null!
     private final BookDetailViewController bookDetailViewController = new BookDetailViewController(this, model, null);
+    private final ListingDetailViewController listingDetailViewController = new ListingDetailViewController(this, null);
     private final List<Observer> mainPages = new ArrayList<>();
 
     @Override
@@ -103,7 +104,7 @@ public class ControllerManager implements Initializable, Observer {
 
     /**
      * Opens detail view of book.
-     * */
+     */
     public void openBookDetailView(Book book) {
         /* Changes currently selected book in DetailView */
         bookDetailViewController.setBook(book);
@@ -114,6 +115,10 @@ public class ControllerManager implements Initializable, Observer {
     }
 
     public void openSellPageView(Listing listing) {
+        sellPage.setAllFieldsFromListing(listing);
+        sellPage.update();
+        sellPage.toFront();
+
 
     }
 }

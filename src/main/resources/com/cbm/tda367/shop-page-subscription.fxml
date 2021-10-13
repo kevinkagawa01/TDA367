@@ -42,9 +42,11 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <ScrollPane layoutX="18.0" layoutY="319.0" prefHeight="316.0" prefWidth="375.0">
+      <ScrollPane hbarPolicy="NEVER" layoutX="18.0" layoutY="319.0" prefHeight="316.0" prefWidth="375.0" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="NEVER">
          <content>
-            <FlowPane onMouseClicked="#onClickSubscribeToBook" opacity="0.0" prefHeight="315.0" prefWidth="355.0" />
+
+            <FlowPane fx:id="listingsFlowPane" prefHeight="315.0" prefWidth="355.0" />
+
          </content>
       </ScrollPane>
       <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="27.0" onMouseClicked="#onClickReturnToShopPage" pickOnBounds="true" preserveRatio="true">

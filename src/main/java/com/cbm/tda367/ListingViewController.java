@@ -20,8 +20,8 @@ import java.io.IOException;
  * @since 1.0
  */
 
-public class shopPageListingViewController extends AnchorPane {
-    private final ApplicationModel model;
+public class ListingViewController extends AnchorPane {
+    private final ApplicationModel model = ApplicationModel.getInstance();
     private final ControllerManager manager;
     private Listing listing;
 
@@ -33,8 +33,8 @@ public class shopPageListingViewController extends AnchorPane {
     private Text listingBookCondition;
 
 
-    public shopPageListingViewController(ControllerManager manager, ApplicationModel model) {
-        this.model = model;
+    public ListingViewController(ControllerManager manager, Listing listing) {
+        this.listing = listing;
         this.manager = manager;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-subscription(1).fxml"));
@@ -46,9 +46,9 @@ public class shopPageListingViewController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        //listingPrice.setText(Double.toString(listing.getPrice()));
-        //listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
-        //listingBookCondition.setText(listing.getCondition());
+        listingPrice.setText(Double.toString(listing.getPrice()));
+        listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
+        listingBookCondition.setText(listing.getCondition());
     }
 
 }
