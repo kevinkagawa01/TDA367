@@ -1,7 +1,8 @@
-package com.cbm.tda367;
+package com.cbm.tda367.model;
+
+import com.cbm.tda367.viewcontroller.Observer;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 /**
  * Application main class for the model containing the logic of the model.

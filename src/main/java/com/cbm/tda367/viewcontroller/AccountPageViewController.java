@@ -1,5 +1,8 @@
-package com.cbm.tda367;
+package com.cbm.tda367.viewcontroller;
 
+import com.cbm.tda367.model.ApplicationModel;
+import com.cbm.tda367.model.Book;
+import com.cbm.tda367.model.Listing;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +16,6 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Visual representation of the account page in the application, as well as controller.
@@ -59,7 +61,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
         this.model = model;
         this.manager = manager;
 
-        fxmlLoader = new FXMLLoader(getClass().getResource("account-page.fxml"));
+        fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/account-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

@@ -1,7 +1,6 @@
-package com.cbm.tda367;
+package com.cbm.tda367.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 /** Represents an application user.
  * @author Kevin Pham

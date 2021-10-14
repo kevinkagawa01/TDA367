@@ -1,5 +1,8 @@
-package com.cbm.tda367;
+package com.cbm.tda367.viewcontroller;
 
+import com.cbm.tda367.model.ApplicationModel;
+import com.cbm.tda367.model.Listing;
+import com.cbm.tda367.model.ListingDatabase;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,12 +10,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Visual representation of a listing in our View/Controller in MVC.
@@ -53,7 +54,7 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
     public ListingDetailViewController(ControllerManager manager, Listing listing) {
         this.manager = manager;
         this.listing = listing;
-        FXMLLoader detailedView = new FXMLLoader(getClass().getResource("shop-page-detailedView.fxml"));
+        FXMLLoader detailedView = new FXMLLoader(getClass().getResource("/com/cbm/tda367/shop-page-detailedView.fxml"));
         detailedView.setRoot(this);
         detailedView.setController(this);
 
