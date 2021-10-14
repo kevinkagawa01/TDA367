@@ -65,7 +65,7 @@ public class ListingDetailViewController extends AnchorPane {
         }
     }
 
-    private String getRatingPicture(double userRating) {
+    private String getRatingImagePath(double userRating) {
         String sourcePathStar;
         if ((int) userRating == 0) {
             sourcePathStar = "/Library/0-stars.png";
@@ -95,7 +95,7 @@ public class ListingDetailViewController extends AnchorPane {
 
 
     public void updateListingDetailViewRating() {
-        listingDetailStarRatings.setImage(new Image(getClass().getResourceAsStream(getRatingPicture(model.getListingSellerRating(this.listing)))));
+        listingDetailStarRatings.setImage(new Image(getClass().getResourceAsStream(getRatingImagePath(model.getListingSellerRating(this.listing)))));
     }
 
     public void updateListingEmail() {
