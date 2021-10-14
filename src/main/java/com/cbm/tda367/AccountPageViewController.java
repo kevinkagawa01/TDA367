@@ -38,9 +38,9 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private ScrollPane published;
     @FXML
     private Text publishedBookText;
-    @FXML
-    FlowPane publishedBooksFlowPane;
+    @FXML FlowPane publishedBooksFlowPane;
     @FXML FlowPane subscribedBooksFlowPane;
+    @FXML FlowPane reservedBookAccordion;
 
     @FXML
     private Text emailText;
@@ -98,16 +98,18 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     /**
      * opens the accordion-section where published listings are displayed.
      */
+    protected void openReservedListingsAccordion() {
+        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(3));
+
+    }
     protected void openPublishedListingsAccordion() {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
     protected void openSubscribedBooksAccordion() {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(2));
-        //TODO: Make the scrollPane inside the expanded pane roll to the top.
+
     }
-
-
 
     /**
      * Updates the visual representation of which user i logged in to the application.
@@ -168,6 +170,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
 
         updatePublishedBooks();
         updateSubscribedBooks();
+        updateReservedBooks();
 
 
     }
@@ -188,6 +191,15 @@ public class AccountPageViewController extends AnchorPane implements Observer {
             subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book,manager));
         }
 
+    }
+    private void updateReservedBooks() {
+        reservedBookAccordion.getChildren().clear();
+
+        ArrayList<Listing> reservedBooks = model.getCurrentlyLoggedInUser().getReservedBooks();
+        for (Listing listing : reservedBooks) {
+            reservedBookAccordion.getChildren().add(new ReservedBooksMiniatureViewController(manager,listing));
+
+        }
     }
 
 

@@ -37,7 +37,7 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbb547" height="55.0" layoutX="105.0" layoutY="548.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+      <Rectangle fx:id="reserveButton" arcHeight="5.0" arcWidth="5.0" fill="#fbb547" height="55.0" layoutX="105.0" layoutY="548.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
       <Text fill="WHITE" layoutX="150.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RESERVERA" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="20.0" />

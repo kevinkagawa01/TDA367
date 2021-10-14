@@ -109,6 +109,8 @@ public class ApplicationModel implements Observable {
         listingDatabase.addListing(listing);
          currentlyLoggedInUser.addListingForSale(listing);
 
+         currentlyLoggedInUser.addReservedBook(listing);
+
 
         /* Update view */
         notifyObservers();

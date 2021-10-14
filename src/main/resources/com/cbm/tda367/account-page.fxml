@@ -36,7 +36,7 @@
                      <children>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="278.0" prefWidth="375.0" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="NEVER">
                            <content>
-                              <FlowPane prefHeight="278.0" prefWidth="375.0" />
+                              <FlowPane fx:id="reservedBookAccordion" prefHeight="278.0" prefWidth="375.0" />
                            </content>
                         </ScrollPane>
                      </children></AnchorPane>

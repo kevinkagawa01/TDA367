@@ -133,6 +133,8 @@ public class User {
         previousPurchases.remove(listing);
     }
 
+
+
     /** Delete reserved book from the  list
      * @param listing
      */
@@ -164,5 +166,7 @@ public class User {
      */
     public ArrayList< Listing> getBooksForSale() {
         return booksForSale;
+    }
+    public ArrayList<Listing> getReservedBooks() { return reservedBooks;
     }
 }

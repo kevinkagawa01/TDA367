@@ -2,6 +2,7 @@ package com.cbm.tda367;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
@@ -19,7 +20,7 @@ import java.time.LocalDate;
  * @version 1.0
  * @since 1.0
  */
-public class ReservedBooksMiniatureViewController {
+public class ReservedBooksMiniatureViewController extends AnchorPane {
 
 
     private final ControllerManager manager;

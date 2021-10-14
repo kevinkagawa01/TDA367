@@ -138,4 +138,8 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
         updateListingDetailViewRating();
         updateListingEmail();
     }
+    protected void onclickReservedBook(){
+        
+
+    }
 }
