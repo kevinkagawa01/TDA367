@@ -35,15 +35,13 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
     //private AccountPageController accountPageController;
 
     private final Book book;
-    //private final ControllerManager manager;
-
     @FXML private Text titleSubscriebdMiniature;
     @FXML  private Rectangle unsubscribedMiniature;
     @FXML  private ImageView subscribedBookPicture;
     @FXML  private Text date;
 
 
-    public SubscribedBooksMiniatureViewController( Book book) {
+    public SubscribedBooksMiniatureViewController( Book book,ControllerManager manager) {
         this.book = book;
         //this.manager = manager;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SubscribedBooks.fxml"));
@@ -57,8 +55,7 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        try { fxmlLoader.load(); }
-        catch (IOException exception) { throw new RuntimeException(exception); }
+       
 
 
         titleSubscriebdMiniature.setText(book.getBookName());

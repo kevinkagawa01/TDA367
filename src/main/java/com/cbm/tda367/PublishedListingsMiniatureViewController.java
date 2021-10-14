@@ -27,8 +27,13 @@ import java.io.IOException;
 public class PublishedListingsMiniatureViewController extends AnchorPane {
 
     private ApplicationModel model = ApplicationModel.getInstance();
+
+    //private AccountPageController accountPageController;
+    private ControllerManager manager=ControllerManager.getInstance();
+
     private AccountPageViewController accountPageController;
-    private ControllerManager manager;
+
+
 
 
     @FXML
@@ -94,8 +99,19 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
      */
     @FXML
     protected void onClickRemovePublishedBook(Event event) {
+
         model.getCurrentlyLoggedInUser().removeListingForSale(this.listing);
+
+        //model.deleteFromListing(BookName.getText(),date.getText(),Price.getText(), String.valueOf(BookImage.getImage()));
+        System.out.println("Deleted from list");
     }
+
+    /* move to sell page*/
+    @FXML
+    protected void onClickEditButton(Event event){
+        manager.goToSellPage();
+    }
+
 
 
     /**
