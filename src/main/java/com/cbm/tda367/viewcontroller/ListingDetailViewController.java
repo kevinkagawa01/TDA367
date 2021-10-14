@@ -25,7 +25,7 @@ import java.io.IOException;
  * @version 1.0
  * @since 1.0
  */
-public class ListingDetailViewController extends AnchorPane implements Observer {
+public class ListingDetailViewController extends AnchorPane {
     private final ApplicationModel model = ApplicationModel.getInstance();
     private final ListingDatabase listingDatabase = ListingDatabase.getInstance();
     private final ControllerManager manager;
@@ -66,8 +66,6 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
     }
 
     private String getRatingPicture(double userRating) {
-
-
         String sourcePathStar;
         if ((int) userRating == 0) {
             sourcePathStar = "/Library/0-stars.png";
@@ -157,10 +155,12 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
         manager.goToBookDetailView();
     }
 
-    @Override
-    public void update() {
+    public void setListing(Listing listing) {
+        this.listing = listing;
+    }
+
+    public void updateListingView() {
         updateListingDetailViewRating();
         updateListingEmail();
-      //  updateListingDetailDescription();
     }
 }

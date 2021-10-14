@@ -56,6 +56,7 @@ public class ControllerManager implements Initializable, Observer {
         mainPages.add(loginPage);
 
         mainAnchorPane.getChildren().add(bookDetailViewController);
+        mainAnchorPane.getChildren().add(listingDetailViewController);
         mainAnchorPane.getChildren().add(sellPage);
         mainAnchorPane.getChildren().add(accountPage);
         mainAnchorPane.getChildren().add(shopPage);
@@ -116,7 +117,8 @@ public class ControllerManager implements Initializable, Observer {
     }
 
     /**
-     * Opens detail view of book.
+     * Opens detailed view of book.
+     * @param book book to be previewed in detailed view.
      */
     public void openBookDetailView(Book book) {
         /* Changes currently selected book in DetailView */
@@ -125,6 +127,19 @@ public class ControllerManager implements Initializable, Observer {
         bookDetailViewController.updateBookView();
         /* Send it to front */
         bookDetailViewController.toFront();
+    }
+
+    /**
+     * Opens detailed view of listing.
+     * @param listing listing to be previewed in detailed view.
+     */
+    public void openListingDetailView(Listing listing) {
+        /* Changes currently selected book in DetailView */
+        listingDetailViewController.setListing(listing);
+        /* Update view */
+        listingDetailViewController.updateListingView();
+        /* Send it to front */
+        listingDetailViewController.toFront();
     }
 
     public void openSellPageView(Listing listing) {
