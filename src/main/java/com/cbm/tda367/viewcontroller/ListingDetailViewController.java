@@ -14,6 +14,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Visual representation of a listing in our View/Controller in MVC.
@@ -27,7 +28,6 @@ import java.io.IOException;
  */
 public class ListingDetailViewController extends AnchorPane implements Observer {
     private final ApplicationModel model = ApplicationModel.getInstance();
-    private final ListingDatabase listingDatabase = ListingDatabase.getInstance();
     private final ControllerManager manager;
     private Listing listing;
 
@@ -104,14 +104,16 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
         listingDetailEmail.setText(model.getListingSellerEmail(this.listing));
     }
 
-    /*public void updateListingDetailDescription() {
-        listingDatabase.getListings();
-        listingdetailDescription.setText(listing.get);
-    }*/
+    public void updateListingDetailDescription() {
+        listingdetailDescription.setText(this.listing.getListingDescription());
+    }
+    public void updateListingBookTitle(){
+        listingBookTitle.setText(listing.getBook().getBookName());
+    }
 
     @FXML
     public void onClickReservePurchase(Event event) {
-       // model.reserveListing(this.listing);
+        model.reserveListing(this.listing);
         manager.goToAccountPage();
         manager.openReservedBooksInAccordionPage();
     }
@@ -161,6 +163,7 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
     public void update() {
         updateListingDetailViewRating();
         updateListingEmail();
-      //  updateListingDetailDescription();
+        updateListingDetailDescription();
+        updateListingBookTitle();
     }
 }
