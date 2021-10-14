@@ -149,10 +149,10 @@ public class User {
 
 
     /** Delete subscribed book from the hashmap list
-     * @param bookCode
+     * @param book
      */
-    public void removeBookSubscription(String bookCode){
-        subscribedBooks.remove(bookCode);
+    public void removeBookSubscription(Book book){
+        subscribedBooks.remove(book);
     }
 
     public ArrayList<Book> getSubscribedBooks() {
