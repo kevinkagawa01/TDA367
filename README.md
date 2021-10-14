@@ -7,7 +7,7 @@
 Contributors:
 
 * Fatemeh9312 - Pegah Amanzadeh
-* Simon Holst - Simon Holst
+* simonholst - Simon Holst
 * kevinkagawag01 - Kevin Pham
 * CWTED - Carl-Magnus Wall
 
