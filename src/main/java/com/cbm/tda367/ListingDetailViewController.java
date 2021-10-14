@@ -110,7 +110,7 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
 
     @FXML
     public void onClickReservePurchase(Event event) {
-        model.reserveListing(this.listing);
+       // model.reserveListing(this.listing);
         manager.goToAccountPage();
         manager.openReservedBooksInAccordionPage();
     }
