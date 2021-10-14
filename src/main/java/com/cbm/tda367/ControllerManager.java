@@ -79,6 +79,9 @@ public class ControllerManager implements Initializable, Observer {
     protected void openSubscribedBooksInAccordionPage(){
         accountPage.openSubscribedBooksAccordion();
     }
+    protected void openReservedBooksInAccordionPage(){
+        accountPage.openReservedBooksAccordion();
+    }
 
     /**
      * Navigate to ShopPage
@@ -100,6 +103,13 @@ public class ControllerManager implements Initializable, Observer {
      */
     void goToAccountPage() {
         accountPage.toFront();
+    }
+
+    /**
+     * Navigate to BookDetailView
+     */
+    void goToBookDetailView(){
+        bookDetailViewController.toFront();
     }
 
     /**

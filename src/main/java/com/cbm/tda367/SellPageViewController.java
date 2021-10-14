@@ -190,7 +190,7 @@ public class SellPageViewController extends AnchorPane implements Observer {
         if (isListingCompleted()) {
             /* creating listing */
             model.addListing(bookCodeTextField.getText(), bookConditionComboBox.getSelectionModel().getSelectedItem(),
-                    bookPriceTextField.getText());
+                    bookPriceTextField.getText(),listingDescriptionTextArea.getText());
             /* switch to account page */
             manager.goToAccountPage();
             /* clear all fields and reset sell page */
