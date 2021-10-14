@@ -20,6 +20,7 @@ public class Listing {
     private String condition;
     private double price;
     private final String imagePath;
+    private String listingDescription;
 
     private boolean isReserved;
     private boolean isPurchased;
@@ -35,15 +36,19 @@ public class Listing {
      * @param condition     A String representing the condition of a Book.
      */
 
-    public Listing(Book book, int listingNumber, double price, String imagePath, String condition) {
+    public Listing(Book book, int listingNumber, double price, String imagePath, String condition, String listingDescription, boolean isReserved, boolean isPurchased) {
 
         this.book = book;
         this.condition = condition;
         this.listingNumber = listingNumber;
         this.price = price;
         this.imagePath = imagePath;
+        this.listingDescription = listingDescription;
+        this.isReserved = false;
+        this.isPurchased = false;
     }
-    public String getCondition(){
+
+    public String getCondition() {
         return condition;
     }
 
@@ -88,8 +93,15 @@ public class Listing {
      *
      * @return A boolean regarding the reservation status of a specific Listing.
      */
-    public boolean isReserved() {
+    public boolean setReserved() {
+        return isReserved = true;
+    }
+    public Boolean getReserved(){
         return isReserved;
+    }
+
+    public String getListingDescription() {
+        return listingDescription;
     }
 
     /**
@@ -100,7 +112,8 @@ public class Listing {
     public boolean isPurchased() {
         return isPurchased;
     }
-     public LocalDate getDate(){
+
+    public LocalDate getDate() {
         return date;
-     }
+    }
 }

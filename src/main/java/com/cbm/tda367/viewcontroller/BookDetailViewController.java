@@ -65,10 +65,6 @@ public class BookDetailViewController extends AnchorPane {
         }
 
 
-
-
-
-
     }
     //Todo: add shopPageListingviews in flowpane
    /* private void addListingFlowPane() {
@@ -84,7 +80,7 @@ public class BookDetailViewController extends AnchorPane {
     public void onClickSubscribeToBook(Event event) {
         //Om false,greenButton.setFill() till röd
         //annars till grön
-        model.addBooks(book.getBookName(),book.getImagePath());
+        model.addBooks(book.getBookName(), book.getImagePath());
 
         /*Switch to account page*/
 
@@ -109,7 +105,7 @@ public class BookDetailViewController extends AnchorPane {
         /* Looks for listings with corresponding book */
         List<Listing> listings = model.getListingDatabase();
         for (Listing listing : listings) {
-            if (listing.getBook().getBookCode().equals(bookCode)) {
+            if (listing.getBook().getBookCode().equals(bookCode) && !listing.getReserved()) {
                 ListingViewController listingViewController = new ListingViewController(manager, listing);
                 listingsFlowPane.getChildren().add(listingViewController);
             }
