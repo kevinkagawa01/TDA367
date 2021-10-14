@@ -40,8 +40,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private Text publishedBookText;
     @FXML
     FlowPane publishedBooksFlowPane;
-    @FXML
-    FlowPane subscribedBooksFlowPane;
+    @FXML FlowPane subscribedBooksFlowPane;
 
     @FXML
     private Text emailText;
@@ -103,16 +102,11 @@ public class AccountPageViewController extends AnchorPane implements Observer {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
-
     protected void openSubscribedBooksAccordion() {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(2));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
 
-    protected void openReservedBooksAccordion(){
-        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(3));
-        //TODO: Make the scrollPane inside the expanded pane roll to the top.
-    }
 
 
     /**
@@ -173,30 +167,33 @@ public class AccountPageViewController extends AnchorPane implements Observer {
         updateStarRating();
         updatePublishedBooks();
         updateSubscribedBooks();
-        RemoveElementFromPublishedBooks();
+        RemoveSubscribedBooks();
+
     }
 
     private void updatePublishedBooks() {
+        publishedBooksFlowPane.getChildren().clear();
+
         ArrayList<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
         for (Listing listing : publishedListings) {
-            publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(manager, listing));
-        }
-
-    }
-
-    private void RemoveElementFromPublishedBooks() {
-        ArrayList<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
-        for (Listing listing : publishedListings) {
-            publishedBooksFlowPane.getChildren().remove(new PublishedListingsMiniatureViewController(manager, listing));
+            publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(manager,listing));
 
         }
 
     }
 
-    private void updateSubscribedBooks() {
-        ArrayList<Book> subscribedBooks = model.getCurrentlyLoggedInUser().getSubscribedBooks();
-        for (Book book : subscribedBooks) {
-            subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book, manager));
+
+    private void updateSubscribedBooks(){
+        ArrayList<Book> subscribedBooks= model.getCurrentlyLoggedInUser().getSubscribedBooks();
+        for(Book book:subscribedBooks){
+            subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book,manager));
+        }
+
+    }
+    private void RemoveSubscribedBooks(){
+        ArrayList<Book> subscribedBooks= model.getCurrentlyLoggedInUser().getSubscribedBooks();
+        for(Book book:subscribedBooks){
+            subscribedBooksFlowPane.getChildren().remove(new SubscribedBooksMiniatureViewController(book,manager));
         }
 
     }

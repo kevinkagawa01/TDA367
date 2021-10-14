@@ -31,7 +31,7 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
 
     private AccountPageViewController accountPageController;
 
-    //private final ControllerManager manager;
+    private final ControllerManager manager;
     //private AccountPageController accountPageController;
 
     private final Book book;
@@ -43,21 +43,16 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
 
     public SubscribedBooksMiniatureViewController( Book book,ControllerManager manager) {
         this.book = book;
-        //this.manager = manager;
+        this.manager = manager;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SubscribedBooks.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-
 
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-
-       
-
-
         titleSubscriebdMiniature.setText(book.getBookName());
         subscribedBookPicture.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
         date.setText(String.valueOf(book.getDate()));
@@ -73,6 +68,7 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
     @FXML
     protected void onClickUnsubscribeToBook(Event event) {
         model.getCurrentlyLoggedInUser().removeBookSubscription(this.book.getBookCode());
+        System.out.println("Removed Subscribed");
 
     }
 

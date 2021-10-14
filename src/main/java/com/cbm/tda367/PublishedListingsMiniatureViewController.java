@@ -64,11 +64,6 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
     public PublishedListingsMiniatureViewController(ControllerManager manager, Listing listing) {
         this.manager = manager;
         this.listing = listing;
-
-
-
-
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PublishedBooks.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -78,8 +73,6 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-
-
 
         BookName.setText(listing.getBook().getBookName());
         Price.setText((int) listing.getPrice() + " kr");
@@ -99,10 +92,9 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
      */
     @FXML
     protected void onClickRemovePublishedBook(Event event) {
+        model.removedListingFromCurrentlyLoggedInUser(listing);
 
-        model.getCurrentlyLoggedInUser().removeListingForSale(this.listing);
-
-        //model.deleteFromListing(BookName.getText(),date.getText(),Price.getText(), String.valueOf(BookImage.getImage()));
+        //model.getCurrentlyLoggedInUser().removeListingForSale(this.listing);
         System.out.println("Deleted from list");
     }
 
