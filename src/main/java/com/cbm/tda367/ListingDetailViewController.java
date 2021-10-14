@@ -26,6 +26,7 @@ import java.util.List;
  */
 public class ListingDetailViewController extends AnchorPane implements Observer {
     private final ApplicationModel model = ApplicationModel.getInstance();
+    private final ListingDatabase listingDatabase = ListingDatabase.getInstance();
     private final ControllerManager manager;
     private Listing listing;
 
@@ -40,7 +41,7 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
     @FXML
     private Text listingDetailEmail;
     @FXML
-    private TextArea listingDescription;
+    private TextArea listingdetailDescription;
 
 
     /**
@@ -95,14 +96,25 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
 
 
     public void updateListingDetailViewRating() {
-
         listingDetailStarRatings.setImage(new Image(getClass().getResourceAsStream(getRatingPicture(model.getListingSellerRating(this.listing)))));
-
     }
 
     public void updateListingEmail() {
         listingDetailEmail.setText(model.getListingSellerEmail(this.listing));
     }
+
+    /*public void updateListingDetailDescription() {
+        listingDatabase.getListings();
+        listingdetailDescription.setText(listing.get);
+    }*/
+
+    @FXML
+    public void onClickReservePurchase(Event event) {
+        model.reserveListing(this.listing);
+        manager.goToAccountPage();
+        manager.openReservedBooksInAccordionPage();
+    }
+
 
     /**
      * On click method, directing the user to the account page.
@@ -134,9 +146,20 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
         manager.goToSellPage();
     }
 
+    /**
+     * On click method, directing the user to the page before
+     *
+     * @param event Click event
+     */
+    @FXML
+    public void onCLickGoToBookDetailView(Event event) {
+        manager.goToBookDetailView();
+    }
+
     @Override
     public void update() {
         updateListingDetailViewRating();
         updateListingEmail();
+      //  updateListingDetailDescription();
     }
 }
