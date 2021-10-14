@@ -113,16 +113,9 @@ public class ApplicationModel implements Observable {
         /* Update view */
         notifyObservers();
     }
-    public void deleteFromListing(String bookName, String date, String price,String imagePath) {
-        /* Book corresponding with listing */
-        Book book = bookDatabase.returnBookWithCorrespondingCode(bookName);
-        Listing listing = new Listing(book, currentListingNumber++,
-                Double.parseDouble(price),
-                book.getImagePath(),
-                book.getCategory());
+    public void removedListingFromCurrentlyLoggedInUser(Listing listing) {
 
         /* Delete listing  listings */
-        listingDatabase.removeListing(listing);
         currentlyLoggedInUser.removeListingForSale(listing);
 
         /* Update view */
