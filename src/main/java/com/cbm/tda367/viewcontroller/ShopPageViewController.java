@@ -1,5 +1,6 @@
-package com.cbm.tda367;
+package com.cbm.tda367.viewcontroller;
 
+import com.cbm.tda367.model.ApplicationModel;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +8,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
 import java.io.IOException;
-import java.util.List;
 /*
 
  */
@@ -41,7 +41,7 @@ public class ShopPageViewController extends AnchorPane implements Observer{
         this.manager = manager;
         this.model = model;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/shop-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

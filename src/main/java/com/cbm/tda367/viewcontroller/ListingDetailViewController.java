@@ -1,17 +1,19 @@
-package com.cbm.tda367;
+package com.cbm.tda367.viewcontroller;
 
+import com.cbm.tda367.model.ApplicationModel;
+import com.cbm.tda367.model.Listing;
+import com.cbm.tda367.model.ListingDatabase;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Visual representation of a listing in our View/Controller in MVC.
@@ -25,6 +27,7 @@ import java.util.List;
  */
 public class ListingDetailViewController extends AnchorPane implements Observer {
     private final ApplicationModel model = ApplicationModel.getInstance();
+    private final ListingDatabase listingDatabase = ListingDatabase.getInstance();
     private final ControllerManager manager;
     private Listing listing;
 
@@ -39,7 +42,7 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
     @FXML
     private Text listingDetailEmail;
     @FXML
-    private Text listingDetailName;
+    private TextArea listingdetailDescription;
 
 
     /**
@@ -51,7 +54,7 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
     public ListingDetailViewController(ControllerManager manager, Listing listing) {
         this.manager = manager;
         this.listing = listing;
-        FXMLLoader detailedView = new FXMLLoader(getClass().getResource("shop-page-detailedView.fxml"));
+        FXMLLoader detailedView = new FXMLLoader(getClass().getResource("/com/cbm/tda367/shop-page-detailedView.fxml"));
         detailedView.setRoot(this);
         detailedView.setController(this);
 
@@ -94,14 +97,25 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
 
 
     public void updateListingDetailViewRating() {
-
         listingDetailStarRatings.setImage(new Image(getClass().getResourceAsStream(getRatingPicture(model.getListingSellerRating(this.listing)))));
-
     }
 
     public void updateListingEmail() {
         listingDetailEmail.setText(model.getListingSellerEmail(this.listing));
     }
+
+    /*public void updateListingDetailDescription() {
+        listingDatabase.getListings();
+        listingdetailDescription.setText(listing.get);
+    }*/
+
+    @FXML
+    public void onClickReservePurchase(Event event) {
+       // model.reserveListing(this.listing);
+        manager.goToAccountPage();
+        manager.openReservedBooksInAccordionPage();
+    }
+
 
     /**
      * On click method, directing the user to the account page.
@@ -133,10 +147,21 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
         manager.goToSellPage();
     }
 
+    /**
+     * On click method, directing the user to the page before
+     *
+     * @param event Click event
+     */
+    @FXML
+    public void onCLickGoToBookDetailView(Event event) {
+        manager.goToBookDetailView();
+    }
+
     @Override
     public void update() {
         updateListingDetailViewRating();
         updateListingEmail();
+      //  updateListingDetailDescription();
     }
     protected void onclickReservedBook(){
         

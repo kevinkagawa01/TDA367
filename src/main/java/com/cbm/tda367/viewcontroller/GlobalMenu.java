@@ -1,4 +1,4 @@
-package com.cbm.tda367;
+package com.cbm.tda367.viewcontroller;
 
 import javafx.event.Event;
 

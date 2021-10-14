@@ -1,5 +1,8 @@
-package com.cbm.tda367;
+package com.cbm.tda367.viewcontroller;
 
+import com.cbm.tda367.model.ApplicationModel;
+import com.cbm.tda367.model.Book;
+import com.cbm.tda367.model.Listing;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,9 +13,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Visual representation of the Sell page and defines its controllers
@@ -46,7 +46,7 @@ public class SellPageViewController extends AnchorPane implements Observer {
         this.model = model;
         this.manager = manager;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sell-page.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/sell-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -191,6 +191,7 @@ public class SellPageViewController extends AnchorPane implements Observer {
             /* creating listing */
             model.addListing(bookCodeTextField.getText(), bookConditionComboBox.getSelectionModel().getSelectedItem(),
                     bookPriceTextField.getText());
+            //:Todo Vi kanske bör hämta in descriptionText som parameter, underlättar ListingDetailView
             /* switch to account page */
             manager.goToAccountPage();
             /* clear all fields and reset sell page */

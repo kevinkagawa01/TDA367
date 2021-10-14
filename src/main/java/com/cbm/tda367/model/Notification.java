@@ -1,4 +1,4 @@
-package com.cbm.tda367;
+package com.cbm.tda367.model;
 
 /**
  * Representing an abstract notification, purposed to have subclasses with specific notification messages.

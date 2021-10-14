@@ -1,5 +1,6 @@
-package com.cbm.tda367;
+package com.cbm.tda367.viewcontroller;
 
+import com.cbm.tda367.model.Book;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -27,7 +28,7 @@ public class ShopPageCategoryViewController extends AnchorPane {
 
     public ShopPageCategoryViewController(ControllerManager manager,String shopPageCategoryTitle) {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-page-category.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/shop-page-category.fxml"));
         fxmlLoader.setController(this);
         fxmlLoader.setRoot(this);
 

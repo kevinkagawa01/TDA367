@@ -1,5 +1,7 @@
-package com.cbm.tda367;
+package com.cbm.tda367.viewcontroller;
 
+import com.cbm.tda367.model.ApplicationModel;
+import com.cbm.tda367.model.Listing;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -64,7 +66,7 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
     public PublishedListingsMiniatureViewController(ControllerManager manager, Listing listing) {
         this.manager = manager;
         this.listing = listing;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PublishedBooks.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/PublishedBooks.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

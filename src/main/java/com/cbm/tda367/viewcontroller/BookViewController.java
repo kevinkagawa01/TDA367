@@ -1,5 +1,6 @@
-package com.cbm.tda367;
+package com.cbm.tda367.viewcontroller;
 
+import com.cbm.tda367.model.Book;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,10 +8,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.Objects;
+
 /**
  * Visual representation of a book in our View/Controller in MVC.
  *
@@ -30,7 +29,7 @@ public class BookViewController extends AnchorPane {
 
     public BookViewController(ControllerManager manager, Book book) {
 
-        FXMLLoader shopPageBook = new FXMLLoader(getClass().getResource("shop-page-book.fxml"));
+        FXMLLoader shopPageBook = new FXMLLoader(getClass().getResource("/com/cbm/tda367/shop-page-book.fxml"));
         shopPageBook.setRoot(this);
         shopPageBook.setController(this);
 

@@ -1,4 +1,4 @@
-package com.cbm.tda367;
+package com.cbm.tda367.model;
 
 import java.util.ArrayList;
 import java.util.List;

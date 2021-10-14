@@ -1,4 +1,4 @@
-package com.cbm.tda367;
+package com.cbm.tda367.model;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
