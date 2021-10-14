@@ -107,7 +107,9 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
     /*public void updateListingDetailDescription() {
         listingDatabase.getListings();
         listingdetailDescription.setText(listing.get);
+
     }*/
+
 
     @FXML
     public void onClickReservePurchase(Event event) {
@@ -161,10 +163,8 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
     public void update() {
         updateListingDetailViewRating();
         updateListingEmail();
-      //  updateListingDetailDescription();
-    }
-    protected void onclickReservedBook(){
-        
+      // updateListingDetailDescription();
 
     }
+
 }
