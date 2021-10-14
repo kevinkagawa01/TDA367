@@ -10,7 +10,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -31,10 +30,12 @@ public class ListingDetailViewController extends AnchorPane {
     private final ControllerManager manager;
     private Listing listing;
 
+    @FXML private Text listingDetailEmail;
     @FXML private ImageView listingDetailStarRatings;
     @FXML private Text listingBookTitle;
-    @FXML private Text listingDetailEmail;
-    @FXML private TextArea listingdetailDescription;
+    @FXML private Text listingBookCondition;
+    @FXML private Text listingBookPrice;
+    @FXML private TextArea listingDetailDescription;
 
 
     /**
@@ -83,11 +84,11 @@ public class ListingDetailViewController extends AnchorPane {
     }
 
 
-    public void updateListingDetailViewRating() {
+    public void updateListingDetailViewRatingImage() {
         listingDetailStarRatings.setImage(new Image(getClass().getResourceAsStream(getRatingImagePath(model.getListingSellerRating(this.listing)))));
     }
 
-    public void updateListingEmail() {
+    public void updateListingEmailText() {
         listingDetailEmail.setText(model.getListingSellerEmail(this.listing));
     }
 
@@ -149,23 +150,33 @@ public class ListingDetailViewController extends AnchorPane {
     }
 
     public void updateListingView() {
-        updateListingDetailViewRating();
-        updateListingEmail();
-        updateListingBookTitle();
-        updateListingBookDescription();
+        updateListingEmailText();
+        updateListingDetailViewRatingImage();
+        updateListingBookTitleText();
+        updateListingBookConditionText();
+        updateListingBookPriceText();
+        updateListingBookDescriptionText();
     }
 
-    private void updateListingBookDescription() {
-        listingdetailDescription.setText(listing.getListingDescription());
+    private void updateListingBookPriceText() {
+        listingBookPrice.setText(String.format("%f kr",listing.getPrice()));
     }
 
-    private void updateListingBookTitle() {
+    private void updateListingBookConditionText() {
+        listingBookCondition.setText(String.format("Condition: %s",listing.getCondition()));
+    }
+
+    private void updateListingBookDescriptionText() {
+        listingDetailDescription.setText(listing.getListingDescription());
+    }
+
+    private void updateListingBookTitleText() {
         listingBookTitle.setText(listing.getBook().getBookName());
     }
 
     @FXML
     void onClickReserveBook(Event event){
-
+        System.out.println("Reservation successful!");
     }
 
     @FXML
