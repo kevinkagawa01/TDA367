@@ -135,6 +135,15 @@ public class ApplicationModel implements Observable {
         notifyObservers();
 
     }
+    public void removedBooksFromCurrentlyLoggedInUser(Book book) {
+
+        /* Delete book  */
+        currentlyLoggedInUser.removeBookSubscription(book);
+        /* Update view */
+        notifyObservers();
+    }
+
+
 
     /*
     private List<Book> updateSearchResult(){}
