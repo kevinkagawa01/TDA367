@@ -146,7 +146,5 @@ public class ControllerManager implements Initializable, Observer {
         sellPage.setAllFieldsFromListing(listing);
         sellPage.update();
         sellPage.toFront();
-
-
     }
 }

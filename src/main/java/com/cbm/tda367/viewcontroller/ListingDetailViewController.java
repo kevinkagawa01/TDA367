@@ -31,18 +31,10 @@ public class ListingDetailViewController extends AnchorPane {
     private final ControllerManager manager;
     private Listing listing;
 
-    @FXML
-    private ImageView listingDetailStarRatings;
-    @FXML
-    private ImageView frontProfilePic;
-    @FXML
-    private Text listingBookTitle;
-    @FXML
-    private Rectangle reserveButton;
-    @FXML
-    private Text listingDetailEmail;
-    @FXML
-    private TextArea listingdetailDescription;
+    @FXML private ImageView listingDetailStarRatings;
+    @FXML private Text listingBookTitle;
+    @FXML private Text listingDetailEmail;
+    @FXML private TextArea listingdetailDescription;
 
 
     /**
@@ -58,11 +50,8 @@ public class ListingDetailViewController extends AnchorPane {
         detailedView.setRoot(this);
         detailedView.setController(this);
 
-        try {
-            detailedView.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
+        try { detailedView.load(); }
+        catch (IOException exception) { throw new RuntimeException(exception); }
     }
 
     private String getRatingImagePath(double userRating) {
@@ -162,5 +151,25 @@ public class ListingDetailViewController extends AnchorPane {
     public void updateListingView() {
         updateListingDetailViewRating();
         updateListingEmail();
+        updateListingBookTitle();
+        updateListingBookDescription();
+    }
+
+    private void updateListingBookDescription() {
+        listingdetailDescription.setText(listing.getListingDescription());
+    }
+
+    private void updateListingBookTitle() {
+        listingBookTitle.setText(listing.getBook().getBookName());
+    }
+
+    @FXML
+    void onClickReserveBook(Event event){
+
+    }
+
+    @FXML
+    void onClickReturnToBookDetailView(Event event){
+        this.toBack();
     }
 }
