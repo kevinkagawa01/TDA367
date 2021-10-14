@@ -1,5 +1,7 @@
 package com.cbm.tda367;
 
+import com.cbm.tda367.model.ApplicationModel;
+import com.cbm.tda367.viewcontroller.ControllerManager;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

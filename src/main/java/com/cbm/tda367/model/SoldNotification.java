@@ -1,4 +1,4 @@
-package com.cbm.tda367;
+package com.cbm.tda367.model;
 /** Representing a notification, subclass from abstract notification, returning a message when another user has purchased a book.
  * @author Kevin Pham
  * @author Simon Holst

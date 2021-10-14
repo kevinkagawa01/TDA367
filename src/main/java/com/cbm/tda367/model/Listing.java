@@ -1,10 +1,6 @@
-package com.cbm.tda367;
-
-import javafx.scene.image.ImageView;
+package com.cbm.tda367.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 /**
  * Represents a listing

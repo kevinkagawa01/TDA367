@@ -1,5 +1,6 @@
-package com.cbm.tda367;
+package com.cbm.tda367.viewcontroller;
 
+import com.cbm.tda367.model.ApplicationModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.PasswordField;
@@ -28,7 +29,7 @@ public class LoginPageViewController extends AnchorPane implements Observer{
     public LoginPageViewController(ControllerManager manager, ApplicationModel model) {
         this.manager = manager;
         this.model = model;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-page.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/login-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -38,7 +39,7 @@ public class LoginPageViewController extends AnchorPane implements Observer{
 
     /**
      * On-click method that compares the input from the textfields to the userDataBase
-     * and sees wether there is a matching user.
+     * and sees whether there is a matching user.
      */
     @FXML
     public void onClickAttemptToLogin(){

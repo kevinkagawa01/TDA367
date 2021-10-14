@@ -1,6 +1,4 @@
-import com.cbm.tda367.ApplicationModel;
-import com.cbm.tda367.Book;
-import com.cbm.tda367.Listing;
+import com.cbm.tda367.model.ApplicationModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

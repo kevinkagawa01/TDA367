@@ -1,4 +1,6 @@
-package com.cbm.tda367;
+package com.cbm.tda367.model;
+
+import com.cbm.tda367.viewcontroller.Observer;
 
 /** Interface implemented by an observable, notifying all of its observers when desired.
  * @author Kevin Pham

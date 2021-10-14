@@ -1,4 +1,4 @@
-package com.cbm.tda367;
+package com.cbm.tda367.model;
 /** User sub-class representing an empty user when no user is currently logged in.
  *
  * @author Kevin Pham
