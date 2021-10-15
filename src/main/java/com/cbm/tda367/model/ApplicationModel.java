@@ -23,7 +23,7 @@ public class ApplicationModel implements Observable {
     private final ListingDatabase listingDatabase;
     private User currentlyLoggedInUser = NotLoggedInUser.getInstance();
     //TODO: Should read current listing number from text file after initial launch
-    private int currentListingNumber = 0;
+    private int currentListingNumber = 1;
 
     private List<Listing> listings = new ArrayList<>();
     private List<Observer> viewObservers = new ArrayList<>();
@@ -109,55 +109,41 @@ public class ApplicationModel implements Observable {
 
        /* Add listing to listings */
         listingDatabase.addListing(listing);
-         currentlyLoggedInUser.addListingForSale(listing);
+        currentlyLoggedInUser.addListingForSale(listing);
 
 
         /* Update view */
         notifyObservers();
     }
     public void removedListingFromCurrentlyLoggedInUser(Listing listing) {
+        /* Delete removed listing from Database */
+        listingDatabase.removeListing(listing);
 
-        /* Delete listing  listings */
+        /* Delete removed listing from user */
         currentlyLoggedInUser.removeListingForSale(listing);
 
         /* Update view */
         notifyObservers();
     }
 
-    public void addBooks(String  bookName,String image){
+    public void addBookToSubscriptionList(String  bookName, String image){
         Book book=bookDatabase.returnBookWithCorrespondingName(bookName);
 
         Book b=new Book(bookName,book.getBookAuthor(),book.getBookCode(),image,book.getCategory());
 
-        /* add book to bookDatabase listing*/
-        bookDatabase.addBook(b);
+        /* add book to subscription list */
         currentlyLoggedInUser.addBookSubscription(b);
-
         /* Update view */
         notifyObservers();
 
     }
-    public void removedBooksFromCurrentlyLoggedInUser(Book book) {
+    public void removeBookFromSubscriptionList(Book book) {
 
-        /* Delete book  */
+        /* remove book from subscription list  */
         currentlyLoggedInUser.removeBookSubscription(book);
         /* Update view */
         notifyObservers();
     }
-
-
-
-    /*
-    private List<Book> updateSearchResult(){}
-     */
-
-    public void populateBookListing() {
-
-    }
-
-    /*
-    public List<Book>calcMostSubscribe(){}
-     */
 
    /* public List returnPopularbooks(List books) {
         //Todo: behöver gå igenom med gruppen
@@ -183,10 +169,10 @@ public class ApplicationModel implements Observable {
                 }
             }
         }
-        return 0;
+        return -1;
     }
 
-    public String getListingSellerEmail(Listing listing){
+    public String getListingCid(Listing listing){
         for(User user: userDatabase.getUserList()){
             for(Listing listing1 : user.getBooksForSale()){
                 if (listing1.getListingNumber() == listing.getListingNumber()){
@@ -221,22 +207,6 @@ public class ApplicationModel implements Observable {
      */
     public User getCurrentlyLoggedInUser() {
         return currentlyLoggedInUser;
-    }
-
-    /**
-     * Returns the application's book database.
-     * @return this book database.
-     */
-    public BookDatabase getBookDatabase() {
-        return bookDatabase;
-    }
-
-    /**
-     * Returns the application's user database.
-     * @return this user database.
-     */
-    public UserDatabase getUserDatabase() {
-        return userDatabase;
     }
 
     public List<Book> getAllBooks() {
