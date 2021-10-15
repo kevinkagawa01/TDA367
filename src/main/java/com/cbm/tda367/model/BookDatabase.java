@@ -48,11 +48,35 @@ public class BookDatabase {
                 "MVE045",
                 "/book_covers/calculus.jpg",
                 "Mathematics"));
-        
+
         bookList.add(new Book("Maskinorienterad programmering",
                 "Roger Johansson",
                 "MD407",
                 "/book_covers/mop.jpg",
+                "Programming"));
+
+        bookList.add(new Book("Parallel Programming",
+                "Thomas Rauber",
+                "PARALLELPROGRAMMING",
+                "/book_covers/parallel_programming.jpg",
+                "Programming"));
+
+        bookList.add(new Book("Python Programming",
+                "John Zelle",
+                "PYTHONPROGRAMMING",
+                "/book_covers/python_programming.jpg",
+                "Programming"));
+
+        bookList.add(new Book("The C Programming Language",
+                "Brian W. Kernighan",
+                "CPROGRAMMING",
+                "/book_covers/c_programming.jpg",
+                "Programming"));
+
+        bookList.add(new Book("Agile!",
+                "Bertrand Meyer",
+                "EDA397",
+                "/book_covers/agile.jpg",
                 "Programming"));
     }
 
