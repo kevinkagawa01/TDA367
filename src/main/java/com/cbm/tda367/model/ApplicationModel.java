@@ -96,14 +96,15 @@ public class ApplicationModel implements Observable {
      * @param condition the listings condition.
      * @param price the listings price.
      */
-    public void addListing(String bookCode, String condition, String price) {
+    public void addListing(String bookCode, String condition, String price, String description) {
         /* Book corresponding with listing */
         Book book = bookDatabase.returnBookWithCorrespondingCode(bookCode);
         /* Creating new listing */
         Listing listing = new Listing(book, currentListingNumber++,
                 Double.parseDouble(price),
                 book.getImagePath(),
-                condition);
+                condition,
+                description);
 
 
        /* Add listing to listings */
