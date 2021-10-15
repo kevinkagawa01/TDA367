@@ -56,12 +56,9 @@ public class ReservedBooksMiniatureViewController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        LocalDate localDate = LocalDate.now();
-        SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/dd  hh:mm");
-        String date = (sdf.format(listing.getDate()));
 
         reservedListingTitle.setText(listing.getBook().getBookName());
-        reservedDate.setText(date);
+        reservedDate.setText(String.valueOf(listing.getDate()));
         reservedListingPrice.setText(Double.toString(listing.getPrice()));
 
 
