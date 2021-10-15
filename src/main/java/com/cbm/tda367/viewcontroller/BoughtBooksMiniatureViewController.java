@@ -44,14 +44,4 @@ public class BoughtBooksMiniatureViewController {
         }
 
     }
-
-    /**
-     * On-click method to remove this from the user's bought books.
-     *
-     * @param event listing to be removed from the user's bought books.
-     */
-    @FXML
-    protected void removeBoughtBooksMiniature(Event event) {
-        model.getCurrentlyLoggedInUser().removePreviousPurchase(this.listing);
-    }
 }
