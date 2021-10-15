@@ -106,7 +106,7 @@ class BookDatabase {
      * @return A Book corresponding to a specific Book code (ISBN).
      */
     //TODO: refactor method
-    public Book returnBookWithCorrespondingCode(String bookCode) {
+    Book returnBookWithCorrespondingCode(String bookCode) {
         for (Book book : bookList) {
             if (book.getBookCode().equals(bookCode)) {
                 return book;
@@ -115,7 +115,8 @@ class BookDatabase {
         //TODO: can currently return null
         return null;
     }
-    public Book returnBookWithCorrespondingName(String bookName) {
+
+    Book returnBookWithCorrespondingName(String bookName) {
         for (Book book : bookList) {
             if (book.getBookName().equals(bookName)) {
                 return book;
@@ -130,7 +131,7 @@ class BookDatabase {
      *
      * @param book A Book.
      */
-    public void removeBook(Book book) {
+    void removeBook(Book book) {
         bookList.remove(book);
     }
 
@@ -139,7 +140,7 @@ class BookDatabase {
      *
      * @return An ArrayList of Books.
      */
-    public List<Book> getBookList() {
+    List<Book> getBookList() {
         return new ArrayList<>(bookList);
     }
 
