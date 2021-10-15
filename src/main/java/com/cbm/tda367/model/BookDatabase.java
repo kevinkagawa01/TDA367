@@ -15,7 +15,7 @@ import java.util.List;
  * @since 1.0
  */
 
-public class BookDatabase {
+class BookDatabase {
 
     private final List<Book> bookList = new ArrayList<>();
     private final static BookDatabase bookDatabase = new BookDatabase();
@@ -85,7 +85,7 @@ public class BookDatabase {
      *
      * @return The BookDatabase instance.
      */
-    public static BookDatabase getInstance() {
+    static BookDatabase getInstance() {
         return bookDatabase;
 
     }
@@ -95,7 +95,7 @@ public class BookDatabase {
      *
      * @param book A Book.
      */
-    public void addBook(Book book) {
+    void addBook(Book book) {
         bookList.add(book);
     }
 
