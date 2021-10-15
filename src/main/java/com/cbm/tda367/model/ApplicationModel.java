@@ -4,6 +4,8 @@ import com.cbm.tda367.viewcontroller.Observer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
 /**
  * Application main class for the model containing the logic of the model.
  *
@@ -27,10 +29,6 @@ public class ApplicationModel implements Observable {
 
     private List<Listing> listings = new ArrayList<>();
     private List<Observer> viewObservers = new ArrayList<>();
-
-
-
-
 
     /**
      * class constructor, private due to Singleton pattern implementation.
@@ -211,5 +209,20 @@ public class ApplicationModel implements Observable {
 
     public List<Book> getAllBooks() {
         return bookDatabase.getBookList();
+    }
+
+    public List<Book> filterBooksByName(String filter){
+        /* Filtered books */
+        List<Book> filteredBooks = new ArrayList<>();
+        /* All books from database */
+        List<Book> allBooks = bookDatabase.getBookList();
+
+        for(Book book : allBooks){
+            if(book.getBookName().toLowerCase().equals(filter.toLowerCase())){
+                filteredBooks.add(book);
+            }
+        }
+
+        return filteredBooks;
     }
 }
