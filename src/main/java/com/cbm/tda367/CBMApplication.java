@@ -17,7 +17,7 @@ import java.io.IOException;
  * @version 1.0
  * @since 0.1
  */
-public class Application extends javafx.application.Application {
+public class CBMApplication extends javafx.application.Application {
 
     private ApplicationModel model;
     private ControllerManager controllerManager;
