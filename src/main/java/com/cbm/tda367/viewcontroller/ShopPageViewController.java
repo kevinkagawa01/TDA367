@@ -4,6 +4,7 @@ import com.cbm.tda367.model.ApplicationModel;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
@@ -30,6 +31,7 @@ public class ShopPageViewController extends AnchorPane implements Observer{
     private final ShopPageCategoryViewController allBooksCategory;
     private final ShopPageCategoryViewController mostSubscribedBooksCategory;
 
+    @FXML private TextField searchBarTextField;
     @FXML private FlowPane categoriesFlowPane;
 
     /**

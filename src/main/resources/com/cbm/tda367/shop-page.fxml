@@ -35,7 +35,7 @@
             <FlowPane fx:id="categoriesFlowPane" prefHeight="572.0" prefWidth="413.0" />
          </content>
       </ScrollPane>
-      <TextField layoutX="20.0" layoutY="20.0" prefHeight="44.0" prefWidth="300.0" promptText="Search for a book here!" styleClass="search-bar">
+      <TextField fx:id="searchBarTextField" layoutX="20.0" layoutY="20.0" prefHeight="44.0" prefWidth="300.0" promptText="Search for a book here!" styleClass="search-bar">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></TextField>
