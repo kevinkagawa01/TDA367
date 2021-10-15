@@ -14,7 +14,7 @@ import java.util.List;
  * @since 1.0
  */
 
-public class ListingDatabase {
+class ListingDatabase {
 
     private final List<Listing> listingList = new ArrayList<>();
 
@@ -33,7 +33,7 @@ public class ListingDatabase {
      *
      * @return The listing database instance.
      */
-    public static ListingDatabase getInstance() {
+    static ListingDatabase getInstance() {
         return listingDatabase;
     }
 
@@ -42,7 +42,7 @@ public class ListingDatabase {
      *
      * @param listing An ArrayList of listings.
      */
-    public void addListing(Listing listing) {
+    void addListing(Listing listing) {
         listingList.add(listing);
     }
 
@@ -51,7 +51,7 @@ public class ListingDatabase {
      *
      * @param listing An ArrayList of listings.
      */
-    public void removeListing(Listing listing) {
+    void removeListing(Listing listing) {
         listingList.remove(listing);
 
     }
@@ -61,7 +61,7 @@ public class ListingDatabase {
      *
      * @return The list of listings.
      */
-    public List<Listing> getListings() {
+    List<Listing> getListings() {
         return new ArrayList<>(listingList);
     }
 
