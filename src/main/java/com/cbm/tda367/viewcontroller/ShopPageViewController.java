@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class ShopPageViewController extends AnchorPane implements Observer{
     private final List<ShopPageCategoryViewController> categories = new ArrayList<>();
 
     @FXML private TextField searchBarTextField;
+    @FXML private Text noSearchResultsFoundText;
     @FXML private FlowPane categoriesFlowPane;
 
     /**
@@ -117,15 +119,21 @@ public class ShopPageViewController extends AnchorPane implements Observer{
     public void updateSearchBarResults(){
         /* if search-bar is empty -> show categories */
         if(searchBarTextField.getText().isEmpty()){
+            noSearchResultsFoundText.toBack();
             populateWithCategories();
             return;
         }
         /* update pane with relevant search results */
         categoriesFlowPane.getChildren().clear();
         List<Book> relevantBooks = model.filterBooksByName(searchBarTextField.getText());
-        for(Book book : relevantBooks){
-            BookViewController bookViewController = new BookViewController(manager, book);
-            categoriesFlowPane.getChildren().add(bookViewController);
+        if(relevantBooks.isEmpty()){
+            noSearchResultsFoundText.toFront();
+        } else {
+            noSearchResultsFoundText.toBack();
+            for(Book book : relevantBooks){
+                BookViewController bookViewController = new BookViewController(manager, book);
+                categoriesFlowPane.getChildren().add(bookViewController);
+            }
         }
     }
 }
