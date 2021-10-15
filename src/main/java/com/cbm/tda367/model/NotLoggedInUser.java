@@ -18,7 +18,7 @@ public class NotLoggedInUser extends User{
         super("", "");
     }
 
-    public static NotLoggedInUser getInstance(){
+    static NotLoggedInUser getInstance(){
         return notLoggedInUser;
     }
 }
