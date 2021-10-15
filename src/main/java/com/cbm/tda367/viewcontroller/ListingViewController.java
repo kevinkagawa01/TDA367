@@ -2,6 +2,7 @@ package com.cbm.tda367.viewcontroller;
 
 import com.cbm.tda367.model.ApplicationModel;
 import com.cbm.tda367.model.Listing;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
@@ -53,4 +54,12 @@ public class ListingViewController extends AnchorPane {
         listingBookCondition.setText(listing.getCondition());
     }
 
+    /**
+     * On-click opens listing in detailed view.
+     * @param event click event.
+     */
+    @FXML
+    void onClickOpenListingDetailView(Event event){
+        manager.openListingDetailView(this.listing);
+    }
 }

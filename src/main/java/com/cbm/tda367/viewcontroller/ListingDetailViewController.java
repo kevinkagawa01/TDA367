@@ -10,11 +10,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Visual representation of a listing in our View/Controller in MVC.
@@ -26,23 +24,18 @@ import java.util.List;
  * @version 1.0
  * @since 1.0
  */
-public class ListingDetailViewController extends AnchorPane implements Observer {
+public class ListingDetailViewController extends AnchorPane {
     private final ApplicationModel model = ApplicationModel.getInstance();
+    private final ListingDatabase listingDatabase = ListingDatabase.getInstance();
     private final ControllerManager manager;
     private Listing listing;
 
-    @FXML
-    private ImageView listingDetailStarRatings;
-    @FXML
-    private ImageView frontProfilePic;
-    @FXML
-    private Text listingBookTitle;
-    @FXML
-    private Rectangle reserveButton;
-    @FXML
-    private Text listingDetailEmail;
-    @FXML
-    private TextArea listingdetailDescription;
+    @FXML private Text listingDetailEmail;
+    @FXML private ImageView listingDetailStarRatings;
+    @FXML private Text listingBookTitle;
+    @FXML private Text listingBookCondition;
+    @FXML private Text listingBookPrice;
+    @FXML private TextArea listingDetailDescription;
 
 
     /**
@@ -58,16 +51,11 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
         detailedView.setRoot(this);
         detailedView.setController(this);
 
-        try {
-            detailedView.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
+        try { detailedView.load(); }
+        catch (IOException exception) { throw new RuntimeException(exception); }
     }
 
-    private String getRatingPicture(double userRating) {
-
-
+    private String getRatingImagePath(double userRating) {
         String sourcePathStar;
         if ((int) userRating == 0) {
             sourcePathStar = "/Library/0-stars.png";
@@ -96,24 +84,22 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
     }
 
 
-    public void updateListingDetailViewRating() {
-        listingDetailStarRatings.setImage(new Image(getClass().getResourceAsStream(getRatingPicture(model.getListingSellerRating(this.listing)))));
+    public void updateListingDetailViewRatingImage() {
+        listingDetailStarRatings.setImage(new Image(getClass().getResourceAsStream(getRatingImagePath(model.getListingSellerRating(this.listing)))));
     }
 
-    public void updateListingEmail() {
+    public void updateListingEmailText() {
         listingDetailEmail.setText(model.getListingSellerEmail(this.listing));
     }
 
-    public void updateListingDetailDescription() {
-        listingdetailDescription.setText(this.listing.getListingDescription());
-    }
-    public void updateListingBookTitle(){
-        listingBookTitle.setText(listing.getBook().getBookName());
-    }
+    /*public void updateListingDetailDescription() {
+        listingDatabase.getListings();
+        listingdetailDescription.setText(listing.get);
+    }*/
 
     @FXML
     public void onClickReservePurchase(Event event) {
-        model.reserveListing(this.listing);
+       // model.reserveListing(this.listing);
         manager.goToAccountPage();
         manager.openReservedBooksInAccordionPage();
     }
@@ -159,11 +145,42 @@ public class ListingDetailViewController extends AnchorPane implements Observer 
         manager.goToBookDetailView();
     }
 
-    @Override
-    public void update() {
-        updateListingDetailViewRating();
-        updateListingEmail();
-        updateListingDetailDescription();
-        updateListingBookTitle();
+    public void setListing(Listing listing) {
+        this.listing = listing;
+    }
+
+    public void updateListingView() {
+        updateListingEmailText();
+        updateListingDetailViewRatingImage();
+        updateListingBookTitleText();
+        updateListingBookConditionText();
+        updateListingBookPriceText();
+        updateListingBookDescriptionText();
+    }
+
+    private void updateListingBookPriceText() {
+        listingBookPrice.setText(String.format("%f kr",listing.getPrice()));
+    }
+
+    private void updateListingBookConditionText() {
+        listingBookCondition.setText(String.format("Condition: %s",listing.getCondition()));
+    }
+
+    private void updateListingBookDescriptionText() {
+        listingDetailDescription.setText(listing.getListingDescription());
+    }
+
+    private void updateListingBookTitleText() {
+        listingBookTitle.setText(listing.getBook().getBookName());
+    }
+
+    @FXML
+    void onClickReserveBook(Event event){
+        System.out.println("Reservation successful!");
+    }
+
+    @FXML
+    void onClickReturnToBookDetailView(Event event){
+        this.toBack();
     }
 }
