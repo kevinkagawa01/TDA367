@@ -239,4 +239,7 @@ public class ApplicationModel implements Observable {
         return userDatabase;
     }
 
+    public List<Book> getAllBooks() {
+        return bookDatabase.getBookList();
+    }
 }

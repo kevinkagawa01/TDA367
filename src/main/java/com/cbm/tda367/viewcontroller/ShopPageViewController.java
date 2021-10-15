@@ -69,7 +69,7 @@ public class ShopPageViewController extends AnchorPane implements Observer{
      * Populates the 'All Books' category flow pane.
      */
     private void populateAllBooksCategoryFlowPane() {
-        allBooksCategory.populateCategoryWithBooks(model.getBookDatabase().getBookList());
+        allBooksCategory.populateCategoryWithBooks(model.getAllBooks());
     }
 
 
