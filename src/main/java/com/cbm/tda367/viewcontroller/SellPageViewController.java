@@ -67,26 +67,12 @@ public class SellPageViewController extends AnchorPane implements Observer {
         bookConditionComboBox.getSelectionModel().selectFirst();
 
         bookCodeTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            informationEdited("bookCode", newValue, oldValue);
+            updateBookCode(newValue,oldValue);
         });
 
         bookPriceTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            informationEdited("bookPrice", newValue, oldValue);
+            updateBookPrice(newValue,oldValue);
         });
-    }
-
-    /**
-     * Updates textField depending on which one has  changed.
-     *
-     * @param textField String representing a certain text field.
-     * @param newValue  new textField value.
-     * @param oldValue  old TextField value.
-     */
-    private void informationEdited(String textField, String newValue, String oldValue) {
-        switch (textField) {
-            case "bookCode" -> updateBookCode(newValue, oldValue);
-            case "bookPrice" -> updateBookPrice(newValue, oldValue);
-        }
     }
 
     /**
