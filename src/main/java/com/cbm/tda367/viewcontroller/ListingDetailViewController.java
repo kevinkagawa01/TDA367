@@ -87,7 +87,7 @@ public class ListingDetailViewController extends AnchorPane {
     }
 
     public void updateListingEmailText() {
-        listingDetailEmail.setText(model.getListingSellerEmail(this.listing));
+        listingDetailEmail.setText(model.getListingCid(this.listing));
     }
 
     @FXML
