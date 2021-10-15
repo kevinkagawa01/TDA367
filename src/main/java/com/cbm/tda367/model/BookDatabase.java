@@ -48,13 +48,12 @@ public class BookDatabase {
                 "MVE045",
                 "/book_covers/calculus.jpg",
                 "Mathematics"));
-
-        //TODO: imagePath not working on this one?
-        //bookList.add(new Book("Maskinorienterad programmering",
-          //      "Roger Johansson",
-            //    "MD407",
-              //  "/book_covers/mop.jpg",
-                //"Programming"));
+        
+        bookList.add(new Book("Maskinorienterad programmering",
+                "Roger Johansson",
+                "MD407",
+                "/book_covers/mop.jpg",
+                "Programming"));
     }
 
     /**

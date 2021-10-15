@@ -104,7 +104,7 @@ public class ApplicationModel implements Observable {
                 Double.parseDouble(price),
                 book.getImagePath(),
                 condition,
-                description);
+                description,false,false);
 
 
        /* Add listing to listings */
