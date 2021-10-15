@@ -218,7 +218,7 @@ public class ApplicationModel implements Observable {
         List<Book> allBooks = bookDatabase.getBookList();
 
         for(Book book : allBooks){
-            if(book.getBookName().toLowerCase().equals(filter.toLowerCase())){
+            if(book.getBookName().toLowerCase().contains(filter.toLowerCase())){
                 filteredBooks.add(book);
             }
         }

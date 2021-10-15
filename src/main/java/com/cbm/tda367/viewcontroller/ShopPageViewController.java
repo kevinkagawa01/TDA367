@@ -1,6 +1,7 @@
 package com.cbm.tda367.viewcontroller;
 
 import com.cbm.tda367.model.ApplicationModel;
+import com.cbm.tda367.model.Book;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /*
 
  */
@@ -30,6 +33,7 @@ public class ShopPageViewController extends AnchorPane implements Observer{
 
     private final ShopPageCategoryViewController allBooksCategory;
     private final ShopPageCategoryViewController mostSubscribedBooksCategory;
+    private final List<ShopPageCategoryViewController> categories = new ArrayList<>();
 
     @FXML private TextField searchBarTextField;
     @FXML private FlowPane categoriesFlowPane;
@@ -50,11 +54,16 @@ public class ShopPageViewController extends AnchorPane implements Observer{
         try{ fxmlLoader.load(); }
         catch (IOException exception){ throw new RuntimeException(exception); }
 
+        searchBarTextField.textProperty().addListener((observable, oldValue, newValue) -> {updateSearchBarResults();});
+
         /* create shop page categories */
         allBooksCategory = new ShopPageCategoryViewController(manager,"All Books");
         mostSubscribedBooksCategory = new ShopPageCategoryViewController(manager,"Most Subscribed Books");
+        /* add categories to list */
+        categories.add(allBooksCategory);
+        categories.add(mostSubscribedBooksCategory);
         /* add them to flow pane */
-        populateCategoriesFlowPane();
+        populateWithCategories();
         /* add books to the categories */
         populateAllBooksCategoryFlowPane();
     }
@@ -62,9 +71,13 @@ public class ShopPageViewController extends AnchorPane implements Observer{
     /**
      * Populates the categories flow pane.
      */
-    private void populateCategoriesFlowPane() {
-        categoriesFlowPane.getChildren().add(allBooksCategory);
-        categoriesFlowPane.getChildren().add(mostSubscribedBooksCategory);
+    private void populateWithCategories() {
+        /* clear flow pane */
+        categoriesFlowPane.getChildren().clear();
+        /* add categories */
+        for(ShopPageCategoryViewController category : categories) {
+            categoriesFlowPane.getChildren().add(category);
+        }
     }
 
     /**
@@ -73,7 +86,6 @@ public class ShopPageViewController extends AnchorPane implements Observer{
     private void populateAllBooksCategoryFlowPane() {
         allBooksCategory.populateCategoryWithBooks(model.getAllBooks());
     }
-
 
     /** On-click method that navigates the application to the accountPage.
      *
@@ -100,5 +112,20 @@ public class ShopPageViewController extends AnchorPane implements Observer{
     @Override
     public void update() {
 
+    }
+
+    public void updateSearchBarResults(){
+        /* if search-bar is empty -> show categories */
+        if(searchBarTextField.getText().isEmpty()){
+            populateWithCategories();
+            return;
+        }
+        /* update pane with relevant search results */
+        categoriesFlowPane.getChildren().clear();
+        List<Book> relevantBooks = model.filterBooksByName(searchBarTextField.getText());
+        for(Book book : relevantBooks){
+            BookViewController bookViewController = new BookViewController(manager, book);
+            categoriesFlowPane.getChildren().add(bookViewController);
+        }
     }
 }
