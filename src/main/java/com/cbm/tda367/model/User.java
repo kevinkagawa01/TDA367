@@ -43,7 +43,7 @@ public class User {
      * adds users rating and updates the total
      * @param rating rating to be added to this total rating.
      */
-    public void addRating(int rating) {
+    void addRating(int rating) {
         /* if provided rating is invalid, return */
         if(!(0 <= rating && rating <= 5)) {return;}
         /* add rating to total sum of ratings */
@@ -86,7 +86,7 @@ public class User {
      * @param passwordGuess attempt to guess this password.
      * @return boolean whether the password guess was correct or not.
      */
-    public boolean isUserPassword(String passwordGuess){
+    boolean isUserPassword(String passwordGuess){
         //TODO: maybe make more secure
         return this.password.equals(passwordGuess);
     }
@@ -96,7 +96,7 @@ public class User {
     /** add reserved Book in hash map reservedBooks listing
      * @param listing
      */
-    public void addReservedBook(Listing listing){
+    void addReservedBook(Listing listing){
         reservedBooks.add(listing);
     }
 
@@ -104,7 +104,7 @@ public class User {
      * @param  listing
      *
      */
-    public void addListingForSale(Listing listing){
+    void addListingForSale(Listing listing){
         booksForSale.add(listing);
     }
 
@@ -114,35 +114,35 @@ public class User {
      * @param book
      *
      */
-    public void addBookSubscription(Book book){
+    void addBookSubscription(Book book){
         subscribedBooks.add(book);
     }
     /** add previous purchased book in the hashmap list
      * @param listing
      *
      */
-    public void addPreviousPurchase(Listing listing){
+    void addPreviousPurchase(Listing listing){
         previousPurchases.add(listing);
     }
     /** Delete previous purchased book from the hashmap list
      * @param listing
      */
 
-    public void removePreviousPurchase(Listing listing){
+    void removePreviousPurchase(Listing listing){
         previousPurchases.remove(listing);
     }
 
     /** Delete reserved book from the  list
      * @param listing
      */
-    public void removeReservedBook(Listing listing){
+    void removeReservedBook(Listing listing){
         reservedBooks.remove(listing);
     }
 
     /** Delete the book for sale from the Array list
      * @param listing
      */
-    public void removeListingForSale(Listing listing){
+    void removeListingForSale(Listing listing){
         booksForSale.remove(listing);
     }
 
@@ -150,18 +150,18 @@ public class User {
     /** Delete subscribed book from the hashmap list
      * @param book
      */
-    public void removeBookSubscription(Book book){
+    void removeBookSubscription(Book book){
         subscribedBooks.remove(book);
     }
 
     public ArrayList<Book> getSubscribedBooks() {
-        return subscribedBooks;
+        return new ArrayList<>(subscribedBooks);
     }
     /**
      *
      * @return
      */
     public ArrayList< Listing> getBooksForSale() {
-        return booksForSale;
+        return new ArrayList<>(booksForSale);
     }
 }
