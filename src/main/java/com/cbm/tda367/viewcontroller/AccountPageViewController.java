@@ -72,11 +72,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
         }
     }
 
-
-
     /* onclick listeners*/
-
-
     /**
      * move to ShopPage by clicking on this button
      *
@@ -101,22 +97,17 @@ public class AccountPageViewController extends AnchorPane implements Observer {
      * opens the accordion-section where published listings are displayed.
      */
     protected void openReservedBooksAccordion(){
-        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
+        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(3));
     }
     protected void openPublishedListingsAccordion() {
-        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(2));
+        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
     protected void openSubscribedBooksAccordion() {
-        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(3));
+        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(2));
 
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
-
-
-
-
-
     /**
      * Updates the visual representation of which user i logged in to the application.
      */
