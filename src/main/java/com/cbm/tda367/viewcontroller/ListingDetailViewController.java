@@ -2,7 +2,6 @@ package com.cbm.tda367.viewcontroller;
 
 import com.cbm.tda367.model.ApplicationModel;
 import com.cbm.tda367.model.Listing;
-import com.cbm.tda367.model.ListingDatabase;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +25,6 @@ import java.io.IOException;
  */
 public class ListingDetailViewController extends AnchorPane {
     private final ApplicationModel model = ApplicationModel.getInstance();
-    private final ListingDatabase listingDatabase = ListingDatabase.getInstance();
     private final ControllerManager manager;
     private Listing listing;
 
@@ -89,14 +87,16 @@ public class ListingDetailViewController extends AnchorPane {
     }
 
     public void updateListingEmailText() {
-        listingDetailEmail.setText(model.getListingSellerEmail(this.listing));
+        listingDetailEmail.setText(model.getListingCid(this.listing));
     }
+
 
     /*public void updateListingDetailDescription() {
         listingDatabase.getListings();
         listingdetailDescription.setText(listing.get);
 
     }*/
+
 
 
     @FXML

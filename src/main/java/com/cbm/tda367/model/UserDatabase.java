@@ -27,7 +27,7 @@ public class UserDatabase {
      *
      * @return the instance of the userDataBase
      */
-    public static UserDatabase getInstance(){
+    static UserDatabase getInstance(){
         return userDatabase;
     }
 
@@ -35,7 +35,7 @@ public class UserDatabase {
      *
      * @return a new arraylist of the userlist
      */
-    public List<User> getUserList(){
+    List<User> getUserList(){
         return new ArrayList<>(userList);
     }
 }

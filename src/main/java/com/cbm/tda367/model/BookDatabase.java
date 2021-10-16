@@ -15,7 +15,7 @@ import java.util.List;
  * @since 1.0
  */
 
-public class BookDatabase {
+class BookDatabase {
 
     private final List<Book> bookList = new ArrayList<>();
     private final static BookDatabase bookDatabase = new BookDatabase();
@@ -48,11 +48,35 @@ public class BookDatabase {
                 "MVE045",
                 "/book_covers/calculus.jpg",
                 "Mathematics"));
-        
+
         bookList.add(new Book("Maskinorienterad programmering",
                 "Roger Johansson",
                 "MD407",
                 "/book_covers/mop.jpg",
+                "Programming"));
+
+        bookList.add(new Book("Parallel Programming",
+                "Thomas Rauber",
+                "PARALLELPROGRAMMING",
+                "/book_covers/parallel_programming.jpg",
+                "Programming"));
+
+        bookList.add(new Book("Python Programming",
+                "John Zelle",
+                "PYTHONPROGRAMMING",
+                "/book_covers/python_programming.jpg",
+                "Programming"));
+
+        bookList.add(new Book("The C Programming Language",
+                "Brian W. Kernighan",
+                "CPROGRAMMING",
+                "/book_covers/c_programming.jpg",
+                "Programming"));
+
+        bookList.add(new Book("Agile!",
+                "Bertrand Meyer",
+                "EDA397",
+                "/book_covers/agile.jpg",
                 "Programming"));
     }
 
@@ -61,7 +85,7 @@ public class BookDatabase {
      *
      * @return The BookDatabase instance.
      */
-    public static BookDatabase getInstance() {
+    static BookDatabase getInstance() {
         return bookDatabase;
 
     }
@@ -71,7 +95,7 @@ public class BookDatabase {
      *
      * @param book A Book.
      */
-    public void addBook(Book book) {
+    void addBook(Book book) {
         bookList.add(book);
     }
 
@@ -82,7 +106,7 @@ public class BookDatabase {
      * @return A Book corresponding to a specific Book code (ISBN).
      */
     //TODO: refactor method
-    public Book returnBookWithCorrespondingCode(String bookCode) {
+    Book returnBookWithCorrespondingCode(String bookCode) {
         for (Book book : bookList) {
             if (book.getBookCode().equals(bookCode)) {
                 return book;
@@ -91,7 +115,8 @@ public class BookDatabase {
         //TODO: can currently return null
         return null;
     }
-    public Book returnBookWithCorrespondingName(String bookName) {
+
+    Book returnBookWithCorrespondingName(String bookName) {
         for (Book book : bookList) {
             if (book.getBookName().equals(bookName)) {
                 return book;
@@ -106,7 +131,7 @@ public class BookDatabase {
      *
      * @param book A Book.
      */
-    public void removeBook(Book book) {
+    void removeBook(Book book) {
         bookList.remove(book);
     }
 
@@ -115,7 +140,7 @@ public class BookDatabase {
      *
      * @return An ArrayList of Books.
      */
-    public List<Book> getBookList() {
+    List<Book> getBookList() {
         return new ArrayList<>(bookList);
     }
 

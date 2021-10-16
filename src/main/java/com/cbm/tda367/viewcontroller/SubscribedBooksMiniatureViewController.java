@@ -69,7 +69,7 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
      */
     @FXML
     protected void onClickUnsubscribeToBook(Event event) {
-        model.removedBooksFromCurrentlyLoggedInUser(book);
+        model.removeBookFromSubscriptionList(book);
         System.out.println("Removed Subscribed");
 
     }

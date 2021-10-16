@@ -80,7 +80,7 @@ public class BookDetailViewController extends AnchorPane {
     public void onClickSubscribeToBook(Event event) {
         //Om false,greenButton.setFill() till röd
         //annars till grön
-        model.addBooks(book.getBookName(), book.getImagePath());
+        model.addBookToSubscriptionList(book.getBookName(), book.getImagePath());
 
         /*Switch to account page*/
 
