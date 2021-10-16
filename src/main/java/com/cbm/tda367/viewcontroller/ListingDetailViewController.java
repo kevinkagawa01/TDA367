@@ -101,7 +101,7 @@ public class ListingDetailViewController extends AnchorPane {
 
     @FXML
     public void onClickReservePurchase(Event event) {
-       // model.reserveListing(this.listing);
+        model.reserveListing(this.listing);
         manager.goToAccountPage();
         manager.openReservedBooksInAccordionPage();
     }
@@ -184,10 +184,7 @@ public class ListingDetailViewController extends AnchorPane {
         listingBookTitle.setText(listing.getBook().getBookName());
     }
 
-    @FXML
-    void onClickReserveBook(Event event){
-        System.out.println("Reservation successful!");
-    }
+
 
     @FXML
     void onClickReturnToBookDetailView(Event event){

@@ -100,19 +100,21 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     /**
      * opens the accordion-section where published listings are displayed.
      */
-
-    protected void openPublishedListingsAccordion() {
+    protected void openReservedBooksAccordion(){
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
+    }
+    protected void openPublishedListingsAccordion() {
+        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(2));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
     protected void openSubscribedBooksAccordion() {
-        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(2));
+        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(3));
 
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
-    protected void openReservedBooksAccordion(){
-        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(3));
-    }
+
+
+
 
 
     /**

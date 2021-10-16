@@ -4,6 +4,8 @@ import com.cbm.tda367.model.ApplicationModel;
 import com.cbm.tda367.model.Listing;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -36,6 +38,8 @@ public class ReservedBooksMiniatureViewController extends AnchorPane {
     Text reservedListingPrice;
     private @FXML
     Rectangle unReserve;
+    private @FXML
+    ImageView reservePicture;
 
 
     /**
@@ -56,10 +60,10 @@ public class ReservedBooksMiniatureViewController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-
+        reservePicture.setImage(new Image(getClass().getResourceAsStream(this.listing.getBook().getImagePath())));
         reservedListingTitle.setText(listing.getBook().getBookName());
         reservedDate.setText(String.valueOf(listing.getDate()));
-        reservedListingPrice.setText(Double.toString(listing.getPrice()));
+        reservedListingPrice.setText((int) listing.getPrice() + " kr");
 
 
 

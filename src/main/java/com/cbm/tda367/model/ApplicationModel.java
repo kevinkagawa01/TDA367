@@ -111,10 +111,7 @@ public class ApplicationModel implements Observable {
         listingDatabase.addListing(listing);
          currentlyLoggedInUser.addListingForSale(listing);
 
-         currentlyLoggedInUser.addReservedBook(listing);
-
-
-        /* Update view */
+         /* Update view */
         notifyObservers();
     }
     public void removedListingFromCurrentlyLoggedInUser(Listing listing) {
@@ -143,6 +140,11 @@ public class ApplicationModel implements Observable {
 
         /* Delete book  */
         currentlyLoggedInUser.removeBookSubscription(book);
+        /* Update view */
+        notifyObservers();
+    }
+    public void reserveListing(Listing listing){
+        currentlyLoggedInUser.addReservedBook(listing);
         /* Update view */
         notifyObservers();
     }
