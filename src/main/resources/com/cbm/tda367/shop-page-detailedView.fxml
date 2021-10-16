@@ -22,11 +22,8 @@
          </font>
       </Text>
 
-      <Rectangle fx:id="reserveButton" arcHeight="5.0" arcWidth="5.0" fill="#fbb547" height="55.0" layoutX="105.0" layoutY="548.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-      <Text fill="WHITE" layoutX="150.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RESERVERA" textAlignment="CENTER" />
-
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbb547" height="55.0" layoutX="102.0" layoutY="617.0" onMouseClicked="#onClickReservePurchase" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
-      <Text fill="WHITE" layoutX="147.0" layoutY="652.0" onMouseClicked="#onClickReservePurchase" strokeType="OUTSIDE" strokeWidth="0.0" text="RESERVERA" textAlignment="CENTER">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbb547" height="55.0" layoutX="100.0" layoutY="629.0" onMouseClicked="#onClickReservePurchase" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
+      <Text fill="WHITE" layoutX="147.0" layoutY="663.0" onMouseClicked="#onClickReservePurchase" strokeType="OUTSIDE" strokeWidth="0.0" text="RESERVERA" textAlignment="CENTER">
 
          <font>
             <Font name="System Bold" size="20.0" />
@@ -42,7 +39,7 @@
             <Image url="@../../../Library/3-5stars.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="listingDetailDescription" editable="false" layoutX="54.0" layoutY="400.0" prefHeight="200.0" prefWidth="296.0" />
+      <TextArea fx:id="listingDetailDescription" editable="false" layoutX="52.0" layoutY="400.0" prefHeight="200.0" prefWidth="296.0" />
       <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="27.0" onMouseClicked="#onClickReturnToBookDetailView" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Library/backTriangle.png" />
