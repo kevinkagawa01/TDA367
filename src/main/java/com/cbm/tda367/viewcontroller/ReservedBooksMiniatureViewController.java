@@ -25,7 +25,7 @@ import java.time.LocalDate;
  * @version 1.0
  * @since 1.0
  */
-public class ReservedBooksMiniatureViewController extends AnchorPane {
+public class ReservedBooksMiniatureViewController extends AnchorPane{
 
 
     private final ControllerManager manager;
@@ -41,7 +41,7 @@ public class ReservedBooksMiniatureViewController extends AnchorPane {
     Rectangle unReserve;
     private @FXML
     ImageView reservePicture;
-
+    private @FXML Text email;
 
     /**
      * Constructs the view and defines its controller.
@@ -65,6 +65,7 @@ public class ReservedBooksMiniatureViewController extends AnchorPane {
         reservedListingTitle.setText(listing.getBook().getBookName());
         reservedDate.setText(String.valueOf(listing.getDate()));
         reservedListingPrice.setText((int) listing.getPrice() + " kr");
+        email.setText(model.getCurrentlyLoggedInUser().getCid());
     }
     @FXML
     protected void onClickRemoveReservedBook(Event event) {
@@ -72,12 +73,16 @@ public class ReservedBooksMiniatureViewController extends AnchorPane {
 
     }
     @FXML
-    protected void onClickPurchased(){
+    protected void onClickPurchased(Event event){
         model.purchaseDone(listing);
         manager.goToAccountPage();
         manager.openReservedBooksInAccordionPage();
 
     }
+    /**
+     * Updates the visual representation of which user i logged in to the application.
+     */
+
 
     //@FXML
     //public void onClickUnreserveBook(Listing listing) {
