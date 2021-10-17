@@ -22,6 +22,11 @@ public class User {
     private final ArrayList<Listing> reservedBooks = new ArrayList<>();
     private final ArrayList<Listing> booksForSale = new ArrayList<>();
     private final ArrayList<Book> subscribedBooks = new ArrayList<>();
+
+    public ArrayList<Listing> getPreviousPurchases() {
+        return previousPurchases;
+    }
+
     private final ArrayList<Listing> previousPurchases = new ArrayList<>();
     private final List<Notification> notifications = new ArrayList<>();
 

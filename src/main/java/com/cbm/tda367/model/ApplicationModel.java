@@ -153,6 +153,12 @@ public class ApplicationModel implements Observable {
         /* Update view */
         notifyObservers();
     }
+    public void purchaseDone(Listing listing){
+        currentlyLoggedInUser.addPreviousPurchase(listing);
+        /* Update view */
+        notifyObservers();
+
+    }
 
 
 

@@ -102,6 +102,7 @@ public class ListingDetailViewController extends AnchorPane {
     @FXML
     public void onClickReservePurchase(Event event) {
         model.reserveListing(this.listing);
+
         manager.goToAccountPage();
         manager.openReservedBooksInAccordionPage();
     }

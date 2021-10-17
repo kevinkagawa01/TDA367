@@ -30,10 +30,12 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text fx:id="reservedListingPrice" layoutX="288.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Price&gt;">
+      <Text fx:id="reservedListingPrice" layoutX="288.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Price&gt;">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#28992c" height="34.0" layoutX="271.0" layoutY="65.0" onMouseClicked="#onClickPurchased" stroke="BLACK" strokeType="INSIDE" width="101.0" />
+      <Text layoutX="306.0" layoutY="87.0" onMouseClicked="#onClickPurchased" strokeType="OUTSIDE" strokeWidth="0.0" text="Done" />
    </children>
 </fx:root>

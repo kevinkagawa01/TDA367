@@ -77,15 +77,15 @@ public class ControllerManager implements Initializable, Observer {
     /**
      * Opens published listings accordion-section when called.
      */
+    protected void openReservedBooksInAccordionPage(){ accountPage.openReservedBooksAccordion(); }
     protected void openPublishedListingsAccordionInAccountPage() {
         accountPage.openPublishedListingsAccordion();
     }
     protected void openSubscribedBooksInAccordionPage(){
         accountPage.openSubscribedBooksAccordion();
     }
-    protected void openReservedBooksInAccordionPage(){
-        accountPage.openReservedBooksAccordion();
-    }
+    protected void openPurchasedBooksInAcccordioInPage(){accountPage.openPurchasedBooksAccordion();}
+
 
     /**
      * Navigate to ShopPage

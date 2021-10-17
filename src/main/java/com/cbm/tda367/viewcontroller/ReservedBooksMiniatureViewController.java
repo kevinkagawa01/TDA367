@@ -65,21 +65,25 @@ public class ReservedBooksMiniatureViewController extends AnchorPane {
         reservedListingTitle.setText(listing.getBook().getBookName());
         reservedDate.setText(String.valueOf(listing.getDate()));
         reservedListingPrice.setText((int) listing.getPrice() + " kr");
-
-
-
     }
     @FXML
     protected void onClickRemoveReservedBook(Event event) {
         model.removeBookFromReservedList(listing);
 
     }
-
     @FXML
-    public void onClickUnreserveBook(Listing listing) {
-        model.getListingDatabase().remove(listing);
+    protected void onClickPurchased(){
+        model.purchaseDone(listing);
+        manager.goToAccountPage();
+        manager.openReservedBooksInAccordionPage();
 
     }
+
+    //@FXML
+    //public void onClickUnreserveBook(Listing listing) {
+        //model.getListingDatabase().remove(listing);
+
+    //}
 
 
 }

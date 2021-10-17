@@ -43,6 +43,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     @FXML FlowPane publishedBooksFlowPane;
     @FXML FlowPane subscribedBooksFlowPane;
     @FXML FlowPane reservedBookAccordion;
+    @FXML FlowPane purchasedBook;
 
     @FXML
     private Text emailText;
@@ -96,9 +97,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     /**
      * opens the accordion-section where published listings are displayed.
      */
-    protected void openReservedBooksAccordion(){
-        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(3));
-    }
+
     protected void openPublishedListingsAccordion() {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
@@ -108,6 +107,14 @@ public class AccountPageViewController extends AnchorPane implements Observer {
 
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
+    protected void openReservedBooksAccordion(){
+        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(3));
+    }
+
+    protected void openPurchasedBooksAccordion(){
+        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(4));
+    }
+
     /**
      * Updates the visual representation of which user i logged in to the application.
      */
@@ -168,6 +175,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
         updatePublishedBooks();
         updateSubscribedBooks();
         updateReservedBooks();
+        updatePurchasedBooks();
 
 
     }
@@ -195,6 +203,15 @@ public class AccountPageViewController extends AnchorPane implements Observer {
         ArrayList<Listing> reservedBooks = model.getCurrentlyLoggedInUser().getReservedBooks();
         for (Listing listing : reservedBooks) {
             reservedBookAccordion.getChildren().add(new ReservedBooksMiniatureViewController(manager,listing));
+
+        }
+    }
+    private void updatePurchasedBooks() {
+        purchasedBook.getChildren().clear();
+
+        ArrayList<Listing> purchasedBooks = model.getCurrentlyLoggedInUser().getPreviousPurchases();
+        for (Listing listing : purchasedBooks) {
+            purchasedBook.getChildren().add(new BoughtBooksMiniatureViewController(manager,listing));
 
         }
     }

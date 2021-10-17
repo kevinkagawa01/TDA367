@@ -5,6 +5,10 @@ import com.cbm.tda367.model.Listing;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 
@@ -18,11 +22,17 @@ import java.io.IOException;
  * @version 1.0
  * @since 1.0
  */
-public class BoughtBooksMiniatureViewController {
+public class BoughtBooksMiniatureViewController extends AnchorPane {
 
     private final ApplicationModel model = ApplicationModel.getInstance();
     private final ControllerManager manager;
     private Listing listing;
+    @FXML
+    ImageView purchasedPicture;
+    @FXML
+    Text purchasedTitle;
+    @FXML Text date;
+    @FXML Text purchasedPrice;
 
     /**
      * class constructor
@@ -42,6 +52,14 @@ public class BoughtBooksMiniatureViewController {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+
+        purchasedPicture.setImage(new Image(getClass().getResourceAsStream(this.listing.getBook().getImagePath())));
+        purchasedTitle.setText(listing.getBook().getBookName());
+        date.setText(String.valueOf(listing.getDate()));
+        purchasedPrice.setText((int) listing.getPrice() + " kr");
+    }
+    protected void onClickRemovedBook(Event event){
+
 
     }
 }
