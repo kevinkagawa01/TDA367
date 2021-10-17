@@ -146,6 +146,15 @@ public class ApplicationModel implements Observable {
         /* Update view */
         notifyObservers();
     }
+    public void removeBookFromReservedList(Listing listing) {
+
+        /* remove book from subscription list  */
+        currentlyLoggedInUser.removeReservedBook(listing);
+        /* Update view */
+        notifyObservers();
+    }
+
+
 
    /* public List returnPopularbooks(List books) {
         //Todo: behöver gå igenom med gruppen

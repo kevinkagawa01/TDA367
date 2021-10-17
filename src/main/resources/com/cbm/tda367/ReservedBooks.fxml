@@ -19,13 +19,13 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <Rectangle fx:id="unReserve" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="41.0" layoutX="271.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" width="101.0" />
-      <Text fx:id="reservedListingTitle" layoutX="81.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Title&gt;">
+      <Rectangle fx:id="unReserve" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="41.0" layoutX="271.0" layoutY="17.0" onMouseClicked="#onClickRemoveReservedBook" stroke="BLACK" strokeType="INSIDE" width="101.0" />
+      <Text fx:id="reservedListingTitle" layoutX="71.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Title&gt;">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Text>
-      <Text layoutX="279.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UnReserve">
+      <Text layoutX="293.0" layoutY="42.0" onMouseClicked="#onClickRemoveReservedBook" strokeType="OUTSIDE" strokeWidth="0.0" text="UnReserve">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
