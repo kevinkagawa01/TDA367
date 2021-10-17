@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -33,6 +34,8 @@ public class BoughtBooksMiniatureViewController extends AnchorPane {
     Text purchasedTitle;
     @FXML Text date;
     @FXML Text purchasedPrice;
+    @FXML
+    Rectangle removedButton;
 
     /**
      * class constructor
@@ -58,7 +61,9 @@ public class BoughtBooksMiniatureViewController extends AnchorPane {
         date.setText(String.valueOf(listing.getDate()));
         purchasedPrice.setText((int) listing.getPrice() + " kr");
     }
+    @FXML
     protected void onClickRemovedBook(Event event){
+        model.removePurchaseListingBooks(this.listing);
 
 
     }

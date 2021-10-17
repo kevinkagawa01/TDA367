@@ -136,6 +136,7 @@ public class ApplicationModel implements Observable {
     }
     public void removeBookFromSubscriptionList(Book book) {
 
+
         /* remove book from subscription list  */
         currentlyLoggedInUser.removeBookSubscription(book);
         /* Update view */
@@ -147,6 +148,7 @@ public class ApplicationModel implements Observable {
         notifyObservers();
     }
     public void removeBookFromReservedList(Listing listing) {
+        listingDatabase.removeListing(listing);
 
         /* remove book from subscription list  */
         currentlyLoggedInUser.removeReservedBook(listing);
@@ -155,6 +157,13 @@ public class ApplicationModel implements Observable {
     }
     public void purchaseDone(Listing listing){
         currentlyLoggedInUser.addPreviousPurchase(listing);
+        /* Update view */
+        notifyObservers();
+    }
+    public void removePurchaseListingBooks(Listing listing) {
+        listingDatabase.removeListing(listing);
+        currentlyLoggedInUser.removePreviousPurchase(listing);
+
         /* Update view */
         notifyObservers();
 
@@ -199,6 +208,7 @@ public class ApplicationModel implements Observable {
         }
         return "";
     }
+
 
 
     /**
