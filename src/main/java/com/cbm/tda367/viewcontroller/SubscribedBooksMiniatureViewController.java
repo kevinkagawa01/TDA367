@@ -32,18 +32,23 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
     private final ApplicationModel model = ApplicationModel.getInstance();
 
     private AccountPageViewController accountPageController;
+    private BookDetailViewController bookDetailViewController;
 
     private final ControllerManager manager;
     //private AccountPageController accountPageController;
 
     private final Book book;
-    @FXML private Text titleSubscriebdMiniature;
-    @FXML  private Rectangle unsubscribedMiniature;
-    @FXML  private ImageView subscribedBookPicture;
-    @FXML  private Text date;
+    @FXML
+    private Text titleSubscriebdMiniature;
+    @FXML
+    private Rectangle unsubscribedMiniature;
+    @FXML
+    private ImageView subscribedBookPicture;
+    @FXML
+    private Text date;
 
 
-    public SubscribedBooksMiniatureViewController( Book book,ControllerManager manager) {
+    public SubscribedBooksMiniatureViewController(Book book, ControllerManager manager) {
         this.book = book;
         this.manager = manager;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/SubscribedBooks.fxml"));
@@ -62,6 +67,7 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
 
     }
 
+
     /**
      * Unsubscribes to this book.
      *
@@ -71,6 +77,7 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
     protected void onClickUnsubscribeToBook(Event event) {
         model.removeBookFromSubscriptionList(book);
         System.out.println("Removed Subscribed");
+        bookDetailViewController.setSubscribePressed();
 
     }
 
