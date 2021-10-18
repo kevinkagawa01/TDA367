@@ -27,6 +27,7 @@ public class ControllerManager implements Initializable, Observer {
 
 
     private final static ControllerManager controllerManager = new ControllerManager();
+
     public static ControllerManager getInstance() {
         return controllerManager;
     }
@@ -81,11 +82,18 @@ public class ControllerManager implements Initializable, Observer {
     protected void openPublishedListingsAccordionInAccountPage() {
         accountPage.openPublishedListingsAccordion();
     }
-    protected void openSubscribedBooksInAccordionPage(){
+
+    protected void openSubscribedBooksInAccordionPage() {
         accountPage.openSubscribedBooksAccordion();
     }
-    protected void openReservedBooksInAccordionPage(){ accountPage.openReservedBooksAccordion(); }
-    protected void openPurchasedBooksInAccordionInPage(){accountPage.openPurchasedBooksAccordion();}
+
+    protected void openReservedBooksInAccordionPage() {
+        accountPage.openReservedBooksAccordion();
+    }
+
+    protected void openPurchasedBooksInAccordionInPage() {
+        accountPage.openPurchasedBooksAccordion();
+    }
 
 
     /**
@@ -113,12 +121,13 @@ public class ControllerManager implements Initializable, Observer {
     /**
      * Navigate to BookDetailView
      */
-    void goToBookDetailView(){
+    void goToBookDetailView() {
         bookDetailViewController.toFront();
     }
 
     /**
      * Opens detailed view of book.
+     *
      * @param book book to be previewed in detailed view.
      */
     public void openBookDetailView(Book book) {
@@ -132,6 +141,7 @@ public class ControllerManager implements Initializable, Observer {
 
     /**
      * Opens detailed view of listing.
+     *
      * @param listing listing to be previewed in detailed view.
      */
     public void openListingDetailView(Listing listing) {

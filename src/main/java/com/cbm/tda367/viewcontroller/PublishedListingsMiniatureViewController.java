@@ -31,11 +31,9 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
     private ApplicationModel model = ApplicationModel.getInstance();
 
     //private AccountPageController accountPageController;
-    private ControllerManager manager=ControllerManager.getInstance();
+    private ControllerManager manager = ControllerManager.getInstance();
 
     private AccountPageViewController accountPageController;
-
-
 
 
     @FXML
@@ -99,9 +97,6 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
     }
 
 
-
-
-
     /**
      * Changes published book from the user in the application.
      *
@@ -111,7 +106,6 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
     protected void onClickEditButton(Event event) {
         manager.openSellPageView(this.listing);
     }
-
 
 
 }
