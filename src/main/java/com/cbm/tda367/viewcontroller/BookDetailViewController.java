@@ -10,6 +10,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
@@ -32,14 +34,14 @@ public class BookDetailViewController extends AnchorPane {
     private Book book;
     private Listing listing;
     private ListingViewController shopPageListing;
-    private boolean subscribePressed = true;
+    private boolean subscribePressed = false;
 
     @FXML
     private ImageView bookImageView;
     @FXML
     private Text bookTitleText;
     @FXML
-    private Rectangle reserveButton;
+    private Rectangle greenButton;
     @FXML
     private FlowPane listingsFlowPane;
 
@@ -78,8 +80,14 @@ public class BookDetailViewController extends AnchorPane {
      */
     @FXML
     public void onClickSubscribeToBook(Event event) {
-        //Om false,greenButton.setFill() till röd
-        //annars till grön
+
+        if (!subscribePressed) {
+            greenButton.setFill(Color.RED);
+            subscribePressed = true;
+        } else {
+            greenButton.setFill(Color.GREEN);
+            subscribePressed = false;
+        }
         model.addBookToSubscriptionList(book.getBookName(), book.getImagePath());
 
         /*Switch to account page*/
@@ -125,5 +133,9 @@ public class BookDetailViewController extends AnchorPane {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    public void setSubscribePressed() {
+        this.subscribePressed = false;
     }
 }
