@@ -42,6 +42,7 @@ public class ReservedBooksMiniatureViewController extends AnchorPane{
     private @FXML
     ImageView reservePicture;
     private @FXML Text email;
+    private @FXML Rectangle doneButton;
 
     /**
      * Constructs the view and defines its controller.
@@ -76,7 +77,7 @@ public class ReservedBooksMiniatureViewController extends AnchorPane{
     protected void onClickPurchased(Event event){
         model.purchaseDone(listing);
         manager.goToAccountPage();
-        manager.openReservedBooksInAccordionPage();
+        manager.openPurchasedBooksInAccordionInPage();
 
     }
     /**

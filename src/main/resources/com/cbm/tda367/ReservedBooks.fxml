@@ -35,7 +35,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#28992c" height="34.0" layoutX="271.0" layoutY="65.0" onMouseClicked="#onClickPurchased" stroke="BLACK" strokeType="INSIDE" width="101.0" />
+      <Rectangle fx:id="doneButton" arcHeight="5.0" arcWidth="5.0" fill="#28992c" height="34.0" layoutX="271.0" layoutY="65.0" onMouseClicked="#onClickPurchased" stroke="BLACK" strokeType="INSIDE" width="101.0" />
       <Text layoutX="306.0" layoutY="87.0" onMouseClicked="#onClickPurchased" strokeType="OUTSIDE" strokeWidth="0.0" text="Done" />
       <Text fx:id="email" layoutX="79.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </children>

@@ -157,8 +157,8 @@ public class ApplicationModel implements Observable {
     }
     public void purchaseDone(Listing listing){
         currentlyLoggedInUser.addPreviousPurchase(listing);
-        boolean isPurchasedOkSeller=true;
-        boolean isPurchasedOkBuyer=true;
+        //boolean isPurchasedOkSeller=true;
+        //boolean isPurchasedOkBuyer=true;
 
         /* Update view */
         notifyObservers();
