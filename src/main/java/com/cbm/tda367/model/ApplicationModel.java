@@ -84,8 +84,12 @@ public class ApplicationModel implements Observable {
         listingDatabase.removeListing(listing);
     }
 
-    public void editListing(int listingNumber) {
-        listingDatabase.editListing(listingNumber);
+    public void editListing(String bookCode, String condition, String price, String description, int editingListingNumber) {
+        Book book = bookDatabase.returnBookWithCorrespondingCode(bookCode);
+        Listing listing = new Listing(book, editingListingNumber, price, book.getImagePath(), condition, description, false, false);
+        listingDatabase.editListing(listing);
+        currentlyLoggedInUser.editListing(listing);
+        notifyObservers();
     }
 
     /**

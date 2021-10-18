@@ -56,6 +56,16 @@ class ListingDatabase {
 
     }
 
+    void editListing(Listing listing) {
+        for (Listing l : listingList) {
+            if (l.getListingNumber() == listing.getListingNumber()){
+                removeListing(l);
+                addListing(listing);
+            }
+        }
+    }
+
+
     /**
      * Retrieves the list of listings.
      *

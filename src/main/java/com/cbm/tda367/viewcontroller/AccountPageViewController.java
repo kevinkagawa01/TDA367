@@ -176,8 +176,6 @@ public class AccountPageViewController extends AnchorPane implements Observer {
         updateSubscribedBooks();
         updateReservedBooks();
         updatePurchasedBooks();
-
-
     }
     private void updatePublishedBooks() {
         publishedBooksFlowPane.getChildren().clear();

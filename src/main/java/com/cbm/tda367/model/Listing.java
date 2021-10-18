@@ -25,7 +25,7 @@ public class Listing {
 
     private boolean isReserved;
     private boolean isPurchased;
-    private LocalDate date = LocalDate.now();
+    private LocalDate date;
 
     /**
      * Constructs a listing
@@ -46,7 +46,21 @@ public class Listing {
         this.listingDescription = listingDescription;
         this.isReserved=isReserved;
         this.isPurchased=isPurchased;
+        this.date = LocalDate.now();
     }
+
+    public Listing(Listing listing) {
+        this.book = new Book(listing.book);
+        this.condition = listing.condition;
+        this.listingNumber = listing.listingNumber;
+        this.price = listing.price;
+        this.imagePath = listing.imagePath;
+        this.listingDescription = listing.listingDescription;
+        this.isReserved = listing.isReserved;
+        this.isPurchased = listing.isPurchased;
+        this.date = listing.date;
+    }
+
     public String getCondition(){
         return condition;
     }

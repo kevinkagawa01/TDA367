@@ -173,4 +173,13 @@ public class User {
     }
     public ArrayList<Listing> getReservedBooks() { return reservedBooks;
     }
+
+    void editListing(Listing listing) {
+        for(Listing l : booksForSale){
+            if (l.getListingNumber() == listing.getListingNumber()){
+                removeListingForSale(l);
+                addListingForSale(listing);
+            }
+        }
+    }
 }

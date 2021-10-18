@@ -1,7 +1,6 @@
 package com.cbm.tda367.viewcontroller;
 
 import com.cbm.tda367.model.ApplicationModel;
-import com.cbm.tda367.model.Book;
 import com.cbm.tda367.model.Listing;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -11,6 +10,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 
@@ -28,7 +29,7 @@ public class SellPageViewController extends AnchorPane implements Observer {
 
     private final ControllerManager manager;
     private final ApplicationModel model;
-    private Listing listing;
+    private int editingListingNumber = -1;
 
     /* FXML elements */
     @FXML
@@ -41,6 +42,12 @@ public class SellPageViewController extends AnchorPane implements Observer {
     private ImageView bookImageView;
     @FXML
     private TextArea listingDescriptionTextArea;
+
+    /* prominent done buttons */
+    @FXML
+    private Text publishText, saveText;
+    @FXML
+    private Rectangle publishRectangle, saveRectangle;
 
     public SellPageViewController(ControllerManager manager, ApplicationModel model) {
         this.model = model;
@@ -67,11 +74,11 @@ public class SellPageViewController extends AnchorPane implements Observer {
         bookConditionComboBox.getSelectionModel().selectFirst();
 
         bookCodeTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            updateBookCode(newValue,oldValue);
+            updateBookCode(newValue, oldValue);
         });
 
         bookPriceTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            updateBookPrice(newValue,oldValue);
+            updateBookPrice(newValue, oldValue);
         });
     }
 
@@ -176,11 +183,31 @@ public class SellPageViewController extends AnchorPane implements Observer {
         if (isListingCompleted()) {
             /* creating listing */
             model.addListing(bookCodeTextField.getText(), bookConditionComboBox.getSelectionModel().getSelectedItem(),
-                    bookPriceTextField.getText(),listingDescriptionTextArea.getText());
+                    bookPriceTextField.getText(), listingDescriptionTextArea.getText());
             /* switch to account page */
             manager.goToAccountPage();
             /* clear all fields and reset sell page */
             resetTextFields();
+            /* open accordion menu for my listings */
+            manager.openPublishedListingsAccordionInAccountPage();
+        }
+
+    }
+
+    @FXML
+    protected void onClickSaveListing(Event event) {
+
+        if (isListingCompleted()) {
+            /* creating listing */
+            model.editListing(bookCodeTextField.getText(), bookConditionComboBox.getSelectionModel().getSelectedItem(),
+                    bookPriceTextField.getText(), listingDescriptionTextArea.getText(), editingListingNumber);
+            /* switch to account page */
+            manager.goToAccountPage();
+            /* clear all fields and reset sell page */
+            resetTextFields();
+            /* hide edit button */
+            publishRectangle.toFront();
+            publishText.toFront();
             /* open accordion menu for my listings */
             manager.openPublishedListingsAccordionInAccountPage();
         }
@@ -214,17 +241,18 @@ public class SellPageViewController extends AnchorPane implements Observer {
         return true;
     }
 
-    public void updateTextFields(Listing listing, Book book) {
-        bookCodeTextField.setText(book.getBookCode());
-        bookPriceTextField.setText(Double.toString(listing.getPrice()));
-    }
 
     @FXML
     public void setAllFieldsFromListing(Listing listing) {
-        bookPriceTextField.setText(Double.toString(listing.getPrice()));
         bookCodeTextField.setText(listing.getBook().getBookCode());
-       // bookConditionComboBox;
-      //  listingDescriptionTextArea.setText(listing);
+        bookPriceTextField.setText(listing.getPrice());
+        bookConditionComboBox.getSelectionModel().select(listing.getCondition());
+        listingDescriptionTextArea.setText(listing.getListingDescription());
+        editingListingNumber = listing.getListingNumber();
+
+        //TODO: move this to own method
+        saveRectangle.toFront();
+        saveText.toFront();
     }
 
     /**
