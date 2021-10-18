@@ -240,6 +240,16 @@ public class ApplicationModel implements Observable {
         return bookDatabase.getBookList();
     }
 
+    public List<Book> getMostSubscribedBooks(){
+        List<Book> allBooks = bookDatabase.getBookList();
+        List<Book> mostSubscribedBooks = new ArrayList<>();
+
+        for(Book book : allBooks){
+
+        }
+        return null;
+    }
+
     public List<Book> filterBooksByName(String filter){
         /* Filtered books */
         List<Book> filteredBooks = new ArrayList<>();
