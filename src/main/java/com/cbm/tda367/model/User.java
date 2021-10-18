@@ -202,8 +202,7 @@ public class User {
     void editListing(Listing listing) {
         for (Listing l : booksForSale) {
             if (l.getListingNumber() == listing.getListingNumber()) {
-                removeListingForSale(l);
-                addListingForSale(listing);
+                booksForSale.set(booksForSale.indexOf(l), listing);
             }
         }
     }
