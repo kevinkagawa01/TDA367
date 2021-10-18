@@ -108,7 +108,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
     protected void openReservedBooksAccordion(){
-        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(3));
+        accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(0));
     }
 
     protected void openPurchasedBooksAccordion(){
