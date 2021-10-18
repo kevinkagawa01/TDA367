@@ -24,7 +24,7 @@ public class ApplicationModel implements Observable {
     private User currentlyLoggedInUser = NotLoggedInUser.getInstance();
     //TODO: Should read current listing number from text file after initial launch
     private int currentListingNumber = 1;
-    private int currentSubscribtion=1;
+    private int currentSubscribed=1;
 
     private List<Listing> listings = new ArrayList<>();
     private List<Observer> viewObservers = new ArrayList<>();
@@ -155,9 +155,16 @@ public class ApplicationModel implements Observable {
         notifyObservers();
     }
     public void purchaseDone(Listing listing){
-        currentlyLoggedInUser.addPreviousPurchase(listing);
-        //boolean isPurchasedOkSeller=true;
-        //boolean isPurchasedOkBuyer=true;
+        //currentlyLoggedInUser.addPreviousPurchase(listing);
+        boolean isPurchasedOkBySeller=true;
+        boolean isPurchasedOkByBuyer=true;
+
+        if(isPurchasedOkByBuyer){
+            if(isPurchasedOkBySeller){
+                currentlyLoggedInUser.addPreviousPurchase(listing);
+
+            }
+        }
 
         /* Update view */
         notifyObservers();

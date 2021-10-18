@@ -89,15 +89,11 @@ public class ListingDetailViewController extends AnchorPane {
     public void updateListingEmailText() {
         listingDetailEmail.setText(model.getListingCid(this.listing));
     }
-
-
-    /*public void updateListingDetailDescription() {
-        listingDatabase.getListings();
-        listingdetailDescription.setText(listing.get);
-
-    }*/
-
-
+    /**
+     * On click method, directing the user to the account page and open the Reserved Books in Accordion
+     *
+     * @param event Click event
+     */
 
     @FXML
     public void onClickReservePurchase(Event event) {
