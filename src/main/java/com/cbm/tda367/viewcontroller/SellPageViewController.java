@@ -180,6 +180,7 @@ public class SellPageViewController extends AnchorPane implements Observer {
     @FXML
     protected void onClickCreateListing(Event event) {
 
+        //TODO: Should require a valid book code to switch page
         if (isListingCompleted()) {
             /* creating listing */
             model.addListing(bookCodeTextField.getText(), bookConditionComboBox.getSelectionModel().getSelectedItem(),

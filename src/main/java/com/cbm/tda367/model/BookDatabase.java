@@ -100,23 +100,6 @@ class BookDatabase {
     }
 
     /**
-     * Retrieves the Book corresponding to a specific Book code (ISBN)
-     *
-     * @param bookCode A Book code (ISBN), as an integer.
-     * @return A Book corresponding to a specific Book code (ISBN).
-     */
-    //TODO: refactor method
-    Book returnBookWithCorrespondingCode(String bookCode) {
-        for (Book book : bookList) {
-            if (book.getBookCode().equals(bookCode)) {
-                return book;
-            }
-        }
-        //TODO: can currently return null
-        return null;
-    }
-
-    /**
      * increments number of subscribers to book, corresponding to the book code.
      *
      * @param bookCode book's subscribers to be incremented.
@@ -140,16 +123,6 @@ class BookDatabase {
                 book.decrementSubscription();
             }
         }
-    }
-
-    Book returnBookWithCorrespondingName(String bookName) {
-        for (Book book : bookList) {
-            if (book.getBookName().equals(bookName)) {
-                return book;
-            }
-        }
-        //TODO: can currently return null
-        return null;
     }
 
     /**

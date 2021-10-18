@@ -22,7 +22,6 @@ public class ApplicationModel implements Observable {
     private final UserDatabase userDatabase;
     private final ListingDatabase listingDatabase;
     private User currentlyLoggedInUser = NotLoggedInUser.getInstance();
-    //TODO: Should read current listing number from text file after initial launch
     private int currentListingNumber = 1;
     private int currentSubscribtion = 1;
 
@@ -89,11 +88,21 @@ public class ApplicationModel implements Observable {
     }
 
     public void editListing(String bookCode, String condition, String price, String description, int editingListingNumber) {
-        Book book = bookDatabase.returnBookWithCorrespondingCode(bookCode);
-        Listing listing = new Listing(book, editingListingNumber, price, book.getImagePath(), condition, description, false, false);
-        listingDatabase.editListing(listing);
-        currentlyLoggedInUser.editListing(listing);
-        notifyObservers();
+        for(Book book : bookDatabase.getBookList()){
+            if (book.getBookCode().equals(bookCode)){
+                Listing listing = new Listing(book,
+                        editingListingNumber,
+                        price,
+                        book.getImagePath(),
+                        condition,
+                        description,
+                        false,
+                        false);
+                listingDatabase.editListing(listing);
+                currentlyLoggedInUser.editListing(listing);
+                notifyObservers();
+            }
+        }
     }
 
     /**
@@ -104,22 +113,19 @@ public class ApplicationModel implements Observable {
      * @param price     the listings price.
      */
     public void addListing(String bookCode, String condition, String price, String description) {
-        /* Book corresponding with listing */
-        Book book = bookDatabase.returnBookWithCorrespondingCode(bookCode);
-        /* Creating new listing */
-        Listing listing = new Listing(book, currentListingNumber++,
-                price,
-                book.getImagePath(),
-                condition,
-                description, false, false);
-
-
-        /* Add listing to listings */
-        listingDatabase.addListing(listing);
-        currentlyLoggedInUser.addListingForSale(listing);
-
-        /* Update view */
-        notifyObservers();
+        for(Book book : bookDatabase.getBookList()){
+            if(book.getBookCode().equals(bookCode)){
+                Listing listing = new Listing(book,
+                        currentListingNumber++,
+                        price,
+                        book.getImagePath(),
+                        condition,
+                        description, false, false);
+                listingDatabase.addListing(listing);
+                currentlyLoggedInUser.addListingForSale(listing);
+                notifyObservers();
+            }
+        }
     }
 
     public void removedListingFromCurrentlyLoggedInUser(Listing listing) {
@@ -134,16 +140,13 @@ public class ApplicationModel implements Observable {
     }
 
     public void addBookToSubscriptionList(String bookName, String image) {
-        Book book = bookDatabase.returnBookWithCorrespondingName(bookName);
-
-        Book b = new Book(bookName, book.getBookAuthor(), book.getBookCode(), image, book.getCategory());
-        /* add book to subscription list */
-        currentlyLoggedInUser.addBookSubscription(b);
-        /* increment book subscriptions */
-        bookDatabase.incrementSubscription(book.getBookCode());
-        /* Update view */
-        notifyObservers();
-
+        for(Book book : bookDatabase.getBookList()) {
+            if(book.getBookName().equals(bookName)){
+                currentlyLoggedInUser.addBookSubscription(book);
+                bookDatabase.incrementSubscription(book.getBookCode());
+                notifyObservers();
+            }
+        }
     }
 
     public void removeBookFromSubscriptionList(Book book) {
@@ -188,23 +191,6 @@ public class ApplicationModel implements Observable {
 
     }
 
-
-    /* public List returnPopularbooks(List books) {
-         //Todo: behöver gå igenom med gruppen
-         List allBooks = BookDatabase.getInstance().getBookList();
-         List popularBooks = new ArrayList();
-         for (int i = 0; i < allBooks.size(); i++) {
-             Book book = (Book) allBooks.get(i);
-             Book book2 = (Book) allBooks.get(i++);
-
-             if (book.getBookSales() < book2.getBookSales()) {
-                 popularBooks.add(book);
-             }
-
-         }
-
-         return popularBooks;
-     }*/
     public double getListingSellerRating(Listing listing) {
         for (User user : userDatabase.getUserList()) {
             for (Listing listing1 : user.getBooksForSale()) {
