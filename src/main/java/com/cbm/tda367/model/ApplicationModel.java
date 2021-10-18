@@ -24,6 +24,7 @@ public class ApplicationModel implements Observable {
     private User currentlyLoggedInUser = NotLoggedInUser.getInstance();
     //TODO: Should read current listing number from text file after initial launch
     private int currentListingNumber = 1;
+    private int currentSubscribtion=1;
 
     private List<Listing> listings = new ArrayList<>();
     private List<Observer> viewObservers = new ArrayList<>();
@@ -126,6 +127,7 @@ public class ApplicationModel implements Observable {
 
         Book b=new Book(bookName,book.getBookAuthor(),book.getBookCode(),image,book.getCategory());
 
+
         /* add book to subscription list */
         currentlyLoggedInUser.addBookSubscription(b);
         /* Update view */
@@ -133,7 +135,6 @@ public class ApplicationModel implements Observable {
 
     }
     public void removeBookFromSubscriptionList(Book book) {
-
 
         /* remove book from subscription list  */
         currentlyLoggedInUser.removeBookSubscription(book);
