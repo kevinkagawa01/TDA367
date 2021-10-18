@@ -88,6 +88,7 @@ public class BookDetailViewController extends AnchorPane {
             greenButton.setFill(Color.GREEN);
             subscribePressed = false;
         }
+
         model.addBookToSubscriptionList(book.getBookName(), book.getImagePath());
 
         /*Switch to account page*/
