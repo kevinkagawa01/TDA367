@@ -25,7 +25,13 @@
          </font>
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="54.0" layoutX="120.0" layoutY="584.0" onMouseClicked="#onClickCreateListing" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 60; -fx-arc-width: 60;" width="184.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="54.0" layoutX="120.0" layoutY="584.0" onMouseClicked="#onClickCreateListing" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 60; -fx-arc-width: 60;" width="184.0" />
       <Text fill="WHITE" layoutX="120.0" layoutY="618.0" onMouseClicked="#onClickCreateListing" strokeType="OUTSIDE" strokeWidth="0.0" text="Publish" textAlignment="CENTER" wrappingWidth="184.0">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="120.0" layoutY="618.0" onMouseClicked="#onClickCreateListing" strokeType="OUTSIDE" strokeWidth="0.0" text="Save" textAlignment="CENTER" wrappingWidth="184.0">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
