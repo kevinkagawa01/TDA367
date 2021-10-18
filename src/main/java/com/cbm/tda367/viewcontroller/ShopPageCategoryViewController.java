@@ -40,6 +40,7 @@ public class ShopPageCategoryViewController extends AnchorPane {
     }
 
     protected void populateCategoryWithBooks(List<Book> books){
+        shopPageCategoryFlowPane.getChildren().clear();
         for (Book book : books){
             BookViewController bookViewController = new BookViewController(manager,book);
             shopPageCategoryFlowPane.getChildren().add(bookViewController);
