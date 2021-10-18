@@ -67,7 +67,8 @@ public class ShopPageViewController extends AnchorPane implements Observer{
         /* add them to flow pane */
         populateWithCategories();
         /* add books to the categories */
-        populateCategoryFlowPaneWithBooks();
+        populateAllBooksCategoryFlowPane();
+        populateMostSubscribedBooksCategoryFlowPane();
     }
 
     /**
@@ -85,8 +86,12 @@ public class ShopPageViewController extends AnchorPane implements Observer{
     /**
      * Populates the 'All Books' category flow pane.
      */
-    private void populateCategoryFlowPaneWithBooks() {
+    private void populateAllBooksCategoryFlowPane() {
         allBooksCategory.populateCategoryWithBooks(model.getAllBooks());
+    }
+
+    private void populateMostSubscribedBooksCategoryFlowPane(){
+        mostSubscribedBooksCategory.populateCategoryWithBooks(model.getMostSubscribedBooks());
     }
 
     /** On-click method that navigates the application to the accountPage.
@@ -113,7 +118,8 @@ public class ShopPageViewController extends AnchorPane implements Observer{
      */
     @Override
     public void update() {
-
+        populateAllBooksCategoryFlowPane();
+        populateMostSubscribedBooksCategoryFlowPane();
     }
 
     public void updateSearchBarResults(){

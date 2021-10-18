@@ -2,9 +2,7 @@ package com.cbm.tda367.model;
 
 import com.cbm.tda367.viewcontroller.Observer;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 /**
  * Application main class for the model containing the logic of the model.
@@ -245,12 +243,20 @@ public class ApplicationModel implements Observable {
 
     public List<Book> getMostSubscribedBooks(){
         List<Book> allBooks = bookDatabase.getBookList();
+        List<Integer> nSubscriptions = new ArrayList<>();
         List<Book> mostSubscribedBooks = new ArrayList<>();
 
-        for(Book book : allBooks){
+        for(Book book : allBooks){nSubscriptions.add(book.getBookSubscriptions());}
 
+        Collections.sort(nSubscriptions);
+
+        for(Integer nSub : nSubscriptions){
+            for(Book book: allBooks){
+                if (book.getBookSubscriptions() == nSub){ mostSubscribedBooks.add(book); }
+            }
         }
-        return null;
+
+        return mostSubscribedBooks;
     }
 
     public List<Book> filterBooksByName(String filter){
