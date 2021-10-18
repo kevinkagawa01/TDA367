@@ -123,21 +123,22 @@ public class ApplicationModel implements Observable {
     }
 
     public void addBookToSubscriptionList(String  bookName, String image){
-        Book book=bookDatabase.returnBookWithCorrespondingName(bookName);
+        Book book = bookDatabase.returnBookWithCorrespondingName(bookName);
 
-        Book b=new Book(bookName,book.getBookAuthor(),book.getBookCode(),image,book.getCategory());
-
-
+        Book b = new Book(bookName,book.getBookAuthor(),book.getBookCode(),image,book.getCategory());
         /* add book to subscription list */
         currentlyLoggedInUser.addBookSubscription(b);
+        /* increment book subscriptions */
+        bookDatabase.incrementSubscription(book.getBookCode());
         /* Update view */
         notifyObservers();
 
     }
     public void removeBookFromSubscriptionList(Book book) {
-
         /* remove book from subscription list  */
         currentlyLoggedInUser.removeBookSubscription(book);
+        /* decrement number of subscriptions on the book */
+        bookDatabase.decrementSubscription(book.getBookCode());
         /* Update view */
         notifyObservers();
     }
@@ -251,20 +252,19 @@ public class ApplicationModel implements Observable {
 
     public List<Book> getMostSubscribedBooks(){
         List<Book> allBooks = bookDatabase.getBookList();
-        List<Integer> nSubscriptions = new ArrayList<>();
-        List<Book> mostSubscribedBooks = new ArrayList<>();
 
-        for(Book book : allBooks){nSubscriptions.add(book.getBookSubscriptions());}
-
-        Collections.sort(nSubscriptions);
-
-        for(Integer nSub : nSubscriptions){
-            for(Book book: allBooks){
-                if (book.getBookSubscriptions() == nSub){ mostSubscribedBooks.add(book); }
+        for(int i = 0; i < allBooks.size(); i++){
+            for(int j = i+1; j < allBooks.size(); j++){
+                if(allBooks.get(j).getBookSubscriptions() > allBooks.get(i).getBookSubscriptions()){
+                    Book tmpBook = allBooks.get(j);
+                    allBooks.set(j,allBooks.get(i));
+                    allBooks.set(i,tmpBook);
+                    i = 0;
+                }
             }
         }
 
-        return mostSubscribedBooks;
+        return allBooks;
     }
 
     public List<Book> filterBooksByName(String filter){

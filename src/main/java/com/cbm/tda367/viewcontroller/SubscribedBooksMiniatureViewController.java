@@ -77,7 +77,6 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
     protected void onClickUnsubscribeToBook(Event event) {
         model.removeBookFromSubscriptionList(book);
         System.out.println("Removed Subscribed");
-        bookDetailViewController.setSubscribePressed();
 
     }
 

@@ -109,6 +109,15 @@ public class Book {
     public int getBookSubscriptions() {
         return bookSubscriptions;
     }
+
+    void incrementSubscriptions(){
+        bookSubscriptions++;
+    }
+
+    void decrementSubscription(){
+        bookSubscriptions--;
+    }
+
     public LocalDate getDate() {
         return date;
     }
