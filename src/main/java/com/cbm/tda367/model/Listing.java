@@ -18,26 +18,25 @@ public class Listing {
     private final Book book;
     private final int listingNumber;
     private String condition;
-    private double price;
+    private String price;
     private final String imagePath;
     private String listingDescription;
 
 
     private boolean isReserved;
     private boolean isPurchased;
-    private LocalDate date = LocalDate.now();
+    private LocalDate date;
 
     /**
      * Constructs a listing
-     *
-     * @param book          A Book.
+     *  @param book          A Book.
      * @param listingNumber An integer specifying a listing number.
      * @param price         A double specifying the cost of a listing.
      * @param imagePath     A String representing the path of an image.
      * @param condition     A String representing the condition of a Book.
      */
 
-    public Listing(Book book, int listingNumber, double price, String imagePath, String condition, String listingDescription,boolean isPurchased,boolean isReserved) {
+    public Listing(Book book, int listingNumber, String price, String imagePath, String condition, String listingDescription, boolean isPurchased, boolean isReserved) {
 
         this.book = book;
         this.condition = condition;
@@ -47,7 +46,21 @@ public class Listing {
         this.listingDescription = listingDescription;
         this.isReserved=isReserved;
         this.isPurchased=isPurchased;
+        this.date = LocalDate.now();
     }
+
+    public Listing(Listing listing) {
+        this.book = new Book(listing.book);
+        this.condition = listing.condition;
+        this.listingNumber = listing.listingNumber;
+        this.price = listing.price;
+        this.imagePath = listing.imagePath;
+        this.listingDescription = listing.listingDescription;
+        this.isReserved = listing.isReserved;
+        this.isPurchased = listing.isPurchased;
+        this.date = listing.date;
+    }
+
     public String getCondition(){
         return condition;
     }
@@ -75,7 +88,7 @@ public class Listing {
      *
      * @return A price.
      */
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 

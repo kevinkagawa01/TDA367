@@ -12,6 +12,12 @@
 
 <fx:root prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: FFFFFF;" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <Rectangle fx:id="saveRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="54.0" layoutX="120.0" layoutY="584.0" onMouseClicked="#onClickSaveListing" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 60; -fx-arc-width: 60;" width="184.0" />
+      <Text fx:id="saveText" fill="WHITE" layoutX="120.0" layoutY="618.0" onMouseClicked="#onClickSaveListing" strokeType="OUTSIDE" strokeWidth="0.0" text="Save" textAlignment="CENTER" wrappingWidth="184.0">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
       <ImageView fitHeight="465.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Library/Polygon3.png" />
@@ -24,8 +30,8 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="54.0" layoutX="120.0" layoutY="584.0" onMouseClicked="#onClickCreateListing" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 60; -fx-arc-width: 60;" width="184.0" />
-      <Text fill="WHITE" layoutX="120.0" layoutY="618.0" onMouseClicked="#onClickCreateListing" strokeType="OUTSIDE" strokeWidth="0.0" text="Publish" textAlignment="CENTER" wrappingWidth="184.0">
+      <Rectangle fx:id="publishRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="54.0" layoutX="120.0" layoutY="584.0" onMouseClicked="#onClickCreateListing" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 60; -fx-arc-width: 60;" width="184.0" />
+      <Text fx:id="publishText" fill="WHITE" layoutX="120.0" layoutY="618.0" onMouseClicked="#onClickCreateListing" strokeType="OUTSIDE" strokeWidth="0.0" text="Publish" textAlignment="CENTER" wrappingWidth="184.0">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>

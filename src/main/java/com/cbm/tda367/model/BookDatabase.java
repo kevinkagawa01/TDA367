@@ -118,11 +118,12 @@ class BookDatabase {
 
     /**
      * increments number of subscribers to book, corresponding to the book code.
+     *
      * @param bookCode book's subscribers to be incremented.
      */
-    void incrementSubscription(String bookCode){
-        for(Book book : bookList){
-            if (book.getBookCode().equals(bookCode)){
+    void incrementSubscription(String bookCode) {
+        for (Book book : bookList) {
+            if (book.getBookCode().equals(bookCode)) {
                 book.incrementSubscriptions();
             }
         }
@@ -130,11 +131,12 @@ class BookDatabase {
 
     /**
      * decrements number of subscribers to book, corresponding to the book code.
+     *
      * @param bookCode book's subscribers to be decremented.
      */
-    void decrementSubscription(String bookCode){
-        for(Book book : bookList){
-            if (book.getBookCode().equals(bookCode)){
+    void decrementSubscription(String bookCode) {
+        for (Book book : bookList) {
+            if (book.getBookCode().equals(bookCode)) {
                 book.decrementSubscription();
             }
         }

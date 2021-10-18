@@ -49,7 +49,7 @@ public class ListingViewController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        listingPrice.setText(Double.toString(listing.getPrice()));
+        listingPrice.setText(listing.getPrice());
         listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
         listingBookCondition.setText(listing.getCondition());
     }

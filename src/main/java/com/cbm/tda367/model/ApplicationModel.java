@@ -24,9 +24,9 @@ public class ApplicationModel implements Observable {
     private User currentlyLoggedInUser = NotLoggedInUser.getInstance();
     //TODO: Should read current listing number from text file after initial launch
     private int currentListingNumber = 1;
-    private int currentSubscribtion=1;
+    private int currentSubscribtion = 1;
 
-    private List<Listing> listings = new ArrayList<>();
+
     private List<Observer> viewObservers = new ArrayList<>();
 
     /**
@@ -34,8 +34,8 @@ public class ApplicationModel implements Observable {
      */
     private ApplicationModel() {
         /* init databases */
-        bookDatabase    = BookDatabase.getInstance();
-        userDatabase    = UserDatabase.getInstance();
+        bookDatabase = BookDatabase.getInstance();
+        userDatabase = UserDatabase.getInstance();
         listingDatabase = ListingDatabase.getInstance();
         /* Update views on start */
         notifyObservers();
@@ -43,6 +43,7 @@ public class ApplicationModel implements Observable {
 
     /**
      * Returns single instance of this class.
+     *
      * @return single instance of this class.
      */
     public static ApplicationModel getInstance() {
@@ -61,6 +62,7 @@ public class ApplicationModel implements Observable {
 
     /**
      * Adds an observer to the lists of observers, watching this class.
+     *
      * @param observer observes this class for changes.
      */
     @Override
@@ -70,6 +72,7 @@ public class ApplicationModel implements Observable {
 
     /**
      * Returns a list of the application's published listings.
+     *
      * @return a copied list of listings.
      */
     public List<Listing> getListingDatabase() {
@@ -78,39 +81,47 @@ public class ApplicationModel implements Observable {
 
     /**
      * Removes a published listing from the application.
+     *
      * @param listing published listing to be removed.
      */
     private void removeListings(Listing listing) {
         listingDatabase.removeListing(listing);
     }
 
-    private void editListing() {
+    public void editListing(String bookCode, String condition, String price, String description, int editingListingNumber) {
+        Book book = bookDatabase.returnBookWithCorrespondingCode(bookCode);
+        Listing listing = new Listing(book, editingListingNumber, price, book.getImagePath(), condition, description, false, false);
+        listingDatabase.editListing(listing);
+        currentlyLoggedInUser.editListing(listing);
+        notifyObservers();
     }
 
     /**
      * Adds a listing to the application.
-     * @param bookCode book-code corresponding to the book the User wants to sell.
+     *
+     * @param bookCode  book-code corresponding to the book the User wants to sell.
      * @param condition the listings condition.
-     * @param price the listings price.
+     * @param price     the listings price.
      */
     public void addListing(String bookCode, String condition, String price, String description) {
         /* Book corresponding with listing */
         Book book = bookDatabase.returnBookWithCorrespondingCode(bookCode);
         /* Creating new listing */
         Listing listing = new Listing(book, currentListingNumber++,
-                Double.parseDouble(price),
+                price,
                 book.getImagePath(),
                 condition,
-                description,false,false);
+                description, false, false);
 
 
-       /* Add listing to listings */
+        /* Add listing to listings */
         listingDatabase.addListing(listing);
         currentlyLoggedInUser.addListingForSale(listing);
 
-         /* Update view */
+        /* Update view */
         notifyObservers();
     }
+
     public void removedListingFromCurrentlyLoggedInUser(Listing listing) {
         /* Delete removed listing from Database */
         listingDatabase.removeListing(listing);
@@ -122,10 +133,10 @@ public class ApplicationModel implements Observable {
         notifyObservers();
     }
 
-    public void addBookToSubscriptionList(String  bookName, String image){
+    public void addBookToSubscriptionList(String bookName, String image) {
         Book book = bookDatabase.returnBookWithCorrespondingName(bookName);
 
-        Book b = new Book(bookName,book.getBookAuthor(),book.getBookCode(),image,book.getCategory());
+        Book b = new Book(bookName, book.getBookAuthor(), book.getBookCode(), image, book.getCategory());
         /* add book to subscription list */
         currentlyLoggedInUser.addBookSubscription(b);
         /* increment book subscriptions */
@@ -134,6 +145,7 @@ public class ApplicationModel implements Observable {
         notifyObservers();
 
     }
+
     public void removeBookFromSubscriptionList(Book book) {
         /* remove book from subscription list  */
         currentlyLoggedInUser.removeBookSubscription(book);
@@ -142,11 +154,13 @@ public class ApplicationModel implements Observable {
         /* Update view */
         notifyObservers();
     }
-    public void reserveListing(Listing listing){
+
+    public void reserveListing(Listing listing) {
         currentlyLoggedInUser.addReservedBook(listing);
         /* Update view */
         notifyObservers();
     }
+
     public void removeBookFromReservedList(Listing listing) {
         listingDatabase.removeListing(listing);
 
@@ -155,7 +169,8 @@ public class ApplicationModel implements Observable {
         /* Update view */
         notifyObservers();
     }
-    public void purchaseDone(Listing listing){
+
+    public void purchaseDone(Listing listing) {
         currentlyLoggedInUser.addPreviousPurchase(listing);
         //boolean isPurchasedOkSeller=true;
         //boolean isPurchasedOkBuyer=true;
@@ -163,6 +178,7 @@ public class ApplicationModel implements Observable {
         /* Update view */
         notifyObservers();
     }
+
     public void removePurchaseListingBooks(Listing listing) {
         listingDatabase.removeListing(listing);
         currentlyLoggedInUser.removePreviousPurchase(listing);
@@ -173,27 +189,26 @@ public class ApplicationModel implements Observable {
     }
 
 
+    /* public List returnPopularbooks(List books) {
+         //Todo: behöver gå igenom med gruppen
+         List allBooks = BookDatabase.getInstance().getBookList();
+         List popularBooks = new ArrayList();
+         for (int i = 0; i < allBooks.size(); i++) {
+             Book book = (Book) allBooks.get(i);
+             Book book2 = (Book) allBooks.get(i++);
 
-   /* public List returnPopularbooks(List books) {
-        //Todo: behöver gå igenom med gruppen
-        List allBooks = BookDatabase.getInstance().getBookList();
-        List popularBooks = new ArrayList();
-        for (int i = 0; i < allBooks.size(); i++) {
-            Book book = (Book) allBooks.get(i);
-            Book book2 = (Book) allBooks.get(i++);
+             if (book.getBookSales() < book2.getBookSales()) {
+                 popularBooks.add(book);
+             }
 
-            if (book.getBookSales() < book2.getBookSales()) {
-                popularBooks.add(book);
-            }
+         }
 
-        }
-
-        return popularBooks;
-    }*/
-    public double getListingSellerRating(Listing listing){
-        for(User user: userDatabase.getUserList()){
-            for(Listing listing1 : user.getBooksForSale()){
-                if (listing1.getListingNumber() == listing.getListingNumber()){
+         return popularBooks;
+     }*/
+    public double getListingSellerRating(Listing listing) {
+        for (User user : userDatabase.getUserList()) {
+            for (Listing listing1 : user.getBooksForSale()) {
+                if (listing1.getListingNumber() == listing.getListingNumber()) {
                     return user.getRating();
                 }
             }
@@ -201,10 +216,10 @@ public class ApplicationModel implements Observable {
         return -1;
     }
 
-    public String getListingCid(Listing listing){
-        for(User user: userDatabase.getUserList()){
-            for(Listing listing1 : user.getBooksForSale()){
-                if (listing1.getListingNumber() == listing.getListingNumber()){
+    public String getListingCid(Listing listing) {
+        for (User user : userDatabase.getUserList()) {
+            for (Listing listing1 : user.getBooksForSale()) {
+                if (listing1.getListingNumber() == listing.getListingNumber()) {
                     return user.getCid();
                 }
             }
@@ -213,10 +228,10 @@ public class ApplicationModel implements Observable {
     }
 
 
-
     /**
      * Determining whether login attempt was successful or not.
-     * @param cid User chalmers identification.
+     *
+     * @param cid      User chalmers identification.
      * @param password User password.
      * @return boolean whether the login attempt was successful or not.
      */
@@ -233,6 +248,7 @@ public class ApplicationModel implements Observable {
 
     /**
      * Returns the user that is currently logged in to the application.
+     *
      * @return the currently logged-in user.
      */
     public User getCurrentlyLoggedInUser() {
@@ -243,15 +259,15 @@ public class ApplicationModel implements Observable {
         return bookDatabase.getBookList();
     }
 
-    public List<Book> getMostSubscribedBooks(){
+    public List<Book> getMostSubscribedBooks() {
         List<Book> allBooks = bookDatabase.getBookList();
 
-        for(int i = 0; i < allBooks.size(); i++){
-            for(int j = i+1; j < allBooks.size(); j++){
-                if(allBooks.get(j).getBookSubscriptions() > allBooks.get(i).getBookSubscriptions()){
+        for (int i = 0; i < allBooks.size(); i++) {
+            for (int j = i + 1; j < allBooks.size(); j++) {
+                if (allBooks.get(j).getBookSubscriptions() > allBooks.get(i).getBookSubscriptions()) {
                     Book tmpBook = allBooks.get(j);
-                    allBooks.set(j,allBooks.get(i));
-                    allBooks.set(i,tmpBook);
+                    allBooks.set(j, allBooks.get(i));
+                    allBooks.set(i, tmpBook);
                 }
             }
         }
@@ -259,14 +275,14 @@ public class ApplicationModel implements Observable {
         return allBooks;
     }
 
-    public List<Book> filterBooksByName(String filter){
+    public List<Book> filterBooksByName(String filter) {
         /* Filtered books */
         List<Book> filteredBooks = new ArrayList<>();
         /* All books from database */
         List<Book> allBooks = bookDatabase.getBookList();
 
-        for(Book book : allBooks){
-            if(book.getBookName().toLowerCase().contains(filter.toLowerCase())){
+        for (Book book : allBooks) {
+            if (book.getBookName().toLowerCase().contains(filter.toLowerCase())) {
                 filteredBooks.add(book);
             }
         }

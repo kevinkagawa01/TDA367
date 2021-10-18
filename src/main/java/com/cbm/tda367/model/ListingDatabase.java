@@ -56,6 +56,15 @@ class ListingDatabase {
 
     }
 
+    void editListing(Listing listing) {
+        for (Listing l : listingList) {
+            if (l.getListingNumber() == listing.getListingNumber()) {
+                listingList.set(listingList.indexOf(l), listing);
+            }
+        }
+    }
+
+
     /**
      * Retrieves the list of listings.
      *
