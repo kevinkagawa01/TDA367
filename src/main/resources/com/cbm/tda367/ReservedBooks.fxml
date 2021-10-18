@@ -14,29 +14,32 @@
             <Image url="@../../../Library/coverSample.png" />
          </image>
       </ImageView>
-      <Text fx:id="reservedDate" layoutX="7.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Datum&gt;">
+      <Text fx:id="reservedDate" layoutX="9.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Datum&gt;">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <Rectangle fx:id="unReserve" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="41.0" layoutX="271.0" layoutY="17.0" onMouseClicked="#onClickRemoveReservedBook" stroke="BLACK" strokeType="INSIDE" width="101.0" />
+      <Rectangle fx:id="unReserve" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="28.0" layoutX="278.0" layoutY="74.0" onMouseClicked="#onClickRemoveReservedBook" stroke="BLACK" strokeType="INSIDE" width="79.0" />
       <Text fx:id="reservedListingTitle" layoutX="71.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Title&gt;">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <Text layoutX="293.0" layoutY="42.0" onMouseClicked="#onClickRemoveReservedBook" strokeType="OUTSIDE" strokeWidth="0.0" text="UnReserve">
+      <Text layoutX="290.0" layoutY="93.0" onMouseClicked="#onClickRemoveReservedBook" strokeType="OUTSIDE" strokeWidth="0.0" text="UnReserve">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text fx:id="reservedListingPrice" layoutX="288.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Price&gt;">
+      <Text fx:id="reservedListingPrice" layoutX="288.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Price&gt;">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Rectangle fx:id="doneButton" arcHeight="5.0" arcWidth="5.0" fill="#28992c" height="34.0" layoutX="271.0" layoutY="65.0" onMouseClicked="#onClickPurchased" stroke="BLACK" strokeType="INSIDE" width="101.0" />
-      <Text layoutX="306.0" layoutY="87.0" onMouseClicked="#onClickPurchased" strokeType="OUTSIDE" strokeWidth="0.0" text="Done" />
-      <Text fx:id="email" layoutX="79.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Rectangle fx:id="doneButton" arcHeight="5.0" arcWidth="5.0" fill="#28992c" height="34.0" layoutX="267.0" layoutY="32.0" onMouseClicked="#onClickPurchased" stroke="BLACK" strokeType="INSIDE" width="101.0" />
+      <Text layoutX="303.0" layoutY="54.0" onMouseClicked="#onClickPurchased" strokeType="OUTSIDE" strokeWidth="0.0" text="Done" />
+      <Text fx:id="email" layoutX="80.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
    </children>
 </fx:root>
