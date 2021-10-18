@@ -252,7 +252,6 @@ public class ApplicationModel implements Observable {
                     Book tmpBook = allBooks.get(j);
                     allBooks.set(j,allBooks.get(i));
                     allBooks.set(i,tmpBook);
-                    i = 0;
                 }
             }
         }
