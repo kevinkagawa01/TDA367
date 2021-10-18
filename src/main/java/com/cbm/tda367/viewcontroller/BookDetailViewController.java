@@ -83,18 +83,20 @@ public class BookDetailViewController extends AnchorPane {
 
         if (!subscribePressed) {
             greenButton.setFill(Color.RED);
+            manager.openSubscribedBooksInAccordionPage();
             subscribePressed = true;
         } else {
             greenButton.setFill(Color.GREEN);
             subscribePressed = false;
         }
 
-        model.addBookToSubscriptionList(book.getBookName(), book.getImagePath());
+        model.addBookToSubscriptionList(book.getBookName());
 
         /*Switch to account page*/
 
         manager.goToAccountPage();
-        manager.openSubscribedBooksInAccordionPage();
+
+
     }
 
     public void updateBookPicture() {

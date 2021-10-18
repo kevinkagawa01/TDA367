@@ -139,9 +139,9 @@ public class ApplicationModel implements Observable {
         notifyObservers();
     }
 
-    public void addBookToSubscriptionList(String bookName, String image) {
+    public void addBookToSubscriptionList(String bookName) {
         for(Book book : bookDatabase.getBookList()) {
-            if(book.getBookName().equals(bookName)){
+            if(book.getBookName().equals(bookName)&& !currentlyLoggedInUser.getSubscribedBooks().contains(book)){
                 currentlyLoggedInUser.addBookSubscription(book);
                 bookDatabase.incrementSubscription(book.getBookCode());
                 notifyObservers();
@@ -154,6 +154,8 @@ public class ApplicationModel implements Observable {
         currentlyLoggedInUser.removeBookSubscription(book);
         /* decrement number of subscriptions on the book */
         bookDatabase.decrementSubscription(book.getBookCode());
+        /*   */
+
         /* Update view */
         notifyObservers();
     }
