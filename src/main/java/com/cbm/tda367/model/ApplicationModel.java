@@ -84,7 +84,8 @@ public class ApplicationModel implements Observable {
         listingDatabase.removeListing(listing);
     }
 
-    private void editListing() {
+    public void editListing(int listingNumber) {
+        listingDatabase.editListing(listingNumber);
     }
 
     /**
@@ -98,7 +99,7 @@ public class ApplicationModel implements Observable {
         Book book = bookDatabase.returnBookWithCorrespondingCode(bookCode);
         /* Creating new listing */
         Listing listing = new Listing(book, currentListingNumber++,
-                Double.parseDouble(price),
+                price,
                 book.getImagePath(),
                 condition,
                 description,false,false);
