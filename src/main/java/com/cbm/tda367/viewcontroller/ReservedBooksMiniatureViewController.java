@@ -1,6 +1,7 @@
 package com.cbm.tda367.viewcontroller;
 
 import com.cbm.tda367.model.ApplicationModel;
+import com.cbm.tda367.model.Book;
 import com.cbm.tda367.model.Listing;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -8,12 +9,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Visual representation of the miniature view of a User's reserved books.
@@ -25,7 +28,7 @@ import java.time.LocalDate;
  * @version 1.0
  * @since 1.0
  */
-public class ReservedBooksMiniatureViewController extends AnchorPane{
+public class ReservedBooksMiniatureViewController extends AnchorPane {
 
 
     private final ControllerManager manager;
@@ -41,8 +44,10 @@ public class ReservedBooksMiniatureViewController extends AnchorPane{
     Rectangle unReserve;
     private @FXML
     ImageView reservePicture;
-    private @FXML Text email;
-    private @FXML Rectangle doneButton;
+    private @FXML
+    Text email;
+    private @FXML
+    Rectangle doneButton;
 
     /**
      * Constructs the view and defines its controller.
@@ -69,6 +74,7 @@ public class ReservedBooksMiniatureViewController extends AnchorPane{
         reservedListingPrice.setText(listing.getPrice() + " kr");
         email.setText(model.getCurrentlyLoggedInUser().getCid());
     }
+
     /**
      * Updates the visual representation of which user i logged in to the application.
      */
@@ -77,8 +83,9 @@ public class ReservedBooksMiniatureViewController extends AnchorPane{
         model.removeBookFromReservedList(listing);
 
     }
+
     @FXML
-    protected void onClickPurchased(Event event){
+    protected void onClickPurchased(Event event) {
         model.purchaseDone(listing);
         System.out.println("Purchased Done");
 
@@ -86,8 +93,6 @@ public class ReservedBooksMiniatureViewController extends AnchorPane{
         manager.openPurchasedBooksInAccordionInPage();
 
     }
-
-
 
 
 

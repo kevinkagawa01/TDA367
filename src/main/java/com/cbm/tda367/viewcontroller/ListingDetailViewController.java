@@ -1,6 +1,7 @@
 package com.cbm.tda367.viewcontroller;
 
 import com.cbm.tda367.model.ApplicationModel;
+import com.cbm.tda367.model.Book;
 import com.cbm.tda367.model.Listing;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -9,6 +10,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -34,6 +37,8 @@ public class ListingDetailViewController extends AnchorPane {
     @FXML private Text listingBookCondition;
     @FXML private Text listingBookPrice;
     @FXML private TextArea listingDetailDescription;
+    @FXML private Rectangle reservedButton;
+    private  boolean isReserved;
 
 
     /**
@@ -97,10 +102,41 @@ public class ListingDetailViewController extends AnchorPane {
 
     @FXML
     public void onClickReservePurchase(Event event) {
-        model.reserveListing(this.listing);
+        if(isReserved){
+            Unreserved();
+        } else {
+            reserve();
+        }
 
+
+    }
+    protected void Unreserved() {
+        for (Listing listing : model.getCurrentlyLoggedInUser().getReservedBooks()) {
+            if (listing.getBook().getBookCode().equals(this.listing.getBook().getBookCode())) {
+                model.removeBookFromSubscriptionList(listing.getBook().getBookCode());
+                updateReservedStatus();
+            }
+        }
+    }
+    private void reserve() {
+        model.reserveListing(this.listing);
+        updateReservedStatus();
         manager.goToAccountPage();
         manager.openReservedBooksInAccordionPage();
+    }
+    private void updateReservedStatus() {
+         isReserved=false;
+        for (Listing listings : model.getCurrentlyLoggedInUser().getReservedBooks()) {
+            if (listings.getBook().getBookCode().equals(this.listing.getBook().getBookCode())) {
+                isReserved = true;
+            }
+        }
+        if (isReserved) {
+            reservedButton.setFill(Color.RED);
+
+        } else {
+            reservedButton.setFill(Color.GREEN);
+        }
     }
 
 
@@ -128,6 +164,7 @@ public class ListingDetailViewController extends AnchorPane {
         updateListingBookConditionText();
         updateListingBookPriceText();
         updateListingBookDescriptionText();
+        updateReservedStatus();
     }
 
     private void updateListingBookPriceText() {

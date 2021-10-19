@@ -22,7 +22,7 @@
          </font>
       </Text>
 
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbb547" height="55.0" layoutX="100.0" layoutY="629.0" onMouseClicked="#onClickReservePurchase" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
+      <Rectangle fx:id="reservedButton" arcHeight="5.0" arcWidth="5.0" fill="#fbb547" height="55.0" layoutX="100.0" layoutY="629.0" onMouseClicked="#onClickReservePurchase" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
       <Text fill="WHITE" layoutX="147.0" layoutY="663.0" onMouseClicked="#onClickReservePurchase" strokeType="OUTSIDE" strokeWidth="0.0" text="RESERVERA" textAlignment="CENTER">
 
          <font>
