@@ -151,11 +151,11 @@ public class ApplicationModel implements Observable {
         }
     }
 
-    public void removeBookFromSubscriptionList(Book book) {
+    public void removeBookFromSubscriptionList(String bookCode) {
         /* remove book from subscription list  */
-        currentlyLoggedInUser.removeBookSubscription(book);
+        currentlyLoggedInUser.removeBookSubscription(bookCode);
         /* decrement number of subscriptions on the book */
-        bookDatabase.decrementSubscription(book.getBookCode());
+        bookDatabase.decrementSubscription(bookCode);
         /*   */
 
         /* Update view */

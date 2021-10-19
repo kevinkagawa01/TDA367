@@ -29,19 +29,20 @@ import java.util.List;
  * @since 1.0
  */
 public class BookDetailViewController extends AnchorPane {
+
     private final ApplicationModel model=ApplicationModel.getInstance();
     private final ControllerManager manager;
     private Book book;
+    private boolean subscribedToBook;
 
-
-    private boolean subscribePressed = false;
-
+    @FXML
+    private Rectangle subscribeButtonRectangle;
+    @FXML
+    private Text subscribeButtonText;
     @FXML
     private ImageView bookImageView;
     @FXML
     private Text bookTitleText;
-    @FXML
-    private Rectangle greenButton;
     @FXML
     private FlowPane listingsFlowPane;
 
@@ -80,10 +81,25 @@ public class BookDetailViewController extends AnchorPane {
      */
     @FXML
     public void onClickSubscribeToBook(Event event) {
+        if(subscribedToBook){
+            unsubscribe();
+        } else {
+            subscribe();
+        }
+    }
+
+    private void unsubscribe() {
+        for(Book book : model.getCurrentlyLoggedInUser().getSubscribedBooks()){
+            if(book.getBookCode().equals(this.book.getBookCode())){
+                model.removeBookFromSubscriptionList(book.getBookCode());
+                updateSubscriptionStatus();
+            }
+        }
+    }
+
+    private void subscribe() {
+        model.addBookToSubscriptionList(book.getBookName());
         updateSubscriptionStatus();
-        /*Switch to account page*/
-
-
     }
 
     public void updateBookPicture() {
@@ -118,16 +134,18 @@ public class BookDetailViewController extends AnchorPane {
     }
 
     private void updateSubscriptionStatus() {
-        // if currentlyLoggedInUser has book in subscriptions
-        // set red
-        // else green
-        if (!model.getCurrentlyLoggedInUser().getSubscribedBooks().contains(book)) {
-            model.addBookToSubscriptionList(book.getBookName());
-            manager.openSubscribedBooksInAccordionPage();
-        } else {
-            model.removeBookFromSubscriptionList(book);
+        subscribedToBook = false;
+        for(Book book : model.getCurrentlyLoggedInUser().getSubscribedBooks()){
+            if(book.getBookCode().equals(this.book.getBookCode())) {
+                subscribedToBook = true;
+            }
         }
+        if(subscribedToBook){
+            subscribeButtonRectangle.setFill(Color.RED);
 
+        } else {
+            subscribeButtonRectangle.setFill(Color.GREEN);
+        }
     }
 
     @FXML
