@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: #FFFFFF;" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: #FFFFFF;" stylesheets="@account-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="361.0" fitWidth="242.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -28,52 +28,53 @@
             <Image url="@../../../Library/Polygon4.png" />
          </image>
       </ImageView>
-      <Accordion fx:id="accountPageAccordion" layoutX="21.0" layoutY="230.0" prefHeight="381.0" prefWidth="375.0">
+      <Accordion fx:id="accountPageAccordion" layoutX="15.0" layoutY="233.0" minWidth="384.0" prefHeight="381.0" prefWidth="384.0">
         <panes>
-            <TitledPane animated="false" text="Reserved Books">
+            <TitledPane minWidth="384.0" prefWidth="384.0" styleClass="transparent-title-pane" text="Reserved Books">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane minHeight="0.0" minWidth="384.0" prefHeight="180.0" prefWidth="384.0">
                      <children>
-                        <ScrollPane hbarPolicy="NEVER" prefHeight="278.0" prefWidth="375.0" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="NEVER">
+                        <ScrollPane hbarPolicy="NEVER" minWidth="384.0" prefHeight="278.0" prefWidth="384.0" styleClass="transparent-scroll-pane" vbarPolicy="NEVER">
                            <content>
-                              <FlowPane fx:id="reservedBookAccordion" prefHeight="278.0" prefWidth="375.0" />
+                              <FlowPane fx:id="reservedBookAccordion" minWidth="384.0" prefHeight="278.0" prefWidth="384.0" prefWrapLength="384.0" />
                            </content>
                         </ScrollPane>
-                     </children></AnchorPane>
+                     </children>
+                  </AnchorPane>
               </content>
             </TitledPane>
-            <TitledPane animated="false" text="Published Books">
+            <TitledPane minWidth="384.0" prefWidth="384.0" styleClass="transparent-title-pane" text="Published Books">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane minHeight="0.0" minWidth="384.0" prefHeight="180.0" prefWidth="384.0">
                      <children>
-                        <ScrollPane prefHeight="278.0" prefWidth="375.0">
+                        <ScrollPane hbarPolicy="NEVER" minWidth="384.0" prefHeight="278.0" prefWidth="384.0" styleClass="transparent-scroll-pane" vbarPolicy="NEVER">
                            <content>
-                              <FlowPane fx:id="publishedBooksFlowPane" prefHeight="275.0" prefWidth="370.0" />
+                              <FlowPane fx:id="publishedBooksFlowPane" minWidth="384.0" prefHeight="275.0" prefWidth="384.0" prefWrapLength="384.0" />
                            </content>
                         </ScrollPane>
                      </children>
                   </AnchorPane>
                </content>
             </TitledPane>
-            <TitledPane animated="false" text="Subscribed Books">
+            <TitledPane minWidth="384.0" prefWidth="384.0" styleClass="transparent-title-pane" text="Subscribed Books">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane minHeight="0.0" minWidth="384.0" prefHeight="180.0" prefWidth="384.0">
                      <children>
-                        <ScrollPane prefHeight="278.0" prefWidth="375.0">
+                        <ScrollPane hbarPolicy="NEVER" minWidth="384.0" prefHeight="278.0" prefWidth="384.0" styleClass="transparent-scroll-pane" vbarPolicy="NEVER">
                            <content>
-                              <FlowPane fx:id="subscribedBooksFlowPane" prefHeight="276.0" prefWidth="371.0" />
+                              <FlowPane fx:id="subscribedBooksFlowPane" minWidth="384.0" prefHeight="276.0" prefWidth="384.0" prefWrapLength="384.0" />
                            </content></ScrollPane>
                      </children>
                   </AnchorPane>
                </content>
             </TitledPane>
-            <TitledPane animated="false" text="Purchase History">
+            <TitledPane minWidth="384.0" prefWidth="384.0" styleClass="transparent-title-pane" text="Purchase History">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane minHeight="0.0" minWidth="384.0" prefHeight="180.0" prefWidth="384.0">
                      <children>
-                        <ScrollPane prefHeight="278.0" prefWidth="375.0">
+                        <ScrollPane hbarPolicy="NEVER" minWidth="384.0" prefHeight="278.0" prefWidth="384.0" styleClass="transparent-scroll-pane" vbarPolicy="NEVER">
                            <content>
-                              <FlowPane fx:id="purchasedBook" prefHeight="276.0" prefWidth="373.0" />
+                              <FlowPane fx:id="purchasedBook" minWidth="384.0" prefHeight="276.0" prefWidth="384.0" prefWrapLength="384.0" />
                            </content>
                         </ScrollPane>
                      </children>

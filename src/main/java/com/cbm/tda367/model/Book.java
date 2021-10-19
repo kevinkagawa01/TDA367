@@ -26,14 +26,10 @@ public class Book {
     private int bookSales;
     private int bookSubscriptions;
     private final String imagePath;
+    private final String category;
 
-    public String getCategory() {
-        return category;
-    }
 
-    private String category;
-
-    private LocalDate date=LocalDate.now();
+    private LocalDate date = LocalDate.now();
 
 
     /**
@@ -52,7 +48,7 @@ public class Book {
         this.imagePath = Objects.requireNonNull(imagePath);
         this.bookSales = 0;
         this.bookSubscriptions = 0;
-
+        this.category = category;
     }
 
     public Book(Book book){
@@ -62,6 +58,8 @@ public class Book {
         this.imagePath = book.imagePath;
         this.bookSales = book.bookSales;
         this.bookSubscriptions = book.bookSubscriptions;
+        this.category = book.category;
+        this.date = book.date;
     }
 
     /**
@@ -129,6 +127,10 @@ public class Book {
 
     public LocalDate getDate() {
         return date;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
 
