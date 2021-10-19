@@ -29,11 +29,11 @@ import java.util.List;
  * @since 1.0
  */
 public class BookDetailViewController extends AnchorPane {
-    private final ApplicationModel model;
+    private final ApplicationModel model=ApplicationModel.getInstance();
     private final ControllerManager manager;
     private Book book;
-    private Listing listing;
-    private ListingViewController shopPageListing;
+
+
     private boolean subscribePressed = false;
 
     @FXML
@@ -49,10 +49,10 @@ public class BookDetailViewController extends AnchorPane {
      * Creates a detail view of a book.
      *
      * @param manager This controller manager.
-     * @param model   Singleton of application model.
+
      */
-    public BookDetailViewController(ControllerManager manager, ApplicationModel model, Book book) {
-        this.model = model;
+    public BookDetailViewController(ControllerManager manager, Book book) {
+
         this.manager = manager;
         this.book = book;
 
@@ -80,21 +80,8 @@ public class BookDetailViewController extends AnchorPane {
      */
     @FXML
     public void onClickSubscribeToBook(Event event) {
-
-        if (!subscribePressed) {
-            greenButton.setFill(Color.RED);
-            manager.openSubscribedBooksInAccordionPage();
-            subscribePressed = true;
-        } else {
-            greenButton.setFill(Color.GREEN);
-            subscribePressed = false;
-        }
-
-        model.addBookToSubscriptionList(book.getBookName());
-
+        updateSubscriptionStatus();
         /*Switch to account page*/
-
-        manager.goToAccountPage();
 
 
     }
@@ -127,6 +114,20 @@ public class BookDetailViewController extends AnchorPane {
         updateBookPicture();
         updateBookTitleText();
         updateListingFlowPane();
+        updateSubscriptionStatus();
+    }
+
+    private void updateSubscriptionStatus() {
+        // if currentlyLoggedInUser has book in subscriptions
+        // set red
+        // else green
+        if (!model.getCurrentlyLoggedInUser().getSubscribedBooks().contains(book)) {
+            model.addBookToSubscriptionList(book.getBookName());
+            manager.openSubscribedBooksInAccordionPage();
+        } else {
+            model.removeBookFromSubscriptionList(book);
+        }
+
     }
 
     @FXML
@@ -138,7 +139,5 @@ public class BookDetailViewController extends AnchorPane {
         this.book = book;
     }
 
-    public void setSubscribePressed() {
-        this.subscribePressed = false;
-    }
+
 }

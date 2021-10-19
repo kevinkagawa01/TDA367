@@ -88,8 +88,8 @@ public class ApplicationModel implements Observable {
     }
 
     public void editListing(String bookCode, String condition, String price, String description, int editingListingNumber) {
-        for(Book book : bookDatabase.getBookList()){
-            if (book.getBookCode().equals(bookCode)){
+        for (Book book : bookDatabase.getBookList()) {
+            if (book.getBookCode().equals(bookCode)) {
                 Listing listing = new Listing(book,
                         editingListingNumber,
                         price,
@@ -113,8 +113,8 @@ public class ApplicationModel implements Observable {
      * @param price     the listings price.
      */
     public void addListing(String bookCode, String condition, String price, String description) {
-        for(Book book : bookDatabase.getBookList()){
-            if(book.getBookCode().equals(bookCode)){
+        for (Book book : bookDatabase.getBookList()) {
+            if (book.getBookCode().equals(bookCode)) {
                 Listing listing = new Listing(book,
                         currentListingNumber++,
                         price,
@@ -140,11 +140,12 @@ public class ApplicationModel implements Observable {
     }
 
     public void addBookToSubscriptionList(String bookName) {
-        for(Book book : bookDatabase.getBookList()) {
-            if(book.getBookName().equals(bookName)&& !currentlyLoggedInUser.getSubscribedBooks().contains(book)){
+        for (Book book : bookDatabase.getBookList()) {
+            if (book.getBookName().equals(bookName) && !currentlyLoggedInUser.getSubscribedBooks().contains(book)) {
                 currentlyLoggedInUser.addBookSubscription(book);
                 bookDatabase.incrementSubscription(book.getBookCode());
                 notifyObservers();
+
             }
         }
     }
