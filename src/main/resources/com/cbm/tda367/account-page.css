@@ -1,0 +1,21 @@
+*
+{
+}
+
+.transparent-title-pane
+{
+    -fx-background: TRANSPARENT;
+    -fx-border-color: TRANSPARENT;
+}
+
+.transparent-title-pane > .title
+{
+    -fx-background-radius: 5 5 5 5;
+}
+
+.transparent-scroll-pane
+{
+    -fx-background: TRANSPARENT;
+    -fx-background-color: TRANSPARENT;
+}
+
