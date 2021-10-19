@@ -23,8 +23,8 @@ public class ApplicationModel implements Observable {
     private final ListingDatabase listingDatabase;
     private User currentlyLoggedInUser = NotLoggedInUser.getInstance();
     private int currentListingNumber = 1;
-    private int currentSubscribtion = 1;
 
+    private int currentSubscribed=1;
 
     private List<Observer> viewObservers = new ArrayList<>();
 
@@ -164,6 +164,8 @@ public class ApplicationModel implements Observable {
 
     public void reserveListing(Listing listing) {
         currentlyLoggedInUser.addReservedBook(listing);
+        currentlyLoggedInUser.removeListingForSale(listing);
+
         /* Update view */
         notifyObservers();
     }
@@ -178,13 +180,25 @@ public class ApplicationModel implements Observable {
     }
 
     public void purchaseDone(Listing listing) {
-        currentlyLoggedInUser.addPreviousPurchase(listing);
-        //boolean isPurchasedOkSeller=true;
-        //boolean isPurchasedOkBuyer=true;
+        //currentlyLoggedInUser.addPreviousPurchase(listing);
+        boolean isPurchasedOkBySeller = true;
+        boolean isPurchasedOkByBuyer = true;
 
-        /* Update view */
-        notifyObservers();
+        if (isPurchasedOkByBuyer) {
+            if (isPurchasedOkBySeller) {
+                currentlyLoggedInUser.addPreviousPurchase(listing);
+                currentlyLoggedInUser.removeReservedBook(listing);
+
+                /* Update view */
+                notifyObservers();
+
+            }
+
+        }
     }
+
+
+
 
     public void removePurchaseListingBooks(Listing listing) {
         listingDatabase.removeListing(listing);

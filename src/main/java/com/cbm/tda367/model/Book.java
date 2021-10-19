@@ -33,9 +33,6 @@ public class Book {
 
     private String category;
 
-
-
-
     private LocalDate date=LocalDate.now();
 
 

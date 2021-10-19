@@ -62,12 +62,16 @@ public class ReservedBooksMiniatureViewController extends AnchorPane{
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+
         reservePicture.setImage(new Image(getClass().getResourceAsStream(this.listing.getBook().getImagePath())));
         reservedListingTitle.setText(listing.getBook().getBookName());
         reservedDate.setText(String.valueOf(listing.getDate()));
         reservedListingPrice.setText(listing.getPrice() + " kr");
         email.setText(model.getCurrentlyLoggedInUser().getCid());
     }
+    /**
+     * Updates the visual representation of which user i logged in to the application.
+     */
     @FXML
     protected void onClickRemoveReservedBook(Event event) {
         model.removeBookFromReservedList(listing);
@@ -76,20 +80,16 @@ public class ReservedBooksMiniatureViewController extends AnchorPane{
     @FXML
     protected void onClickPurchased(Event event){
         model.purchaseDone(listing);
+        System.out.println("Purchased Done");
+
         manager.goToAccountPage();
         manager.openPurchasedBooksInAccordionInPage();
 
     }
-    /**
-     * Updates the visual representation of which user i logged in to the application.
-     */
 
 
-    //@FXML
-    //public void onClickUnreserveBook(Listing listing) {
-        //model.getListingDatabase().remove(listing);
 
-    //}
+
 
 
 }

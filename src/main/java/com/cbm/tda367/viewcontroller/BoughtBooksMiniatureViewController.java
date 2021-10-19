@@ -61,6 +61,11 @@ public class BoughtBooksMiniatureViewController extends AnchorPane {
         date.setText(String.valueOf(listing.getDate()));
         purchasedPrice.setText(listing.getPrice() + " kr");
     }
+    /**
+     * On click method, delete listing from Application model
+     *
+     * @param event Click event
+     */
     @FXML
     protected void onClickRemovedBook(Event event){
         model.removePurchaseListingBooks(this.listing);

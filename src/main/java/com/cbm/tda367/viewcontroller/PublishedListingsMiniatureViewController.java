@@ -30,8 +30,12 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
 
     private ApplicationModel model = ApplicationModel.getInstance();
 
+
+    private ControllerManager manager=ControllerManager.getInstance();
+
     //private AccountPageController accountPageController;
-    private ControllerManager manager = ControllerManager.getInstance();
+  
+
 
     private AccountPageViewController accountPageController;
 
@@ -95,6 +99,11 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
         model.removedListingFromCurrentlyLoggedInUser(listing);
         System.out.println("Deleted from list");
     }
+    /**
+     * Edit published book.
+     *
+     * @param event Click Event.
+     */
 
 
     /**

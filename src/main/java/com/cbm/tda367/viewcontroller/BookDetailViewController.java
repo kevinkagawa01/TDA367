@@ -69,11 +69,6 @@ public class BookDetailViewController extends AnchorPane {
 
 
     }
-    //Todo: add shopPageListingviews in flowpane
-   /* private void addListingFlowPane() {
-        bookPane.getChildren().add(shopPageListing);
-    }*/
-
     /**
      * On click method, subscribing/unsubscribing this to a book.
      *
