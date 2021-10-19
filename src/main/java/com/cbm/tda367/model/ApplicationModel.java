@@ -124,6 +124,7 @@ public class ApplicationModel implements Observable {
                 listingDatabase.addListing(listing);
                 currentlyLoggedInUser.addListingForSale(listing);
                 notifyObservers();
+                //TODO: else-block should enable user to create a new book for the bookDatabase if not current one matches.
             }
         }
     }
