@@ -116,12 +116,6 @@ public class ListingDetailViewController extends AnchorPane {
     }
 
 
-    //@Override
-    //public void update() {
-        //updateListingDetailViewRating();
-        //updateListingEmail();
-      // updateListingDetailDescription();
-
 
     public void setListing(Listing listing) {
         this.listing = listing;

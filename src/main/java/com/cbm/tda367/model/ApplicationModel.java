@@ -162,6 +162,8 @@ public class ApplicationModel implements Observable {
 
     public void reserveListing(Listing listing) {
         currentlyLoggedInUser.addReservedBook(listing);
+        currentlyLoggedInUser.removeListingForSale(listing);
+
         /* Update view */
         notifyObservers();
     }
@@ -183,7 +185,7 @@ public class ApplicationModel implements Observable {
         if (isPurchasedOkByBuyer) {
             if (isPurchasedOkBySeller) {
                 currentlyLoggedInUser.addPreviousPurchase(listing);
-                //currentlyLoggedInUser.removeListingForSale(listing);
+                currentlyLoggedInUser.removeReservedBook(listing);
 
                 /* Update view */
                 notifyObservers();
