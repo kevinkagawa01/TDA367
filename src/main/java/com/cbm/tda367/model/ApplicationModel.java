@@ -88,8 +88,8 @@ public class ApplicationModel implements Observable {
     }
 
     public void editListing(String bookCode, String condition, String price, String description, int editingListingNumber) {
-        for(Book book : bookDatabase.getBookList()){
-            if (book.getBookCode().equals(bookCode)){
+        for (Book book : bookDatabase.getBookList()) {
+            if (book.getBookCode().equals(bookCode)) {
                 Listing listing = new Listing(book,
                         editingListingNumber,
                         price,
@@ -113,8 +113,8 @@ public class ApplicationModel implements Observable {
      * @param price     the listings price.
      */
     public void addListing(String bookCode, String condition, String price, String description) {
-        for(Book book : bookDatabase.getBookList()){
-            if(book.getBookCode().equals(bookCode)){
+        for (Book book : bookDatabase.getBookList()) {
+            if (book.getBookCode().equals(bookCode)) {
                 Listing listing = new Listing(book,
                         currentListingNumber++,
                         price,
@@ -124,6 +124,7 @@ public class ApplicationModel implements Observable {
                 listingDatabase.addListing(listing);
                 currentlyLoggedInUser.addListingForSale(listing);
                 notifyObservers();
+                //TODO: else-block should enable user to create a new book for the bookDatabase if not current one matches.
             }
         }
     }
@@ -140,20 +141,21 @@ public class ApplicationModel implements Observable {
     }
 
     public void addBookToSubscriptionList(String bookName) {
-        for(Book book : bookDatabase.getBookList()) {
-            if(book.getBookName().equals(bookName)&& !currentlyLoggedInUser.getSubscribedBooks().contains(book)){
+        for (Book book : bookDatabase.getBookList()) {
+            if (book.getBookName().equals(bookName) && !currentlyLoggedInUser.getSubscribedBooks().contains(book)) {
                 currentlyLoggedInUser.addBookSubscription(book);
                 bookDatabase.incrementSubscription(book.getBookCode());
                 notifyObservers();
+
             }
         }
     }
 
-    public void removeBookFromSubscriptionList(Book book) {
+    public void removeBookFromSubscriptionList(String bookCode) {
         /* remove book from subscription list  */
-        currentlyLoggedInUser.removeBookSubscription(book);
+        currentlyLoggedInUser.removeBookSubscription(bookCode);
         /* decrement number of subscriptions on the book */
-        bookDatabase.decrementSubscription(book.getBookCode());
+        bookDatabase.decrementSubscription(bookCode);
         /*   */
 
         /* Update view */

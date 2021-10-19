@@ -29,19 +29,20 @@ import java.util.List;
  * @since 1.0
  */
 public class BookDetailViewController extends AnchorPane {
-    private final ApplicationModel model;
+
+    private final ApplicationModel model=ApplicationModel.getInstance();
     private final ControllerManager manager;
     private Book book;
-    private Listing listing;
-    private ListingViewController shopPageListing;
-    private boolean subscribePressed = false;
+    private boolean subscribedToBook;
 
+    @FXML
+    private Rectangle subscribeButtonRectangle;
+    @FXML
+    private Text subscribeButtonText;
     @FXML
     private ImageView bookImageView;
     @FXML
     private Text bookTitleText;
-    @FXML
-    private Rectangle greenButton;
     @FXML
     private FlowPane listingsFlowPane;
 
@@ -49,10 +50,10 @@ public class BookDetailViewController extends AnchorPane {
      * Creates a detail view of a book.
      *
      * @param manager This controller manager.
-     * @param model   Singleton of application model.
+
      */
-    public BookDetailViewController(ControllerManager manager, ApplicationModel model, Book book) {
-        this.model = model;
+    public BookDetailViewController(ControllerManager manager, Book book) {
+
         this.manager = manager;
         this.book = book;
 
@@ -75,23 +76,25 @@ public class BookDetailViewController extends AnchorPane {
      */
     @FXML
     public void onClickSubscribeToBook(Event event) {
-
-        if (!subscribePressed) {
-            greenButton.setFill(Color.RED);
-            manager.openSubscribedBooksInAccordionPage();
-            subscribePressed = true;
+        if(subscribedToBook){
+            unsubscribe();
         } else {
-            greenButton.setFill(Color.GREEN);
-            subscribePressed = false;
+            subscribe();
         }
+    }
 
+    private void unsubscribe() {
+        for(Book book : model.getCurrentlyLoggedInUser().getSubscribedBooks()){
+            if(book.getBookCode().equals(this.book.getBookCode())){
+                model.removeBookFromSubscriptionList(book.getBookCode());
+                updateSubscriptionStatus();
+            }
+        }
+    }
+
+    private void subscribe() {
         model.addBookToSubscriptionList(book.getBookName());
-
-        /*Switch to account page*/
-
-        manager.goToAccountPage();
-
-
+        updateSubscriptionStatus();
     }
 
     public void updateBookPicture() {
@@ -122,6 +125,22 @@ public class BookDetailViewController extends AnchorPane {
         updateBookPicture();
         updateBookTitleText();
         updateListingFlowPane();
+        updateSubscriptionStatus();
+    }
+
+    private void updateSubscriptionStatus() {
+        subscribedToBook = false;
+        for(Book book : model.getCurrentlyLoggedInUser().getSubscribedBooks()){
+            if(book.getBookCode().equals(this.book.getBookCode())) {
+                subscribedToBook = true;
+            }
+        }
+        if(subscribedToBook){
+            subscribeButtonRectangle.setFill(Color.RED);
+
+        } else {
+            subscribeButtonRectangle.setFill(Color.GREEN);
+        }
     }
 
     @FXML
@@ -133,7 +152,5 @@ public class BookDetailViewController extends AnchorPane {
         this.book = book;
     }
 
-    public void setSubscribePressed() {
-        this.subscribePressed = false;
-    }
+
 }

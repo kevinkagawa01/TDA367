@@ -178,10 +178,10 @@ public class User {
     /**
      * Delete subscribed book from the hashmap list
      *
-     * @param book
+     * @param bookCode book code
      */
-    void removeBookSubscription(Book book) {
-        subscribedBooks.remove(book);
+    void removeBookSubscription(String bookCode) {
+        subscribedBooks.removeIf(book -> book.getBookCode().equals((bookCode)));
     }
 
     public ArrayList<Book> getSubscribedBooks() {
