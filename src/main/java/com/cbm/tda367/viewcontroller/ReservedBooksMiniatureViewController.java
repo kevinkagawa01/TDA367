@@ -80,6 +80,8 @@ public class ReservedBooksMiniatureViewController extends AnchorPane{
     @FXML
     protected void onClickPurchased(Event event){
         model.purchaseDone(listing);
+        System.out.println("Purchased Done");
+
         manager.goToAccountPage();
         manager.openPurchasedBooksInAccordionInPage();
 

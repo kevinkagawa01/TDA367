@@ -183,8 +183,13 @@ public class ApplicationModel implements Observable {
         if (isPurchasedOkByBuyer) {
             if (isPurchasedOkBySeller) {
                 currentlyLoggedInUser.addPreviousPurchase(listing);
+                //currentlyLoggedInUser.removeListingForSale(listing);
+
+                /* Update view */
+                notifyObservers();
 
             }
+
         }
     }
 

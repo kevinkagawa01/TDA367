@@ -19,13 +19,13 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <Rectangle fx:id="unReserve" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="28.0" layoutX="278.0" layoutY="74.0" onMouseClicked="#onClickRemoveReservedBook" stroke="BLACK" strokeType="INSIDE" width="79.0" />
+      <Rectangle fx:id="unReserve" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="28.0" layoutX="278.0" layoutY="82.0" onMouseClicked="#onClickRemoveReservedBook" stroke="BLACK" strokeType="INSIDE" width="79.0" />
       <Text fx:id="reservedListingTitle" layoutX="71.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Title&gt;">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <Text layoutX="290.0" layoutY="93.0" onMouseClicked="#onClickRemoveReservedBook" strokeType="OUTSIDE" strokeWidth="0.0" text="UnReserve">
+      <Text layoutX="290.0" layoutY="100.0" onMouseClicked="#onClickRemoveReservedBook" strokeType="OUTSIDE" strokeWidth="0.0" text="UnReserve">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -35,8 +35,8 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Rectangle fx:id="doneButton" arcHeight="5.0" arcWidth="5.0" fill="#28992c" height="34.0" layoutX="267.0" layoutY="32.0" onMouseClicked="#onClickPurchased" stroke="BLACK" strokeType="INSIDE" width="101.0" />
-      <Text layoutX="303.0" layoutY="54.0" onMouseClicked="#onClickPurchased" strokeType="OUTSIDE" strokeWidth="0.0" text="Done" />
+      <Rectangle fx:id="doneButton" arcHeight="5.0" arcWidth="5.0" fill="#28992c" height="34.0" layoutX="267.0" layoutY="40.0" onMouseClicked="#onClickPurchased" stroke="BLACK" strokeType="INSIDE" width="101.0" />
+      <Text layoutX="303.0" layoutY="62.0" onMouseClicked="#onClickPurchased" strokeType="OUTSIDE" strokeWidth="0.0" text="Done" />
       <Text fx:id="email" layoutX="80.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
             <Font size="15.0" />
