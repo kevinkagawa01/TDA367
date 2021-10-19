@@ -40,10 +40,14 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private ScrollPane published;
     @FXML
     private Text publishedBookText;
-    @FXML FlowPane publishedBooksFlowPane;
-    @FXML FlowPane subscribedBooksFlowPane;
-    @FXML FlowPane reservedBookAccordion;
-    @FXML FlowPane purchasedBook;
+    @FXML
+    FlowPane publishedBooksFlowPane;
+    @FXML
+    FlowPane subscribedBooksFlowPane;
+    @FXML
+    FlowPane reservedBookAccordion;
+    @FXML
+    FlowPane purchasedBook;
 
     @FXML
     private Text emailText;
@@ -74,6 +78,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     }
 
     /* onclick listeners*/
+
     /**
      * move to ShopPage by clicking on this button
      *
@@ -97,20 +102,22 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     /**
      * opens the accordion-section where published listings are displayed.
      */
-    protected void openReservedBooksAccordion(){
+    protected void openReservedBooksAccordion() {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(0));
     }
+
     protected void openPublishedListingsAccordion() {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(1));
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
+
     protected void openSubscribedBooksAccordion() {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(2));
 
         //TODO: Make the scrollPane inside the expanded pane roll to the top.
     }
 
-    protected void openPurchasedBooksAccordion(){
+    protected void openPurchasedBooksAccordion() {
         accountPageAccordion.setExpandedPane(accountPageAccordion.getPanes().get(3));
     }
 
@@ -176,42 +183,44 @@ public class AccountPageViewController extends AnchorPane implements Observer {
         updateSubscribedBooks();
         updateReservedBooks();
         updatePurchasedBooks();
-
-
     }
+
     private void updatePublishedBooks() {
         publishedBooksFlowPane.getChildren().clear();
 
         ArrayList<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
         for (Listing listing : publishedListings) {
-            publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(manager,listing));
+            publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(manager, listing));
 
         }
     }
-    private void updateSubscribedBooks(){
+
+    private void updateSubscribedBooks() {
         subscribedBooksFlowPane.getChildren().clear();
 
-        ArrayList<Book> subscribedBooks= model.getCurrentlyLoggedInUser().getSubscribedBooks();
-        for(Book book:subscribedBooks){
-            subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book,manager));
+        ArrayList<Book> subscribedBooks = model.getCurrentlyLoggedInUser().getSubscribedBooks();
+        for (Book book : subscribedBooks) {
+            subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book, manager));
         }
 
     }
+
     private void updateReservedBooks() {
         reservedBookAccordion.getChildren().clear();
 
         ArrayList<Listing> reservedBooks = model.getCurrentlyLoggedInUser().getReservedBooks();
         for (Listing listing : reservedBooks) {
-            reservedBookAccordion.getChildren().add(new ReservedBooksMiniatureViewController(manager,listing));
+            reservedBookAccordion.getChildren().add(new ReservedBooksMiniatureViewController(manager, listing));
 
         }
     }
+
     private void updatePurchasedBooks() {
         purchasedBook.getChildren().clear();
 
         ArrayList<Listing> purchasedBooks = model.getCurrentlyLoggedInUser().getPreviousPurchases();
         for (Listing listing : purchasedBooks) {
-            purchasedBook.getChildren().add(new BoughtBooksMiniatureViewController(manager,listing));
+            purchasedBook.getChildren().add(new BoughtBooksMiniatureViewController(manager, listing));
 
         }
     }

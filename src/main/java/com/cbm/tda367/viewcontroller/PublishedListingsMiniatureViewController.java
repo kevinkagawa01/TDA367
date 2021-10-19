@@ -30,11 +30,14 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
 
     private ApplicationModel model = ApplicationModel.getInstance();
 
+
     private ControllerManager manager=ControllerManager.getInstance();
 
+    //private AccountPageController accountPageController;
+  
+
+
     private AccountPageViewController accountPageController;
-
-
 
 
     @FXML
@@ -76,7 +79,7 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
         }
 
         BookName.setText(listing.getBook().getBookName());
-        Price.setText((int) listing.getPrice() + " kr");
+        Price.setText(listing.getPrice() + " kr");
         date.setText(String.valueOf(listing.getDate()));
         updateBookPicture();
 
@@ -102,13 +105,6 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
      * @param event Click Event.
      */
 
-    /* move to sell page*/
-    @FXML
-    protected void onClickEditButton(Event event){
-        manager.goToSellPage();
-    }
-
-
 
     /**
      * Changes published book from the user in the application.
@@ -116,10 +112,9 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
      * @param event Click Event.
      */
     @FXML
-    protected void onClickOpenDetailedView(Event event) {
+    protected void onClickEditButton(Event event) {
         manager.openSellPageView(this.listing);
     }
-
 
 
 }

@@ -55,6 +55,15 @@ public class Book {
 
     }
 
+    public Book(Book book){
+        this.bookName = book.bookName;
+        this.bookAuthor = book.bookAuthor;
+        this.bookCode = book.bookCode;
+        this.imagePath = book.imagePath;
+        this.bookSales = book.bookSales;
+        this.bookSubscriptions = book.bookSubscriptions;
+    }
+
     /**
      * Retrieves the name of a Book.
      *

@@ -138,7 +138,7 @@ public class ListingDetailViewController extends AnchorPane {
 
     private void updateListingBookPriceText() {
         //listingBookPrice.setText(String.format("%f kr",listing.getPrice()));
-        listingBookPrice.setText((int) listing.getPrice() + " kr");
+        listingBookPrice.setText(listing.getPrice() + " kr");
     }
 
     private void updateListingBookConditionText() {

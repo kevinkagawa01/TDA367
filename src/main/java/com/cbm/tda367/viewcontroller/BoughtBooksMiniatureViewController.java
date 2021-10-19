@@ -59,7 +59,7 @@ public class BoughtBooksMiniatureViewController extends AnchorPane {
         purchasedPicture.setImage(new Image(getClass().getResourceAsStream(this.listing.getBook().getImagePath())));
         purchasedTitle.setText(listing.getBook().getBookName());
         date.setText(String.valueOf(listing.getDate()));
-        purchasedPrice.setText((int) listing.getPrice() + " kr");
+        purchasedPrice.setText(listing.getPrice() + " kr");
     }
     /**
      * On click method, delete listing from Application model
