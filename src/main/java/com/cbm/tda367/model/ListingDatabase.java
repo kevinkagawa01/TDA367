@@ -14,7 +14,7 @@ import java.util.List;
  * @since 1.0
  */
 
-class ListingDatabase {
+final class ListingDatabase {
 
     private final List<Listing> listingList = new ArrayList<>();
 

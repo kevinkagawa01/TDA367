@@ -11,7 +11,7 @@ import java.util.List;
  * @version 1.0
  * @since 1.0
  * */
-public class UserDatabase {
+final public class UserDatabase {
 
     private final List<User> userList = new ArrayList<>();
 

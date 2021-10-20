@@ -22,16 +22,16 @@ public class User {
     private int nrRatings;
 
     /* user lists */
-    private final ArrayList<Listing> reservedBooks = new ArrayList<>();
-    private final ArrayList<Listing> booksForSale = new ArrayList<>();
-    private final ArrayList<Book> subscribedBooks = new ArrayList<>();
+    private final List<Listing> reservedBooks = new ArrayList<>();
+    private final List<Listing> booksForSale = new ArrayList<>();
+    private final List<Book> subscribedBooks = new ArrayList<>();
+    private final List<Listing> previousPurchases = new ArrayList<>();
+    private final List<Notification> notifications = new ArrayList<>();
 
-    public ArrayList<Listing> getPreviousPurchases() {
+
+    public List<Listing> getPreviousPurchases() {
         return previousPurchases;
     }
-
-    private final ArrayList<Listing> previousPurchases = new ArrayList<>();
-    private final List<Notification> notifications = new ArrayList<>();
 
 
     /**
@@ -184,18 +184,18 @@ public class User {
         subscribedBooks.removeIf(book -> book.getBookCode().equals((bookCode)));
     }
 
-    public ArrayList<Book> getSubscribedBooks() {
+    public List<Book> getSubscribedBooks() {
         return new ArrayList<>(subscribedBooks);
     }
 
     /**
      * @return
      */
-    public ArrayList<Listing> getBooksForSale() {
+    public List<Listing> getBooksForSale() {
         return new ArrayList<>(booksForSale);
     }
 
-    public ArrayList<Listing> getReservedBooks() {
+    public List<Listing> getReservedBooks() {
         return reservedBooks;
     }
 

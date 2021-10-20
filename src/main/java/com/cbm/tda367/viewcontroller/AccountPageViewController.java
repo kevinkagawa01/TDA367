@@ -16,6 +16,7 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Visual representation of the account page in the application, as well as controller.
@@ -188,7 +189,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private void updatePublishedBooks() {
         publishedBooksFlowPane.getChildren().clear();
 
-        ArrayList<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
+        List<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
         for (Listing listing : publishedListings) {
             publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(manager, listing));
 
@@ -198,9 +199,9 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private void updateSubscribedBooks() {
         subscribedBooksFlowPane.getChildren().clear();
 
-        ArrayList<Book> subscribedBooks = model.getCurrentlyLoggedInUser().getSubscribedBooks();
+        List<Book> subscribedBooks = model.getCurrentlyLoggedInUser().getSubscribedBooks();
         for (Book book : subscribedBooks) {
-            subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book, manager));
+            subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book));
         }
 
     }
@@ -208,7 +209,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private void updateReservedBooks() {
         reservedBookAccordion.getChildren().clear();
 
-        ArrayList<Listing> reservedBooks = model.getCurrentlyLoggedInUser().getReservedBooks();
+        List<Listing> reservedBooks = model.getCurrentlyLoggedInUser().getReservedBooks();
         for (Listing listing : reservedBooks) {
             reservedBookAccordion.getChildren().add(new ReservedBooksMiniatureViewController(manager, listing));
 
@@ -218,7 +219,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private void updatePurchasedBooks() {
         purchasedBook.getChildren().clear();
 
-        ArrayList<Listing> purchasedBooks = model.getCurrentlyLoggedInUser().getPreviousPurchases();
+        List<Listing> purchasedBooks = model.getCurrentlyLoggedInUser().getPreviousPurchases();
         for (Listing listing : purchasedBooks) {
             purchasedBook.getChildren().add(new BoughtBooksMiniatureViewController(manager, listing));
 

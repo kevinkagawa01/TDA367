@@ -15,7 +15,7 @@ import java.util.List;
  * @since 1.0
  */
 
-class BookDatabase {
+final class BookDatabase {
 
     private final List<Book> bookList = new ArrayList<>();
     private final static BookDatabase bookDatabase = new BookDatabase();
