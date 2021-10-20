@@ -52,10 +52,10 @@ public class LoginPageViewController extends AnchorPane implements Observer {
     }
 
     /**
-     * Implemented from interface Observer, updating this to change in correlation to the object it is observing.
+     * Updates this status.
      */
     @Override
     public void update() {
-
+        // Is implemented for future functionality.
     }
 }

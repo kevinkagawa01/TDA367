@@ -259,9 +259,10 @@ public class SellPageViewController extends AnchorPane implements Observer {
     }
 
     /**
-     * implemented from Observer interface, updating changes prompted by the object this is observing.
+     * Updates this status.
      */
     @Override
     public void update() {
+        // Is implemented for future functionality.
     }
 }
