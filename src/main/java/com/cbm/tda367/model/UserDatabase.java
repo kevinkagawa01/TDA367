@@ -15,7 +15,7 @@ final public class UserDatabase {
 
     private final List<User> userList = new ArrayList<>();
 
-    private final static UserDatabase userDatabase = new UserDatabase();
+    private static UserDatabase userDatabase;
 
     private UserDatabase(){
         userList.add(new User("simonhol@student.chalmers.se", "hejsan123"));
@@ -28,6 +28,9 @@ final public class UserDatabase {
      * @return the instance of the userDataBase
      */
     static UserDatabase getInstance(){
+        if (userDatabase == null) {
+            userDatabase = new UserDatabase();
+        }
         return userDatabase;
     }
 

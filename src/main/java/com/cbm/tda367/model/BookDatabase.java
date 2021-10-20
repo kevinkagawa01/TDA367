@@ -18,7 +18,7 @@ import java.util.List;
 final class BookDatabase {
 
     private final List<Book> bookList = new ArrayList<>();
-    private final static BookDatabase bookDatabase = new BookDatabase();
+    private static BookDatabase bookDatabase;
 
     /**
      * Constructs the Book database singleton.
@@ -86,6 +86,9 @@ final class BookDatabase {
      * @return The BookDatabase instance.
      */
     static BookDatabase getInstance() {
+        if (bookDatabase == null) {
+            bookDatabase = new BookDatabase();
+        }
         return bookDatabase;
 
     }

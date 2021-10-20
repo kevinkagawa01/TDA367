@@ -19,7 +19,7 @@ final class ListingDatabase {
     private final List<Listing> listingList = new ArrayList<>();
 
 
-    private final static ListingDatabase listingDatabase = new ListingDatabase();
+    private static ListingDatabase listingDatabase;
 
     /**
      * Constructs the Listing database singleton.
@@ -34,6 +34,9 @@ final class ListingDatabase {
      * @return The listing database instance.
      */
     static ListingDatabase getInstance() {
+        if(listingDatabase == null) {
+            listingDatabase = new ListingDatabase();
+        }
         return listingDatabase;
     }
 

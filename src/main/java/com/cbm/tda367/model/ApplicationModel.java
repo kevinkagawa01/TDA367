@@ -14,9 +14,9 @@ import java.util.*;
  * @version 1.0
  * @since 0.1
  */
-public class ApplicationModel implements Observable {
+public final class ApplicationModel implements Observable {
 
-    private final static ApplicationModel applicationModel = new ApplicationModel();
+    private static ApplicationModel applicationModel;
 
     private final BookDatabase bookDatabase;
     private final UserDatabase userDatabase;
@@ -46,6 +46,9 @@ public class ApplicationModel implements Observable {
      * @return single instance of this class.
      */
     public static ApplicationModel getInstance() {
+        if(applicationModel == null) {
+            applicationModel = new ApplicationModel();
+        }
         return applicationModel;
     }
 
