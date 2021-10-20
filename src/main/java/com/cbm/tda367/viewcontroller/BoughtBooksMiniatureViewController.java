@@ -26,7 +26,6 @@ import java.io.IOException;
 public class BoughtBooksMiniatureViewController extends AnchorPane {
 
     private final ApplicationModel model = ApplicationModel.getInstance();
-    private final ControllerManager manager;
     private Listing listing;
     @FXML
     ImageView purchasedPicture;
@@ -42,9 +41,8 @@ public class BoughtBooksMiniatureViewController extends AnchorPane {
      *
      * @param listing Listing to be displayed as the miniature.
      */
-    public BoughtBooksMiniatureViewController(ControllerManager manager, Listing listing) {
+    public BoughtBooksMiniatureViewController(Listing listing) {
         this.listing = listing;
-        this.manager = manager;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/BoughtBooks.fxml"));
         fxmlLoader.setRoot(this);

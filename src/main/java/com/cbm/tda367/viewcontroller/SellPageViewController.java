@@ -2,6 +2,7 @@ package com.cbm.tda367.viewcontroller;
 
 import com.cbm.tda367.model.ApplicationModel;
 import com.cbm.tda367.model.Listing;
+import com.cbm.tda367.model.Observer;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +29,7 @@ import java.io.IOException;
 public class SellPageViewController extends AnchorPane implements Observer {
 
     private final ControllerManager manager;
-    private final ApplicationModel model;
+    private final ApplicationModel model = ApplicationModel.getInstance();
     private int editingListingNumber = -1;
 
     /* FXML elements */
@@ -45,12 +46,13 @@ public class SellPageViewController extends AnchorPane implements Observer {
 
     /* prominent done buttons */
     @FXML
-    private Text publishText, saveText;
+    private Text publishText,
+            saveText;
     @FXML
-    private Rectangle publishRectangle, saveRectangle;
+    private Rectangle publishRectangle,
+            saveRectangle;
 
-    public SellPageViewController(ControllerManager manager, ApplicationModel model) {
-        this.model = model;
+    public SellPageViewController(ControllerManager manager) {
         this.manager = manager;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/sell-page.fxml"));
@@ -124,8 +126,8 @@ public class SellPageViewController extends AnchorPane implements Observer {
         }
 
         for (int i = 0; i < string.length(); i++) {
-            if (!Character.isLetter(string.charAt(i)) && (string.charAt(i) != '-')
-                    && (!Character.isDigit(string.charAt(i)))) {
+            if (!Character.isLetter(string.charAt(i)) && string.charAt(i) != '-'
+                    && !Character.isDigit(string.charAt(i))) {
                 return false;
             }
         }
@@ -231,7 +233,7 @@ public class SellPageViewController extends AnchorPane implements Observer {
         if (bookCodeTextField.getText().isEmpty() ||
                 bookPriceTextField.getText().isEmpty() ||
                 listingDescriptionTextArea.getText().isEmpty() ||
-                bookConditionComboBox.getSelectionModel().getSelectedItem().equals("Book Condition")
+                "Book Condition".equals(bookConditionComboBox.getSelectionModel().getSelectedItem())
         ) {
             System.out.println("Not all fields are filled in!");
             return false;
@@ -257,9 +259,10 @@ public class SellPageViewController extends AnchorPane implements Observer {
     }
 
     /**
-     * implemented from Observer interface, updating changes prompted by the object this is observing.
+     * Updates this status.
      */
     @Override
     public void update() {
+        // Is implemented for future functionality.
     }
 }

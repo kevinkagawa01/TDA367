@@ -1,4 +1,4 @@
-package com.cbm.tda367.viewcontroller;
+package com.cbm.tda367.model;
 
 /**
  * Interface implemented by an observer, observing an observable implementing that corresponding interface.

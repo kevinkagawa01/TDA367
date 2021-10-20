@@ -3,6 +3,7 @@ package com.cbm.tda367.viewcontroller;
 import com.cbm.tda367.model.ApplicationModel;
 import com.cbm.tda367.model.Book;
 import com.cbm.tda367.model.Listing;
+import com.cbm.tda367.model.Observer;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +16,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Visual representation of the account page in the application, as well as controller.
@@ -30,8 +31,7 @@ import java.util.ArrayList;
 public class AccountPageViewController extends AnchorPane implements Observer {
 
     private ControllerManager manager;
-    private ApplicationModel model;
-    private FXMLLoader fxmlLoader;
+    private ApplicationModel model = ApplicationModel.getInstance();
 
 
     @FXML
@@ -59,14 +59,11 @@ public class AccountPageViewController extends AnchorPane implements Observer {
      * Initializes account page view/controller.
      *
      * @param manager This controller manager, which handles all controllers.
-     * @param model   Model viewed.
      */
 
-    public AccountPageViewController(ControllerManager manager, ApplicationModel model) {
-        this.model = model;
+    public AccountPageViewController(ControllerManager manager) {
         this.manager = manager;
-
-        fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/account-page.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/account-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -188,7 +185,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private void updatePublishedBooks() {
         publishedBooksFlowPane.getChildren().clear();
 
-        ArrayList<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
+        List<Listing> publishedListings = model.getCurrentlyLoggedInUser().getBooksForSale();
         for (Listing listing : publishedListings) {
             publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(manager, listing));
 
@@ -198,9 +195,9 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private void updateSubscribedBooks() {
         subscribedBooksFlowPane.getChildren().clear();
 
-        ArrayList<Book> subscribedBooks = model.getCurrentlyLoggedInUser().getSubscribedBooks();
+        List<Book> subscribedBooks = model.getCurrentlyLoggedInUser().getSubscribedBooks();
         for (Book book : subscribedBooks) {
-            subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book, manager));
+            subscribedBooksFlowPane.getChildren().add(new SubscribedBooksMiniatureViewController(book));
         }
 
     }
@@ -208,7 +205,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private void updateReservedBooks() {
         reservedBookAccordion.getChildren().clear();
 
-        ArrayList<Listing> reservedBooks = model.getCurrentlyLoggedInUser().getReservedBooks();
+        List<Listing> reservedBooks = model.getCurrentlyLoggedInUser().getReservedBooks();
         for (Listing listing : reservedBooks) {
             reservedBookAccordion.getChildren().add(new ReservedBooksMiniatureViewController(manager, listing));
 
@@ -218,9 +215,9 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private void updatePurchasedBooks() {
         purchasedBook.getChildren().clear();
 
-        ArrayList<Listing> purchasedBooks = model.getCurrentlyLoggedInUser().getPreviousPurchases();
+        List<Listing> purchasedBooks = model.getCurrentlyLoggedInUser().getPreviousPurchases();
         for (Listing listing : purchasedBooks) {
-            purchasedBook.getChildren().add(new BoughtBooksMiniatureViewController(manager, listing));
+            purchasedBook.getChildren().add(new BoughtBooksMiniatureViewController(listing));
 
         }
     }

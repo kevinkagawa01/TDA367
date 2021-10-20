@@ -1,7 +1,6 @@
 package com.cbm.tda367.model;
 
-import javafx.scene.image.ImageView;
-import javafx.scene.image.Image;
+
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -18,7 +17,7 @@ import java.util.Objects;
  * @since 1.0
  */
 
-public class Book {
+public class Book implements Prototype<Book>{
 
     private final String bookName;
     private final String bookAuthor;
@@ -26,14 +25,10 @@ public class Book {
     private int bookSales;
     private int bookSubscriptions;
     private final String imagePath;
+    private final String category;
 
-    public String getCategory() {
-        return category;
-    }
 
-    private String category;
-
-    private LocalDate date=LocalDate.now();
+    private LocalDate date = LocalDate.now();
 
 
     /**
@@ -45,23 +40,34 @@ public class Book {
      * @param imagePath         The path of a picture of a Book, represented as a String.
      * @param category          The category of a Book, represented as a String.
      */
-    public Book(String bookName, String bookAuthor, String bookCode, String imagePath,String category) {
+    Book(String bookName, String bookAuthor, String bookCode, String imagePath,String category) {
         this.bookName = Objects.requireNonNull(bookName);
         this.bookAuthor = Objects.requireNonNull(bookAuthor);
         this.bookCode = Objects.requireNonNull(bookCode);
         this.imagePath = Objects.requireNonNull(imagePath);
         this.bookSales = 0;
         this.bookSubscriptions = 0;
-
+        this.category = category;
     }
 
-    public Book(Book book){
+    Book(Book book){
         this.bookName = book.bookName;
         this.bookAuthor = book.bookAuthor;
         this.bookCode = book.bookCode;
         this.imagePath = book.imagePath;
         this.bookSales = book.bookSales;
         this.bookSubscriptions = book.bookSubscriptions;
+        this.category = book.category;
+        this.date = book.date;
+    }
+
+    /**
+     * Returns a safe copy of object.
+     * @return safe copy of object.
+     */
+    @Override
+    public Book cloneObject() {
+        return new Book(this);
     }
 
     /**
@@ -131,5 +137,8 @@ public class Book {
         return date;
     }
 
+    public String getCategory() {
+        return category;
+    }
 
 }

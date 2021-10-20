@@ -8,9 +8,9 @@ package com.cbm.tda367.model;
  * @version 1.0
  * @since 1.0
  * */
-public class NotLoggedInUser extends User{
+final class NotLoggedInUser extends User{
 
-    private final static NotLoggedInUser notLoggedInUser = new NotLoggedInUser();
+    private static NotLoggedInUser notLoggedInUser;
 
     /** the class create user
      */
@@ -19,6 +19,9 @@ public class NotLoggedInUser extends User{
     }
 
     static NotLoggedInUser getInstance(){
+        if(notLoggedInUser == null) {
+            notLoggedInUser = new NotLoggedInUser();
+        }
         return notLoggedInUser;
     }
 }

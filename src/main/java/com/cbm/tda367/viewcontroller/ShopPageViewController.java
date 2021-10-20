@@ -2,6 +2,7 @@ package com.cbm.tda367.viewcontroller;
 
 import com.cbm.tda367.model.ApplicationModel;
 import com.cbm.tda367.model.Book;
+import com.cbm.tda367.model.Observer;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,10 +28,10 @@ import java.util.List;
  * @version 1.0
  * @since 1.0
  * */
-public class ShopPageViewController extends AnchorPane implements Observer{
+public class ShopPageViewController extends AnchorPane implements Observer {
 
     private final ControllerManager manager;
-    private final ApplicationModel model;
+    private final ApplicationModel model = ApplicationModel.getInstance();
 
     private final ShopPageCategoryViewController allBooksCategory;
     private final ShopPageCategoryViewController mostSubscribedBooksCategory;
@@ -43,11 +44,9 @@ public class ShopPageViewController extends AnchorPane implements Observer{
     /**
      * class constructor
      * @param manager controller manager
-     * @param model application model
      */
-    public ShopPageViewController(ControllerManager manager, ApplicationModel model) {
+    public ShopPageViewController(ControllerManager manager) {
         this.manager = manager;
-        this.model = model;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/shop-page.fxml"));
         fxmlLoader.setRoot(this);

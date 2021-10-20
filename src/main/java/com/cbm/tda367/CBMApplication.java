@@ -18,10 +18,6 @@ import java.io.IOException;
  * @since 0.1
  */
 public class CBMApplication extends javafx.application.Application {
-
-    private ApplicationModel model;
-    private ControllerManager controllerManager;
-
     /**
      * Start method for the application, initiating the application at launch.
      * @param stage window which the application appears in.
@@ -40,8 +36,8 @@ public class CBMApplication extends javafx.application.Application {
 
 
         stage.show();
-        model = ApplicationModel.getInstance();
-        controllerManager = fxmlLoader.getController();
+        ApplicationModel model = ApplicationModel.getInstance();
+        ControllerManager controllerManager = fxmlLoader.getController();
 
         /* Add observers to model */
         model.addObserver(controllerManager);

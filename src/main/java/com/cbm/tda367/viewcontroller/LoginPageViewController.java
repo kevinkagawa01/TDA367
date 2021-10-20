@@ -1,6 +1,7 @@
 package com.cbm.tda367.viewcontroller;
 
 import com.cbm.tda367.model.ApplicationModel;
+import com.cbm.tda367.model.Observer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.PasswordField;
@@ -17,18 +18,17 @@ import java.io.IOException;
  * @version 1.0
  * @since 1.0
  * */
-public class LoginPageViewController extends AnchorPane implements Observer{
+public class LoginPageViewController extends AnchorPane implements Observer {
 
     private final ControllerManager manager;
-    private final ApplicationModel model;
+    private final ApplicationModel model = ApplicationModel.getInstance();
 
     /* fxml elements */
     @FXML private TextField cidTextField;
     @FXML private PasswordField passwordTextField;
 
-    public LoginPageViewController(ControllerManager manager, ApplicationModel model) {
+    public LoginPageViewController(ControllerManager manager) {
         this.manager = manager;
-        this.model = model;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/login-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -52,10 +52,10 @@ public class LoginPageViewController extends AnchorPane implements Observer{
     }
 
     /**
-     * Implemented from interface Observer, updating this to change in correlation to the object it is observing.
+     * Updates this status.
      */
     @Override
     public void update() {
-
+        // Is implemented for future functionality.
     }
 }

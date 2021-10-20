@@ -1,8 +1,8 @@
 package com.cbm.tda367.viewcontroller;
 
-import com.cbm.tda367.model.ApplicationModel;
 import com.cbm.tda367.model.Book;
 import com.cbm.tda367.model.Listing;
+import com.cbm.tda367.model.Observer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
@@ -35,13 +35,11 @@ public class ControllerManager implements Initializable, Observer {
     @FXML
     private AnchorPane mainAnchorPane;
 
-    /* model */
-    private final ApplicationModel model = ApplicationModel.getInstance();
     /* application pages */
-    private final LoginPageViewController loginPage = new LoginPageViewController(this, model);
-    private final ShopPageViewController shopPage = new ShopPageViewController(this, model);
-    private final SellPageViewController sellPage = new SellPageViewController(this, model);
-    private final AccountPageViewController accountPage = new AccountPageViewController(this, model);
+    private final LoginPageViewController loginPage = new LoginPageViewController(this);
+    private final ShopPageViewController shopPage = new ShopPageViewController(this);
+    private final SellPageViewController sellPage = new SellPageViewController(this);
+    private final AccountPageViewController accountPage = new AccountPageViewController(this);
 
     //TODO: First book should not be null!
     private final BookDetailViewController bookDetailViewController = new BookDetailViewController(this, null);

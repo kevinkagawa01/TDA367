@@ -1,7 +1,5 @@
 package com.cbm.tda367.model;
 
-import com.cbm.tda367.viewcontroller.Observer;
-
 import java.util.*;
 
 /**
@@ -14,9 +12,9 @@ import java.util.*;
  * @version 1.0
  * @since 0.1
  */
-public class ApplicationModel implements Observable {
+public final class ApplicationModel implements Observable {
 
-    private final static ApplicationModel applicationModel = new ApplicationModel();
+    private static ApplicationModel applicationModel;
 
     private final BookDatabase bookDatabase;
     private final UserDatabase userDatabase;
@@ -24,9 +22,8 @@ public class ApplicationModel implements Observable {
     private User currentlyLoggedInUser = NotLoggedInUser.getInstance();
     private int currentListingNumber = 1;
 
-    private int currentSubscribed=1;
 
-    private List<Observer> viewObservers = new ArrayList<>();
+    private final List<Observer> viewObservers = new ArrayList<>();
 
     /**
      * class constructor, private due to Singleton pattern implementation.
@@ -46,6 +43,9 @@ public class ApplicationModel implements Observable {
      * @return single instance of this class.
      */
     public static ApplicationModel getInstance() {
+        if(applicationModel == null) {
+            applicationModel = new ApplicationModel();
+        }
         return applicationModel;
     }
 
@@ -76,15 +76,6 @@ public class ApplicationModel implements Observable {
      */
     public List<Listing> getListingDatabase() {
         return listingDatabase.getListings();
-    }
-
-    /**
-     * Removes a published listing from the application.
-     *
-     * @param listing published listing to be removed.
-     */
-    private void removeListings(Listing listing) {
-        listingDatabase.removeListing(listing);
     }
 
     public void editListing(String bookCode, String condition, String price, String description, int editingListingNumber) {
@@ -256,7 +247,7 @@ public class ApplicationModel implements Observable {
      * @return the currently logged-in user.
      */
     public User getCurrentlyLoggedInUser() {
-        return currentlyLoggedInUser;
+        return currentlyLoggedInUser.cloneObject();
     }
 
     public List<Book> getAllBooks() {
@@ -286,7 +277,7 @@ public class ApplicationModel implements Observable {
         List<Book> allBooks = bookDatabase.getBookList();
 
         for (Book book : allBooks) {
-            if (book.getBookName().toLowerCase().contains(filter.toLowerCase())) {
+            if (book.getBookName().toLowerCase(Locale.ROOT).contains(filter.toLowerCase(Locale.ROOT))) {
                 filteredBooks.add(book);
             }
         }

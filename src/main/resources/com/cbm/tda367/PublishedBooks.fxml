@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root prefHeight="141.0" prefWidth="384.0" styleClass="subscription-book-annons-background" stylesheets="@shop-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxWidth="380.0" minWidth="384.0" prefHeight="141.0" prefWidth="370.0" styleClass="subscription-book-annons-background" stylesheets="@shop-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="BookImage" fitHeight="73.0" fitWidth="54.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>

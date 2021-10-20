@@ -31,12 +31,6 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
 
     private final ApplicationModel model = ApplicationModel.getInstance();
 
-    private AccountPageViewController accountPageController;
-    private BookDetailViewController bookDetailViewController;
-
-    private final ControllerManager manager;
-    //private AccountPageController accountPageController;
-
     private final Book book;
     @FXML
     private Text titleSubscriebdMiniature;
@@ -48,9 +42,8 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
     private Text date;
 
 
-    public SubscribedBooksMiniatureViewController(Book book, ControllerManager manager) {
+    public SubscribedBooksMiniatureViewController(Book book) {
         this.book = book;
-        this.manager = manager;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/SubscribedBooks.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

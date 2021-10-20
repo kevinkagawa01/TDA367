@@ -1,6 +1,5 @@
 package com.cbm.tda367.viewcontroller;
 
-import com.cbm.tda367.model.ApplicationModel;
 import com.cbm.tda367.model.Listing;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -24,7 +23,6 @@ import java.io.IOException;
  */
 
 public class ListingViewController extends AnchorPane {
-    private final ApplicationModel model = ApplicationModel.getInstance();
     private final ControllerManager manager;
     private Listing listing;
 
