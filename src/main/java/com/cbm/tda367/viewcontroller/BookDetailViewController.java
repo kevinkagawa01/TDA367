@@ -132,6 +132,7 @@ public class BookDetailViewController extends AnchorPane {
         for(Book book : model.getCurrentlyLoggedInUser().getSubscribedBooks()){
             if(book.getBookCode().equals(this.book.getBookCode())) {
                 subscribedToBook = true;
+                break;
             }
         }
         if(subscribedToBook){
