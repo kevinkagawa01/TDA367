@@ -1,17 +1,26 @@
 *
 {
     vanilla_white: #fdfaf0;
+    dark_grey: #3d3d3d;
 }
 
 .transparent-title-pane
 {
     -fx-background: TRANSPARENT;
     -fx-border-color: TRANSPARENT;
+
+    /* header */
+    -fx-text-fill: vanilla_white;
+    -fx-font-style: normal;
+    -fx-font-weight: bolder;
+    -fx-font-size: 15px;
 }
 
 .transparent-title-pane > .title
 {
+    /* panel */
     -fx-background-radius: 5 5 5 5;
+    -fx-background-color: dark_grey;
 }
 
 .transparent-scroll-pane

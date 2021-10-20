@@ -68,10 +68,9 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
         }
 
         BookName.setText(listing.getBook().getBookName());
-        Price.setText(listing.getPrice() + " kr");
+        Price.setText(String.format("Price: %s kr", listing.getPrice()));
         date.setText(String.valueOf(listing.getDate()));
         updateBookPicture();
-
     }
 
     public void updateBookPicture() {
