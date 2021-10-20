@@ -1,5 +1,6 @@
 *
 {
+    vanilla_white: #fdfaf0;
 }
 
 .transparent-title-pane
@@ -17,5 +18,34 @@
 {
     -fx-background: TRANSPARENT;
     -fx-background-color: TRANSPARENT;
+}
+
+.miniature-view-text
+{
+    -fx-font-style: normal;
+    -fx-font-weight: bolder;
+    -fx-fill: vanilla_white;
+}
+
+.listing-edit-button
+{
+    /* text */
+    -fx-text-fill: vanilla_white;
+
+    /* button */
+    -fx-background-color: #1e90ff;
+    -fx-background-radius: 0 15 0 0;
+    -fx-fill: #1e90ff;
+}
+
+.listing-remove-button
+{
+    /* text */
+    -fx-text-fill: vanilla_white;
+
+    /* button */
+    -fx-background-color: #ff1f1f;
+    -fx-background-radius: 0 0 15 0;
+    -fx-fill: #1e90ff;
 }
 

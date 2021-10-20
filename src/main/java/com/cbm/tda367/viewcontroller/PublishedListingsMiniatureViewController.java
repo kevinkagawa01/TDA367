@@ -28,20 +28,12 @@ import java.io.IOException;
  */
 public class PublishedListingsMiniatureViewController extends AnchorPane {
 
-    private ApplicationModel model = ApplicationModel.getInstance();
-
-
-    private ControllerManager manager=ControllerManager.getInstance();
-
-    //private AccountPageController accountPageController;
-
-
+    private final ApplicationModel model = ApplicationModel.getInstance();
+    private final ControllerManager manager;
+    private final Listing listing;
 
     @FXML
     FlowPane publishedList;
-
-    private Listing listing;
-
     @FXML
     private ImageView BookImage;
     @FXML
