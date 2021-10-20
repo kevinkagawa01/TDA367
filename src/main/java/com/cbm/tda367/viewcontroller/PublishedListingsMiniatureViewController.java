@@ -34,10 +34,7 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
     private ControllerManager manager=ControllerManager.getInstance();
 
     //private AccountPageController accountPageController;
-  
 
-
-    private AccountPageViewController accountPageController;
 
 
     @FXML

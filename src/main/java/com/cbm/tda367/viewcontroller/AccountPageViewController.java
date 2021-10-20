@@ -15,7 +15,6 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,8 +30,7 @@ import java.util.List;
 public class AccountPageViewController extends AnchorPane implements Observer {
 
     private ControllerManager manager;
-    private ApplicationModel model;
-    private FXMLLoader fxmlLoader;
+    private ApplicationModel model = ApplicationModel.getInstance();
 
 
     @FXML
@@ -60,14 +58,11 @@ public class AccountPageViewController extends AnchorPane implements Observer {
      * Initializes account page view/controller.
      *
      * @param manager This controller manager, which handles all controllers.
-     * @param model   Model viewed.
      */
 
-    public AccountPageViewController(ControllerManager manager, ApplicationModel model) {
-        this.model = model;
+    public AccountPageViewController(ControllerManager manager) {
         this.manager = manager;
-
-        fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/account-page.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/account-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -221,7 +216,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
 
         List<Listing> purchasedBooks = model.getCurrentlyLoggedInUser().getPreviousPurchases();
         for (Listing listing : purchasedBooks) {
-            purchasedBook.getChildren().add(new BoughtBooksMiniatureViewController(manager, listing));
+            purchasedBook.getChildren().add(new BoughtBooksMiniatureViewController(listing));
 
         }
     }

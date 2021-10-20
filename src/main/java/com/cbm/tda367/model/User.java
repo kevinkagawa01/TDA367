@@ -30,7 +30,7 @@ public class User {
 
 
     public List<Listing> getPreviousPurchases() {
-        return previousPurchases;
+        return new ArrayList<>(previousPurchases);
     }
 
 
@@ -63,7 +63,7 @@ public class User {
         /* increment number of raters */
         nrRatings++;
         /* round rating to one decimal place and split the total sum according to number of ratings */
-        totalRating = round(((double) sumOfRatings / nrRatings), 1);
+        totalRating = round((double) sumOfRatings / nrRatings, 1);
     }
 
     /**
@@ -181,7 +181,7 @@ public class User {
      * @param bookCode book code
      */
     void removeBookSubscription(String bookCode) {
-        subscribedBooks.removeIf(book -> book.getBookCode().equals((bookCode)));
+        subscribedBooks.removeIf(book -> book.getBookCode().equals(bookCode));
     }
 
     public List<Book> getSubscribedBooks() {
@@ -196,7 +196,7 @@ public class User {
     }
 
     public List<Listing> getReservedBooks() {
-        return reservedBooks;
+        return new ArrayList<>(reservedBooks);
     }
 
     void editListing(Listing listing) {

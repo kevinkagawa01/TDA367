@@ -20,15 +20,14 @@ import java.io.IOException;
 public class LoginPageViewController extends AnchorPane implements Observer{
 
     private final ControllerManager manager;
-    private final ApplicationModel model;
+    private final ApplicationModel model = ApplicationModel.getInstance();
 
     /* fxml elements */
     @FXML private TextField cidTextField;
     @FXML private PasswordField passwordTextField;
 
-    public LoginPageViewController(ControllerManager manager, ApplicationModel model) {
+    public LoginPageViewController(ControllerManager manager) {
         this.manager = manager;
-        this.model = model;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/login-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

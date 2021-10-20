@@ -24,7 +24,6 @@ public final class ApplicationModel implements Observable {
     private User currentlyLoggedInUser = NotLoggedInUser.getInstance();
     private int currentListingNumber = 1;
 
-    private int currentSubscribed=1;
 
     private List<Observer> viewObservers = new ArrayList<>();
 
@@ -79,15 +78,6 @@ public final class ApplicationModel implements Observable {
      */
     public List<Listing> getListingDatabase() {
         return listingDatabase.getListings();
-    }
-
-    /**
-     * Removes a published listing from the application.
-     *
-     * @param listing published listing to be removed.
-     */
-    private void removeListings(Listing listing) {
-        listingDatabase.removeListing(listing);
     }
 
     public void editListing(String bookCode, String condition, String price, String description, int editingListingNumber) {
@@ -289,7 +279,7 @@ public final class ApplicationModel implements Observable {
         List<Book> allBooks = bookDatabase.getBookList();
 
         for (Book book : allBooks) {
-            if (book.getBookName().toLowerCase().contains(filter.toLowerCase())) {
+            if (book.getBookName().toLowerCase(Locale.ROOT).contains(filter.toLowerCase(Locale.ROOT))) {
                 filteredBooks.add(book);
             }
         }

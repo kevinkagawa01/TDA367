@@ -1,7 +1,6 @@
 package com.cbm.tda367.viewcontroller;
 
 import com.cbm.tda367.model.ApplicationModel;
-import com.cbm.tda367.model.Book;
 import com.cbm.tda367.model.Listing;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -103,14 +102,14 @@ public class ListingDetailViewController extends AnchorPane {
     @FXML
     public void onClickReservePurchase(Event event) {
         if(isReserved){
-            Unreserved();
+            unreserveListing();
         } else {
-            reserve();
+            reserveListing();
         }
 
 
     }
-    protected void Unreserved() {
+    protected void unreserveListing() {
         for (Listing listing : model.getCurrentlyLoggedInUser().getReservedBooks()) {
             if (listing.getBook().getBookCode().equals(this.listing.getBook().getBookCode())) {
                 model.removeBookFromSubscriptionList(listing.getBook().getBookCode());
@@ -118,7 +117,7 @@ public class ListingDetailViewController extends AnchorPane {
             }
         }
     }
-    private void reserve() {
+    private void reserveListing() {
         model.reserveListing(this.listing);
         updateReservedStatus();
         manager.goToAccountPage();

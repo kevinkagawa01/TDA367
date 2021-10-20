@@ -1,7 +1,6 @@
 package com.cbm.tda367.model;
 
-import javafx.scene.image.ImageView;
-import javafx.scene.image.Image;
+
 
 import java.time.LocalDate;
 import java.util.Objects;

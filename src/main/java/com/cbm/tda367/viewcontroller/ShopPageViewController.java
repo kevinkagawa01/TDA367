@@ -30,7 +30,7 @@ import java.util.List;
 public class ShopPageViewController extends AnchorPane implements Observer{
 
     private final ControllerManager manager;
-    private final ApplicationModel model;
+    private final ApplicationModel model = ApplicationModel.getInstance();
 
     private final ShopPageCategoryViewController allBooksCategory;
     private final ShopPageCategoryViewController mostSubscribedBooksCategory;
@@ -43,11 +43,9 @@ public class ShopPageViewController extends AnchorPane implements Observer{
     /**
      * class constructor
      * @param manager controller manager
-     * @param model application model
      */
-    public ShopPageViewController(ControllerManager manager, ApplicationModel model) {
+    public ShopPageViewController(ControllerManager manager) {
         this.manager = manager;
-        this.model = model;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/shop-page.fxml"));
         fxmlLoader.setRoot(this);
