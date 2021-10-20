@@ -2,6 +2,7 @@ package com.cbm.tda367.viewcontroller;
 
 import com.cbm.tda367.model.Book;
 import com.cbm.tda367.model.Listing;
+import com.cbm.tda367.model.Observer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;

@@ -1,7 +1,5 @@
 package com.cbm.tda367.model;
 
-import com.cbm.tda367.viewcontroller.Observer;
-
 import java.util.*;
 
 /**
@@ -25,7 +23,7 @@ public final class ApplicationModel implements Observable {
     private int currentListingNumber = 1;
 
 
-    private List<Observer> viewObservers = new ArrayList<>();
+    private final List<Observer> viewObservers = new ArrayList<>();
 
     /**
      * class constructor, private due to Singleton pattern implementation.

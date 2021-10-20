@@ -1,6 +1,7 @@
 package com.cbm.tda367.viewcontroller;
 
 import com.cbm.tda367.model.ApplicationModel;
+import com.cbm.tda367.model.Observer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.PasswordField;
@@ -17,7 +18,7 @@ import java.io.IOException;
  * @version 1.0
  * @since 1.0
  * */
-public class LoginPageViewController extends AnchorPane implements Observer{
+public class LoginPageViewController extends AnchorPane implements Observer {
 
     private final ControllerManager manager;
     private final ApplicationModel model = ApplicationModel.getInstance();
