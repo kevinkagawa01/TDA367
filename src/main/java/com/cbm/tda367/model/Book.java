@@ -17,7 +17,7 @@ import java.util.Objects;
  * @since 1.0
  */
 
-public class Book {
+public class Book implements Prototype<Book>{
 
     private final String bookName;
     private final String bookAuthor;
@@ -40,7 +40,7 @@ public class Book {
      * @param imagePath         The path of a picture of a Book, represented as a String.
      * @param category          The category of a Book, represented as a String.
      */
-    public Book(String bookName, String bookAuthor, String bookCode, String imagePath,String category) {
+    Book(String bookName, String bookAuthor, String bookCode, String imagePath,String category) {
         this.bookName = Objects.requireNonNull(bookName);
         this.bookAuthor = Objects.requireNonNull(bookAuthor);
         this.bookCode = Objects.requireNonNull(bookCode);
@@ -50,7 +50,7 @@ public class Book {
         this.category = category;
     }
 
-    public Book(Book book){
+    Book(Book book){
         this.bookName = book.bookName;
         this.bookAuthor = book.bookAuthor;
         this.bookCode = book.bookCode;
@@ -59,6 +59,15 @@ public class Book {
         this.bookSubscriptions = book.bookSubscriptions;
         this.category = book.category;
         this.date = book.date;
+    }
+
+    /**
+     * Returns a safe copy of object.
+     * @return safe copy of object.
+     */
+    @Override
+    public Book cloneObject() {
+        return new Book(this);
     }
 
     /**
@@ -131,6 +140,5 @@ public class Book {
     public String getCategory() {
         return category;
     }
-
 
 }

@@ -13,7 +13,7 @@ import java.util.List;
  * @version 0.3
  * @since 0.1
  */
-public class User {
+public class User implements Prototype<User>{
 
     private String cid;
     private String password;
@@ -22,17 +22,11 @@ public class User {
     private int nrRatings;
 
     /* user lists */
-    private final List<Listing> reservedBooks = new ArrayList<>();
-    private final List<Listing> booksForSale = new ArrayList<>();
-    private final List<Book> subscribedBooks = new ArrayList<>();
-    private final List<Listing> previousPurchases = new ArrayList<>();
-    private final List<Notification> notifications = new ArrayList<>();
-
-
-    public List<Listing> getPreviousPurchases() {
-        return new ArrayList<>(previousPurchases);
-    }
-
+    private List<Listing> reservedBooks;
+    private List<Listing> booksForSale;
+    private List<Book> subscribedBooks;
+    private List<Listing> previousPurchases;
+    private List<Notification> notifications;
 
     /**
      * class constructor.
@@ -40,12 +34,40 @@ public class User {
      * @param cid      this chalmers identification.
      * @param password this password.
      */
-    public User(String cid, String password) {
+    User(String cid, String password) {
         this.cid = cid;
         this.password = password;
         this.totalRating = 0;
         this.sumOfRatings = 0;
         this.nrRatings = 0;
+        this.reservedBooks = new ArrayList<>();
+        this.booksForSale = new ArrayList<>();
+        this.subscribedBooks = new ArrayList<>();
+        this.previousPurchases = new ArrayList<>();
+        this.notifications = new ArrayList<>();
+    }
+
+    private User(User user){
+        this.cid = user.cid;
+        this.password = user.password;
+        this.totalRating = user.totalRating;
+        this.sumOfRatings = user.sumOfRatings;
+        this.nrRatings = user.nrRatings;
+        /* safe copied lists */
+        this.reservedBooks = user.getReservedBooks();
+        this.booksForSale = user.getBooksForSale();
+        this.subscribedBooks = user.getSubscribedBooks();
+        this.previousPurchases = user.getPreviousPurchases();
+        this.notifications = user.getNotifications();
+    }
+
+    /**
+     * Returns a safe copy of object.
+     * @return safe copy of object.
+     */
+    @Override
+    public User cloneObject() {
+        return new User(this);
     }
 
     /**
@@ -199,11 +221,19 @@ public class User {
         return new ArrayList<>(reservedBooks);
     }
 
+    public List<Listing> getPreviousPurchases() {
+        return new ArrayList<>(previousPurchases);
+    }
+
     void editListing(Listing listing) {
         for (Listing l : booksForSale) {
             if (l.getListingNumber() == listing.getListingNumber()) {
                 booksForSale.set(booksForSale.indexOf(l), listing);
             }
         }
+    }
+
+    public List<Notification> getNotifications() {
+        return new ArrayList<>(notifications);
     }
 }

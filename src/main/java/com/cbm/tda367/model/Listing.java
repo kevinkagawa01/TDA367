@@ -13,7 +13,7 @@ import java.time.LocalDate;
  * @since 1.0
  */
 
-public class Listing {
+public class Listing implements Prototype<Listing>{
 
     private final Book book;
     private final int listingNumber;
@@ -36,7 +36,7 @@ public class Listing {
      * @param condition     A String representing the condition of a Book.
      */
 
-    public Listing(Book book, int listingNumber, String price, String imagePath, String condition, String listingDescription, boolean isPurchased, boolean isReserved) {
+    Listing(Book book, int listingNumber, String price, String imagePath, String condition, String listingDescription, boolean isPurchased, boolean isReserved) {
 
         this.book = book;
         this.condition = condition;
@@ -49,8 +49,8 @@ public class Listing {
         this.date = LocalDate.now();
     }
 
-    public Listing(Listing listing) {
-        this.book = new Book(listing.book);
+    Listing(Listing listing) {
+        this.book = listing.book.cloneObject();
         this.condition = listing.condition;
         this.listingNumber = listing.listingNumber;
         this.price = listing.price;
@@ -59,6 +59,16 @@ public class Listing {
         this.isReserved = listing.isReserved;
         this.isPurchased = listing.isPurchased;
         this.date = listing.date;
+    }
+
+    /**
+     * Returns a safe copy of object.
+     *
+     * @return safe copy of object.
+     */
+    @Override
+    public Listing cloneObject() {
+        return new Listing(this);
     }
 
     public String getCondition(){
@@ -126,4 +136,5 @@ public class Listing {
     public String getListingDescription() {
         return listingDescription;
     }
+
 }

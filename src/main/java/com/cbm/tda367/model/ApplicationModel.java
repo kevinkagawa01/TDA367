@@ -249,7 +249,7 @@ public final class ApplicationModel implements Observable {
      * @return the currently logged-in user.
      */
     public User getCurrentlyLoggedInUser() {
-        return currentlyLoggedInUser;
+        return currentlyLoggedInUser.cloneObject();
     }
 
     public List<Book> getAllBooks() {
