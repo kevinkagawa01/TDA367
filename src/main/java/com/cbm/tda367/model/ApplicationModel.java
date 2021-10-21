@@ -155,7 +155,7 @@ public final class ApplicationModel implements Observable {
 
     public void reserveListing(Listing listing) {
         currentlyLoggedInUser.addReservedBook(listing);
-        currentlyLoggedInUser.removeListingForSale(listing);
+        //TODO: Set status on listing to reserved!
 
         /* Update view */
         notifyObservers();

@@ -125,7 +125,6 @@ public class User implements Prototype<User>{
      * @return boolean whether the password guess was correct or not.
      */
     boolean isUserPassword(String passwordGuess) {
-        //TODO: maybe make more secure
         return this.password.equals(passwordGuess);
     }
 
