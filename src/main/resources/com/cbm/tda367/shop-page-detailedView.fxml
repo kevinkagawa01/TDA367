@@ -23,7 +23,7 @@
       </Text>
 
       <Rectangle fx:id="reservedButton" arcHeight="5.0" arcWidth="5.0" fill="#fbb547" height="55.0" layoutX="100.0" layoutY="629.0" onMouseClicked="#onClickReservePurchase" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="200.0" />
-      <Text fill="WHITE" layoutX="147.0" layoutY="663.0" onMouseClicked="#onClickReservePurchase" strokeType="OUTSIDE" strokeWidth="0.0" text="RESERVERA" textAlignment="CENTER">
+      <Text fill="WHITE" layoutX="165.0" layoutY="664.0" onMouseClicked="#onClickReservePurchase" strokeType="OUTSIDE" strokeWidth="0.0" text="Reserve" textAlignment="CENTER">
 
          <font>
             <Font name="System Bold" size="20.0" />
@@ -45,9 +45,9 @@
             <Image url="@../../../Library/backTriangle.png" />
          </image>
       </ImageView>
-      <Text fx:id="listingBookCondition" fill="WHITE" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Book Condition&gt;" textAlignment="CENTER" wrappingWidth="411.0">
+      <Text fx:id="listingBookCondition" fill="WHITE" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Book Condition&gt;" textAlignment="CENTER" wrappingWidth="411.0">
          <font>
-            <Font name="Arial Rounded MT Bold" size="19.0" />
+            <Font name="Arial Rounded MT Bold" size="21.0" />
          </font>
       </Text>
       <Text fx:id="listingBookPrice" fill="WHITE" layoutX="1.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Book Price&gt;" textAlignment="CENTER" wrappingWidth="411.0">
