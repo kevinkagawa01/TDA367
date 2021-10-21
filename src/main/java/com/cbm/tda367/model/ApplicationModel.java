@@ -20,7 +20,7 @@ public final class ApplicationModel implements Observable {
     private final UserDatabase userDatabase;
     private final ListingDatabase listingDatabase;
     private User currentlyLoggedInUser = EmptyUser.getInstance();
-    private int currentListingNumber = 1;
+    private int currentListingNumber;
 
 
     private final List<Observer> viewObservers = new ArrayList<>();
@@ -33,6 +33,8 @@ public final class ApplicationModel implements Observable {
         bookDatabase = BookDatabase.getInstance();
         userDatabase = UserDatabase.getInstance();
         listingDatabase = ListingDatabase.getInstance();
+        currentListingNumber = listingDatabase.getListings().size() + 1;
+
         /* Update views on start */
         notifyObservers();
     }
@@ -43,7 +45,7 @@ public final class ApplicationModel implements Observable {
      * @return single instance of this class.
      */
     public static ApplicationModel getInstance() {
-        if(applicationModel == null) {
+        if (applicationModel == null) {
             applicationModel = new ApplicationModel();
         }
         return applicationModel;
@@ -186,8 +188,6 @@ public final class ApplicationModel implements Observable {
 
         }
     }
-
-
 
 
     public void removePurchaseListingBooks(Listing listing) {
