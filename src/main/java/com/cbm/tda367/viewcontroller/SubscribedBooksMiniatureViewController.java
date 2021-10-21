@@ -35,7 +35,6 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane implement
 
     private final ApplicationModel model = ApplicationModel.getInstance();
     private final ControllerManager manager;
-    private int nrNewListings;
 
     private final Book book;
     @FXML
