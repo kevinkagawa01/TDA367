@@ -1,45 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxWidth="380.0" minWidth="384.0" prefHeight="141.0" prefWidth="370.0" styleClass="subscription-book-annons-background" stylesheets="@shop-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="384.0" styleClass="subscription-book-annons-background" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="BookImage" fitHeight="73.0" fitWidth="54.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="BookImage" fitHeight="73.0" fitWidth="54.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Library/coverSample.png" />
          </image>
       </ImageView>
-      <Text fx:id="date" layoutX="7.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Datum&gt;">
+      <Text fx:id="date" layoutX="71.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="listing-miniature-text" text="&lt;Datum&gt;" wrappingWidth="213.0">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="41.0" layoutX="242.0" layoutY="48.0" onMouseClicked="#onClickEditButton" stroke="BLACK" strokeType="INSIDE" width="101.0" />
-      <Text fx:id="BookName" layoutX="71.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Title&gt;">
+      <Text fx:id="BookName" layoutX="71.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="listing-miniature-text" text="&lt;Title&gt;" wrappingWidth="213.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <Text layoutX="283.0" layoutY="72.0" onMouseClicked="#onClickEditButton" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit" textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Text>
-      <Text fx:id="Price" layoutX="71.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Price&gt;">
+      <Text fx:id="Price" layoutX="71.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="listing-miniature-text" text="&lt;Price&gt;" wrappingWidth="213.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="21.0" layoutX="259.0" layoutY="102.0" onMouseClicked="#onClickRemovePublishedBook" stroke="BLACK" strokeType="INSIDE" width="66.0" />
-      <Text layoutX="274.0" layoutY="117.0" onMouseClicked="#onClickRemovePublishedBook" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete">
+      <Button layoutX="284.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onClickEditButton" prefHeight="50.0" prefWidth="100.0" styleClass="listing-edit-button" text="Edit">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
-      </Text>
+      </Button>
+      <Button layoutX="284.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onClickRemovePublishedBook" prefHeight="50.0" prefWidth="100.0" styleClass="listing-remove-button" text="Delete">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
+   <stylesheets>
+      <URL value="@shop-page.css" />
+      <URL value="@account-page.css" />
+   </stylesheets>
 </fx:root>

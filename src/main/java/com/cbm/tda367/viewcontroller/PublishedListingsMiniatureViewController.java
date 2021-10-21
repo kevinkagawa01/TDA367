@@ -28,20 +28,12 @@ import java.io.IOException;
  */
 public class PublishedListingsMiniatureViewController extends AnchorPane {
 
-    private ApplicationModel model = ApplicationModel.getInstance();
-
-
-    private ControllerManager manager=ControllerManager.getInstance();
-
-    //private AccountPageController accountPageController;
-
-
+    private final ApplicationModel model = ApplicationModel.getInstance();
+    private final ControllerManager manager;
+    private final Listing listing;
 
     @FXML
     FlowPane publishedList;
-
-    private Listing listing;
-
     @FXML
     private ImageView BookImage;
     @FXML
@@ -76,10 +68,9 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
         }
 
         BookName.setText(listing.getBook().getBookName());
-        Price.setText(listing.getPrice() + " kr");
+        Price.setText(String.format("Price: %s kr", listing.getPrice()));
         date.setText(String.valueOf(listing.getDate()));
         updateBookPicture();
-
     }
 
     public void updateBookPicture() {

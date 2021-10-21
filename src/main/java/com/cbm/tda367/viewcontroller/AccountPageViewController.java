@@ -30,8 +30,8 @@ import java.util.List;
  */
 public class AccountPageViewController extends AnchorPane implements Observer {
 
-    private ControllerManager manager;
-    private ApplicationModel model = ApplicationModel.getInstance();
+    private final ControllerManager manager;
+    private final ApplicationModel model = ApplicationModel.getInstance();
 
 
     @FXML
@@ -72,6 +72,12 @@ public class AccountPageViewController extends AnchorPane implements Observer {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+
+        cssStyling();
+    }
+
+    private void cssStyling() {
+        accountPageAccordion.setStyle("-fx-box-border: transparent;");
     }
 
     /* onclick listeners*/

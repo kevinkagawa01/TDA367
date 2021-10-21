@@ -209,12 +209,16 @@ public class SellPageViewController extends AnchorPane implements Observer {
             /* clear all fields and reset sell page */
             resetTextFields();
             /* hide edit button */
-            publishRectangle.toFront();
-            publishText.toFront();
+            publishButtonToFront();
             /* open accordion menu for my listings */
             manager.openPublishedListingsAccordionInAccountPage();
         }
 
+    }
+
+    private void publishButtonToFront() {
+        publishRectangle.toFront();
+        publishText.toFront();
     }
 
     private void resetTextFields() {
@@ -253,10 +257,14 @@ public class SellPageViewController extends AnchorPane implements Observer {
         listingDescriptionTextArea.setText(listing.getListingDescription());
         editingListingNumber = listing.getListingNumber();
 
-        //TODO: move this to own method
+        saveButtonToFront();
+    }
+
+    private void saveButtonToFront() {
         saveRectangle.toFront();
         saveText.toFront();
     }
+
 
     /**
      * Updates this status.
