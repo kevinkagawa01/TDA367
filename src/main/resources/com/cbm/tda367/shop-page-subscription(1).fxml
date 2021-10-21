@@ -13,12 +13,12 @@
                 <Image url="@../../../Library/coverSample.png" />
             </image>
         </ImageView>
-        <Text fx:id="listingPrice" layoutX="271.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="listing-miniature-text" text="349kr">
+        <Text fx:id="listingPrice" layoutX="78.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="listing-miniature-text" text="349kr">
             <font>
                 <Font name="System Bold" size="22.0" />
             </font>
         </Text>
-        <Text fx:id="listingBookCondition" layoutX="84.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="listing-miniature-text" text="Minimal Wear">
+        <Text fx:id="listingBookCondition" layoutX="78.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="listing-miniature-text" text="Minimal Wear">
             <font>
                 <Font name="System Bold" size="22.0" />
             </font>
