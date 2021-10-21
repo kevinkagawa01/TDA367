@@ -67,6 +67,13 @@ final class ListingDatabase {
         }
     }
 
+    void reserveListing(Listing listing){
+        for(Listing l: listingList){
+            if(l.getListingNumber() ==  listing.getListingNumber()){
+                l.setReserved(true);
+            }
+        }
+    }
 
     /**
      * Retrieves the list of listings.

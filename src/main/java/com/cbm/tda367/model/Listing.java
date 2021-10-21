@@ -116,8 +116,19 @@ public class Listing implements Prototype<Listing>{
      *
      * @return A boolean regarding the reservation status of a specific Listing.
      */
-    public boolean getReserved() {
+    public boolean isReserved() {
         return isReserved;
+    }
+
+
+
+    //TODO: discuss with group (S)
+    void setReserved(boolean reserved) {
+        isReserved = reserved;
+    }
+
+    void setPurchased(boolean purchased) {
+        isPurchased = purchased;
     }
 
     /**

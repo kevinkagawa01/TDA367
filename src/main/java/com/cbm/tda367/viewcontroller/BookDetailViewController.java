@@ -113,7 +113,7 @@ public class BookDetailViewController extends AnchorPane {
         /* Looks for listings with corresponding book */
         List<Listing> listings = model.getListingDatabase();
         for (Listing listing : listings) {
-            if (listing.getBook().getBookCode().equals(bookCode) && !listing.getReserved()) {
+            if (listing.getBook().getBookCode().equals(bookCode) && !listing.isReserved()) {
                 ListingViewController listingViewController = new ListingViewController(manager, listing);
                 listingsFlowPane.getChildren().add(listingViewController);
             }
