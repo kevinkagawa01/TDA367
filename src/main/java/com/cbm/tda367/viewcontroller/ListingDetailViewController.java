@@ -48,7 +48,7 @@ public class ListingDetailViewController extends AnchorPane {
      */
     public ListingDetailViewController(ControllerManager manager, Listing listing) {
         this.manager = manager;
-        this.listing = listing;
+        this.listing = listing.cloneObject();
         FXMLLoader detailedView = new FXMLLoader(getClass().getResource("/com/cbm/tda367/shop-page-detailedView.fxml"));
         detailedView.setRoot(this);
         detailedView.setController(this);
@@ -153,7 +153,7 @@ public class ListingDetailViewController extends AnchorPane {
 
 
     public void setListing(Listing listing) {
-        this.listing = listing;
+        this.listing = listing.cloneObject();
     }
 
     public void updateListingView() {
