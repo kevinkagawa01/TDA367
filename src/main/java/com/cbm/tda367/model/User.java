@@ -23,7 +23,7 @@ public class User implements Prototype<User>{
 
     /* user lists */
     private List<Listing> reservedBooks;
-    private List<Listing> booksForSale;
+    private List<Listing> listingsForSale;
     private List<Book> subscribedBooks;
     private List<Listing> previousPurchases;
     private List<Notification> notifications;
@@ -41,7 +41,7 @@ public class User implements Prototype<User>{
         this.sumOfRatings = 0;
         this.nrRatings = 0;
         this.reservedBooks = new ArrayList<>();
-        this.booksForSale = new ArrayList<>();
+        this.listingsForSale = new ArrayList<>();
         this.subscribedBooks = new ArrayList<>();
         this.previousPurchases = new ArrayList<>();
         this.notifications = new ArrayList<>();
@@ -55,7 +55,7 @@ public class User implements Prototype<User>{
         this.nrRatings = user.nrRatings;
         /* safe copied lists */
         this.reservedBooks = user.getReservedBooks();
-        this.booksForSale = user.getBooksForSale();
+        this.listingsForSale = user.getListingsForSale();
         this.subscribedBooks = user.getSubscribedBooks();
         this.previousPurchases = user.getPreviousPurchases();
         this.notifications = user.getNotifications();
@@ -144,7 +144,7 @@ public class User implements Prototype<User>{
      * @param listing
      */
     void addListingForSale(Listing listing) {
-        booksForSale.add(listing);
+        listingsForSale.add(listing.cloneObject());
     }
 
 
@@ -192,7 +192,12 @@ public class User implements Prototype<User>{
      * @param listing
      */
     void removeListingForSale(Listing listing) {
-        booksForSale.remove(listing);
+        for(Listing l : listingsForSale){
+            if(l.getListingNumber() == listing.getListingNumber()){
+                listingsForSale.remove(l);
+                break;
+            }
+        }
     }
 
 
@@ -205,6 +210,47 @@ public class User implements Prototype<User>{
         subscribedBooks.removeIf(book -> book.getBookCode().equals(bookCode));
     }
 
+    public boolean isSubscribedToBook(String bookCode){
+        List<SubscribeNotification> subscribeNotifications = getSubscribeNotifications();
+
+        for(SubscribeNotification notification : subscribeNotifications){
+            if(notification.getBookCodeToRelatedBook().equals(bookCode)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void receiveSubscribeNotification(String bookCode){
+        for(Book b : subscribedBooks){
+            if(b.getBookCode().equals(bookCode)){
+                notifications.add(new SubscribeNotification(bookCode));
+            }
+        }
+    }
+
+    public List<SubscribeNotification> getSubscribeNotifications(){
+        List<SubscribeNotification> subscribeNotifications = new ArrayList<>();
+        for(Notification n : notifications){
+            if(n.getClass().equals(SubscribeNotification.class)){
+                subscribeNotifications.add((SubscribeNotification) n);
+            }
+        }
+        return new ArrayList<>(subscribeNotifications);
+    }
+
+    void removeSubscribeNotification(String bookCode){
+       List<SubscribeNotification> subscribeNotifications = getSubscribeNotifications();
+       List<SubscribeNotification> notificationsToBeRemoved = new ArrayList<>();
+
+        for(SubscribeNotification notification : subscribeNotifications){
+            if(notification.getBookCodeToRelatedBook().equals(bookCode)){
+                notificationsToBeRemoved.add(notification);
+            }
+        }
+        notifications.removeAll(notificationsToBeRemoved);
+    }
+
     public List<Book> getSubscribedBooks() {
         return new ArrayList<>(subscribedBooks);
     }
@@ -212,8 +258,8 @@ public class User implements Prototype<User>{
     /**
      * @return
      */
-    public List<Listing> getBooksForSale() {
-        return new ArrayList<>(booksForSale);
+    public List<Listing> getListingsForSale() {
+        return new ArrayList<>(listingsForSale);
     }
 
     public List<Listing> getReservedBooks() {
@@ -225,9 +271,9 @@ public class User implements Prototype<User>{
     }
 
     void editListing(Listing listing) {
-        for (Listing l : booksForSale) {
+        for (Listing l : listingsForSale) {
             if (l.getListingNumber() == listing.getListingNumber()) {
-                booksForSale.set(booksForSale.indexOf(l), listing);
+                listingsForSale.set(listingsForSale.indexOf(l), listing);
             }
         }
     }

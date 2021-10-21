@@ -34,6 +34,15 @@ final public class UserDatabase {
         return userDatabase;
     }
 
+    void updateUser(User user){
+        for(User u : userList){
+            if(u.getCid().equals(user.getCid())){
+                userList.set(userList.indexOf(u),user.cloneObject());
+            }
+        }
+    }
+
+
     /** A getter for the userList
      *
      * @return a new arraylist of the userlist

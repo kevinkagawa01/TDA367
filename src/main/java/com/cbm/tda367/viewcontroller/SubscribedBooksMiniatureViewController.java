@@ -2,9 +2,12 @@ package com.cbm.tda367.viewcontroller;
 
 import com.cbm.tda367.model.ApplicationModel;
 import com.cbm.tda367.model.Book;
+import com.cbm.tda367.model.Observer;
+import com.cbm.tda367.model.SubscribeNotification;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -15,6 +18,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Visual representation of a miniature view
@@ -27,9 +31,11 @@ import java.io.IOException;
  * @version 1.0
  * @since 1.0
  */
-public class SubscribedBooksMiniatureViewController extends AnchorPane {
+public class SubscribedBooksMiniatureViewController extends AnchorPane implements Observer {
 
     private final ApplicationModel model = ApplicationModel.getInstance();
+    private final ControllerManager manager;
+    private int nrNewListings;
 
     private final Book book;
     @FXML
@@ -40,10 +46,16 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
     private ImageView subscribedBookPicture;
     @FXML
     private Text date;
+    @FXML
+    private Button newListingsButton;
+    @FXML
+    private Button noNewListingsButton;
 
 
-    public SubscribedBooksMiniatureViewController(Book book) {
+    public SubscribedBooksMiniatureViewController(Book book, ControllerManager manager) {
         this.book = book;
+        this.manager = manager;
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/SubscribedBooks.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -56,8 +68,7 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
         titleSubscriebdMiniature.setText(book.getBookName());
         subscribedBookPicture.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
         date.setText(String.valueOf(book.getDate()));
-
-
+        update();
     }
 
 
@@ -73,4 +84,36 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
 
     }
 
+    @FXML
+    protected void onClickGoToNewListingsOfThisBook(Event event){
+        manager.openBookDetailView(book);
+    }
+
+    private void updateNewListingsNumber(){
+        //TODO: move logic to model
+        int notificationNumber = 0;
+        List<SubscribeNotification> subscribeNotifications = model.getCurrentlyLoggedInUser().getSubscribeNotifications();
+        for(SubscribeNotification notification : subscribeNotifications){
+            if(notification.getBookCodeToRelatedBook().equals(this.book.getBookCode())){
+                notificationNumber++;
+            }
+        }
+
+        if(notificationNumber == 0){
+            newListingsButton.setVisible(false);
+            noNewListingsButton.setVisible(true);
+        } else {
+            newListingsButton.setText(String.format("%d New Listings",notificationNumber));
+            newListingsButton.setVisible(true);
+            noNewListingsButton.setVisible(false);
+        }
+    }
+
+    /**
+     * Updates this status.
+     */
+    @Override
+    public void update() {
+        updateNewListingsNumber();
+    }
 }

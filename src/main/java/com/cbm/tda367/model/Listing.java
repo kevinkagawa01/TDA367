@@ -120,9 +120,6 @@ public class Listing implements Prototype<Listing>{
         return isReserved;
     }
 
-
-
-    //TODO: discuss with group (S)
     void setReserved(boolean reserved) {
         isReserved = reserved;
     }

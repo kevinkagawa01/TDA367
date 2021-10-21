@@ -2,6 +2,7 @@
 {
     vanilla_white: #fdfaf0;
     dark_grey: #3d3d3d;
+    see_through_dark_grey: rgb(77, 77, 77, 0.75);
     remove_red: rgb(255, 31, 31, 0.75);
     edit_blue: rgb(30, 144, 255, 0.75);
 }
@@ -46,7 +47,6 @@
     /* button */
     -fx-background-color: edit_blue;
     -fx-background-radius: 0 15 0 0;
-    -fx-fill: #1e90ff;
 }
 
 .listing-remove-button
@@ -57,6 +57,35 @@
     /* button */
     -fx-background-color: remove_red;
     -fx-background-radius: 0 0 15 0;
-    -fx-fill: #1e90ff;
+}
+
+.listing-unsubscribe-button
+{
+    /* text */
+    -fx-text-fill: vanilla_white;
+
+    /* button */
+    -fx-background-color: remove_red;
+    -fx-background-radius: 0 0 15 0;
+}
+
+.listing-subscribe-no-new-listings
+{
+    /* text */
+    -fx-text-fill: vanilla_white;
+
+    /* button */
+    -fx-background-color: see_through_dark_grey;
+    -fx-background-radius: 0 15 0 0;
+}
+
+.listing-subscribe-new-listings
+{
+     /* text */
+    -fx-text-fill: vanilla_white;
+
+    /* button */
+    -fx-background-color: edit_blue;
+    -fx-background-radius: 0 15 0 0;
 }
 

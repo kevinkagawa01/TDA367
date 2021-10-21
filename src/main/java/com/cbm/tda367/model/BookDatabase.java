@@ -99,7 +99,7 @@ final class BookDatabase {
      * @param book A Book.
      */
     void addBook(Book book) {
-        bookList.add(book);
+        bookList.add(book.cloneObject());
     }
 
     /**
