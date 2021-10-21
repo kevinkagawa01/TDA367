@@ -8,20 +8,20 @@ package com.cbm.tda367.model;
  * @version 1.0
  * @since 1.0
  * */
-final class NotLoggedInUser extends User{
+final class EmptyUser extends User{
 
-    private static NotLoggedInUser notLoggedInUser;
+    private static EmptyUser emptyUser;
 
     /** the class create user
      */
-    private NotLoggedInUser() {
+    private EmptyUser() {
         super("", "");
     }
 
-    static NotLoggedInUser getInstance(){
-        if(notLoggedInUser == null) {
-            notLoggedInUser = new NotLoggedInUser();
+    static EmptyUser getInstance(){
+        if(emptyUser == null) {
+            emptyUser = new EmptyUser();
         }
-        return notLoggedInUser;
+        return emptyUser;
     }
 }

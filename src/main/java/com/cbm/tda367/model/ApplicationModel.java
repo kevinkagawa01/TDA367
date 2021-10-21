@@ -19,7 +19,7 @@ public final class ApplicationModel implements Observable {
     private final BookDatabase bookDatabase;
     private final UserDatabase userDatabase;
     private final ListingDatabase listingDatabase;
-    private User currentlyLoggedInUser = NotLoggedInUser.getInstance();
+    private User currentlyLoggedInUser = EmptyUser.getInstance();
     private int currentListingNumber = 1;
 
 
