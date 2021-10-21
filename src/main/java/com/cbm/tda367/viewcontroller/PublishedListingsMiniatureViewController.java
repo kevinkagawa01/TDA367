@@ -56,7 +56,7 @@ public class PublishedListingsMiniatureViewController extends AnchorPane {
 
     public PublishedListingsMiniatureViewController(ControllerManager manager, Listing listing) {
         this.manager = manager;
-        this.listing = listing;
+        this.listing = listing.cloneObject();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/PublishedBooks.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

@@ -1,8 +1,10 @@
 package com.cbm.tda367.viewcontroller;
 
+import com.cbm.tda367.model.Observer;
+import com.cbm.tda367.model.EmptyBook;
+import com.cbm.tda367.model.EmptyListing;
 import com.cbm.tda367.model.Book;
 import com.cbm.tda367.model.Listing;
-import com.cbm.tda367.model.Observer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
@@ -42,8 +44,8 @@ public class ControllerManager implements Initializable, Observer {
     private final AccountPageViewController accountPage = new AccountPageViewController(this);
 
     //TODO: First book should not be null!
-    private final BookDetailViewController bookDetailViewController = new BookDetailViewController(this, null);
-    private final ListingDetailViewController listingDetailViewController = new ListingDetailViewController(this, null);
+    private final BookDetailViewController bookDetailViewController = new BookDetailViewController(this, EmptyBook.getInstance());
+    private final ListingDetailViewController listingDetailViewController = new ListingDetailViewController(this, EmptyListing.getInstance());
     private final List<Observer> mainPages = new ArrayList<>();
 
     @Override

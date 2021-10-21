@@ -25,6 +25,19 @@ final class ListingDatabase {
      * Constructs the Listing database singleton.
      */
     private ListingDatabase() {
+        List<Book> allBooks= BookDatabase.getInstance().getBookList();
+        addListing(new Listing(allBooks.get(0),1,"132",allBooks.get(0).getImagePath(),
+                "New","hello",false,false ));
+        addListing(new Listing(allBooks.get(1),2,"132",allBooks.get(1).getImagePath(),
+                "New","hello",false,false ));
+        addListing(new Listing(allBooks.get(2),3,"132",allBooks.get(2).getImagePath(),
+                "New","hello",false,false ));
+        addListing(new Listing(allBooks.get(3),4,"132",allBooks.get(3).getImagePath(),
+                "New","hello",false,false ));
+        addListing(new Listing(allBooks.get(4),4,"132",allBooks.get(4).getImagePath(),
+                "New","hello",false,false ));
+        addListing(new Listing(allBooks.get(5),5,"132",allBooks.get(5).getImagePath(),
+                "New","hello",false,false ));
 
     }
 

@@ -51,7 +51,7 @@ public class ReservedBooksMiniatureViewController extends AnchorPane {
      */
     public ReservedBooksMiniatureViewController(ControllerManager manager, Listing listing) {
         this.manager = manager;
-        this.listing = listing;
+        this.listing = listing.cloneObject();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/ReservedBooks.fxml"));
         fxmlLoader.setRoot(this);

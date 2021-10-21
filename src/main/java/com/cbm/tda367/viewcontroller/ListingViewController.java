@@ -24,7 +24,7 @@ import java.io.IOException;
 
 public class ListingViewController extends AnchorPane {
     private final ControllerManager manager;
-    private Listing listing;
+    private final Listing listing;
 
     @FXML
     private Text listingPrice;
@@ -35,7 +35,7 @@ public class ListingViewController extends AnchorPane {
 
 
     public ListingViewController(ControllerManager manager, Listing listing) {
-        this.listing = listing;
+        this.listing = listing.cloneObject();
         this.manager = manager;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/shop-page-subscription(1).fxml"));
