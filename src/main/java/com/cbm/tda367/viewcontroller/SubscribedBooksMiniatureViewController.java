@@ -95,7 +95,6 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane implement
     }
 
     private void updateNewListingsNumber(){
-        //TODO: move logic to model
         int notificationNumber = 0;
         List<SubscribeNotification> subscribeNotifications = model.getCurrentlyLoggedInUser().getSubscribeNotifications();
         for(SubscribeNotification notification : subscribeNotifications){
