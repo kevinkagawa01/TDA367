@@ -20,7 +20,8 @@ public final class ApplicationModel implements Observable {
     private final UserDatabase userDatabase;
     private final ListingDatabase listingDatabase;
     private User currentlyLoggedInUser = EmptyUser.getInstance();
-    private int currentListingNumber;
+
+    private Integer currentListingNumber = 1;
 
 
     private final List<Observer> viewObservers = new ArrayList<>();
@@ -116,18 +117,25 @@ public final class ApplicationModel implements Observable {
                         description, false, false);
                 listingDatabase.addListing(listing);
                 currentlyLoggedInUser.addListingForSale(listing);
+                currentlyLoggedInUser.receiveSubscribeNotification(bookCode);
+                userDatabase.updateUser(currentlyLoggedInUser);
                 notifyObservers();
                 //TODO: else-block should enable user to create a new book for the bookDatabase if not current one matches.
             }
         }
     }
 
+    public void removeNotification(String bookCode){
+        currentlyLoggedInUser.removeSubscribeNotification(bookCode);
+    }
+
     public void removedListingFromCurrentlyLoggedInUser(Listing listing) {
         /* Delete removed listing from Database */
         listingDatabase.removeListing(listing);
-
         /* Delete removed listing from user */
         currentlyLoggedInUser.removeListingForSale(listing);
+        currentlyLoggedInUser.removeSubscribeNotification(listing.getBook().getBookCode());
+        userDatabase.updateUser(getCurrentlyLoggedInUser());
 
         /* Update view */
         notifyObservers();
@@ -201,9 +209,9 @@ public final class ApplicationModel implements Observable {
 
     public double getListingSellerRating(Listing listing) {
         for (User user : userDatabase.getUserList()) {
-            for (Listing listing1 : user.getBooksForSale()) {
+            for (Listing listing1 : user.getPublishedListings()) {
                 if (listing1.getListingNumber() == listing.getListingNumber()) {
-                    return user.getRating();
+                    return user.getUserRating().getRating();
                 }
             }
         }
@@ -212,7 +220,7 @@ public final class ApplicationModel implements Observable {
 
     public String getListingCid(Listing listing) {
         for (User user : userDatabase.getUserList()) {
-            for (Listing listing1 : user.getBooksForSale()) {
+            for (Listing listing1 : user.getPublishedListings()) {
                 if (listing1.getListingNumber() == listing.getListingNumber()) {
                     return user.getCid();
                 }

@@ -43,7 +43,6 @@ public class ControllerManager implements Initializable, Observer {
     private final SellPageViewController sellPage = new SellPageViewController(this);
     private final AccountPageViewController accountPage = new AccountPageViewController(this);
 
-    //TODO: First book should not be null!
     private final BookDetailViewController bookDetailViewController = new BookDetailViewController(this, EmptyBook.getInstance());
     private final ListingDetailViewController listingDetailViewController = new ListingDetailViewController(this, EmptyListing.getInstance());
     private final List<Observer> mainPages = new ArrayList<>();

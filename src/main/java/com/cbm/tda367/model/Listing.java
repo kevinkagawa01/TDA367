@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class Listing implements Prototype<Listing>{
 
     private final Book book;
-    private final int listingNumber;
+    private final Integer listingNumber;
     private String condition;
     private String price;
     private final String imagePath;
@@ -120,9 +120,6 @@ public class Listing implements Prototype<Listing>{
         return isReserved;
     }
 
-
-
-    //TODO: discuss with group (S)
     void setReserved(boolean reserved) {
         isReserved = reserved;
     }

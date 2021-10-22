@@ -59,7 +59,7 @@ final class ListingDatabase {
      * @param listing An ArrayList of listings.
      */
     void addListing(Listing listing) {
-        listingList.add(listing);
+        listingList.add(listing.cloneObject());
     }
 
     /**
@@ -68,8 +68,12 @@ final class ListingDatabase {
      * @param listing An ArrayList of listings.
      */
     void removeListing(Listing listing) {
-        listingList.remove(listing);
-
+        for(Listing l : listingList){
+            if(l.getListingNumber() == listing.getListingNumber()){
+                listingList.remove(l);
+                break;
+            }
+        }
     }
 
     void editListing(Listing listing) {

@@ -15,18 +15,16 @@ import java.util.List;
  */
 public class User implements Prototype<User>{
 
-    private String cid;
-    private String password;
-    private double totalRating;
-    private int sumOfRatings;
-    private int nrRatings;
-
+    private final String cid;
+    private final String password;
     /* user lists */
-    private List<Listing> reservedBooks;
-    private List<Listing> booksForSale;
-    private List<Book> subscribedBooks;
-    private List<Listing> previousPurchases;
-    private List<Notification> notifications;
+    private final List<Notification> notifications;
+    /* user assets */
+    private final UserAsset<Book> subscribedBooks;
+    private final UserAsset<Listing> reservedListings;
+    private final UserAsset<Listing> previouslyTradedListings;
+    private final UserAsset<Listing> publishedListings;
+    private final UserRating userRating;
 
     /**
      * class constructor.
@@ -37,28 +35,26 @@ public class User implements Prototype<User>{
     User(String cid, String password) {
         this.cid = cid;
         this.password = password;
-        this.totalRating = 0;
-        this.sumOfRatings = 0;
-        this.nrRatings = 0;
-        this.reservedBooks = new ArrayList<>();
-        this.booksForSale = new ArrayList<>();
-        this.subscribedBooks = new ArrayList<>();
-        this.previousPurchases = new ArrayList<>();
+        this.userRating = new UserRating(0,0,0);
         this.notifications = new ArrayList<>();
+
+        this.subscribedBooks = new UserAsset<>();
+        this.reservedListings = new UserAsset<>();
+        this.previouslyTradedListings = new UserAsset<>();
+        this.publishedListings = new UserAsset<>();
     }
 
     private User(User user){
         this.cid = user.cid;
         this.password = user.password;
-        this.totalRating = user.totalRating;
-        this.sumOfRatings = user.sumOfRatings;
-        this.nrRatings = user.nrRatings;
+        this.userRating = user.userRating.cloneObject();
         /* safe copied lists */
-        this.reservedBooks = user.getReservedBooks();
-        this.booksForSale = user.getBooksForSale();
-        this.subscribedBooks = user.getSubscribedBooks();
-        this.previousPurchases = user.getPreviousPurchases();
         this.notifications = user.getNotifications();
+        /* user assets */
+        this.subscribedBooks = user.subscribedBooks.cloneObject();
+        this.reservedListings = user.reservedListings.cloneObject();
+        this.previouslyTradedListings = user.previouslyTradedListings.cloneObject();
+        this.publishedListings = user.publishedListings.cloneObject();
     }
 
     /**
@@ -68,45 +64,6 @@ public class User implements Prototype<User>{
     @Override
     public User cloneObject() {
         return new User(this);
-    }
-
-    /**
-     * adds users rating and updates the total
-     *
-     * @param rating rating to be added to this total rating.
-     */
-    void addRating(int rating) {
-        /* if provided rating is invalid, return */
-        if (!(0 <= rating && rating <= 5)) {
-            return;
-        }
-        /* add rating to total sum of ratings */
-        sumOfRatings += rating;
-        /* increment number of raters */
-        nrRatings++;
-        /* round rating to one decimal place and split the total sum according to number of ratings */
-        totalRating = round((double) sumOfRatings / nrRatings, 1);
-    }
-
-    /**
-     * Returns this rating.
-     *
-     * @return this rating.
-     */
-    public double getRating() {
-        return totalRating;
-    }
-
-    /**
-     * rounds a double to a certain precision
-     *
-     * @param value     double to be rounded.
-     * @param precision precision to round the double according to.
-     * @return rounded double.
-     */
-    private double round(double value, int precision) {
-        int scale = (int) Math.pow(10, precision);
-        return (double) Math.round(value * scale) / scale;
     }
 
     /**
@@ -135,7 +92,7 @@ public class User implements Prototype<User>{
      * @param listing
      */
     void addReservedBook(Listing listing) {
-        reservedBooks.add(listing);
+        reservedListings.addListItem(listing);
     }
 
     /**
@@ -144,7 +101,7 @@ public class User implements Prototype<User>{
      * @param listing
      */
     void addListingForSale(Listing listing) {
-        booksForSale.add(listing);
+        publishedListings.addListItem(listing);
     }
 
 
@@ -154,7 +111,7 @@ public class User implements Prototype<User>{
      * @param book
      */
     void addBookSubscription(Book book) {
-        subscribedBooks.add(book);
+        subscribedBooks.addListItem(book);
     }
 
     /**
@@ -163,7 +120,7 @@ public class User implements Prototype<User>{
      * @param listing
      */
     void addPreviousPurchase(Listing listing) {
-        previousPurchases.add(listing);
+        previouslyTradedListings.addListItem(listing);
     }
 
     /**
@@ -173,7 +130,7 @@ public class User implements Prototype<User>{
      */
 
     void removePreviousPurchase(Listing listing) {
-        previousPurchases.remove(listing);
+        previouslyTradedListings.removeListItem(listing);
     }
 
 
@@ -183,7 +140,7 @@ public class User implements Prototype<User>{
      * @param listing
      */
     void removeReservedBook(Listing listing) {
-        reservedBooks.remove(listing);
+        reservedListings.removeListItem(listing);
     }
 
     /**
@@ -192,7 +149,12 @@ public class User implements Prototype<User>{
      * @param listing
      */
     void removeListingForSale(Listing listing) {
-        booksForSale.remove(listing);
+        for(Listing l : publishedListings.getList()){
+            if(l.getListingNumber() == listing.getListingNumber()){
+                publishedListings.removeListItem(l);
+                break;
+            }
+        }
     }
 
 
@@ -202,37 +164,72 @@ public class User implements Prototype<User>{
      * @param bookCode book code
      */
     void removeBookSubscription(String bookCode) {
-        subscribedBooks.removeIf(book -> book.getBookCode().equals(bookCode));
-    }
-
-    public List<Book> getSubscribedBooks() {
-        return new ArrayList<>(subscribedBooks);
-    }
-
-    /**
-     * @return
-     */
-    public List<Listing> getBooksForSale() {
-        return new ArrayList<>(booksForSale);
-    }
-
-    public List<Listing> getReservedBooks() {
-        return new ArrayList<>(reservedBooks);
-    }
-
-    public List<Listing> getPreviousPurchases() {
-        return new ArrayList<>(previousPurchases);
-    }
-
-    void editListing(Listing listing) {
-        for (Listing l : booksForSale) {
-            if (l.getListingNumber() == listing.getListingNumber()) {
-                booksForSale.set(booksForSale.indexOf(l), listing);
+        for(Book book : subscribedBooks.getList()){
+            if(book.getBookCode().equals(bookCode)){
+                subscribedBooks.removeListItem(book);
             }
         }
     }
 
+    void receiveSubscribeNotification(String bookCode){
+        for(Book b : subscribedBooks.getList()){
+            if(b.getBookCode().equals(bookCode)){
+                notifications.add(new SubscribeNotification(bookCode));
+            }
+        }
+    }
+
+    public List<SubscribeNotification> getSubscribeNotifications(){
+        List<SubscribeNotification> subscribeNotifications = new ArrayList<>();
+        for(Notification n : notifications){
+            if(n.getClass().equals(SubscribeNotification.class)){
+                subscribeNotifications.add((SubscribeNotification) n);
+            }
+        }
+        return new ArrayList<>(subscribeNotifications);
+    }
+
+    void removeSubscribeNotification(String bookCode){
+       List<SubscribeNotification> subscribeNotifications = getSubscribeNotifications();
+       List<SubscribeNotification> notificationsToBeRemoved = new ArrayList<>();
+
+        for(SubscribeNotification notification : subscribeNotifications){
+            if(notification.getBookCodeToRelatedBook().equals(bookCode)){
+                notificationsToBeRemoved.add(notification);
+            }
+        }
+        notifications.removeAll(notificationsToBeRemoved);
+    }
+
+    void editListing(Listing listing) {
+        for (Listing l : publishedListings.getList()) {
+            if (l.getListingNumber() == listing.getListingNumber()) {
+                publishedListings.setListItem(publishedListings.getList().indexOf(l), listing);
+            }
+        }
+    }
+
+    public List<Book> getSubscribedBooks() {
+        return subscribedBooks.getList();
+    }
+
+    public List<Listing> getPublishedListings() {
+        return publishedListings.getList();
+    }
+
     public List<Notification> getNotifications() {
         return new ArrayList<>(notifications);
+    }
+
+    public List<Listing> getReservedListings() {
+        return reservedListings.getList();
+    }
+
+    public List<Listing> getPreviouslyTradedListings() {
+        return previouslyTradedListings.getList();
+    }
+
+    public UserRating getUserRating() {
+        return userRating;
     }
 }

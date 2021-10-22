@@ -9,4 +9,13 @@ package com.cbm.tda367.model;
  * */
 public class SubscribeNotification extends Notification{
 
+    private String bookCodeToRelatedBook;
+
+    public SubscribeNotification(String bookCode) {
+        this.bookCodeToRelatedBook = bookCode;
+    }
+
+    public String getBookCodeToRelatedBook() {
+        return bookCodeToRelatedBook;
+    }
 }
