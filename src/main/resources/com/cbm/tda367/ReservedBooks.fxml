@@ -7,34 +7,34 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root prefHeight="141.0" prefWidth="384.0" styleClass="subscription-book-annons-background" stylesheets="@shop-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="384.0" styleClass="subscription-book-annons-background" stylesheets="@shop-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="reservePicture" fitHeight="73.0" fitWidth="54.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Library/coverSample.png" />
          </image>
       </ImageView>
-      <Text fx:id="reservedDate" layoutX="9.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="listing-miniature-text" text="&lt;Datum&gt;">
+      <Text fx:id="reservedDate" layoutX="71.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="listing-miniature-text" text="&lt;Datum&gt;">
          <font>
             <Font name="Arial Rounded MT Bold" size="16.0" />
          </font>
       </Text>
-      <Button fx:id="unReserve" layoutX="253.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onClickRemoveReservedBook" prefHeight="62.0" prefWidth="131.0" styleClass="listing-remove-button" text="Unreserve">
+      <Button fx:id="unReserve" layoutX="253.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onClickRemoveReservedBook" prefHeight="50.0" prefWidth="131.0" styleClass="listing-remove-button" text="Unreserve">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Button>
-      <Text fx:id="reservedListingPrice" layoutX="76.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="listing-miniature-text" text="&lt;Price&gt;">
+      <Text fx:id="reservedListingPrice" layoutX="72.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="listing-miniature-text" text="&lt;Price&gt;">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="email" layoutX="78.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="listing-miniature-text" text="Text">
+      <Text fx:id="email" layoutX="72.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="listing-miniature-text" text="Text">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Button fx:id="doneButton" layoutX="253.0" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#onClickPurchased" prefHeight="73.0" prefWidth="131.0" styleClass="listing-done-button" text="Done">
+      <Button fx:id="doneButton" layoutX="253.0" mnemonicParsing="false" onMouseClicked="#onClickPurchased" prefHeight="50.0" prefWidth="131.0" styleClass="listing-done-button" text="Done">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
