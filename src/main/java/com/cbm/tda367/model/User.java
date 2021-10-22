@@ -140,7 +140,11 @@ public class User implements Prototype<User>{
      * @param listing
      */
     void removeReservedBook(Listing listing) {
-        reservedListings.removeListItem(listing);
+        for(Listing l : reservedListings.getList()){
+            if(l.getListingNumber() == listing.getListingNumber()){
+                reservedListings.removeListItem(l);
+            }
+        }
     }
 
     /**
