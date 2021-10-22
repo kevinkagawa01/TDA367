@@ -172,7 +172,7 @@ public final class ApplicationModel implements Observable {
     }
 
     public void removeBookFromReservedList(Listing listing) {
-        listingDatabase.removeListing(listing);
+        listingDatabase.unreserveListing(listing);
 
         /* remove book from subscription list  */
         currentlyLoggedInUser.removeReservedBook(listing);
