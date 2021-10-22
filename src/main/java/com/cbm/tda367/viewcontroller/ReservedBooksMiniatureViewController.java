@@ -29,8 +29,8 @@ public class ReservedBooksMiniatureViewController extends AnchorPane {
     private final ControllerManager manager;
     private final Listing listing;
     private final ApplicationModel model = ApplicationModel.getInstance();
-    private @FXML
-    Text reservedListingTitle;
+    //private @FXML
+    //Text reservedListingTitle;
     private @FXML
     Text reservedDate;
     private @FXML
@@ -64,7 +64,7 @@ public class ReservedBooksMiniatureViewController extends AnchorPane {
         }
 
         reservePicture.setImage(new Image(getClass().getResourceAsStream(this.listing.getBook().getImagePath())));
-        reservedListingTitle.setText(listing.getBook().getBookName());
+        //reservedListingTitle.setText(listing.getBook().getBookName());
         reservedDate.setText(String.valueOf(listing.getDate()));
         reservedListingPrice.setText(listing.getPrice() + " kr");
         email.setText(model.getCurrentlyLoggedInUser().getCid());
