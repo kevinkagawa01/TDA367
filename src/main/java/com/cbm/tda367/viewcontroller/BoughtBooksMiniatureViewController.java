@@ -33,8 +33,6 @@ public class BoughtBooksMiniatureViewController extends AnchorPane {
     Text purchasedTitle;
     @FXML Text date;
     @FXML Text purchasedPrice;
-    @FXML
-    Rectangle removedButton;
 
     /**
      * class constructor
@@ -58,16 +56,5 @@ public class BoughtBooksMiniatureViewController extends AnchorPane {
         purchasedTitle.setText(listing.getBook().getBookName());
         date.setText(String.valueOf(listing.getDate()));
         purchasedPrice.setText(listing.getPrice() + " kr");
-    }
-    /**
-     * On click method, delete listing from Application model
-     *
-     * @param event Click event
-     */
-    @FXML
-    protected void onClickRemovedBook(Event event){
-        model.removePurchaseListingBooks(this.listing);
-
-
     }
 }
