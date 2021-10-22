@@ -88,4 +88,13 @@
     -fx-background-color: edit_blue;
     -fx-background-radius: 0 15 0 0;
 }
+.listing-done-button
+{
+    /* text */
+    -fx-text-fill: vanilla_white;
+
+    /* button */
+    -fx-background-color: edit_blue;
+    -fx-background-radius: 0 15 0 0;
+}
 

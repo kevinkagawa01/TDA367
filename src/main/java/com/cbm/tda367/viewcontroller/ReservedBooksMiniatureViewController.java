@@ -5,6 +5,7 @@ import com.cbm.tda367.model.Listing;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -36,13 +37,13 @@ public class ReservedBooksMiniatureViewController extends AnchorPane {
     private @FXML
     Text reservedListingPrice;
     private @FXML
-    Rectangle unReserve;
+    Button unReserve;
     private @FXML
     ImageView reservePicture;
     private @FXML
     Text email;
     private @FXML
-    Rectangle doneButton;
+    Button doneButton;
 
     /**
      * Constructs the view and defines its controller.

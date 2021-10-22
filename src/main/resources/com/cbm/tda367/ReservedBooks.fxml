@@ -19,7 +19,7 @@
             <Font name="Arial Rounded MT Bold" size="16.0" />
          </font>
       </Text>
-      <Button layoutX="253.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onClickRemoveReservedBook" prefHeight="51.0" prefWidth="131.0" styleClass="listing-remove-button" text="Unreserve">
+      <Button fx:id="unReserve" layoutX="253.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onClickRemoveReservedBook" prefHeight="62.0" prefWidth="131.0" styleClass="listing-remove-button" text="Unreserve">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
@@ -34,5 +34,10 @@
             <Font size="15.0" />
          </font>
       </Text>
+      <Button fx:id="doneButton" layoutX="253.0" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#onClickPurchased" prefHeight="73.0" prefWidth="131.0" styleClass="listing-done-button" text="Done">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </fx:root>
