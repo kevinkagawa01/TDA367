@@ -191,7 +191,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private void updatePublishedBooks() {
         publishedBooksFlowPane.getChildren().clear();
 
-        List<Listing> publishedListings = model.getCurrentlyLoggedInUser().getListingsForSale();
+        List<Listing> publishedListings = model.getCurrentlyLoggedInUser().getPublishedListings();
         for (Listing listing : publishedListings) {
             publishedBooksFlowPane.getChildren().add(new PublishedListingsMiniatureViewController(manager, listing));
 
@@ -210,7 +210,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private void updateReservedBooks() {
         reservedBookAccordion.getChildren().clear();
 
-        List<Listing> reservedBooks = model.getCurrentlyLoggedInUser().getReservedBooks();
+        List<Listing> reservedBooks = model.getCurrentlyLoggedInUser().getReservedListings();
         for (Listing listing : reservedBooks) {
             reservedBookAccordion.getChildren().add(new ReservedBooksMiniatureViewController(manager, listing));
 
@@ -220,7 +220,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
     private void updatePurchasedBooks() {
         purchasedBook.getChildren().clear();
 
-        List<Listing> purchasedBooks = model.getCurrentlyLoggedInUser().getPreviousPurchases();
+        List<Listing> purchasedBooks = model.getCurrentlyLoggedInUser().getPreviouslyTradedListings();
         for (Listing listing : purchasedBooks) {
             purchasedBook.getChildren().add(new BoughtBooksMiniatureViewController(listing));
 

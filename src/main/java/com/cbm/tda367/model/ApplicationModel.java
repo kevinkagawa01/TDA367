@@ -20,7 +20,7 @@ public final class ApplicationModel implements Observable {
     private final UserDatabase userDatabase;
     private final ListingDatabase listingDatabase;
     private User currentlyLoggedInUser = EmptyUser.getInstance();
-    private int currentListingNumber = 1;
+    private Integer currentListingNumber = 1;
 
 
     private final List<Observer> viewObservers = new ArrayList<>();
@@ -205,7 +205,7 @@ public final class ApplicationModel implements Observable {
 
     public double getListingSellerRating(Listing listing) {
         for (User user : userDatabase.getUserList()) {
-            for (Listing listing1 : user.getListingsForSale()) {
+            for (Listing listing1 : user.getPublishedListings()) {
                 if (listing1.getListingNumber() == listing.getListingNumber()) {
                     return user.getUserRating().getRating();
                 }
@@ -216,7 +216,7 @@ public final class ApplicationModel implements Observable {
 
     public String getListingCid(Listing listing) {
         for (User user : userDatabase.getUserList()) {
-            for (Listing listing1 : user.getListingsForSale()) {
+            for (Listing listing1 : user.getPublishedListings()) {
                 if (listing1.getListingNumber() == listing.getListingNumber()) {
                     return user.getCid();
                 }

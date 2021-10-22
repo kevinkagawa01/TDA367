@@ -110,7 +110,7 @@ public class ListingDetailViewController extends AnchorPane {
 
     }
     protected void unreserveListing() {
-        for (Listing listing : model.getCurrentlyLoggedInUser().getReservedBooks()) {
+        for (Listing listing : model.getCurrentlyLoggedInUser().getReservedListings()) {
             if (listing.getBook().getBookCode().equals(this.listing.getBook().getBookCode())) {
                 model.removeBookFromSubscriptionList(listing.getBook().getBookCode());
                 updateReservedStatus();
@@ -125,7 +125,7 @@ public class ListingDetailViewController extends AnchorPane {
     }
     private void updateReservedStatus() {
          isReserved=false;
-        for (Listing listings : model.getCurrentlyLoggedInUser().getReservedBooks()) {
+        for (Listing listings : model.getCurrentlyLoggedInUser().getReservedListings()) {
             if (listings.getBook().getBookCode().equals(this.listing.getBook().getBookCode())) {
                 isReserved = true;
             }
@@ -182,8 +182,6 @@ public class ListingDetailViewController extends AnchorPane {
     private void updateListingBookTitleText() {
         listingBookTitle.setText(listing.getBook().getBookName());
     }
-
-
 
     @FXML
     void onClickReturnToBookDetailView(Event event){
