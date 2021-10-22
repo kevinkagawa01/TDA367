@@ -101,44 +101,14 @@ public class ListingDetailViewController extends AnchorPane {
 
     @FXML
     public void onClickReservePurchase(Event event) {
-        if(isReserved){
-            unreserveListing();
-        } else {
             reserveListing();
-        }
-
-
     }
-    protected void unreserveListing() {
-        for (Listing listing : model.getCurrentlyLoggedInUser().getReservedListings()) {
-            if (listing.getBook().getBookCode().equals(this.listing.getBook().getBookCode())) {
-                model.removeBookFromSubscriptionList(listing.getBook().getBookCode());
-                updateReservedStatus();
-            }
-        }
-    }
+
     private void reserveListing() {
         model.reserveListing(this.listing);
-        updateReservedStatus();
         manager.goToAccountPage();
         manager.openReservedBooksInAccordionPage();
     }
-    private void updateReservedStatus() {
-         isReserved=false;
-        for (Listing listings : model.getCurrentlyLoggedInUser().getReservedListings()) {
-            if (listings.getBook().getBookCode().equals(this.listing.getBook().getBookCode())) {
-                isReserved = true;
-            }
-        }
-        if (isReserved) {
-            reservedButton.setFill(Color.RED);
-
-        } else {
-            reservedButton.setFill(Color.GREEN);
-        }
-    }
-
-
 
     /**
      * On click method, directing the user to the page before
@@ -163,7 +133,6 @@ public class ListingDetailViewController extends AnchorPane {
         updateListingBookConditionText();
         updateListingBookPriceText();
         updateListingBookDescriptionText();
-        updateReservedStatus();
     }
 
     private void updateListingBookPriceText() {
