@@ -166,12 +166,13 @@ public final class ApplicationModel implements Observable {
     public void reserveListing(Listing listing) {
         currentlyLoggedInUser.addReservedBook(listing);
         listingDatabase.reserveListing(listing);
+        userDatabase.updateUser(currentlyLoggedInUser);
         /* Update view */
         notifyObservers();
     }
 
     public void removeBookFromReservedList(Listing listing) {
-        listingDatabase.removeListing(listing);
+        listingDatabase.unreserveListing(listing);
 
         /* remove book from subscription list  */
         currentlyLoggedInUser.removeReservedBook(listing);

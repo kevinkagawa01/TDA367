@@ -92,6 +92,22 @@ final class ListingDatabase {
         }
     }
 
+    void unreserveListing(Listing listing){
+        for(Listing l : listingList){
+            if(l.getListingNumber() == listing.getListingNumber()){
+                l.setReserved(false);
+            }
+        }
+    }
+
+    void purchaseListing(Listing listing){
+        for(Listing l : listingList){
+            if(l.getListingNumber() == listing.getListingNumber()){
+                l.setPurchased(true);
+            }
+        }
+    }
+
     /**
      * Retrieves the list of listings.
      *

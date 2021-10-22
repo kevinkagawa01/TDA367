@@ -55,12 +55,12 @@
       </ImageView>
       <Button fx:id="subscribeButton" layoutX="114.0" layoutY="263.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onClickSubscribeToBook" prefHeight="31.0" prefWidth="184.0" styleClass="book-subscribe-button" text="Subscribe" textAlignment="CENTER">
          <font>
-            <Font size="17.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Button>
       <Button fx:id="unsubscribeButton" layoutX="114.0" layoutY="263.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onClickSubscribeToBook" prefHeight="31.0" prefWidth="184.0" styleClass="book-unsubscribe-button" text="Unsubscribe" textAlignment="CENTER">
          <font>
-            <Font size="17.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Button>
    </children>
