@@ -27,7 +27,7 @@ public class ListingsTest {
     @Test
     public void getListingSellerRatingTest() {
         List<Listing> listingDatabase = model.getListingDatabase();
-        assertEquals(model.getListingSellerRating(listingDatabase.get(0)), 0);
+        assertEquals(model.getListingSellerRating(listingDatabase.get(0)), -1);
     }
 
     @Test
@@ -36,13 +36,6 @@ public class ListingsTest {
         assertEquals(allbooks.size(), 9);
     }
 
-    @Test
-    public void reserveListingTest() {
-        List<Listing> listingDatabase = model.getListingDatabase();
-        model.reserveListing(listingDatabase.get(0));
-        assertEquals(model.getCurrentlyLoggedInUser().getReservedBooks(),1);
-
-    }
 
     @Test
     public void addListingTest() {
