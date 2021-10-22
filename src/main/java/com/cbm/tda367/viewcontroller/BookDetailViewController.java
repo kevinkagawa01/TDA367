@@ -44,6 +44,7 @@ public class BookDetailViewController extends AnchorPane {
     private Text bookTitleText;
     @FXML
     private FlowPane listingsFlowPane;
+    @FXML private Text unsubscribe;
 
     /**
      * Creates a detail view of a book.
@@ -77,9 +78,19 @@ public class BookDetailViewController extends AnchorPane {
     public void onClickSubscribeToBook(Event event) {
         if(subscribedToBook){
             unsubscribe();
+
         } else {
             subscribe();
+            
         }
+        unsubscribe.setVisible(true);
+        subscribeButtonText.setVisible(false);
+
+
+
+
+        manager.goToAccountPage();
+        manager.openSubscribedBooksInAccordionPage();
     }
 
     private void unsubscribe() {

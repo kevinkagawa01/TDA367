@@ -36,6 +36,7 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane implement
     private final ApplicationModel model = ApplicationModel.getInstance();
     private final ControllerManager manager;
 
+
     private final Book book;
     @FXML
     private Text titleSubscriebdMiniature;
@@ -51,7 +52,9 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane implement
     private Button noNewListingsButton;
 
 
+
     public SubscribedBooksMiniatureViewController(Book book, ControllerManager manager) {
+
         this.book = book;
         this.manager = manager;
 
@@ -79,6 +82,7 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane implement
     @FXML
     protected void onClickUnsubscribeToBook(Event event) {
         model.removeBookFromSubscriptionList(book.getBookCode());
+
         System.out.println("Removed Subscribed");
 
     }
