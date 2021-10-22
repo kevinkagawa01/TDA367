@@ -80,6 +80,8 @@ public class BookDetailViewController extends AnchorPane {
         } else {
             subscribe();
         }
+        manager.goToAccountPage();
+        manager.openSubscribedBooksInAccordionPage();
     }
 
     private void unsubscribe() {
