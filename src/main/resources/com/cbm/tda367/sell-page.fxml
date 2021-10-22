@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: FFFFFF;" stylesheets="@sell-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="731.0" prefWidth="411.0" style="-fx-background-color: FFFFFF;" stylesheets="@sell-page.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle fx:id="saveRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="54.0" layoutX="120.0" layoutY="584.0" onMouseClicked="#onClickSaveListing" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 60; -fx-arc-width: 60;" width="184.0" />
       <Text fx:id="saveText" fill="WHITE" layoutX="120.0" layoutY="618.0" onMouseClicked="#onClickSaveListing" strokeType="OUTSIDE" strokeWidth="0.0" text="Save" textAlignment="CENTER" wrappingWidth="184.0">
@@ -18,14 +18,19 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Text>
-      <ImageView fitHeight="465.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="509.0" fitWidth="318.0" layoutX="93.0" layoutY="85.0" opacity="0.59" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Library/Polygon4.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="509.0" fitWidth="318.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Library/Polygon3.png" />
          </image>
       </ImageView>
-      <TextField fx:id="bookCodeTextField" layoutX="51.0" layoutY="98.0" prefHeight="50.0" prefWidth="309.0" promptText="Book Code" styleClass="navigation-text-input-info-white" stylesheets="@login-page.css" />
-      <TextField fx:id="bookPriceTextField" layoutX="51.0" layoutY="172.0" prefHeight="50.0" prefWidth="309.0" promptText="Price" styleClass="navigation-text-input-info-white" stylesheets="@login-page.css" />
-      <Text layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sell" textAlignment="CENTER" wrappingWidth="411.0">
+      <TextField fx:id="bookCodeTextField" layoutX="50.0" layoutY="171.0" prefHeight="50.0" prefWidth="309.0" promptText="Book Code" styleClass="navigation-text-input-info-white" stylesheets="@login-page.css" />
+      <TextField fx:id="bookPriceTextField" layoutX="50.0" layoutY="254.0" prefHeight="50.0" prefWidth="309.0" promptText="Price" styleClass="navigation-text-input-info-white" stylesheets="@login-page.css" />
+      <Text layoutX="-1.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sell" textAlignment="CENTER" wrappingWidth="411.0">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -51,7 +56,7 @@
             <Image url="@../../../Library/shopIcon.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="bookConditionComboBox" layoutX="51.0" layoutY="258.0" prefWidth="150.0" promptText="Book Condition" />
+      <ComboBox fx:id="bookConditionComboBox" layoutX="50.0" layoutY="340.0" prefHeight="26.0" prefWidth="310.0" promptText="Book Condition" />
       <TextArea fx:id="listingDescriptionTextArea" layoutX="57.0" layoutY="414.0" prefHeight="158.0" prefWidth="309.0" promptText="Description">
          <font>
             <Font size="16.0" />
