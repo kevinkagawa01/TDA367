@@ -161,6 +161,8 @@ public class SellPageViewController extends AnchorPane implements Observer {
      */
     @FXML
     protected void onClickGoToShopPage(Event event) {
+        resetTextFields();
+        publishButtonToFront();
         manager.goToShopPage();
     }
 
@@ -171,6 +173,8 @@ public class SellPageViewController extends AnchorPane implements Observer {
      */
     @FXML
     protected void onClickGoToAccountPage(Event event) {
+        resetTextFields();
+        publishButtonToFront();
         manager.goToAccountPage();
     }
 
