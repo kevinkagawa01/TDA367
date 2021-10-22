@@ -194,8 +194,14 @@ public class User implements Prototype<User>{
     }
 
     void removeSubscribeNotification(String bookCode){
-       List<SubscribeNotification> subscribeNotifications = getSubscribeNotifications();
+       List<SubscribeNotification> subscribeNotifications = new ArrayList<>();
        List<SubscribeNotification> notificationsToBeRemoved = new ArrayList<>();
+
+        for(Notification n : notifications){
+            if(n.getClass().equals(SubscribeNotification.class)){
+                subscribeNotifications.add((SubscribeNotification) n);
+            }
+        }
 
         for(SubscribeNotification notification : subscribeNotifications){
             if(notification.getBookCodeToRelatedBook().equals(bookCode)){
