@@ -6,6 +6,7 @@ import com.cbm.tda367.model.Listing;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -35,16 +36,14 @@ public class BookDetailViewController extends AnchorPane {
     private boolean subscribedToBook;
 
     @FXML
-    private Rectangle subscribeButtonRectangle;
-    @FXML
-    private Text subscribeButtonText;
-    @FXML
     private ImageView bookImageView;
     @FXML
     private Text bookTitleText;
     @FXML
     private FlowPane listingsFlowPane;
-    @FXML private Text unsubscribe;
+    @FXML
+    private Button subscribeButton,
+            unsubscribeButton;
 
     /**
      * Creates a detail view of a book.
@@ -76,21 +75,8 @@ public class BookDetailViewController extends AnchorPane {
      */
     @FXML
     public void onClickSubscribeToBook(Event event) {
-        if(subscribedToBook){
-            unsubscribe();
-
-        } else {
-            subscribe();
-            
-        }
-        unsubscribe.setVisible(true);
-        subscribeButtonText.setVisible(false);
-
-
-
-
-        manager.goToAccountPage();
-        manager.openSubscribedBooksInAccordionPage();
+        if(subscribedToBook){unsubscribe();}
+        else{subscribe();}
     }
 
     private void unsubscribe() {
@@ -147,10 +133,11 @@ public class BookDetailViewController extends AnchorPane {
             }
         }
         if(subscribedToBook){
-            subscribeButtonRectangle.setFill(Color.RED);
-
+            subscribeButton.setVisible(false);
+            unsubscribeButton.setVisible(true);
         } else {
-            subscribeButtonRectangle.setFill(Color.GREEN);
+            subscribeButton.setVisible(true);
+            unsubscribeButton.setVisible(false);
         }
     }
 
