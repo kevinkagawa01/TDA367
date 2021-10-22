@@ -55,7 +55,7 @@
             <Font name="Arial Bold" size="15.0" />
          </font>
       </Text>
-      <ImageView fitHeight="96.0" fitWidth="72.0" layoutX="50.0" layoutY="648.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="96.0" fitWidth="72.0" layoutX="50.0" layoutY="616.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Library/logo.png" />
          </image>
