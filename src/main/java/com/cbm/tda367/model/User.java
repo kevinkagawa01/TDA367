@@ -17,16 +17,14 @@ public class User implements Prototype<User>{
 
     private String cid;
     private String password;
-    private double totalRating;
-    private int sumOfRatings;
-    private int nrRatings;
-
     /* user lists */
     private List<Listing> reservedBooks;
     private List<Listing> listingsForSale;
     private List<Book> subscribedBooks;
     private List<Listing> previousPurchases;
     private List<Notification> notifications;
+
+    private UserRating userRating;
 
     /**
      * class constructor.
@@ -37,9 +35,7 @@ public class User implements Prototype<User>{
     User(String cid, String password) {
         this.cid = cid;
         this.password = password;
-        this.totalRating = 0;
-        this.sumOfRatings = 0;
-        this.nrRatings = 0;
+        this.userRating = new UserRating(0,0,0);
         this.reservedBooks = new ArrayList<>();
         this.listingsForSale = new ArrayList<>();
         this.subscribedBooks = new ArrayList<>();
@@ -50,9 +46,7 @@ public class User implements Prototype<User>{
     private User(User user){
         this.cid = user.cid;
         this.password = user.password;
-        this.totalRating = user.totalRating;
-        this.sumOfRatings = user.sumOfRatings;
-        this.nrRatings = user.nrRatings;
+        this.userRating = user.userRating.cloneObject();
         /* safe copied lists */
         this.reservedBooks = user.getReservedBooks();
         this.listingsForSale = user.getListingsForSale();
@@ -68,45 +62,6 @@ public class User implements Prototype<User>{
     @Override
     public User cloneObject() {
         return new User(this);
-    }
-
-    /**
-     * adds users rating and updates the total
-     *
-     * @param rating rating to be added to this total rating.
-     */
-    void addRating(int rating) {
-        /* if provided rating is invalid, return */
-        if (!(0 <= rating && rating <= 5)) {
-            return;
-        }
-        /* add rating to total sum of ratings */
-        sumOfRatings += rating;
-        /* increment number of raters */
-        nrRatings++;
-        /* round rating to one decimal place and split the total sum according to number of ratings */
-        totalRating = round((double) sumOfRatings / nrRatings, 1);
-    }
-
-    /**
-     * Returns this rating.
-     *
-     * @return this rating.
-     */
-    public double getRating() {
-        return totalRating;
-    }
-
-    /**
-     * rounds a double to a certain precision
-     *
-     * @param value     double to be rounded.
-     * @param precision precision to round the double according to.
-     * @return rounded double.
-     */
-    private double round(double value, int precision) {
-        int scale = (int) Math.pow(10, precision);
-        return (double) Math.round(value * scale) / scale;
     }
 
     /**
@@ -280,5 +235,9 @@ public class User implements Prototype<User>{
 
     public List<Notification> getNotifications() {
         return new ArrayList<>(notifications);
+    }
+
+    public UserRating getUserRating() {
+        return userRating;
     }
 }

@@ -207,7 +207,7 @@ public final class ApplicationModel implements Observable {
         for (User user : userDatabase.getUserList()) {
             for (Listing listing1 : user.getListingsForSale()) {
                 if (listing1.getListingNumber() == listing.getListingNumber()) {
-                    return user.getRating();
+                    return user.getUserRating().getRating();
                 }
             }
         }

@@ -139,7 +139,7 @@ public class AccountPageViewController extends AnchorPane implements Observer {
      */
     private String getRatingPicture() {
 
-        double rating = model.getCurrentlyLoggedInUser().getRating();
+        double rating = model.getCurrentlyLoggedInUser().getUserRating().getRating();
         String sourcePathStar;
         if ((int) rating == 0) {
             sourcePathStar = "/Library/0-stars.png";
