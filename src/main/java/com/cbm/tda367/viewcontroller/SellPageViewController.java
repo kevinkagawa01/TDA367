@@ -198,7 +198,6 @@ public class SellPageViewController extends AnchorPane implements Observer {
             /* open accordion menu for my listings */
             manager.openPublishedListingsAccordionInAccountPage();
         }
-
     }
 
     @FXML
