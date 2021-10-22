@@ -43,6 +43,7 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane {
     private Text date;
 
 
+
     public SubscribedBooksMiniatureViewController(Book book) {
         this.book = book;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/SubscribedBooks.fxml"));
