@@ -52,6 +52,11 @@ public class SellPageViewController extends AnchorPane implements Observer {
     private Rectangle publishRectangle,
             saveRectangle;
 
+    /**
+     * Creates the sell page view
+     *
+     * @param manager This controller manager
+     */
     public SellPageViewController(ControllerManager manager) {
         this.manager = manager;
 
@@ -251,7 +256,11 @@ public class SellPageViewController extends AnchorPane implements Observer {
         return true;
     }
 
-
+    /**
+     * Sets all fields for a specific listing, for listing editing purposes
+     *
+     * @param listing a specific listing
+     */
     @FXML
     public void setAllFieldsFromListing(Listing listing) {
         bookCodeTextField.setText(listing.getBook().getBookCode());
