@@ -27,8 +27,10 @@ public class BoughtBooksMiniatureViewController extends AnchorPane {
     ImageView purchasedPicture;
     @FXML
     Text purchasedTitle;
-    @FXML Text date;
-    @FXML Text purchasedPrice;
+    @FXML
+    Text date;
+    @FXML
+    Text purchasedPrice;
 
     /**
      * class constructor

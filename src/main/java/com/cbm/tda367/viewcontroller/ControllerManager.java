@@ -152,6 +152,11 @@ public class ControllerManager implements Initializable, Observer {
         listingDetailViewController.toFront();
     }
 
+    /**
+     * Sets information for listing to be edited, moves sell page to front.
+     *
+     * @param listing Listing to be edited
+     */
     public void openSellPageView(Listing listing) {
         sellPage.setAllFieldsFromListing(listing);
 

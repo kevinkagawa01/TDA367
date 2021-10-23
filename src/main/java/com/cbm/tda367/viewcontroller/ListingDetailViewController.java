@@ -29,13 +29,20 @@ public class ListingDetailViewController extends AnchorPane {
     private final ControllerManager manager;
     private Listing listing;
 
-    @FXML private Text listingDetailEmail;
-    @FXML private ImageView listingDetailStarRatings;
-    @FXML private Text listingBookTitle;
-    @FXML private Text listingBookCondition;
-    @FXML private Text listingBookPrice;
-    @FXML private TextArea listingDetailDescription;
-    @FXML private Rectangle reservedButton;
+    @FXML
+    private Text listingDetailEmail;
+    @FXML
+    private ImageView listingDetailStarRatings;
+    @FXML
+    private Text listingBookTitle;
+    @FXML
+    private Text listingBookCondition;
+    @FXML
+    private Text listingBookPrice;
+    @FXML
+    private TextArea listingDetailDescription;
+    @FXML
+    private Rectangle reservedButton;
 
 
     /**
@@ -51,8 +58,11 @@ public class ListingDetailViewController extends AnchorPane {
         detailedView.setRoot(this);
         detailedView.setController(this);
 
-        try { detailedView.load(); }
-        catch (IOException exception) { throw new RuntimeException(exception); }
+        try {
+            detailedView.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
     }
 
     private String getRatingImagePath(double userRating) {
@@ -83,11 +93,16 @@ public class ListingDetailViewController extends AnchorPane {
         return sourcePathStar;
     }
 
-
+    /**
+     * Sets the rating of the seller that corresponds to the listing in question
+     */
     public void updateListingDetailViewRatingImage() {
         listingDetailStarRatings.setImage(new Image(getClass().getResourceAsStream(getRatingImagePath(model.getListingSellerRating(this.listing)))));
     }
 
+    /**
+     * Sets the email of the seller that corresponds to the listing in question
+     */
     public void updateListingEmailText() {
         listingDetailEmail.setText(model.getListingCid(this.listing));
     }
@@ -96,14 +111,18 @@ public class ListingDetailViewController extends AnchorPane {
      *
      * @param event Click event
      */
-
+    /**
+     * On click method to reserve a listing
+     *
+     * @param event an event
+     */
     @FXML
     public void onClickReservePurchase(Event event) {
-            reserveListing();
+        reserveListing();
     }
 
     private void reserveListing() {
-        if(model.reserveListing(this.listing)){
+        if (model.reserveListing(this.listing)) {
             manager.goToAccountPage();
             manager.openReservedBooksInAccordionPage();
         }
@@ -120,11 +139,18 @@ public class ListingDetailViewController extends AnchorPane {
     }
 
 
-
+    /**
+     * Sets specific listing
+     *
+     * @param listing a listing
+     */
     public void setListing(Listing listing) {
         this.listing = listing.cloneObject();
     }
 
+    /**
+     * Runs all update methods pertaining to the detailed view of listings.
+     */
     public void updateListingView() {
         updateListingEmailText();
         updateListingDetailViewRatingImage();
@@ -136,11 +162,11 @@ public class ListingDetailViewController extends AnchorPane {
 
     private void updateListingBookPriceText() {
         //listingBookPrice.setText(String.format("%f kr",listing.getPrice()));
-        listingBookPrice.setText(String.format("Price: %s kr",listing.getPrice()));
+        listingBookPrice.setText(String.format("Price: %s kr", listing.getPrice()));
     }
 
     private void updateListingBookConditionText() {
-        listingBookCondition.setText(String.format("Condition: %s",listing.getCondition()));
+        listingBookCondition.setText(String.format("Condition: %s", listing.getCondition()));
     }
 
     private void updateListingBookDescriptionText() {
@@ -152,7 +178,7 @@ public class ListingDetailViewController extends AnchorPane {
     }
 
     @FXML
-    void onClickReturnToBookDetailView(Event event){
+    void onClickReturnToBookDetailView(Event event) {
         this.toBack();
 
     }

@@ -52,7 +52,12 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane implement
     private Button noNewListingsButton;
 
 
-
+    /**
+     * Creates miniature view for subscriptions
+     *
+     * @param book    A subscribed book
+     * @param manager This controller manager
+     */
     public SubscribedBooksMiniatureViewController(Book book, ControllerManager manager) {
 
         this.book = book;
@@ -88,26 +93,26 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane implement
     }
 
     @FXML
-    protected void onClickGoToNewListingsOfThisBook(Event event){
+    protected void onClickGoToNewListingsOfThisBook(Event event) {
         manager.openBookDetailView(book);
-        model.removeNotification(book.getBookCode(),model.getCurrentlyLoggedInUser().getSubscribeNotifications().size());
+        model.removeNotification(book.getBookCode(), model.getCurrentlyLoggedInUser().getSubscribeNotifications().size());
         updateNewListingsNumber();
     }
 
-    private void updateNewListingsNumber(){
+    private void updateNewListingsNumber() {
         int notificationNumber = 0;
         List<SubscribeNotification> subscribeNotifications = model.getCurrentlyLoggedInUser().getSubscribeNotifications();
-        for(SubscribeNotification notification : subscribeNotifications){
-            if(notification.getBookCodeToRelatedBook().equals(this.book.getBookCode())){
+        for (SubscribeNotification notification : subscribeNotifications) {
+            if (notification.getBookCodeToRelatedBook().equals(this.book.getBookCode())) {
                 notificationNumber++;
             }
         }
 
-        if(notificationNumber == 0){
+        if (notificationNumber == 0) {
             newListingsButton.setVisible(false);
             noNewListingsButton.setVisible(true);
         } else {
-            newListingsButton.setText(String.format("%d New Listings",notificationNumber));
+            newListingsButton.setText(String.format("%d New Listings", notificationNumber));
             newListingsButton.setVisible(true);
             noNewListingsButton.setVisible(false);
         }
