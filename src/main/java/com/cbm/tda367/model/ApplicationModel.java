@@ -125,8 +125,8 @@ public final class ApplicationModel implements Observable {
         }
     }
 
-    public void removeNotification(String bookCode){
-        currentlyLoggedInUser.removeSubscribeNotification(bookCode);
+    public void removeNotification(String bookCode, int nNotificationsToBeRemoved){
+        currentlyLoggedInUser.removeSubscribeNotification(bookCode, nNotificationsToBeRemoved);
     }
 
     public void removedListingFromCurrentlyLoggedInUser(Listing listing) {
@@ -134,7 +134,7 @@ public final class ApplicationModel implements Observable {
         listingDatabase.removeListing(listing);
         /* Delete removed listing from user */
         currentlyLoggedInUser.removeListingForSale(listing);
-        currentlyLoggedInUser.removeSubscribeNotification(listing.getBook().getBookCode());
+        currentlyLoggedInUser.removeSubscribeNotification(listing.getBook().getBookCode(),1);
         userDatabase.updateUser(getCurrentlyLoggedInUser());
 
         /* Update view */
@@ -163,12 +163,25 @@ public final class ApplicationModel implements Observable {
         notifyObservers();
     }
 
-    public void reserveListing(Listing listing) {
-        currentlyLoggedInUser.addReservedBook(listing);
-        listingDatabase.reserveListing(listing);
-        userDatabase.updateUser(currentlyLoggedInUser);
-        /* Update view */
-        notifyObservers();
+    public boolean reserveListing(Listing listing) {
+        List<Listing> publishedListings = currentlyLoggedInUser.getPublishedListings();
+        boolean isPublisher = false;
+
+        for(Listing l : publishedListings){
+            if(l.getListingNumber() == listing.getListingNumber()){
+                isPublisher = true;
+            }
+        }
+
+        if(!isPublisher){
+            currentlyLoggedInUser.addReservedBook(listing);
+            listingDatabase.reserveListing(listing);
+            userDatabase.updateUser(currentlyLoggedInUser);
+            /* Update view */
+            notifyObservers();
+            return true;
+        }
+        return false;
     }
 
     public void removeBookFromReservedList(Listing listing) {

@@ -90,7 +90,7 @@ public class SubscribedBooksMiniatureViewController extends AnchorPane implement
     @FXML
     protected void onClickGoToNewListingsOfThisBook(Event event){
         manager.openBookDetailView(book);
-        model.removeNotification(book.getBookCode());
+        model.removeNotification(book.getBookCode(),model.getCurrentlyLoggedInUser().getSubscribeNotifications().size());
         updateNewListingsNumber();
     }
 

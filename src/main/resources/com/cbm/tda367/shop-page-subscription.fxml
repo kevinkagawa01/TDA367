@@ -39,7 +39,7 @@
       <ScrollPane hbarPolicy="NEVER" layoutX="18.0" layoutY="319.0" prefHeight="316.0" prefWidth="375.0" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="NEVER">
          <content>
 
-            <FlowPane fx:id="listingsFlowPane" prefHeight="315.0" prefWidth="355.0" />
+            <FlowPane fx:id="listingsFlowPane" prefHeight="315.0" prefWidth="355.0" vgap="4.0" />
 
          </content>
       </ScrollPane>

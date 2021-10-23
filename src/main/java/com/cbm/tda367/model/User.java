@@ -193,7 +193,7 @@ public class User implements Prototype<User>{
         return new ArrayList<>(subscribeNotifications);
     }
 
-    void removeSubscribeNotification(String bookCode){
+    void removeSubscribeNotification(String bookCode, int nNotificationsToBeRemoved){
        List<SubscribeNotification> subscribeNotifications = new ArrayList<>();
        List<SubscribeNotification> notificationsToBeRemoved = new ArrayList<>();
 
@@ -204,6 +204,8 @@ public class User implements Prototype<User>{
         }
 
         for(SubscribeNotification notification : subscribeNotifications){
+            if(notificationsToBeRemoved.size() == nNotificationsToBeRemoved){break;}
+
             if(notification.getBookCodeToRelatedBook().equals(bookCode)){
                 notificationsToBeRemoved.add(notification);
             }
