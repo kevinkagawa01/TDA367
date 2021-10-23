@@ -1,6 +1,7 @@
 package com.cbm.tda367.Tests;
 
 import com.cbm.tda367.model.ApplicationModel;
+import com.cbm.tda367.model.Book;
 import com.cbm.tda367.model.Listing;
 import com.cbm.tda367.model.UserDatabase;
 import com.cbm.tda367.viewcontroller.BookDetailViewController;
@@ -103,16 +104,21 @@ class ApplicationModelTest {
 
         @Test
     void getListingSellerRating() {
+        //model.isLoginSuccessful("1","1");
+        //model.addListing("TMA660", "new", "299", "nice");
 
+        //Listing list=model.getCurrentlyLoggedInUser().getPublishedListings().get(0);
+        //assertTrue(model.getListingSellerRating(list).);
 
 
     }
-
     @Test
     void getListingCid() {
-
-       
-
+        model.isLoginSuccessful("1","1");
+        model.addListing("TMA660", "new", "299", "nice");
+        Listing list=model.getCurrentlyLoggedInUser().getPublishedListings().get(0);
+        //assertTrue(list.size()==1);
+        assertTrue(model.getListingCid(list).equals("1"));
 
     }
 
@@ -124,6 +130,8 @@ class ApplicationModelTest {
 
     @Test
     void getCurrentlyLoggedInUser() {
+        model.isLoginSuccessful("1","1");
+        assertTrue(model.getCurrentlyLoggedInUser().getCid().equals("1"));
 
     }
 
@@ -134,10 +142,13 @@ class ApplicationModelTest {
 
     @Test
     void getMostSubscribedBooks() {
-        
+        List<Book> bookDatabase=model.getAllBooks();
+        assertTrue(model.getMostSubscribedBooks().equals(bookDatabase));
+
     }
 
     @Test
     void filterBooksByName() {
+
     }
 }
