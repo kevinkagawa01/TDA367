@@ -32,10 +32,19 @@ public class UserAsset<T extends Prototype<T>> implements Prototype<UserAsset<T>
         list.remove(element);
     }
 
+    /**
+     * Sets element from the internal list, given an element and an index.
+     * @param index index to determine which element in the list to be substituted.
+     * @param element element to determine which element should substitute the current one.
+     */
     void setListItem(int index,T element){
         list.set(index,element);
     }
 
+    /**
+     * Returns this list.
+     * @return this list.
+     */
     public List<T> getList() {
         return new ArrayList<>(list);
     }

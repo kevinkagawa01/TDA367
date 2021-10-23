@@ -125,18 +125,32 @@ public class Book implements Prototype<Book>{
         return bookSubscriptions;
     }
 
+    /**
+     * Increments number of book's subscribers.
+     */
     void incrementSubscriptions(){
         bookSubscriptions++;
     }
 
+    /**
+     * Decrements number of book's subscribers.
+     */
     void decrementSubscription(){
         bookSubscriptions--;
     }
 
+    /**
+     * Returns book date.
+     * @return book date.
+     */
     public LocalDate getDate() {
         return date;
     }
 
+    /**
+     * Returns book category.
+     * @return book category.
+     */
     public String getCategory() {
         return category;
     }

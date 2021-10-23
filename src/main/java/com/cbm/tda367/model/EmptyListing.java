@@ -25,6 +25,10 @@ public final class EmptyListing extends Listing{
 
     private static EmptyListing emptyListing;
 
+    /**
+     * Returns singleton instance of this.
+     * @return singleton instance of this.
+     */
     public static EmptyListing getInstance(){
         if(emptyListing == null) {
             emptyListing = new EmptyListing(EmptyBook.getInstance(), -1,"","","","", false, false);

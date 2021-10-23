@@ -125,10 +125,19 @@ public final class ApplicationModel implements Observable {
         }
     }
 
+    /**
+     * Removes desired number of subscription-notifications from notifications.
+     * @param bookCode book code to the book related to the notifications wished to be removed.
+     * @param nNotificationsToBeRemoved number of notifications to be removed.
+     */
     public void removeNotification(String bookCode, int nNotificationsToBeRemoved) {
         currentlyLoggedInUser.removeSubscribeNotification(bookCode, nNotificationsToBeRemoved);
     }
 
+    /**
+     * Removes a listing from the currently logged-in user.
+     * @param listing listing to be removed.
+     */
     public void removedListingFromCurrentlyLoggedInUser(Listing listing) {
         /* Delete removed listing from Database */
         listingDatabase.removeListing(listing);
@@ -141,6 +150,10 @@ public final class ApplicationModel implements Observable {
         notifyObservers();
     }
 
+    /**
+     * Subscribes to a book for the currently logged-in user.
+     * @param bookCode book code to corresponding book desired to be subscribed to.
+     */
     public void addBookToSubscriptionList(String bookCode) {
         List<Book> userSubscribedBooks = currentlyLoggedInUser.getSubscribedBooks();
         for (Book b : userSubscribedBooks) {
@@ -158,6 +171,10 @@ public final class ApplicationModel implements Observable {
         }
     }
 
+    /**
+     * Unsubscribes to a book for the currently logged-in user.
+     * @param bookCode book code to corresponding book desired to be unsubscribed to.
+     */
     public void removeBookFromSubscriptionList(String bookCode) {
         /* remove book from subscription list  */
         currentlyLoggedInUser.removeBookSubscription(bookCode);
@@ -169,6 +186,11 @@ public final class ApplicationModel implements Observable {
         notifyObservers();
     }
 
+    /**
+     * Reserves a listing for the currently logged-in user.
+     * @param listing listing to be reserved.
+     * @return bool flag whether the request was possible or not.
+     */
     public boolean reserveListing(Listing listing) {
         List<Listing> publishedListings = currentlyLoggedInUser.getPublishedListings();
         boolean isPublisher = false;
@@ -190,6 +212,10 @@ public final class ApplicationModel implements Observable {
         return false;
     }
 
+    /**
+     * Removes a book from currently logged-in user's reserved listings.
+     * @param listing Listing to be removed.
+     */
     public void removeBookFromReservedList(Listing listing) {
         listingDatabase.unreserveListing(listing);
 
@@ -199,6 +225,10 @@ public final class ApplicationModel implements Observable {
         notifyObservers();
     }
 
+    /**
+     * Confirms purchase if both parts accept that the trade was successful.
+     * @param listing listing to determine whether the purchase was complete or not.
+     */
     public void purchaseDone(Listing listing) {
         //currentlyLoggedInUser.addPreviousPurchase(listing);
         boolean isPurchasedOkBySeller = true;
@@ -216,6 +246,12 @@ public final class ApplicationModel implements Observable {
 
         }
     }
+
+    /**
+     * Returns seller's rating related to the attached listing.
+     * @param listing listing to determine which user is the seller.
+     * @return user's rating if operation was successful, otherwise -1.
+     */
     public double getListingSellerRating(Listing listing) {
         for (User user : userDatabase.getUserList()) {
             for (Listing listing1 : user.getPublishedListings()) {
@@ -227,6 +263,11 @@ public final class ApplicationModel implements Observable {
         return -1;
     }
 
+    /**
+     * Returns seller's cid related to the attached listing.
+     * @param listing listing to determine which user is the seller.
+     * @return user's cid if operation was successful, otherwise "".
+     */
     public String getListingCid(Listing listing) {
         for (User user : userDatabase.getUserList()) {
             for (Listing listing1 : user.getPublishedListings()) {
@@ -266,10 +307,18 @@ public final class ApplicationModel implements Observable {
         return currentlyLoggedInUser.cloneObject();
     }
 
+    /**
+     * Returns all books from the book database.
+     * @return all books from the book database
+     */
     public List<Book> getAllBooks() {
         return bookDatabase.getBookList();
     }
 
+    /**
+     * Returns books with most subscriptions.
+     * @return List of books with most subscriptions.
+     */
     public List<Book> getMostSubscribedBooks() {
         List<Book> allBooks = bookDatabase.getBookList();
 
@@ -286,6 +335,11 @@ public final class ApplicationModel implements Observable {
         return allBooks;
     }
 
+    /**
+     * Filters book by name, given the parameter string as filter.
+     * @param filter string to compare if book titles contain it.
+     * @return List of books filtered by the filter.
+     */
     public List<Book> filterBooksByName(String filter) {
         /* Filtered books */
         List<Book> filteredBooks = new ArrayList<>();

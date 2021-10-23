@@ -71,6 +71,10 @@ public class Listing implements Prototype<Listing>{
         return new Listing(this);
     }
 
+    /**
+     * Returns this book condition.
+     * @return this book condition.
+     */
     public String getCondition(){
         return condition;
     }
@@ -120,10 +124,18 @@ public class Listing implements Prototype<Listing>{
         return isReserved;
     }
 
+    /**
+     * Reserve flag for this.
+     * @param reserved boolean whether this is reserved or not.
+     */
     void setReserved(boolean reserved) {
         isReserved = reserved;
     }
 
+    /**
+     * Purchase flag for this.
+     * @param purchased boolean whether this is purchased or not.
+     */
     void setPurchased(boolean purchased) {
         isPurchased = purchased;
     }
@@ -137,10 +149,18 @@ public class Listing implements Prototype<Listing>{
         return isPurchased;
     }
 
+    /**
+     * Return this date.
+     * @return this date.
+     */
     public LocalDate getDate(){
         return date;
      }
 
+    /**
+     * Return this description.
+     * @return this description.
+     */
     public String getListingDescription() {
         return listingDescription;
     }

@@ -164,6 +164,10 @@ public class User implements Prototype<User>{
         }
     }
 
+    /**
+     * Receives subscribe notification corresponding to the parameter book code.
+     * @param bookCode book code to determine which book to get a notification.
+     */
     void receiveSubscribeNotification(String bookCode){
         for(Book b : subscribedBooks.getList()){
             if(b.getBookCode().equals(bookCode)){
@@ -172,6 +176,10 @@ public class User implements Prototype<User>{
         }
     }
 
+    /**
+     * Returns subscribe notifications.
+     * @return subscribe notifications.
+     */
     public List<SubscribeNotification> getSubscribeNotifications(){
         List<SubscribeNotification> subscribeNotifications = new ArrayList<>();
         for(Notification n : notifications){
@@ -182,6 +190,11 @@ public class User implements Prototype<User>{
         return new ArrayList<>(subscribeNotifications);
     }
 
+    /**
+     * Removes subscribe notifications.
+     * @param bookCode book code to determine which book to remove n notifications from.
+     * @param nNotificationsToBeRemoved number of notifications to be removed.
+     */
     void removeSubscribeNotification(String bookCode, int nNotificationsToBeRemoved){
        List<SubscribeNotification> subscribeNotifications = new ArrayList<>();
        List<SubscribeNotification> notificationsToBeRemoved = new ArrayList<>();
@@ -202,6 +215,10 @@ public class User implements Prototype<User>{
         notifications.removeAll(notificationsToBeRemoved);
     }
 
+    /**
+     * Edits a listing.
+     * @param listing listing to be edited.
+     */
     void editListing(Listing listing) {
         for (Listing l : publishedListings.getList()) {
             if (l.getListingNumber() == listing.getListingNumber()) {
@@ -210,26 +227,50 @@ public class User implements Prototype<User>{
         }
     }
 
+    /**
+     * Returns subscribed books.
+     * @return subscribed books.
+     */
     public List<Book> getSubscribedBooks() {
         return subscribedBooks.getList();
     }
 
+    /**
+     * Returns published listings.
+     * @return published listings.
+     */
     public List<Listing> getPublishedListings() {
         return publishedListings.getList();
     }
 
+    /**
+     * Returns notifications.
+     * @return notifications.
+     */
     public List<Notification> getNotifications() {
         return new ArrayList<>(notifications);
     }
 
+    /**
+     * Returns reserved listings.
+     * @return reserved listings.
+     */
     public List<Listing> getReservedListings() {
         return reservedListings.getList();
     }
 
+    /**
+     * Returns previously traded listings.
+     * @return previously traded listings.
+     */
     public List<Listing> getPreviouslyTradedListings() {
         return previouslyTradedListings.getList();
     }
 
+    /**
+     * Returns user rating.
+     * @return user rating.
+     */
     public UserRating getUserRating() {
         return userRating;
     }
