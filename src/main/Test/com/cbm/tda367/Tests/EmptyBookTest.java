@@ -24,6 +24,7 @@ public class EmptyBookTest {
         assertEquals(emptyBook.getBookCode(),"");
         assertEquals(emptyBook.getImagePath(),"");
         assertEquals(emptyBook.getBookAuthor(),"");
+        assertEquals(emptyBook.getBookSales(),0);
         assertEquals(emptyBook.getBookSubscriptions(),0);
         assertEquals(emptyBook.getCategory(),"");
     }

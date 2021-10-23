@@ -82,7 +82,7 @@ class ApplicationModelTest {
     @Test
     void addBookToSubscriptionList() {
         model.addBookToSubscriptionList("TMV210");
-        assertEquals(model.getCurrentlyLoggedInUser().getSubscribedBooks().size(), 1);
+        assertEquals(model.getCurrentlyLoggedInUser().getSubscribedBooks().size(), 2);
         List<Book> mostSubscribedBooks = model.getMostSubscribedBooks();
         assertEquals(mostSubscribedBooks.get(0).getBookCode(),"TMV210");
     }
