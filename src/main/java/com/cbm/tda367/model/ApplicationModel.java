@@ -26,11 +26,6 @@ public final class ApplicationModel implements Observable {
 
     private final List<Observer> viewObservers = new ArrayList<>();
 
-
-    public UserDatabase getUserDatabase() {
-        return userDatabase;
-    }
-
     /**
      * class constructor, private due to Singleton pattern implementation.
      */

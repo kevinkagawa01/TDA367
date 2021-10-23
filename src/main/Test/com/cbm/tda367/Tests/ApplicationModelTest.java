@@ -26,11 +26,6 @@ class ApplicationModelTest {
     }
 
     @Test
-    void getListingDatabase() {
-        assertEquals(model.getListingDatabase().size(), 6);
-    }
-
-    @Test
     void editListing() {
 
         model.editListing("TMA660", "new", "299", "nice", 1);
@@ -40,10 +35,26 @@ class ApplicationModelTest {
 
     @Test
     void addListing() {
-
+        List<Listing> listingDatabaseBefore = model.getListingDatabase();
         model.addListing("TMA660", "new", "299", "nice");
-        List<Listing> listingDatabase = model.getListingDatabase();
-        assertEquals(listingDatabase.size(), 7);
+        List<Listing> listingDatabaseAfter = model.getListingDatabase();
+        assertEquals(listingDatabaseAfter.size(), listingDatabaseBefore.size() + 1);
+    }
+
+    @Test
+    void sellerRatingNotFoundReturningMinusOne(){
+        Listing listingWithNoSeller = model.getListingDatabase().get(0);
+        assertEquals(model.getListingSellerRating(listingWithNoSeller), -1);
+    }
+
+    @Test
+    void sellerRatingFoundReturningRating(){
+        model.isLoginSuccessful("1","1");
+        model.addListing("TMA660", "new", "299", "nice");
+        Listing listingWithSeller = model.getCurrentlyLoggedInUser().getPublishedListings().get(
+                model.getCurrentlyLoggedInUser().getPublishedListings().size() - 1);
+        assertEquals(model.getListingSellerRating(listingWithSeller),0);
+
     }
 
     @Test
@@ -57,15 +68,23 @@ class ApplicationModelTest {
     @Test
     void removedListingFromCurrentlyLoggedInUser() {
         model.addListing("TMA660", "new", "399", "lol");
+
+        List<Listing> beforeRemovingListing = model.getCurrentlyLoggedInUser().getPublishedListings();
         List<Listing> listingDatabase = model.getListingDatabase();
-        model.removedListingFromCurrentlyLoggedInUser(listingDatabase.get(6));
-        assertEquals(model.getCurrentlyLoggedInUser().getPublishedListings().size(), 0);
+        model.removedListingFromCurrentlyLoggedInUser(listingDatabase.get(
+                listingDatabase.size() - 1));
+
+        List<Listing> afterRemovingListing = model.getCurrentlyLoggedInUser().getPublishedListings();
+
+        assertEquals(beforeRemovingListing.size(), afterRemovingListing.size() + 1);
     }
 
     @Test
     void addBookToSubscriptionList() {
-        model.addBookToSubscriptionList("TMA660");
+        model.addBookToSubscriptionList("TMV210");
         assertEquals(model.getCurrentlyLoggedInUser().getSubscribedBooks().size(), 1);
+        List<Book> mostSubscribedBooks = model.getMostSubscribedBooks();
+        assertEquals(mostSubscribedBooks.get(0).getBookCode(),"TMV210");
     }
 
     @Test
@@ -100,18 +119,9 @@ class ApplicationModelTest {
         List<Listing> listingDatabase = model.getListingDatabase();
         Listing listTest = listingDatabase.get(3);
         model.purchaseDone(listTest);
-        assertEquals(model.getCurrentlyLoggedInUser().getPreviouslyTradedListings().size(),1); }
-
-        @Test
-    void getListingSellerRating() {
-        //model.isLoginSuccessful("1","1");
-        //model.addListing("TMA660", "new", "299", "nice");
-
-        //Listing list=model.getCurrentlyLoggedInUser().getPublishedListings().get(0);
-        //assertTrue(model.getListingSellerRating(list).);
-
-
+        assertEquals(model.getCurrentlyLoggedInUser().getPreviouslyTradedListings().size(),1);
     }
+
     @Test
     void getListingCid() {
         model.isLoginSuccessful("1","1");
@@ -141,14 +151,8 @@ class ApplicationModelTest {
     }
 
     @Test
-    void getMostSubscribedBooks() {
-        List<Book> bookDatabase=model.getAllBooks();
-        assertTrue(model.getMostSubscribedBooks().equals(bookDatabase));
-
-    }
-
-    @Test
     void filterBooksByName() {
-
+        List<Book> filteredBookList = model.filterBooksByName("Diskret Matematik");
+        assertEquals(filteredBookList.size(), 1);
     }
 }
