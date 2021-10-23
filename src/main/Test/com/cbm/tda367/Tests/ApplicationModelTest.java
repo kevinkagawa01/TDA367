@@ -110,6 +110,7 @@ class ApplicationModelTest {
 
     @Test
     void getListingCid() {
+
        
 
 
@@ -117,20 +118,23 @@ class ApplicationModelTest {
 
     @Test
     void isLoginSuccessful() {
+        assertTrue(model.isLoginSuccessful("peg@student.chalmers.se","peg123"));
 
     }
 
     @Test
     void getCurrentlyLoggedInUser() {
-        //assertEquals(model.getCurrentlyLoggedInUser().getCid());
+
     }
 
     @Test
     void getAllBooks() {
+        assertEquals(model.getAllBooks().size(),9);
     }
 
     @Test
     void getMostSubscribedBooks() {
+        
     }
 
     @Test
