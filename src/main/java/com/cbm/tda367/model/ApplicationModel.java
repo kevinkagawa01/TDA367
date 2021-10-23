@@ -26,6 +26,11 @@ public final class ApplicationModel implements Observable {
 
     private final List<Observer> viewObservers = new ArrayList<>();
 
+
+    public UserDatabase getUserDatabase() {
+        return userDatabase;
+    }
+
     /**
      * class constructor, private due to Singleton pattern implementation.
      */
@@ -216,17 +221,6 @@ public final class ApplicationModel implements Observable {
 
         }
     }
-
-
-    public void removePurchaseListingBooks(Listing listing) {
-        listingDatabase.removeListing(listing);
-        currentlyLoggedInUser.removePreviousPurchase(listing);
-
-        /* Update view */
-        notifyObservers();
-
-    }
-
     public double getListingSellerRating(Listing listing) {
         for (User user : userDatabase.getUserList()) {
             for (Listing listing1 : user.getPublishedListings()) {

@@ -2,6 +2,7 @@ package com.cbm.tda367.Tests;
 
 import com.cbm.tda367.model.ApplicationModel;
 import com.cbm.tda367.model.Listing;
+import com.cbm.tda367.model.UserDatabase;
 import com.cbm.tda367.viewcontroller.BookDetailViewController;
 import com.cbm.tda367.viewcontroller.ControllerManager;
 import com.cbm.tda367.viewcontroller.ShopPageViewController;
@@ -95,27 +96,33 @@ class ApplicationModelTest {
     //***************************************************************************//
     @Test
     void purchaseDone() {
-    }
+        List<Listing> listingDatabase = model.getListingDatabase();
+        Listing listTest = listingDatabase.get(3);
+        model.purchaseDone(listTest);
+        assertEquals(model.getCurrentlyLoggedInUser().getPreviouslyTradedListings().size(),1); }
 
-
-    @Test
-    void removePurchaseListingBooks() {
-    }
-
-    @Test
+        @Test
     void getListingSellerRating() {
+
+
+
     }
 
     @Test
     void getListingCid() {
+       
+
+
     }
 
     @Test
     void isLoginSuccessful() {
+
     }
 
     @Test
     void getCurrentlyLoggedInUser() {
+        //assertEquals(model.getCurrentlyLoggedInUser().getCid());
     }
 
     @Test
