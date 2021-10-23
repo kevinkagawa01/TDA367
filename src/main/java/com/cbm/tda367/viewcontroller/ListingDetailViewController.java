@@ -9,7 +9,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
@@ -37,7 +36,6 @@ public class ListingDetailViewController extends AnchorPane {
     @FXML private Text listingBookPrice;
     @FXML private TextArea listingDetailDescription;
     @FXML private Rectangle reservedButton;
-    private  boolean isReserved;
 
 
     /**
