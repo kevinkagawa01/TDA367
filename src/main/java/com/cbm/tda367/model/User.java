@@ -124,17 +124,6 @@ public class User implements Prototype<User>{
     }
 
     /**
-     * Delete previous purchased book from the hashmap list
-     *
-     * @param listing
-     */
-
-    void removePreviousPurchase(Listing listing) {
-        previouslyTradedListings.removeListItem(listing);
-    }
-
-
-    /**
      * Delete reserved book from the  list
      *
      * @param listing
