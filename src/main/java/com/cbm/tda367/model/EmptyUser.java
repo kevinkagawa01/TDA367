@@ -8,7 +8,7 @@ package com.cbm.tda367.model;
  * @version 1.0
  * @since 1.0
  * */
-final class EmptyUser extends User{
+public final class EmptyUser extends User{
 
     private static EmptyUser emptyUser;
 
@@ -18,7 +18,7 @@ final class EmptyUser extends User{
         super("", "");
     }
 
-    static EmptyUser getInstance(){
+    public static EmptyUser getInstance(){
         if(emptyUser == null) {
             emptyUser = new EmptyUser();
         }
