@@ -87,7 +87,7 @@ public class BookDetailViewController extends AnchorPane {
     }
 
     private void subscribe() {
-        model.addBookToSubscriptionList(book.getBookName());
+        model.addBookToSubscriptionList(book.getBookCode());
         updateSubscriptionStatus();
     }
 
