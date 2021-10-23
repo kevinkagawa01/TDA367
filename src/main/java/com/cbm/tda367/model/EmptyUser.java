@@ -18,6 +18,10 @@ public final class EmptyUser extends User{
         super("", "");
     }
 
+    /**
+     * Returns singleton instance of this.
+     * @return singleton instance of this.
+     */
     public static EmptyUser getInstance(){
         if(emptyUser == null) {
             emptyUser = new EmptyUser();

@@ -56,7 +56,7 @@ final class ListingDatabase {
     /**
      * Adds a listing to the list of listing.
      *
-     * @param listing An ArrayList of listings.
+     * @param listing listing to be added.
      */
     void addListing(Listing listing) {
         listingList.add(listing.cloneObject());
@@ -65,7 +65,7 @@ final class ListingDatabase {
     /**
      * Removes a listing from the list of listings.
      *
-     * @param listing An ArrayList of listings.
+     * @param listing listing to be removed.
      */
     void removeListing(Listing listing) {
         for(Listing l : listingList){
@@ -76,6 +76,10 @@ final class ListingDatabase {
         }
     }
 
+    /**
+     * Edits a listing from the list of listings.
+     * @param listing listing to be edited.
+     */
     void editListing(Listing listing) {
         for (Listing l : listingList) {
             if (l.getListingNumber() == listing.getListingNumber()) {
@@ -84,6 +88,10 @@ final class ListingDatabase {
         }
     }
 
+    /**
+     * Reserves a listing from the list of listings.
+     * @param listing listing to be reserved.
+     */
     void reserveListing(Listing listing){
         for(Listing l: listingList){
             if(l.getListingNumber() ==  listing.getListingNumber()){
@@ -92,6 +100,10 @@ final class ListingDatabase {
         }
     }
 
+    /**
+     * Unreserves a listing from the list of listings.
+     * @param listing listing to be unreserved.
+     */
     void unreserveListing(Listing listing){
         for(Listing l : listingList){
             if(l.getListingNumber() == listing.getListingNumber()){
@@ -100,6 +112,10 @@ final class ListingDatabase {
         }
     }
 
+    /**
+     * Sets purchase flag to true.
+     * @param listing listing to be purchased.
+     */
     void purchaseListing(Listing listing){
         for(Listing l : listingList){
             if(l.getListingNumber() == listing.getListingNumber()){

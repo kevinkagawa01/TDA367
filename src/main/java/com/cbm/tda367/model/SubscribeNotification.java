@@ -11,10 +11,18 @@ public class SubscribeNotification extends Notification{
 
     private String bookCodeToRelatedBook;
 
+    /**
+     * Class constructor.
+     * @param bookCode book code for the related type of notification.
+     */
     public SubscribeNotification(String bookCode) {
         this.bookCodeToRelatedBook = bookCode;
     }
 
+    /**
+     * Returns related book code.
+     * @return related book code.
+     */
     public String getBookCodeToRelatedBook() {
         return bookCodeToRelatedBook;
     }

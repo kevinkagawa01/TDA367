@@ -21,6 +21,10 @@ public final class EmptyBook extends Book{
 
     private static EmptyBook emptyBook;
 
+    /**
+     * Returns singleton instance of this.
+     * @return singleton instance of this.
+     */
     public static EmptyBook getInstance() {
         if (emptyBook == null) {
             emptyBook = new EmptyBook("","","","","");
