@@ -46,10 +46,10 @@ class ApplicationModelTest {
 
     @Test
     void removeNotification() {
-/*
+
         model.addBookToSubscriptionList("TMA660");
         model.removeNotification("TMA660", 1);
-        assertEquals(model.getCurrentlyLoggedInUser().getSubscribeNotifications(), 0);*/
+        assertEquals(model.getCurrentlyLoggedInUser().getNotifications().size(),0);
     }
 
     @Test
