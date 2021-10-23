@@ -25,8 +25,15 @@ public class BookViewController extends AnchorPane {
     private Book book;
     private ControllerManager manager;
 
-    @FXML private ImageView bookImageView;
+    @FXML
+    private ImageView bookImageView;
 
+    /**
+     * Creates view of books in shop page.
+     *
+     * @param manager This controller manager
+     * @param book    Corresponding book
+     */
     public BookViewController(ControllerManager manager, Book book) {
 
         FXMLLoader shopPageBook = new FXMLLoader(getClass().getResource("/com/cbm/tda367/shop-page-book.fxml"));
@@ -47,10 +54,11 @@ public class BookViewController extends AnchorPane {
 
     /**
      * Opens the detailed view of this book, unveiling more information and the book's listings.
+     *
      * @param event Click Event.
      */
     @FXML
-    protected void onClickOpenDetailedView(Event event){
+    protected void onClickOpenDetailedView(Event event) {
         manager.openBookDetailView(book);
     }
 }

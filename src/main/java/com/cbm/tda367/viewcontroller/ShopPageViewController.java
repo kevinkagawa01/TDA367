@@ -19,7 +19,8 @@ import java.util.List;
  */
 
 
-/** A visual representation of the Shop page
+/**
+ * A visual representation of the Shop page
  *
  * @author Kevin Pham
  * @author Simon Holst
@@ -27,7 +28,7 @@ import java.util.List;
  * @author Pegah Amanzadeh
  * @version 1.0
  * @since 1.0
- * */
+ */
 public class ShopPageViewController extends AnchorPane implements Observer {
 
     private final ControllerManager manager;
@@ -37,12 +38,16 @@ public class ShopPageViewController extends AnchorPane implements Observer {
     private final ShopPageCategoryViewController mostSubscribedBooksCategory;
     private final List<ShopPageCategoryViewController> categories = new ArrayList<>();
 
-    @FXML private TextField searchBarTextField;
-    @FXML private Text noSearchResultsFoundText;
-    @FXML private FlowPane categoriesFlowPane;
+    @FXML
+    private TextField searchBarTextField;
+    @FXML
+    private Text noSearchResultsFoundText;
+    @FXML
+    private FlowPane categoriesFlowPane;
 
     /**
      * class constructor
+     *
      * @param manager controller manager
      */
     public ShopPageViewController(ControllerManager manager) {
@@ -52,14 +57,19 @@ public class ShopPageViewController extends AnchorPane implements Observer {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try{ fxmlLoader.load(); }
-        catch (IOException exception){ throw new RuntimeException(exception); }
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
 
-        searchBarTextField.textProperty().addListener((observable, oldValue, newValue) -> {updateSearchBarResults();});
+        searchBarTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            updateSearchBarResults();
+        });
 
         /* create shop page categories */
-        allBooksCategory = new ShopPageCategoryViewController(manager,"All Books");
-        mostSubscribedBooksCategory = new ShopPageCategoryViewController(manager,"Most Subscribed Books");
+        allBooksCategory = new ShopPageCategoryViewController(manager, "All Books");
+        mostSubscribedBooksCategory = new ShopPageCategoryViewController(manager, "Most Subscribed Books");
         /* add categories to list */
         categories.add(allBooksCategory);
         categories.add(mostSubscribedBooksCategory);
@@ -77,7 +87,7 @@ public class ShopPageViewController extends AnchorPane implements Observer {
         /* clear flow pane */
         categoriesFlowPane.getChildren().clear();
         /* add categories */
-        for(ShopPageCategoryViewController category : categories) {
+        for (ShopPageCategoryViewController category : categories) {
             categoriesFlowPane.getChildren().add(category);
         }
     }
@@ -89,11 +99,12 @@ public class ShopPageViewController extends AnchorPane implements Observer {
         allBooksCategory.populateCategoryWithBooks(model.getAllBooks());
     }
 
-    private void populateMostSubscribedBooksCategoryFlowPane(){
+    private void populateMostSubscribedBooksCategoryFlowPane() {
         mostSubscribedBooksCategory.populateCategoryWithBooks(model.getMostSubscribedBooks());
     }
 
-    /** On-click method that navigates the application to the accountPage.
+    /**
+     * On-click method that navigates the application to the accountPage.
      *
      * @param event Click Event.
      */
@@ -103,7 +114,8 @@ public class ShopPageViewController extends AnchorPane implements Observer {
     }
 
 
-    /** On-click method that navigates the application to the sellPage.
+    /**
+     * On-click method that navigates the application to the sellPage.
      *
      * @param event Click Event.
      */
@@ -112,8 +124,8 @@ public class ShopPageViewController extends AnchorPane implements Observer {
         manager.goToSellPage();
     }
 
-    /** Method implemented from Observer interface.
-     *
+    /**
+     * Method implemented from Observer interface.
      */
     @Override
     public void update() {
@@ -121,9 +133,12 @@ public class ShopPageViewController extends AnchorPane implements Observer {
         populateMostSubscribedBooksCategoryFlowPane();
     }
 
-    public void updateSearchBarResults(){
+    /**
+     * Updates view of search results
+     */
+    public void updateSearchBarResults() {
         /* if search-bar is empty -> show categories */
-        if(searchBarTextField.getText().isEmpty()){
+        if (searchBarTextField.getText().isEmpty()) {
             noSearchResultsFoundText.toBack();
             populateWithCategories();
             return;
@@ -131,11 +146,11 @@ public class ShopPageViewController extends AnchorPane implements Observer {
         /* update pane with relevant search results */
         categoriesFlowPane.getChildren().clear();
         List<Book> relevantBooks = model.filterBooksByName(searchBarTextField.getText());
-        if(relevantBooks.isEmpty()){
+        if (relevantBooks.isEmpty()) {
             noSearchResultsFoundText.toFront();
         } else {
             noSearchResultsFoundText.toBack();
-            for(Book book : relevantBooks){
+            for (Book book : relevantBooks) {
                 BookViewController bookViewController = new BookViewController(manager, book);
                 categoriesFlowPane.getChildren().add(bookViewController);
             }

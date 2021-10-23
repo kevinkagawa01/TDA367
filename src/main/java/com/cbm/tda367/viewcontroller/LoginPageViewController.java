@@ -9,7 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-/** Visual representation of the loginPage/firstPage of the application.
+
+/**
+ * Visual representation of the loginPage/firstPage of the application.
  *
  * @author Kevin Pham
  * @author Simon Holst
@@ -17,24 +19,34 @@ import java.io.IOException;
  * @author Pegah Amanzadeh
  * @version 1.0
  * @since 1.0
- * */
+ */
 public class LoginPageViewController extends AnchorPane implements Observer {
 
     private final ControllerManager manager;
     private final ApplicationModel model = ApplicationModel.getInstance();
 
     /* fxml elements */
-    @FXML private TextField cidTextField;
-    @FXML private PasswordField passwordTextField;
+    @FXML
+    private TextField cidTextField;
+    @FXML
+    private PasswordField passwordTextField;
 
+    /**
+     * Creates the login view
+     *
+     * @param manager This controller manager
+     */
     public LoginPageViewController(ControllerManager manager) {
         this.manager = manager;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbm/tda367/login-page.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        try { fxmlLoader.load(); }
-        catch (IOException exception) { throw new RuntimeException(exception); }
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
     }
 
     /**
@@ -42,8 +54,8 @@ public class LoginPageViewController extends AnchorPane implements Observer {
      * and sees whether there is a matching user.
      */
     @FXML
-    public void onClickAttemptToLogin(){
-        if (model.isLoginSuccessful(cidTextField.getText(),passwordTextField.getText())){
+    public void onClickAttemptToLogin() {
+        if (model.isLoginSuccessful(cidTextField.getText(), passwordTextField.getText())) {
             manager.goToShopPage();
         } else {
             //TODO: Create visual pliancy informing the user that there was an issue logging in.

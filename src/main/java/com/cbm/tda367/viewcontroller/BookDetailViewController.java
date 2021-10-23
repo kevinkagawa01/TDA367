@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class BookDetailViewController extends AnchorPane {
 
-    private final ApplicationModel model=ApplicationModel.getInstance();
+    private final ApplicationModel model = ApplicationModel.getInstance();
     private final ControllerManager manager;
     private Book book;
     private boolean subscribedToBook;
@@ -47,7 +47,6 @@ public class BookDetailViewController extends AnchorPane {
      * Creates a detail view of a book.
      *
      * @param manager This controller manager.
-
      */
     public BookDetailViewController(ControllerManager manager, Book book) {
 
@@ -66,6 +65,7 @@ public class BookDetailViewController extends AnchorPane {
 
 
     }
+
     /**
      * On click method, subscribing/unsubscribing this to a book.
      *
@@ -73,13 +73,16 @@ public class BookDetailViewController extends AnchorPane {
      */
     @FXML
     public void onClickSubscribeToBook(Event event) {
-        if(subscribedToBook){unsubscribe();}
-        else{subscribe();}
+        if (subscribedToBook) {
+            unsubscribe();
+        } else {
+            subscribe();
+        }
     }
 
     private void unsubscribe() {
-        for(Book book : model.getCurrentlyLoggedInUser().getSubscribedBooks()){
-            if(book.getBookCode().equals(this.book.getBookCode())){
+        for (Book book : model.getCurrentlyLoggedInUser().getSubscribedBooks()) {
+            if (book.getBookCode().equals(this.book.getBookCode())) {
                 model.removeBookFromSubscriptionList(book.getBookCode());
                 updateSubscriptionStatus();
             }
@@ -91,15 +94,24 @@ public class BookDetailViewController extends AnchorPane {
         updateSubscriptionStatus();
     }
 
+    /**
+     * Sets the picture for a corresponding book
+     */
     public void updateBookPicture() {
 
         bookImageView.setImage(new Image(getClass().getResourceAsStream(book.getImagePath())));
     }
 
+    /**
+     * Sets the title for a corresponding book
+     */
     public void updateBookTitleText() {
         bookTitleText.setText(book.getBookName());
     }
 
+    /**
+     * Updates the flowpane of listings in the detailed view of a certain book
+     */
     public void updateListingFlowPane() {
         /* clear flow pane */
         listingsFlowPane.getChildren().clear();
@@ -115,6 +127,9 @@ public class BookDetailViewController extends AnchorPane {
         }
     }
 
+    /**
+     * Runs all update methods.
+     */
     public void updateBookView() {
         updateBookPicture();
         updateBookTitleText();
@@ -124,13 +139,13 @@ public class BookDetailViewController extends AnchorPane {
 
     private void updateSubscriptionStatus() {
         subscribedToBook = false;
-        for(Book book : model.getCurrentlyLoggedInUser().getSubscribedBooks()){
-            if(book.getBookCode().equals(this.book.getBookCode())) {
+        for (Book book : model.getCurrentlyLoggedInUser().getSubscribedBooks()) {
+            if (book.getBookCode().equals(this.book.getBookCode())) {
                 subscribedToBook = true;
                 break;
             }
         }
-        if(subscribedToBook){
+        if (subscribedToBook) {
             subscribeButton.setVisible(false);
             unsubscribeButton.setVisible(true);
         } else {

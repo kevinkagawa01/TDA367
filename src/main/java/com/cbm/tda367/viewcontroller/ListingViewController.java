@@ -33,7 +33,12 @@ public class ListingViewController extends AnchorPane {
     @FXML
     private Text listingBookCondition;
 
-
+    /**
+     * Creates the view of listings pertaining to a specific book
+     *
+     * @param manager This controller manager
+     * @param listing A listing
+     */
     public ListingViewController(ControllerManager manager, Listing listing) {
         this.listing = listing.cloneObject();
         this.manager = manager;
@@ -48,16 +53,17 @@ public class ListingViewController extends AnchorPane {
             throw new RuntimeException(exception);
         }
         listingImage.setImage(new Image(getClass().getResourceAsStream(listing.getImage())));
-        listingPrice.setText(String.format("Price: %s",listing.getPrice()));
-        listingBookCondition.setText(String.format("Condition: %s",listing.getCondition()));
+        listingPrice.setText(String.format("Price: %s", listing.getPrice()));
+        listingBookCondition.setText(String.format("Condition: %s", listing.getCondition()));
     }
 
     /**
      * On-click opens listing in detailed view.
+     *
      * @param event click event.
      */
     @FXML
-    void onClickOpenListingDetailView(Event event){
+    void onClickOpenListingDetailView(Event event) {
         manager.openListingDetailView(this.listing);
     }
 }
