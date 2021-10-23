@@ -105,9 +105,10 @@ public class ListingDetailViewController extends AnchorPane {
     }
 
     private void reserveListing() {
-        model.reserveListing(this.listing);
-        manager.goToAccountPage();
-        manager.openReservedBooksInAccordionPage();
+        if(model.reserveListing(this.listing)){
+            manager.goToAccountPage();
+            manager.openReservedBooksInAccordionPage();
+        }
     }
 
     /**
