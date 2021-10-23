@@ -125,7 +125,7 @@ public final class ApplicationModel implements Observable {
         }
     }
 
-    public void removeNotification(String bookCode, int nNotificationsToBeRemoved){
+    public void removeNotification(String bookCode, int nNotificationsToBeRemoved) {
         currentlyLoggedInUser.removeSubscribeNotification(bookCode, nNotificationsToBeRemoved);
     }
 
@@ -134,16 +134,22 @@ public final class ApplicationModel implements Observable {
         listingDatabase.removeListing(listing);
         /* Delete removed listing from user */
         currentlyLoggedInUser.removeListingForSale(listing);
-        currentlyLoggedInUser.removeSubscribeNotification(listing.getBook().getBookCode(),1);
+        currentlyLoggedInUser.removeSubscribeNotification(listing.getBook().getBookCode(), 1);
         userDatabase.updateUser(getCurrentlyLoggedInUser());
 
         /* Update view */
         notifyObservers();
     }
 
-    public void addBookToSubscriptionList(String bookName) {
+    public void addBookToSubscriptionList(String bookCode) {
+        List<Book> userSubscribedBooks = currentlyLoggedInUser.getSubscribedBooks();
+        for (Book b : userSubscribedBooks) {
+            if(b.getBookCode().equals(bookCode)){
+                return;
+            }
+        }
         for (Book book : bookDatabase.getBookList()) {
-            if (book.getBookName().equals(bookName) && !currentlyLoggedInUser.getSubscribedBooks().contains(book)) {
+            if (book.getBookCode().equals(bookCode)) {
                 currentlyLoggedInUser.addBookSubscription(book);
                 bookDatabase.incrementSubscription(book.getBookCode());
                 notifyObservers();
@@ -167,13 +173,13 @@ public final class ApplicationModel implements Observable {
         List<Listing> publishedListings = currentlyLoggedInUser.getPublishedListings();
         boolean isPublisher = false;
 
-        for(Listing l : publishedListings){
-            if(l.getListingNumber() == listing.getListingNumber()){
+        for (Listing l : publishedListings) {
+            if (l.getListingNumber() == listing.getListingNumber()) {
                 isPublisher = true;
             }
         }
 
-        if(!isPublisher){
+        if (!isPublisher) {
             currentlyLoggedInUser.addReservedBook(listing);
             listingDatabase.reserveListing(listing);
             userDatabase.updateUser(currentlyLoggedInUser);
