@@ -127,7 +127,8 @@ public final class ApplicationModel implements Observable {
 
     /**
      * Removes desired number of subscription-notifications from notifications.
-     * @param bookCode book code to the book related to the notifications wished to be removed.
+     *
+     * @param bookCode                  book code to the book related to the notifications wished to be removed.
      * @param nNotificationsToBeRemoved number of notifications to be removed.
      */
     public void removeNotification(String bookCode, int nNotificationsToBeRemoved) {
@@ -136,6 +137,7 @@ public final class ApplicationModel implements Observable {
 
     /**
      * Removes a listing from the currently logged-in user.
+     *
      * @param listing listing to be removed.
      */
     public void removedListingFromCurrentlyLoggedInUser(Listing listing) {
@@ -152,12 +154,13 @@ public final class ApplicationModel implements Observable {
 
     /**
      * Subscribes to a book for the currently logged-in user.
+     *
      * @param bookCode book code to corresponding book desired to be subscribed to.
      */
     public void addBookToSubscriptionList(String bookCode) {
         List<Book> userSubscribedBooks = currentlyLoggedInUser.getSubscribedBooks();
         for (Book b : userSubscribedBooks) {
-            if(b.getBookCode().equals(bookCode)){
+            if (b.getBookCode().equals(bookCode)) {
                 return;
             }
         }
@@ -173,6 +176,7 @@ public final class ApplicationModel implements Observable {
 
     /**
      * Unsubscribes to a book for the currently logged-in user.
+     *
      * @param bookCode book code to corresponding book desired to be unsubscribed to.
      */
     public void removeBookFromSubscriptionList(String bookCode) {
@@ -188,6 +192,7 @@ public final class ApplicationModel implements Observable {
 
     /**
      * Reserves a listing for the currently logged-in user.
+     *
      * @param listing listing to be reserved.
      * @return bool flag whether the request was possible or not.
      */
@@ -214,6 +219,7 @@ public final class ApplicationModel implements Observable {
 
     /**
      * Removes a book from currently logged-in user's reserved listings.
+     *
      * @param listing Listing to be removed.
      */
     public void removeBookFromReservedList(Listing listing) {
@@ -227,6 +233,7 @@ public final class ApplicationModel implements Observable {
 
     /**
      * Confirms purchase if both parts accept that the trade was successful.
+     *
      * @param listing listing to determine whether the purchase was complete or not.
      */
     public void purchaseDone(Listing listing) {
@@ -249,6 +256,7 @@ public final class ApplicationModel implements Observable {
 
     /**
      * Returns seller's rating related to the attached listing.
+     *
      * @param listing listing to determine which user is the seller.
      * @return user's rating if operation was successful, otherwise -1.
      */
@@ -265,6 +273,7 @@ public final class ApplicationModel implements Observable {
 
     /**
      * Returns seller's cid related to the attached listing.
+     *
      * @param listing listing to determine which user is the seller.
      * @return user's cid if operation was successful, otherwise "".
      */
@@ -309,6 +318,7 @@ public final class ApplicationModel implements Observable {
 
     /**
      * Returns all books from the book database.
+     *
      * @return all books from the book database
      */
     public List<Book> getAllBooks() {
@@ -317,6 +327,7 @@ public final class ApplicationModel implements Observable {
 
     /**
      * Returns books with most subscriptions.
+     *
      * @return List of books with most subscriptions.
      */
     public List<Book> getMostSubscribedBooks() {
@@ -337,6 +348,7 @@ public final class ApplicationModel implements Observable {
 
     /**
      * Filters book by name, given the parameter string as filter.
+     *
      * @param filter string to compare if book titles contain it.
      * @return List of books filtered by the filter.
      */

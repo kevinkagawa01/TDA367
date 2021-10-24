@@ -13,7 +13,7 @@ import java.util.List;
  * @version 0.3
  * @since 0.1
  */
-public class User implements Prototype<User>{
+public class User implements Prototype<User> {
 
     private final String cid;
     private final String password;
@@ -35,7 +35,7 @@ public class User implements Prototype<User>{
     User(String cid, String password) {
         this.cid = cid;
         this.password = password;
-        this.userRating = new UserRating(0,0,0);
+        this.userRating = new UserRating(0, 0, 0);
         this.notifications = new ArrayList<>();
 
         this.subscribedBooks = new UserAsset<>();
@@ -44,7 +44,7 @@ public class User implements Prototype<User>{
         this.publishedListings = new UserAsset<>();
     }
 
-    private User(User user){
+    private User(User user) {
         this.cid = user.cid;
         this.password = user.password;
         this.userRating = user.userRating.cloneObject();
@@ -59,6 +59,7 @@ public class User implements Prototype<User>{
 
     /**
      * Returns a safe copy of object.
+     *
      * @return safe copy of object.
      */
     @Override
@@ -129,8 +130,8 @@ public class User implements Prototype<User>{
      * @param listing
      */
     void removeReservedBook(Listing listing) {
-        for(Listing l : reservedListings.getList()){
-            if(l.getListingNumber() == listing.getListingNumber()){
+        for (Listing l : reservedListings.getList()) {
+            if (l.getListingNumber() == listing.getListingNumber()) {
                 reservedListings.removeListItem(l);
             }
         }
@@ -142,8 +143,8 @@ public class User implements Prototype<User>{
      * @param listing
      */
     void removeListingForSale(Listing listing) {
-        for(Listing l : publishedListings.getList()){
-            if(l.getListingNumber() == listing.getListingNumber()){
+        for (Listing l : publishedListings.getList()) {
+            if (l.getListingNumber() == listing.getListingNumber()) {
                 publishedListings.removeListItem(l);
                 break;
             }
@@ -157,8 +158,8 @@ public class User implements Prototype<User>{
      * @param bookCode book code
      */
     void removeBookSubscription(String bookCode) {
-        for(Book book : subscribedBooks.getList()){
-            if(book.getBookCode().equals(bookCode)){
+        for (Book book : subscribedBooks.getList()) {
+            if (book.getBookCode().equals(bookCode)) {
                 subscribedBooks.removeListItem(book);
             }
         }
@@ -166,11 +167,12 @@ public class User implements Prototype<User>{
 
     /**
      * Receives subscribe notification corresponding to the parameter book code.
+     *
      * @param bookCode book code to determine which book to get a notification.
      */
-    void receiveSubscribeNotification(String bookCode){
-        for(Book b : subscribedBooks.getList()){
-            if(b.getBookCode().equals(bookCode)){
+    void receiveSubscribeNotification(String bookCode) {
+        for (Book b : subscribedBooks.getList()) {
+            if (b.getBookCode().equals(bookCode)) {
                 notifications.add(new SubscribeNotification(bookCode));
             }
         }
@@ -178,12 +180,13 @@ public class User implements Prototype<User>{
 
     /**
      * Returns subscribe notifications.
+     *
      * @return subscribe notifications.
      */
-    public List<SubscribeNotification> getSubscribeNotifications(){
+    public List<SubscribeNotification> getSubscribeNotifications() {
         List<SubscribeNotification> subscribeNotifications = new ArrayList<>();
-        for(Notification n : notifications){
-            if(n.getClass().equals(SubscribeNotification.class)){
+        for (Notification n : notifications) {
+            if (n.getClass().equals(SubscribeNotification.class)) {
                 subscribeNotifications.add((SubscribeNotification) n);
             }
         }
@@ -192,23 +195,26 @@ public class User implements Prototype<User>{
 
     /**
      * Removes subscribe notifications.
-     * @param bookCode book code to determine which book to remove n notifications from.
+     *
+     * @param bookCode                  book code to determine which book to remove n notifications from.
      * @param nNotificationsToBeRemoved number of notifications to be removed.
      */
-    void removeSubscribeNotification(String bookCode, int nNotificationsToBeRemoved){
-       List<SubscribeNotification> subscribeNotifications = new ArrayList<>();
-       List<SubscribeNotification> notificationsToBeRemoved = new ArrayList<>();
+    void removeSubscribeNotification(String bookCode, int nNotificationsToBeRemoved) {
+        List<SubscribeNotification> subscribeNotifications = new ArrayList<>();
+        List<SubscribeNotification> notificationsToBeRemoved = new ArrayList<>();
 
-        for(Notification n : notifications){
-            if(n.getClass().equals(SubscribeNotification.class)){
+        for (Notification n : notifications) {
+            if (n.getClass().equals(SubscribeNotification.class)) {
                 subscribeNotifications.add((SubscribeNotification) n);
             }
         }
 
-        for(SubscribeNotification notification : subscribeNotifications){
-            if(notificationsToBeRemoved.size() == nNotificationsToBeRemoved){break;}
+        for (SubscribeNotification notification : subscribeNotifications) {
+            if (notificationsToBeRemoved.size() == nNotificationsToBeRemoved) {
+                break;
+            }
 
-            if(notification.getBookCodeToRelatedBook().equals(bookCode)){
+            if (notification.getBookCodeToRelatedBook().equals(bookCode)) {
                 notificationsToBeRemoved.add(notification);
             }
         }
@@ -217,6 +223,7 @@ public class User implements Prototype<User>{
 
     /**
      * Edits a listing.
+     *
      * @param listing listing to be edited.
      */
     void editListing(Listing listing) {
@@ -229,6 +236,7 @@ public class User implements Prototype<User>{
 
     /**
      * Returns subscribed books.
+     *
      * @return subscribed books.
      */
     public List<Book> getSubscribedBooks() {
@@ -237,6 +245,7 @@ public class User implements Prototype<User>{
 
     /**
      * Returns published listings.
+     *
      * @return published listings.
      */
     public List<Listing> getPublishedListings() {
@@ -245,6 +254,7 @@ public class User implements Prototype<User>{
 
     /**
      * Returns notifications.
+     *
      * @return notifications.
      */
     public List<Notification> getNotifications() {
@@ -253,6 +263,7 @@ public class User implements Prototype<User>{
 
     /**
      * Returns reserved listings.
+     *
      * @return reserved listings.
      */
     public List<Listing> getReservedListings() {
@@ -261,6 +272,7 @@ public class User implements Prototype<User>{
 
     /**
      * Returns previously traded listings.
+     *
      * @return previously traded listings.
      */
     public List<Listing> getPreviouslyTradedListings() {
@@ -269,6 +281,7 @@ public class User implements Prototype<User>{
 
     /**
      * Returns user rating.
+     *
      * @return user rating.
      */
     public UserRating getUserRating() {

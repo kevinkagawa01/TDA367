@@ -1,5 +1,7 @@
 package com.cbm.tda367.model;
-/** User sub-class representing an empty user when no user is currently logged in.
+
+/**
+ * User sub-class representing an empty user when no user is currently logged in.
  *
  * @author Kevin Pham
  * @author Simon Holst
@@ -7,12 +9,13 @@ package com.cbm.tda367.model;
  * @author Pegah Amanzadeh
  * @version 1.0
  * @since 1.0
- * */
-public final class EmptyUser extends User{
+ */
+public final class EmptyUser extends User {
 
     private static EmptyUser emptyUser;
 
-    /** the class create user
+    /**
+     * the class create user
      */
     private EmptyUser() {
         super("", "");
@@ -20,10 +23,11 @@ public final class EmptyUser extends User{
 
     /**
      * Returns singleton instance of this.
+     *
      * @return singleton instance of this.
      */
-    public static EmptyUser getInstance(){
-        if(emptyUser == null) {
+    public static EmptyUser getInstance() {
+        if (emptyUser == null) {
             emptyUser = new EmptyUser();
         }
         return emptyUser;

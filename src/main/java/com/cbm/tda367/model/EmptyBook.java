@@ -1,6 +1,6 @@
 package com.cbm.tda367.model;
 
-public final class EmptyBook extends Book{
+public final class EmptyBook extends Book {
 
     /**
      * Constructs a Book
@@ -23,11 +23,13 @@ public final class EmptyBook extends Book{
 
     /**
      * Returns singleton instance of this.
+     *
      * @return singleton instance of this.
      */
     public static EmptyBook getInstance() {
         if (emptyBook == null) {
-            emptyBook = new EmptyBook("","","","","");
-        } return emptyBook;
+            emptyBook = new EmptyBook("", "", "", "", "");
+        }
+        return emptyBook;
     }
 }

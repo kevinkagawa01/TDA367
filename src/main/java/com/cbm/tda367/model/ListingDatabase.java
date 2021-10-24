@@ -25,19 +25,19 @@ final class ListingDatabase {
      * Constructs the Listing database singleton.
      */
     private ListingDatabase() {
-        List<Book> allBooks= BookDatabase.getInstance().getBookList();
-        addListing(new Listing(allBooks.get(0),1,"132",allBooks.get(0).getImagePath(),
-                "New","hello",false,false ));
-        addListing(new Listing(allBooks.get(1),2,"132",allBooks.get(1).getImagePath(),
-                "New","hello",false,false ));
-        addListing(new Listing(allBooks.get(2),3,"132",allBooks.get(2).getImagePath(),
-                "New","hello",false,false ));
-        addListing(new Listing(allBooks.get(3),4,"132",allBooks.get(3).getImagePath(),
-                "New","hello",false,false ));
-        addListing(new Listing(allBooks.get(4),4,"132",allBooks.get(4).getImagePath(),
-                "New","hello",false,false ));
-        addListing(new Listing(allBooks.get(5),5,"132",allBooks.get(5).getImagePath(),
-                "New","hello",false,false ));
+        List<Book> allBooks = BookDatabase.getInstance().getBookList();
+        addListing(new Listing(allBooks.get(0), 1, "132", allBooks.get(0).getImagePath(),
+                "New", "hello", false, false));
+        addListing(new Listing(allBooks.get(1), 2, "132", allBooks.get(1).getImagePath(),
+                "New", "hello", false, false));
+        addListing(new Listing(allBooks.get(2), 3, "132", allBooks.get(2).getImagePath(),
+                "New", "hello", false, false));
+        addListing(new Listing(allBooks.get(3), 4, "132", allBooks.get(3).getImagePath(),
+                "New", "hello", false, false));
+        addListing(new Listing(allBooks.get(4), 4, "132", allBooks.get(4).getImagePath(),
+                "New", "hello", false, false));
+        addListing(new Listing(allBooks.get(5), 5, "132", allBooks.get(5).getImagePath(),
+                "New", "hello", false, false));
 
     }
 
@@ -47,7 +47,7 @@ final class ListingDatabase {
      * @return The listing database instance.
      */
     static ListingDatabase getInstance() {
-        if(listingDatabase == null) {
+        if (listingDatabase == null) {
             listingDatabase = new ListingDatabase();
         }
         return listingDatabase;
@@ -68,8 +68,8 @@ final class ListingDatabase {
      * @param listing listing to be removed.
      */
     void removeListing(Listing listing) {
-        for(Listing l : listingList){
-            if(l.getListingNumber() == listing.getListingNumber()){
+        for (Listing l : listingList) {
+            if (l.getListingNumber() == listing.getListingNumber()) {
                 listingList.remove(l);
                 break;
             }
@@ -78,6 +78,7 @@ final class ListingDatabase {
 
     /**
      * Edits a listing from the list of listings.
+     *
      * @param listing listing to be edited.
      */
     void editListing(Listing listing) {
@@ -90,11 +91,12 @@ final class ListingDatabase {
 
     /**
      * Reserves a listing from the list of listings.
+     *
      * @param listing listing to be reserved.
      */
-    void reserveListing(Listing listing){
-        for(Listing l: listingList){
-            if(l.getListingNumber() ==  listing.getListingNumber()){
+    void reserveListing(Listing listing) {
+        for (Listing l : listingList) {
+            if (l.getListingNumber() == listing.getListingNumber()) {
                 l.setReserved(true);
             }
         }
@@ -102,11 +104,12 @@ final class ListingDatabase {
 
     /**
      * Unreserves a listing from the list of listings.
+     *
      * @param listing listing to be unreserved.
      */
-    void unreserveListing(Listing listing){
-        for(Listing l : listingList){
-            if(l.getListingNumber() == listing.getListingNumber()){
+    void unreserveListing(Listing listing) {
+        for (Listing l : listingList) {
+            if (l.getListingNumber() == listing.getListingNumber()) {
                 l.setReserved(false);
             }
         }
@@ -114,11 +117,12 @@ final class ListingDatabase {
 
     /**
      * Sets purchase flag to true.
+     *
      * @param listing listing to be purchased.
      */
-    void purchaseListing(Listing listing){
-        for(Listing l : listingList){
-            if(l.getListingNumber() == listing.getListingNumber()){
+    void purchaseListing(Listing listing) {
+        for (Listing l : listingList) {
+            if (l.getListingNumber() == listing.getListingNumber()) {
                 l.setPurchased(true);
             }
         }

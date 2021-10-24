@@ -1,6 +1,6 @@
 package com.cbm.tda367.model;
 
-public final class EmptyListing extends Listing{
+public final class EmptyListing extends Listing {
 
 
     /**
@@ -27,12 +27,14 @@ public final class EmptyListing extends Listing{
 
     /**
      * Returns singleton instance of this.
+     *
      * @return singleton instance of this.
      */
-    public static EmptyListing getInstance(){
-        if(emptyListing == null) {
-            emptyListing = new EmptyListing(EmptyBook.getInstance(), -1,"","","","", false, false);
+    public static EmptyListing getInstance() {
+        if (emptyListing == null) {
+            emptyListing = new EmptyListing(EmptyBook.getInstance(), -1, "", "", "", "", false, false);
 
-        } return emptyListing;
+        }
+        return emptyListing;
     }
 }

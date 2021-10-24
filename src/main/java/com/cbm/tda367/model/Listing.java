@@ -13,7 +13,7 @@ import java.time.LocalDate;
  * @since 1.0
  */
 
-public class Listing implements Prototype<Listing>{
+public class Listing implements Prototype<Listing> {
 
     private final Book book;
     private final Integer listingNumber;
@@ -29,7 +29,8 @@ public class Listing implements Prototype<Listing>{
 
     /**
      * Constructs a listing
-     *  @param book          A Book.
+     *
+     * @param book          A Book.
      * @param listingNumber An integer specifying a listing number.
      * @param price         A double specifying the cost of a listing.
      * @param imagePath     A String representing the path of an image.
@@ -44,8 +45,8 @@ public class Listing implements Prototype<Listing>{
         this.price = price;
         this.imagePath = imagePath;
         this.listingDescription = listingDescription;
-        this.isReserved=isReserved;
-        this.isPurchased=isPurchased;
+        this.isReserved = isReserved;
+        this.isPurchased = isPurchased;
         this.date = LocalDate.now();
     }
 
@@ -73,9 +74,10 @@ public class Listing implements Prototype<Listing>{
 
     /**
      * Returns this book condition.
+     *
      * @return this book condition.
      */
-    public String getCondition(){
+    public String getCondition() {
         return condition;
     }
 
@@ -126,6 +128,7 @@ public class Listing implements Prototype<Listing>{
 
     /**
      * Reserve flag for this.
+     *
      * @param reserved boolean whether this is reserved or not.
      */
     void setReserved(boolean reserved) {
@@ -134,6 +137,7 @@ public class Listing implements Prototype<Listing>{
 
     /**
      * Purchase flag for this.
+     *
      * @param purchased boolean whether this is purchased or not.
      */
     void setPurchased(boolean purchased) {
@@ -151,14 +155,16 @@ public class Listing implements Prototype<Listing>{
 
     /**
      * Return this date.
+     *
      * @return this date.
      */
-    public LocalDate getDate(){
+    public LocalDate getDate() {
         return date;
-     }
+    }
 
     /**
      * Return this description.
+     *
      * @return this description.
      */
     public String getListingDescription() {

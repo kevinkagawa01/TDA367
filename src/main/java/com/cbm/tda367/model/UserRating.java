@@ -1,6 +1,6 @@
 package com.cbm.tda367.model;
 
-public class UserRating implements Prototype<UserRating>{
+public class UserRating implements Prototype<UserRating> {
     private double totalRating;
     private int sumOfRatings;
     private int nrRatings;
@@ -11,7 +11,7 @@ public class UserRating implements Prototype<UserRating>{
         this.nrRatings = nrRatings;
     }
 
-    private UserRating(UserRating userRating){
+    private UserRating(UserRating userRating) {
         this.totalRating = userRating.totalRating;
         this.sumOfRatings = userRating.sumOfRatings;
         this.nrRatings = userRating.nrRatings;

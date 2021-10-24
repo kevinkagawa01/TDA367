@@ -1,7 +1,6 @@
 package com.cbm.tda367.model;
 
 
-
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -17,7 +16,7 @@ import java.util.Objects;
  * @since 1.0
  */
 
-public class Book implements Prototype<Book>{
+public class Book implements Prototype<Book> {
 
     private final String bookName;
     private final String bookAuthor;
@@ -34,13 +33,13 @@ public class Book implements Prototype<Book>{
     /**
      * Constructs a Book
      *
-     * @param bookName          The name of a Book as a String.
-     * @param bookAuthor        The author of a Book as a String.
-     * @param bookCode          The code (ISBN) of a Book as a String.
-     * @param imagePath         The path of a picture of a Book, represented as a String.
-     * @param category          The category of a Book, represented as a String.
+     * @param bookName   The name of a Book as a String.
+     * @param bookAuthor The author of a Book as a String.
+     * @param bookCode   The code (ISBN) of a Book as a String.
+     * @param imagePath  The path of a picture of a Book, represented as a String.
+     * @param category   The category of a Book, represented as a String.
      */
-    Book(String bookName, String bookAuthor, String bookCode, String imagePath,String category) {
+    Book(String bookName, String bookAuthor, String bookCode, String imagePath, String category) {
         this.bookName = Objects.requireNonNull(bookName);
         this.bookAuthor = Objects.requireNonNull(bookAuthor);
         this.bookCode = Objects.requireNonNull(bookCode);
@@ -50,7 +49,7 @@ public class Book implements Prototype<Book>{
         this.category = category;
     }
 
-    Book(Book book){
+    Book(Book book) {
         this.bookName = book.bookName;
         this.bookAuthor = book.bookAuthor;
         this.bookCode = book.bookCode;
@@ -63,6 +62,7 @@ public class Book implements Prototype<Book>{
 
     /**
      * Returns a safe copy of object.
+     *
      * @return safe copy of object.
      */
     @Override
@@ -128,19 +128,20 @@ public class Book implements Prototype<Book>{
     /**
      * Increments number of book's subscribers.
      */
-    void incrementSubscriptions(){
+    void incrementSubscriptions() {
         bookSubscriptions++;
     }
 
     /**
      * Decrements number of book's subscribers.
      */
-    void decrementSubscription(){
+    void decrementSubscription() {
         bookSubscriptions--;
     }
 
     /**
      * Returns book date.
+     *
      * @return book date.
      */
     public LocalDate getDate() {
@@ -149,6 +150,7 @@ public class Book implements Prototype<Book>{
 
     /**
      * Returns book category.
+     *
      * @return book category.
      */
     public String getCategory() {
