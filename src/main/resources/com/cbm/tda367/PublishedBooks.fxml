@@ -26,7 +26,7 @@
       </Text>
       <Text fx:id="Price" layoutX="71.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="miniature-view-text" text="&lt;Price&gt;" wrappingWidth="213.0">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Text>
       <Button layoutX="284.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onClickEditButton" prefHeight="50.0" prefWidth="100.0" styleClass="listing-edit-button" text="Edit">

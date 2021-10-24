@@ -103,3 +103,73 @@
     -fx-background-color: dark_gray;
 }
 
+.miniature-view-text
+{
+    -fx-font-style: normal;
+    -fx-font-weight: bolder;
+    -fx-fill: vanilla_white;
+}
+
+.listing-edit-button
+{
+    /* text */
+    -fx-text-fill: vanilla_white;
+
+    /* button */
+    -fx-background-color: edit_blue;
+    -fx-background-radius: 0 15 0 0;
+}
+
+.listing-remove-button
+{
+    /* text */
+    -fx-text-fill: vanilla_white;
+
+    /* button */
+    -fx-background-color: remove_red;
+    -fx-background-radius: 0 0 15 0;
+}
+
+.listing-unsubscribe-button
+{
+    /* text */
+    -fx-text-fill: vanilla_white;
+
+    /* button */
+    -fx-background-color: remove_red;
+    -fx-background-radius: 0 0 15 0;
+}
+
+.listing-subscribe-no-new-listings
+{
+    /* text */
+    -fx-text-fill: vanilla_white;
+
+    /* button */
+    -fx-background-color: see_through_dark_grey;
+    -fx-background-radius: 0 15 0 0;
+}
+
+.listing-subscribe-new-listings
+{
+     /* text */
+    -fx-text-fill: vanilla_white;
+
+    /* button */
+    -fx-background-color: edit_blue;
+    -fx-background-radius: 0 15 0 0;
+}
+.listing-done-button
+{
+    /* text */
+    -fx-text-fill: vanilla_white;
+
+    /* button */
+    -fx-background-color: edit_blue;
+    -fx-background-radius: 0 15 0 0;
+}
+.listing-miniature-background{
+    -fx-background-radius: 15;
+    -fx-background-color: dark_gray;
+}
+
